@@ -112,7 +112,7 @@ export default function BlogPage() {
         </div>
 
         <div className="text-center mt-12">
-          <button className="bg-red-600 text-white px-8 py-3 rounded-lg hover:bg-red-700 transition-colors">
+          <button className="bg-gradient-to-r from-amber-400 to-orange-500 text-white px-8 py-3 rounded-lg hover:from-amber-500 hover:to-orange-600 transition-all duration-200 shadow-lg shadow-amber-400/25">
             分享您的故事
           </button>
         </div>

@@ -114,7 +114,7 @@ export default function PassCalculator() {
 
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl p-8 max-w-6xl mx-auto">
+    <div className="glass-calculator rounded-2xl shadow-xl p-8 max-w-6xl mx-auto">
       <div className="text-center mb-8">
         <h2 className="text-3xl font-bold text-gray-900 mb-4">
           🚄 智能JR通票计算器
@@ -209,17 +209,17 @@ export default function PassCalculator() {
         <button
           onClick={calculateRecommendations}
           disabled={isCalculating || !route.from || !route.to}
-          className="bg-red-600 hover:bg-red-700 disabled:bg-gray-400 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-200 flex items-center mx-auto"
+          className="cyber-button px-8 py-4 text-lg font-semibold flex items-center justify-center group mx-auto disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isCalculating ? (
             <>
-              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3"></div>
-              AI计算中...
+              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3 relative z-10"></div>
+              <span className="relative z-10">AI计算中...</span>
             </>
           ) : (
             <>
-              <Calculator className="w-5 h-5 mr-3" />
-              开始智能计算
+              <Calculator className="w-5 h-5 mr-3 relative z-10" />
+              <span className="relative z-10">开始智能计算</span>
             </>
           )}
         </button>
@@ -239,13 +239,13 @@ export default function PassCalculator() {
 
           {recommendations.map((rec, index) => (
             <div key={rec.pass.id} className={`border-2 rounded-xl p-6 transition-all duration-300 ${
-              index === 0 ? 'border-red-500 bg-red-50' : 'border-gray-200 bg-white'
+              index === 0 ? 'border-red-500 bg-red-50/20' : 'border-gray-200/50 glass-calculator-card'
             }`}>
               <div className="flex items-start justify-between mb-4">
                 <div className="flex-1">
                   <div className="flex items-center mb-2">
                     {index === 0 && (
-                      <span className="bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold mr-3">
+                      <span className="bg-gradient-to-r from-amber-400 to-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold mr-3 shadow-lg shadow-amber-400/25">
                         🏆 最佳推荐
                       </span>
                     )}
@@ -286,7 +286,7 @@ export default function PassCalculator() {
                 </div>
               </div>
 
-              <div className="bg-gray-50 rounded-lg p-4 mb-4">
+              <div className="glass-calculator-light rounded-lg p-4 mb-4">
                 <h5 className="font-medium text-gray-900 mb-2">推荐理由:</h5>
                 <p className="text-sm text-gray-700">{rec.reason}</p>
               </div>
@@ -306,7 +306,7 @@ export default function PassCalculator() {
                 <div className="flex space-x-3">
                   <button
                     onClick={() => router.push(`/passes/${rec.pass.id}`)}
-                    className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors flex items-center"
+                    className="bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-white px-4 py-2 rounded-lg transition-all duration-200 flex items-center shadow-lg shadow-amber-400/25"
                   >
                     <ExternalLink className="w-4 h-4 mr-2" />
                     查看详情

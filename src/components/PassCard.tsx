@@ -103,7 +103,7 @@ export default function PassCard({ pass, onClick }: PassCardProps) {
 
         {/* Action Buttons */}
         <div className="flex space-x-3">
-          <button className="flex-1 bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg font-medium transition-colors duration-200">
+          <button className="flex-1 bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-white py-2 px-4 rounded-lg font-medium transition-all duration-200 shadow-lg shadow-amber-400/25">
             查看详情
           </button>
           <button className="flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-700 py-2 px-4 rounded-lg transition-colors duration-200">

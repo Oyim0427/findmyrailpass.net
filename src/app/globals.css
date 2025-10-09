@@ -1,26 +1,208 @@
 @import "tailwindcss";
 
+.p-6 {
+  padding: calc(var(--spacing) * 6);
+  background: linear-gradient(135deg, var(--cyber-bg-secondary) 0%, var(--cyber-bg-tertiary) 100%);
+  border: 1px solid var(--cyber-border);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.p-6::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cyber-primary), var(--cyber-secondary), var(--cyber-accent));
+  opacity: 0.6;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --cyber-bg: #0a0a0a;
+  --cyber-bg-secondary: #111111;
+  --cyber-bg-tertiary: #1a1a1a;
+  --cyber-primary: #00ffff;
+  --cyber-secondary: #ff8c42;
+  --cyber-accent: #ffff00;
+  --cyber-text: #ffffff;
+  --cyber-text-secondary: #cccccc;
+  --cyber-border: #333333;
+  --cyber-glow: rgba(0, 255, 255, 0.3);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--cyber-bg);
+  --color-foreground: var(--cyber-text);
+  --font-sans: var(--font-rajdhani);
+  --font-mono: var(--font-orbitron);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--cyber-bg);
+  color: var(--cyber-text);
+  font-family: var(--font-rajdhani), sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* 赛博朋克动画效果 */
+@keyframes cyber-glow {
+  0%, 100% { 
+    box-shadow: 0 0 5px var(--cyber-primary), 0 0 10px var(--cyber-primary), 0 0 15px var(--cyber-primary);
+  }
+  50% { 
+    box-shadow: 0 0 10px var(--cyber-primary), 0 0 20px var(--cyber-primary), 0 0 30px var(--cyber-primary);
+  }
+}
+
+@keyframes cyber-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes matrix-rain {
+  0% { transform: translateY(-100vh); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes neon-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+/* 赛博朋克按钮样式 */
+.cyber-button {
+  background: linear-gradient(45deg, #ffb347, #ffa726, #ffb347);
+  border: 2px solid #ffb347;
+  color: #000;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(255, 179, 71, 0.3), 0 0 40px rgba(255, 179, 71, 0.1);
+  border-radius: 0;
+}
+
+.cyber-button:hover {
+  background: linear-gradient(45deg, #ffc266, #ffb74d, #ffc266);
+  box-shadow: 0 0 30px rgba(255, 179, 71, 0.5), 0 0 60px rgba(255, 179, 71, 0.3);
+  transform: translateY(-2px);
+}
+
+.cyber-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.cyber-button:hover::before {
+  left: 100%;
+}
+
+/* 赛博朋克卡片样式 */
+.cyber-card {
+  background: var(--cyber-bg-secondary);
+  border: 1px solid var(--cyber-border);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cyber-primary), var(--cyber-secondary), var(--cyber-accent));
+}
+
+/* 赛博朋克输入框样式 */
+.cyber-input {
+  background: var(--cyber-bg-tertiary);
+  border: 1px solid var(--cyber-border);
+  color: var(--cyber-text);
+  font-family: var(--font-orbitron), monospace;
+  transition: all 0.3s ease;
+}
+
+.cyber-input:focus {
+  border-color: var(--cyber-primary);
+  box-shadow: 0 0 10px var(--cyber-glow);
+  outline: none;
+}
+
+/* 赛博朋克文字效果 */
+.cyber-text {
+  font-family: var(--font-orbitron), monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* 背景网格效果 */
+.cyber-grid {
+  background-image: 
+    linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cyber-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--cyber-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cyber-secondary);
+}
+
+/* 玻璃质感计算器背景 */
+.glass-calculator {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.glass-calculator-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-calculator-light {
+  background: rgba(248, 250, 252, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }

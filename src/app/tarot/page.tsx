@@ -128,11 +128,11 @@ export default function TarotPage() {
                 <div className="flex justify-center space-x-4">
                   <button
                     onClick={resetTarot}
-                    className="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors"
+                    className="bg-gradient-to-r from-amber-400 to-orange-500 text-white px-6 py-3 rounded-lg hover:from-amber-500 hover:to-orange-600 transition-all duration-200 shadow-lg shadow-amber-400/25"
                   >
                     重新占卜
                   </button>
-                  <button className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors">
+                  <button className="bg-gradient-to-r from-amber-400 to-orange-500 text-white px-6 py-3 rounded-lg hover:from-amber-500 hover:to-orange-600 transition-all duration-200 shadow-lg shadow-amber-400/25">
                     查看周游券详情
                   </button>
                 </div>

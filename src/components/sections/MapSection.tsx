@@ -28,19 +28,29 @@ export default function MapSection() {
     '关西': 'bg-green-500',
     '东北': 'bg-purple-500',
     '九州': 'bg-yellow-500',
-    '中国': 'bg-pink-500',
+    '中国': 'bg-yellow-500',
     '四国': 'bg-indigo-500',
     '北海道': 'bg-orange-500'
   };
 
   return (
-    <section id="map" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="map" className="py-20 relative">
+      {/* 赛博朋克装饰背景 */}
+      <div className="absolute inset-0 bg-gradient-to-b from-yellow-500/5 to-cyan-500/5"></div>
+      <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-yellow-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '0.5s'}}></div>
+      <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <div className="mb-4">
+            <span className="inline-block px-4 py-2 bg-yellow-500/20 border border-yellow-400 text-yellow-400 text-sm font-mono tracking-wider">
+              [MAP MODULE]
+            </span>
+          </div>
+          <h2 className="text-4xl font-bold cyber-text text-cyan-400 mb-4">
             🗺️ 通票覆盖地图
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-gray-300 font-light">
             可视化查看各JR通票的覆盖范围，选择适合您行程的通票
           </p>
         </div>
@@ -48,38 +58,38 @@ export default function MapSection() {
         <div className="grid lg:grid-cols-4 gap-8">
           {/* Filters Sidebar */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-xl shadow-lg p-6 sticky top-8">
-              <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
+            <div className="bg-black/80 backdrop-blur-md border border-cyan-400/30 rounded-xl shadow-lg p-6 sticky top-8">
+              <h3 className="text-xl font-bold cyber-text text-cyan-400 mb-6 flex items-center">
                 <Filter className="w-5 h-5 mr-2" />
-                筛选条件
+                [FILTER MODULE]
               </h3>
 
               {/* Search */}
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-cyan-400 mb-2 font-mono tracking-wider">
                   搜索通票
                 </label>
                 <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-cyan-400 w-4 h-4" />
                   <input
                     type="text"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     placeholder="输入通票名称..."
-                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                    className="w-full pl-10 pr-4 py-2 bg-black/50 border border-cyan-400/30 text-white rounded-lg focus:ring-2 focus:ring-cyan-400 focus:border-transparent placeholder-gray-400"
                   />
                 </div>
               </div>
 
               {/* Region Filter */}
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-cyan-400 mb-2 font-mono tracking-wider">
                   选择地区
                 </label>
                 <select
                   value={selectedRegion}
                   onChange={(e) => setSelectedRegion(e.target.value)}
-                  className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                  className="w-full p-2 bg-black/50 border border-cyan-400/30 text-white rounded-lg focus:ring-2 focus:ring-cyan-400 focus:border-transparent"
                 >
                   <option value="all">全部地区</option>
                   {regions.map(region => (
@@ -92,25 +102,25 @@ export default function MapSection() {
 
               {/* Pass List */}
               <div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-4">通票列表</h4>
+                <h4 className="text-lg font-semibold text-cyan-400 mb-4 font-mono tracking-wider">通票列表</h4>
                 <div className="space-y-3 max-h-96 overflow-y-auto">
                   {filteredPasses.map((pass) => (
                     <div
                       key={pass.id}
                       onClick={() => setSelectedPass(pass)}
-                      className={`p-3 rounded-lg cursor-pointer transition-colors ${
+                      className={`p-3 rounded-lg cursor-pointer transition-all duration-300 ${
                         selectedPass?.id === pass.id
-                          ? 'bg-red-100 border-2 border-red-500'
-                          : 'bg-gray-50 hover:bg-gray-100 border-2 border-transparent'
+                          ? 'bg-cyan-500/20 border-2 border-cyan-400 shadow-lg shadow-cyan-400/25'
+                          : 'bg-black/30 hover:bg-cyan-500/10 border-2 border-transparent hover:border-cyan-400/30'
                       }`}
                     >
-                      <div className="font-medium text-gray-900">{pass.name.en}</div>
-                      <div className="text-sm text-gray-600">{pass.name.jp}</div>
+                      <div className="font-medium text-white">{pass.name.en}</div>
+                      <div className="text-sm text-gray-300">{pass.name.jp}</div>
                       <div className="flex items-center mt-2">
-                        <span className="text-sm font-semibold text-red-600">
+                        <span className="text-sm font-semibold text-cyan-400">
                           ¥{pass.price.adult.regular.toLocaleString()}
                         </span>
-                        <span className="text-sm text-gray-500 ml-2">
+                        <span className="text-sm text-gray-400 ml-2">
                           {pass.duration.join('/')}天
                         </span>
                       </div>
@@ -123,11 +133,11 @@ export default function MapSection() {
 
           {/* Map Area */}
           <div className="lg:col-span-3">
-            <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">日本地图</h3>
+            <div className="bg-black/80 backdrop-blur-md border border-cyan-400/30 rounded-xl shadow-lg p-6">
+              <h3 className="text-2xl font-bold cyber-text text-cyan-400 mb-6 font-mono tracking-wider">[JAPAN MAP]</h3>
               
               {/* Map Visualization */}
-              <div className="relative bg-gray-100 rounded-lg p-8 min-h-96">
+              <div className="relative bg-black/50 border border-cyan-400/20 rounded-lg p-8 min-h-96">
                 <div className="grid grid-cols-4 gap-4 h-96">
                   {/* 北海道 */}
                   <div className="col-span-4 h-16 bg-gradient-to-r from-orange-200 to-orange-300 rounded-lg flex items-center justify-center">
@@ -170,10 +180,10 @@ export default function MapSection() {
                   </div>
                   
                   {/* 中国 */}
-                  <div className="col-span-1 h-24 bg-gradient-to-r from-pink-200 to-pink-300 rounded-lg flex items-center justify-center">
+                  <div className="col-span-1 h-24 bg-gradient-to-r from-yellow-200 to-yellow-300 rounded-lg flex items-center justify-center">
                     <div className="text-center">
-                      <MapPin className="w-5 h-5 text-pink-600 mx-auto mb-1" />
-                      <div className="text-xs font-semibold text-pink-700">中国</div>
+                      <MapPin className="w-5 h-5 text-yellow-600 mx-auto mb-1" />
+                      <div className="text-xs font-semibold text-yellow-700">中国</div>
                     </div>
                   </div>
                   
@@ -195,13 +205,13 @@ export default function MapSection() {
                 </div>
 
                 {/* Legend */}
-                <div className="mt-6 p-4 bg-white rounded-lg border">
-                  <h4 className="text-lg font-semibold text-gray-900 mb-3">图例</h4>
+                <div className="mt-6 p-4 bg-black/30 border border-cyan-400/20 rounded-lg">
+                  <h4 className="text-lg font-semibold text-cyan-400 mb-3 font-mono tracking-wider">[LEGEND]</h4>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                     {regions.map(region => (
                       <div key={region} className="flex items-center">
                         <div className={`w-4 h-4 rounded ${regionColors[region as keyof typeof regionColors] || 'bg-gray-400'} mr-2`}></div>
-                        <span className="text-sm text-gray-700">{region}</span>
+                        <span className="text-sm text-gray-300">{region}</span>
                       </div>
                     ))}
                   </div>
@@ -210,14 +220,14 @@ export default function MapSection() {
 
               {/* Selected Pass Info */}
               {selectedPass && (
-                <div className="mt-6 p-6 bg-red-50 rounded-lg border border-red-200">
-                  <h4 className="text-xl font-bold text-gray-900 mb-4">
-                    选中通票: {selectedPass.name.en}
+                <div className="mt-6 p-6 bg-cyan-500/10 border border-cyan-400/30 rounded-lg">
+                  <h4 className="text-xl font-bold text-cyan-400 mb-4 font-mono tracking-wider">
+                    [SELECTED PASS]: {selectedPass.name.en}
                   </h4>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <h5 className="font-semibold text-gray-900 mb-2">基本信息</h5>
-                      <ul className="space-y-1 text-sm text-gray-700">
+                      <h5 className="font-semibold text-cyan-400 mb-2 font-mono tracking-wider">基本信息</h5>
+                      <ul className="space-y-1 text-sm text-gray-300">
                         <li>日文名称: {selectedPass.name.jp}</li>
                         <li>价格: ¥{selectedPass.price.adult.regular.toLocaleString()}</li>
                         <li>天数: {selectedPass.duration.join(' / ')}天</li>
@@ -226,7 +236,7 @@ export default function MapSection() {
                       </ul>
                     </div>
                     <div>
-                      <h5 className="font-semibold text-gray-900 mb-2">覆盖地区</h5>
+                      <h5 className="font-semibold text-cyan-400 mb-2 font-mono tracking-wider">覆盖地区</h5>
                       <div className="flex flex-wrap gap-2">
                         {selectedPass.coverage.regions.map(region => (
                           <span
@@ -244,11 +254,11 @@ export default function MapSection() {
                   <div className="mt-4 flex space-x-3">
                     <Link
                       href={`/passes/${selectedPass.id}`}
-                      className="bg-red-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-red-700 transition-colors"
+                      className="cyber-button px-4 py-2 text-sm font-semibold"
                     >
                       查看详情
                     </Link>
-                    <button className="border border-red-600 text-red-600 px-4 py-2 rounded-lg font-medium hover:bg-red-50 transition-colors">
+                    <button className="border border-cyan-400 text-cyan-400 px-4 py-2 rounded-lg font-medium hover:bg-cyan-400/10 transition-colors font-mono tracking-wider">
                       立即购买
                     </button>
                   </div>
