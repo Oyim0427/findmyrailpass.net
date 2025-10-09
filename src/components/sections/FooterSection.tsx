@@ -13,7 +13,7 @@ export default function FooterSection() {
           <div>
             <div className="text-2xl font-bold cyber-text text-cyan-400 mb-4 flex items-center space-x-2">
               <span className="text-2xl">🚄</span>
-              <span className="cyber-glow-text">Find*MyJR-Pass</span>
+              <span className="cyber-glow-text">Find'MyJR-Pass</span>
             </div>
             <p className="text-gray-400 font-mono text-sm tracking-wider">
               您的日本铁路通票专家，帮您找到最经济实惠的旅行方案
@@ -58,7 +58,7 @@ export default function FooterSection() {
         <div className="border-t border-cyan-400/30 mt-12 pt-8 text-center">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 font-mono text-sm tracking-wider">
-              &copy;Find*MyJR-Pass.2025 All rights reserved.
+              &copy;Find'MyJR-Pass.2025 All rights reserved.
             </p>
             <div className="flex space-x-6 text-xs text-gray-500 font-mono tracking-wider">
               <span>VERSION 2.0.1</span>

@@ -17,7 +17,7 @@ const rajdhani = Rajdhani({
 });
 
 export const metadata: Metadata = {
-  title: "Find*MyJR-Pass - 日本铁路周游券专家",
+  title: "Find'MyJR-Pass - 日本铁路周游券专家",
   description: "发现最适合您的日本铁路周游券，轻松规划您的日本之旅。从JR Pass到地区周游券，我们为您提供最全面的信息和最优惠的价格。",
   keywords: "日本周游券,JR Pass,日本铁路,日本旅游,关西周游券,东京广域周游券",
 };

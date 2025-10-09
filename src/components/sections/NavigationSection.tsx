@@ -11,7 +11,7 @@ export default function NavigationSection() {
           <div className="flex items-center">
             <div className="text-2xl font-bold cyber-text text-cyan-400 flex items-center space-x-2">
               <span className="text-2xl">🚄</span>
-              <span className="cyber-glow-text">Find*MyJR-Pass</span>
+              <span className="cyber-glow-text">Find'MyJR-Pass</span>
             </div>
           </div>
           

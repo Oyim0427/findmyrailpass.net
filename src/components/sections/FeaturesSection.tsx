@@ -17,7 +17,7 @@ export default function FeaturesSection() {
           </span>
         </div>
         <h2 className="text-4xl font-bold cyber-text text-cyan-400 mb-4">
-          为什么选择Find*MyJR-Pass？
+          为什么选择Find'MyJR-Pass？
         </h2>
         <p className="text-xl text-gray-300 font-light">
           我们提供最全面、最准确的日本铁路通票信息
