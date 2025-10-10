@@ -3,6 +3,7 @@
 import NavigationSection from "@/components/sections/NavigationSection";
 import HeroSection from "@/components/sections/HeroSection";
 import CalculatorSection from "@/components/sections/CalculatorSection";
+import OmikujiSection from "@/components/sections/OmikujiSection";
 import MapSection from "@/components/sections/MapSection";
 import FeaturesSection from "@/components/sections/FeaturesSection";
 import PassesSection from "@/components/sections/PassesSection";
@@ -22,6 +23,7 @@ export default function Page() {
       <NavigationSection />
       <HeroSection />
       <CalculatorSection />
+      <OmikujiSection />
       <MapSection />
       <FeaturesSection />
       <PassesSection />

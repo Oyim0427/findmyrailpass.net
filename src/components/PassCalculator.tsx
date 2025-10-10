@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { MapPin, Calendar, Users, Calculator, TrendingUp, Star, CheckCircle, AlertCircle, ArrowRight, ExternalLink } from 'lucide-react';
+import { MapPin, Calendar, Calculator, TrendingUp, Star, CheckCircle, AlertCircle, ArrowRight, ExternalLink } from 'lucide-react';
 import { Route, PassRecommendation } from '@/types/pass';
 import { jrPasses } from '@/data/passes';
 
@@ -14,7 +14,6 @@ export default function PassCalculator() {
     duration: 7,
     regions: []
   });
-  const [travelers, setTravelers] = useState(1);
   const [isCalculating, setIsCalculating] = useState(false);
   const [recommendations, setRecommendations] = useState<PassRecommendation[]>([]);
   const [showResults, setShowResults] = useState(false);
@@ -82,8 +81,8 @@ export default function PassCalculator() {
         
         // 计算节省费用（模拟）
         const estimatedIndividualCost = route.duration * 8000; // 假设每天8000日元
-        const passCost = pass.price.adult.regular * travelers;
-        savings = (estimatedIndividualCost * travelers) - passCost;
+        const passCost = pass.price.adult.regular;
+        savings = estimatedIndividualCost - passCost;
         
         if (savings > 0) {
           score += 15;
@@ -93,15 +92,13 @@ export default function PassCalculator() {
           reason += `💸 可能不划算 `;
         }
         
-        // 只推荐分数大于50的通票
-        if (score > 50) {
-          results.push({
-            pass,
-            savings,
-            reason,
-            score
-          });
-        }
+        // 从全部周游券中筛选，显示所有通票
+        results.push({
+          pass,
+          savings,
+          reason,
+          score
+        });
       });
       
       // 按分数排序
@@ -124,84 +121,114 @@ export default function PassCalculator() {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-6 mb-8">
-        <div className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              <MapPin className="inline w-4 h-4 mr-2" />
-              出发地
-            </label>
-            <select
-              value={route.from}
-              onChange={(e) => setRoute({...route, from: e.target.value})}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
-            >
-              <option value="">选择出发地</option>
-              <option value="东京">东京</option>
-              <option value="大阪">大阪</option>
-              <option value="京都">京都</option>
-              <option value="福冈">福冈</option>
-              <option value="札幌">札幌</option>
-            </select>
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              <MapPin className="inline w-4 h-4 mr-2" />
-              目的地
-            </label>
-            <select
-              value={route.to}
-              onChange={(e) => setRoute({...route, to: e.target.value})}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
-            >
-              <option value="">选择目的地</option>
-              <option value="全国">全国旅行</option>
-              <option value="关东">关东地区</option>
-              <option value="关西">关西地区</option>
-              <option value="东北">东北地区</option>
-              <option value="九州">九州地区</option>
-            </select>
-          </div>
+      <div className="grid md:grid-cols-3 gap-6 mb-8">
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            <MapPin className="inline w-4 h-4 mr-2" />
+            出发地
+          </label>
+          <select
+            value={route.from}
+            onChange={(e) => setRoute({...route, from: e.target.value})}
+            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900 bg-white"
+          >
+            <option value="">选择出发地</option>
+            <option value="北海道">北海道</option>
+            <option value="青森县">青森县</option>
+            <option value="岩手县">岩手县</option>
+            <option value="宫城县">宫城县</option>
+            <option value="秋田县">秋田县</option>
+            <option value="山形县">山形县</option>
+            <option value="福岛县">福岛县</option>
+            <option value="茨城县">茨城县</option>
+            <option value="栃木县">栃木县</option>
+            <option value="群马县">群马县</option>
+            <option value="埼玉县">埼玉县</option>
+            <option value="千叶县">千叶县</option>
+            <option value="东京都">东京都</option>
+            <option value="神奈川县">神奈川县</option>
+            <option value="新泻县">新泻县</option>
+            <option value="富山县">富山县</option>
+            <option value="石川县">石川县</option>
+            <option value="福井县">福井县</option>
+            <option value="山梨县">山梨县</option>
+            <option value="长野县">长野县</option>
+            <option value="岐阜县">岐阜县</option>
+            <option value="静冈县">静冈县</option>
+            <option value="爱知县">爱知县</option>
+            <option value="三重县">三重县</option>
+            <option value="滋贺县">滋贺县</option>
+            <option value="京都府">京都府</option>
+            <option value="大阪府">大阪府</option>
+            <option value="兵库县">兵库县</option>
+            <option value="奈良县">奈良县</option>
+            <option value="和歌山县">和歌山县</option>
+            <option value="鸟取县">鸟取县</option>
+            <option value="岛根县">岛根县</option>
+            <option value="冈山县">冈山县</option>
+            <option value="广岛县">广岛县</option>
+            <option value="山口县">山口县</option>
+            <option value="德岛县">德岛县</option>
+            <option value="香川县">香川县</option>
+            <option value="爱媛县">爱媛县</option>
+            <option value="高知县">高知县</option>
+            <option value="福冈县">福冈县</option>
+            <option value="佐贺县">佐贺县</option>
+            <option value="长崎县">长崎县</option>
+            <option value="熊本县">熊本县</option>
+            <option value="大分县">大分县</option>
+            <option value="宫崎县">宫崎县</option>
+            <option value="鹿儿岛县">鹿儿岛县</option>
+            <option value="冲绳县">冲绳县</option>
+          </select>
         </div>
 
-        <div className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              <Calendar className="inline w-4 h-4 mr-2" />
-              旅行天数
-            </label>
-            <select
-              value={route.duration}
-              onChange={(e) => setRoute({...route, duration: parseInt(e.target.value)})}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
-            >
-              <option value={1}>1天</option>
-              <option value={3}>3天</option>
-              <option value={5}>5天</option>
-              <option value={7}>7天</option>
-              <option value={14}>14天</option>
-              <option value={21}>21天</option>
-            </select>
-          </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            <MapPin className="inline w-4 h-4 mr-2" />
+            目的地
+          </label>
+          <select
+            value={route.to}
+            onChange={(e) => setRoute({...route, to: e.target.value})}
+            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900 bg-white"
+          >
+            <option value="">选择旅行地区</option>
+            <option value="全国">全国旅行</option>
+            <option value="北海道">北海道地区</option>
+            <option value="东北">东北地区</option>
+            <option value="关东">关东地区</option>
+            <option value="中部">中部地区</option>
+            <option value="关西">关西地区</option>
+            <option value="中国">中国地区</option>
+            <option value="四国">四国地区</option>
+            <option value="九州">九州地区</option>
+          </select>
+        </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              <Users className="inline w-4 h-4 mr-2" />
-              旅行人数
-            </label>
-            <select 
-              value={travelers}
-              onChange={(e) => setTravelers(parseInt(e.target.value))}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
-            >
-              <option value={1}>1人</option>
-              <option value={2}>2人</option>
-              <option value={3}>3人</option>
-              <option value={4}>4人</option>
-              <option value={5}>5人以上</option>
-            </select>
-          </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            <Calendar className="inline w-4 h-4 mr-2" />
+            旅行天数
+          </label>
+          <select
+            value={route.duration}
+            onChange={(e) => setRoute({...route, duration: parseInt(e.target.value)})}
+            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-gray-900 bg-white"
+          >
+            <option value={1}>1天</option>
+            <option value={2}>2天</option>  
+            <option value={3}>3天</option>
+            <option value={4}>4天</option>
+            <option value={5}>5天</option>
+            <option value={6}>6天</option>
+            <option value={7}>7天</option>
+            <option value={8}>8天</option>
+            <option value={9}>9天</option>
+            <option value={10}>10天</option>
+            <option value={14}>14天</option>
+            <option value={21}>21天</option>
+          </select>
         </div>
       </div>
 
@@ -233,86 +260,63 @@ export default function PassCalculator() {
               🎯 AI智能推荐结果
             </h3>
             <p className="text-gray-600">
-              基于您的旅行计划，为您推荐了 {recommendations.length} 个最佳选择
+              基于您的旅行计划，为您筛选了 {recommendations.length} 个JR通票选项
             </p>
           </div>
 
           {recommendations.map((rec, index) => (
-            <div key={rec.pass.id} className={`border-2 rounded-xl p-6 transition-all duration-300 ${
-              index === 0 ? 'border-red-500 bg-red-50/20' : 'border-gray-200/50 glass-calculator-card'
-            }`}>
-              <div className="flex items-start justify-between mb-4">
-                <div className="flex-1">
-                  <div className="flex items-center mb-2">
-                    {index === 0 && (
-                      <span className="bg-gradient-to-r from-amber-400 to-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold mr-3 shadow-lg shadow-amber-400/25">
-                        🏆 最佳推荐
-                      </span>
-                    )}
-                    <h4 className="text-xl font-bold text-gray-900">
-                      {rec.pass.name.en}
-                    </h4>
-                    <span className="ml-3 text-sm text-gray-500">
-                      {rec.pass.name.jp}
-                    </span>
-                  </div>
-                  <p className="text-gray-600 mb-3">{rec.pass.description}</p>
+            <div key={rec.pass.id} className="border border-gray-200 rounded-lg p-4 sm:p-6 hover:shadow-md transition-shadow">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4">
+                <div className="flex-1 mb-4 sm:mb-0">
+                  <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
+                    {rec.pass.name.en}
+                  </h4>
                   
-                  <div className="flex items-center space-x-4 mb-3">
-                    <div className="flex items-center">
-                      <Star className="w-4 h-4 text-yellow-400 mr-1" />
-                      <span className="text-sm text-gray-600">
-                        推荐分数: {rec.score}/100
-                      </span>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-sm mb-4">
+                    <div>
+                      <span className="font-medium text-gray-700">覆盖范围：</span>
+                      <span className="text-gray-600 block sm:inline">{rec.pass.coverage?.regions?.join('、') || '未知'}</span>
                     </div>
-                    {rec.savings > 0 && (
-                      <div className="flex items-center text-green-600">
-                        <TrendingUp className="w-4 h-4 mr-1" />
-                        <span className="text-sm font-medium">
-                          节省 ¥{rec.savings.toLocaleString()}
-                        </span>
-                      </div>
-                    )}
+                    <div>
+                      <span className="font-medium text-gray-700">有效天数：</span>
+                      <span className="text-gray-600 block sm:inline">{rec.pass.duration?.join('/') || '未知'}天</span>
+                    </div>
+                    <div className="sm:col-span-2">
+                      <span className="font-medium text-gray-700">适用列车：</span>
+                      <span className="text-gray-600 block sm:inline">{rec.pass.trainTypes?.join('、') || '未知'}</span>
+                    </div>
+                    <div>
+                      <span className="font-medium text-gray-700">预计节省：</span>
+                      <span className="text-green-600 font-semibold block sm:inline">¥{rec.savings?.toLocaleString() || '0'}</span>
+                    </div>
                   </div>
                 </div>
                 
-                <div className="text-right ml-6">
-                  <div className="text-2xl font-bold text-red-600 mb-1">
+                <div className="text-right sm:ml-6 -mt-8 sm:mt-0">
+                  <div className="text-3xl sm:text-3xl font-bold text-red-600 mb-1">
                     ¥{rec.pass.price.adult.regular.toLocaleString()}
                   </div>
                   <div className="text-sm text-gray-500">
-                    {rec.pass.duration.join('/')}天券
+                    成人票价格
                   </div>
                 </div>
               </div>
 
-              <div className="glass-calculator-light rounded-lg p-4 mb-4">
-                <h5 className="font-medium text-gray-900 mb-2">推荐理由:</h5>
-                <p className="text-sm text-gray-700">{rec.reason}</p>
-              </div>
-
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-2">
-                  <span className="text-sm text-gray-600">覆盖地区:</span>
-                  <div className="flex space-x-1">
-                    {rec.pass.coverage.regions.map((region, i) => (
-                      <span key={i} className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">
-                        {region}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                
-                <div className="flex space-x-3">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-end pt-4 border-t border-gray-100 space-y-3 sm:space-y-0">
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+                  <button
+                    onClick={() => window.open(rec.pass.officialLinks?.[0]?.url || '#', '_blank')}
+                    className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2 w-full sm:w-auto"
+                  >
+                    官方购买
+                    <ExternalLink className="w-4 h-4" />
+                  </button>
                   <button
                     onClick={() => router.push(`/passes/${rec.pass.id}`)}
-                    className="bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-white px-4 py-2 rounded-lg transition-all duration-200 flex items-center shadow-lg shadow-amber-400/25"
+                    className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2 w-full sm:w-auto"
                   >
-                    <ExternalLink className="w-4 h-4 mr-2" />
                     查看详情
-                  </button>
-                  <button className="border border-red-600 text-red-600 px-4 py-2 rounded-lg hover:bg-red-50 transition-colors">
-                    立即购买
+                    <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
               </div>
@@ -337,3 +341,4 @@ export default function PassCalculator() {
     </div>
   );
 }
+
