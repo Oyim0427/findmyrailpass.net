@@ -448,7 +448,7 @@ export default function AdvancedCalculator() {
                   <div className="flex flex-col sm:flex-row sm:items-center mb-2">
                     {index === 0 && (
                       <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 text-white px-4 py-2 rounded text-sm font-bold mb-2 sm:mb-0 sm:mr-3 shadow-xl shadow-amber-400/30 w-fit transition-all duration-300 border border-white/20">
-                        ✨ 最佳推荐
+                        🏆 最佳推荐
                       </span>
                     )}
                     <div className="flex flex-col sm:flex-row sm:items-center">

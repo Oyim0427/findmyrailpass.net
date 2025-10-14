@@ -252,3 +252,164 @@ body {
   border-radius: inherit;
   z-index: -1;
 }
+
+/* 签倒出动画 */
+@keyframes stick-fall {
+  0% {
+    transform: translateY(-20px) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(10px) rotate(180deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(40px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes stick-bounce {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(90deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(180deg);
+  }
+  75% {
+    transform: translateY(-8px) rotate(270deg);
+  }
+}
+
+.stick-fall {
+  animation: stick-fall 1.5s ease-in-out forwards;
+}
+
+.stick-bounce {
+  animation: stick-bounce 0.8s ease-in-out infinite;
+}
+
+/* 竹筒摇晃动画 */
+@keyframes bamboo-shake {
+  0%, 100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-2px) rotate(-1deg);
+  }
+  75% {
+    transform: translateX(2px) rotate(1deg);
+  }
+}
+
+.bamboo-shake {
+  animation: bamboo-shake 0.3s ease-in-out infinite;
+}
+
+/* 竹筒旋转动画 */
+@keyframes bamboo-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.bamboo-spin {
+  animation: bamboo-spin 2s ease-in-out;
+}
+
+/* 签露出动画 */
+@keyframes stick-reveal {
+  0% {
+    transform: translateY(0) scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-10px) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10px) scale(1);
+    opacity: 1;
+  }
+}
+
+.stick-reveal {
+  animation: stick-reveal 0.5s ease-out forwards;
+}
+
+/* 竹筒旋转动画 - 保持正常朝上 */
+@keyframes bamboo-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.bamboo-rotate {
+  animation: bamboo-rotate 2s ease-in-out;
+}
+
+/* 签从竹筒内部伸出动画 */
+@keyframes stick-emerge {
+  0% {
+    transform: translateY(20px) scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(0px) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10px) scale(1);
+    opacity: 1;
+  }
+}
+
+.stick-emerge {
+  animation: stick-emerge 1s ease-out forwards;
+}
+
+/* 循环动画 - 竹筒旋转后伸出签 */
+@keyframes bamboo-cycle {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.bamboo-cycle {
+  animation: bamboo-cycle 4s ease-in-out infinite;
+}
+
+/* 签循环伸出动画 */
+@keyframes stick-cycle {
+  0%, 50% {
+    transform: translateY(20px) scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(-5px) scale(1);
+    opacity: 1;
+  }
+  70%, 100% {
+    transform: translateY(-15px) scale(1);
+    opacity: 1;
+  }
+}
+
+.stick-cycle {
+  animation: stick-cycle 4s ease-in-out infinite;
+}
