@@ -2,6 +2,7 @@
 
 import NavigationSection from "@/components/sections/NavigationSection";
 import FooterSection from "@/components/sections/FooterSection";
+import { ArrowRight } from 'lucide-react';
 
 export default function BlogPage() {
   return (
@@ -54,7 +55,7 @@ export default function BlogPage() {
               <p className="text-gray-600 text-sm mb-4">by 王强 • 2024年2月</p>
             </div>
             <p className="text-gray-700 mb-4">
-              九州周游券3日券带我们体验了别府温泉、熊本城、鹿儿岛。JR九州特色列车"由布院之森"特别推荐！
+              九州周游券3日券带我们体验了别府温泉、熊本城、鹿儿岛。JR九州特色列车&ldquo;由布院之森&rdquo;特别推荐！
             </p>
             <div className="flex items-center justify-between">
               <span className="text-sm text-gray-500">阅读时间: 4分钟</span>
@@ -112,8 +113,9 @@ export default function BlogPage() {
         </div>
 
         <div className="text-center mt-12">
-          <button className="bg-gradient-to-r from-amber-400 to-orange-500 text-white px-8 py-3 rounded-lg hover:from-amber-500 hover:to-orange-600 transition-all duration-200 shadow-lg shadow-amber-400/25">
+          <button className="cyber-button px-8 py-4 text-lg font-semibold inline-flex items-center rounded-lg">
             分享您的故事
+            <ArrowRight className="ml-2 w-5 h-5" />
           </button>
         </div>
       </main>

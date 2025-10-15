@@ -22,10 +22,23 @@ export default function PassCard({ pass, onClick }: PassCardProps) {
 
   return (
     <div 
-      className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1"
+      className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1 h-full flex flex-col"
       onClick={onClick}
     >
-      <div className="p-6">
+      <div className="p-6 flex flex-col h-full">
+        {/* Image */}
+        <div className="relative h-48 w-full overflow-hidden rounded-xl mb-4">
+          <img 
+            src={pass.coverage.map || '/images/default-pass.jpg'} 
+            alt={pass.name.en}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
+            <span className="text-sm font-semibold text-gray-800">
+              {pass.category === 'national' ? '全国版' : '地区版'}
+            </span>
+          </div>
+        </div>
         {/* Header */}
         <div className="flex justify-between items-start mb-4">
           <div className="flex-1">
@@ -102,12 +115,13 @@ export default function PassCard({ pass, onClick }: PassCardProps) {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex space-x-3">
-          <button className="flex-1 bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-white py-2 px-4 rounded-lg font-medium transition-all duration-200 shadow-lg shadow-amber-400/25">
-            查看详情
-          </button>
-          <button className="flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-700 py-2 px-4 rounded-lg transition-colors duration-200">
+        <div className="flex space-x-3 mt-auto">
+          <button className="flex-1 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2">
             <ExternalLink className="w-4 h-4" />
+            官方购买
+          </button>
+          <button className="flex-1 bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2">
+            查看详情
           </button>
         </div>
       </div>

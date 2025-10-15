@@ -31,12 +31,12 @@ export default function HeroSection() {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-6 justify-center">
-          <a href="#calculator" className="cyber-button px-8 py-4 text-lg font-bold flex items-center justify-center group">
+          <a href="#calculator" className="cyber-button px-8 py-4 text-lg font-bold flex items-center justify-center group rounded-lg">
             <span className="relative z-10">开始查询</span>
             <ArrowRight className="ml-2 w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
           </a>
           
-          <Link href="/passlist" className="px-8 py-4 text-lg font-semibold border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300 text-center font-mono tracking-wider group">
+          <Link href="/passlist" className="px-8 py-4 text-lg font-semibold border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300 text-center font-mono tracking-wider group rounded-lg">
             <span className="group-hover:text-white transition-colors">查看所有周游券</span>
           </Link>
         </div>

@@ -1,9 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { MapPin, Calendar, Users, Calculator, TrendingUp, Star, CheckCircle, AlertCircle, ArrowRight, ExternalLink, Route, Clock, DollarSign } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { MapPin, Calendar, Users, Calculator, TrendingUp, Star, CheckCircle, AlertCircle, ArrowRight, ExternalLink, Route, Clock } from 'lucide-react';
 import { Route as RouteType, PassRecommendation } from '@/types/pass';
-import { jrPasses } from '@/data/passes';
+import { unifiedPasses } from '@/data/all-passes';
 
 interface RouteSegment {
   from: string;
@@ -14,6 +15,7 @@ interface RouteSegment {
 }
 
 export default function AdvancedCalculator() {
+  const router = useRouter();
   const [route, setRoute] = useState<RouteType>({
     from: '',
     to: '',
@@ -25,7 +27,6 @@ export default function AdvancedCalculator() {
   const [isCalculating, setIsCalculating] = useState(false);
   const [recommendations, setRecommendations] = useState<PassRecommendation[]>([]);
   const [showResults, setShowResults] = useState(false);
-  const [showAdvanced, setShowAdvanced] = useState(false);
 
   // 模拟路线数据
   const routeData: { [key: string]: RouteSegment[] } = {
@@ -56,7 +57,7 @@ export default function AdvancedCalculator() {
       // 计算单独购票总费用
       const individualCost = segments.reduce((total, segment) => total + segment.cost, 0) * travelers;
       
-      jrPasses.forEach(pass => {
+      unifiedPasses.forEach(pass => {
         let score = 0;
         let reason = '';
         let savings = 0;
@@ -306,7 +307,7 @@ export default function AdvancedCalculator() {
             <button
               onClick={calculateAdvancedRecommendations}
               disabled={isCalculating || !route.from || !route.to}
-              className="cyber-button px-8 py-4 text-lg font-semibold flex items-center justify-center group mx-auto disabled:opacity-50 disabled:cursor-not-allowed"
+              className="cyber-button px-8 py-4 text-lg font-semibold flex items-center justify-center group mx-auto disabled:opacity-50 disabled:cursor-not-allowed rounded-lg"
             >
               {isCalculating ? (
                 <>

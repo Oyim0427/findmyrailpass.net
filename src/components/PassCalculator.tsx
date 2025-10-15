@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { MapPin, Calendar, Calculator, TrendingUp, Star, CheckCircle, AlertCircle, ArrowRight, ExternalLink } from 'lucide-react';
 import { Route, PassRecommendation } from '@/types/pass';
-import { jrPasses } from '@/data/passes';
+import { unifiedPasses } from '@/data/all-passes';
 
 export default function PassCalculator() {
   const router = useRouter();
@@ -27,7 +27,7 @@ export default function PassCalculator() {
       const results: PassRecommendation[] = [];
       
       // 根据路线和天数计算推荐
-      jrPasses.forEach(pass => {
+      unifiedPasses.forEach(pass => {
         let score = 0;
         let reason = '';
         let savings = 0;
@@ -236,7 +236,7 @@ export default function PassCalculator() {
         <button
           onClick={calculateRecommendations}
           disabled={isCalculating || !route.from || !route.to}
-          className="cyber-button px-8 py-4 text-lg font-semibold flex items-center justify-center group mx-auto disabled:opacity-50 disabled:cursor-not-allowed"
+          className="cyber-button px-8 py-4 text-lg font-semibold flex items-center justify-center group mx-auto disabled:opacity-50 disabled:cursor-not-allowed rounded-lg"
         >
           {isCalculating ? (
             <>

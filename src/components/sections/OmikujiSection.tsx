@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Shuffle, Sparkles, Zap, Star, Heart, AlertTriangle } from 'lucide-react';
+import { Sparkles, Zap, Star, Heart, AlertTriangle } from 'lucide-react';
 
 interface OmikujiResult {
   type: '大吉' | '中吉' | '小吉' | '吉' | '凶';
@@ -209,14 +209,13 @@ export default function OmikujiSection() {
                     <div className="absolute top-28 left-1/2 transform -translate-x-1/2 w-20 h-4 bg-black/20 rounded-full blur-sm"></div>
                   </div>
                   
-                  <h3 className="text-2xl font-bold text-white mb-2">🔮 赛博竹筒</h3>
                   <p className="text-gray-300">这是基于AI算法的娱乐性占卜，结合了日本传统文化元素和现代科技。
                   抽签结果仅供参考，真正的旅途体验还需要您亲自去感受和创造！点击下方按钮，让AI为您抽取旅途运势</p>
                 </div>
                 <button
                   onClick={drawOmikuji}
                   disabled={isDrawing}
-                  className={`px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform ${
+                  className={`px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 transform ${
                     isDrawing
                       ? 'bg-gradient-to-r from-gray-500 to-gray-600 cursor-not-allowed'
                       : 'bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500 hover:from-purple-600 hover:via-pink-600 hover:to-cyan-600 hover:scale-105 shadow-lg shadow-purple-500/30 hover:shadow-xl'
@@ -228,7 +227,7 @@ export default function OmikujiSection() {
                       AI占卜中...
                     </div>
                   ) : (
-                    '🎯 开始抽签'
+                    '开始抽签'
                   )}
                 </button>
               </div>

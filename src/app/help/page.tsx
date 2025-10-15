@@ -2,6 +2,7 @@
 
 import NavigationSection from "@/components/sections/NavigationSection";
 import FooterSection from "@/components/sections/FooterSection";
+import Link from 'next/link';
 
 export default function HelpPage() {
   return (
@@ -97,9 +98,9 @@ export default function HelpPage() {
                 <a href="/passes" className="block text-red-600 hover:text-red-700 transition-colors">
                   → 查看所有周游券
                 </a>
-                <a href="/" className="block text-red-600 hover:text-red-700 transition-colors">
+                <Link href="/" className="block text-red-600 hover:text-red-700 transition-colors">
                   → 使用计算器
-                </a>
+                </Link>
                 <a href="/blog" className="block text-red-600 hover:text-red-700 transition-colors">
                   → 用户故事
                 </a>

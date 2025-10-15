@@ -11,7 +11,7 @@ export default function NavigationSection() {
           <div className="flex items-center">
             <div className="text-2xl font-bold cyber-text text-cyan-400 flex items-center space-x-2">
               <span className="text-2xl">🚄</span>
-              <span className="cyber-glow-text">Find'MyJR-Pass</span>
+              <span className="cyber-glow-text">Find&apos;MyJR-Pass</span>
             </div>
           </div>
           
@@ -26,10 +26,6 @@ export default function NavigationSection() {
             </Link>
             <Link href="/blog" className="text-gray-300 hover:text-cyan-400 transition-colors font-mono tracking-wider relative group">
               用户故事
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full"></span>
-            </Link>
-            <Link href="/tarot" className="text-gray-300 hover:text-cyan-400 transition-colors font-mono tracking-wider relative group">
-              路线塔罗占卜
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full"></span>
             </Link>
             <Link href="/help" className="text-gray-300 hover:text-cyan-400 transition-colors font-mono tracking-wider relative group">

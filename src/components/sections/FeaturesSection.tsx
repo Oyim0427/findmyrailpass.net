@@ -13,11 +13,11 @@ export default function FeaturesSection() {
       <div className="text-center mb-16 relative z-10">
         <div className="mb-4">
           <span className="inline-block px-4 py-2 bg-cyan-500/20 border border-cyan-400 text-cyan-400 text-sm font-mono tracking-wider">
-            [FEATURES MODULE]
+            [FEATURES]
           </span>
         </div>
         <h2 className="text-4xl font-bold cyber-text text-cyan-400 mb-4">
-          为什么选择Find'MyJR-Pass？
+          为什么选择Find&apos;MyJR-Pass？
         </h2>
         <p className="text-xl text-gray-300 font-light">
           我们提供最全面、最准确的日本铁路通票信息
@@ -25,9 +25,9 @@ export default function FeaturesSection() {
       </div>
 
       <div className="grid md:grid-cols-3 gap-8 relative z-10">
-        <div className="bg-black/80 backdrop-blur-md border border-cyan-400/30 p-8 rounded-2xl shadow-lg text-center hover:shadow-cyan-400/25 transition-all duration-300 group">
-          <div className="bg-cyan-500/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-cyan-500/30 transition-colors">
-            <MapPin className="w-8 h-8 text-cyan-400" />
+        <div className="bg-black/80 backdrop-blur-md border border-yellow-400/30 p-8 rounded-2xl shadow-lg text-center hover:shadow-yellow-400/25 transition-all duration-300 group">
+          <div className="bg-yellow-500/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-500/30 transition-colors">
+            <MapPin className="w-8 h-8 text-yellow-400" />
           </div>
           <h3 className="text-2xl font-bold text-white mb-4 font-mono tracking-wider">智能路线推荐</h3>
           <p className="text-gray-300">
@@ -35,9 +35,9 @@ export default function FeaturesSection() {
           </p>
         </div>
 
-        <div className="bg-black/80 backdrop-blur-md border border-yellow-400/30 p-8 rounded-2xl shadow-lg text-center hover:shadow-yellow-400/25 transition-all duration-300 group">
-          <div className="bg-yellow-500/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-500/30 transition-colors">
-            <Clock className="w-8 h-8 text-yellow-400" />
+        <div className="bg-black/80 backdrop-blur-md border border-green-400/30 p-8 rounded-2xl shadow-lg text-center hover:shadow-green-400/25 transition-all duration-300 group">
+          <div className="bg-green-500/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-500/30 transition-colors">
+            <Clock className="w-8 h-8 text-green-400" />
           </div>
           <h3 className="text-2xl font-bold text-white mb-4 font-mono tracking-wider">实时价格对比</h3>
           <p className="text-gray-300">
@@ -45,9 +45,9 @@ export default function FeaturesSection() {
           </p>
         </div>
 
-        <div className="bg-black/80 backdrop-blur-md border border-yellow-400/30 p-8 rounded-2xl shadow-lg text-center hover:shadow-yellow-400/25 transition-all duration-300 group">
-          <div className="bg-yellow-500/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-500/30 transition-colors">
-            <Users className="w-8 h-8 text-yellow-400" />
+        <div className="bg-black/80 backdrop-blur-md border border-orange-400/30 p-8 rounded-2xl shadow-lg text-center hover:shadow-orange-400/25 transition-all duration-300 group">
+          <div className="bg-orange-500/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-orange-500/30 transition-colors">
+            <Users className="w-8 h-8 text-orange-400" />
           </div>
           <h3 className="text-2xl font-bold text-white mb-4 font-mono tracking-wider">用户真实评价</h3>
           <p className="text-gray-300">
