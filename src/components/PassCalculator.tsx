@@ -36,9 +36,13 @@ export default function PassCalculator() {
         const regionMatch = pass.coverage.regions.some(region => 
           region === route.to || 
           (route.to === '全国' && region === '全国') ||
-          (route.to === '关东' && region === '关东') ||
-          (route.to === '关西' && region === '关西') ||
+          (route.to === '北海道' && region === '北海道') ||
           (route.to === '东北' && region === '东北') ||
+          (route.to === '关东' && region === '关东') ||
+          (route.to === '中部' && region === '中部') ||
+          (route.to === '关西' && region === '关西') ||
+          (route.to === '中国' && region === '中国') ||
+          (route.to === '四国' && region === '四国') ||
           (route.to === '九州' && region === '九州')
         );
         
@@ -236,7 +240,7 @@ export default function PassCalculator() {
         <button
           onClick={calculateRecommendations}
           disabled={isCalculating || !route.from || !route.to}
-          className="cyber-button px-8 py-4 text-lg font-semibold flex items-center justify-center group mx-auto disabled:opacity-50 disabled:cursor-not-allowed rounded-lg"
+          className="cyber-button px-8 py-4 text-lg font-semibold flex items-center justify-center group mx-auto disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isCalculating ? (
             <>
@@ -296,8 +300,14 @@ export default function PassCalculator() {
                   <div className="text-3xl sm:text-3xl font-bold text-red-600 mb-1">
                     ¥{rec.pass.price.adult.regular.toLocaleString()}
                   </div>
-                  <div className="text-sm text-gray-500">
+                  <div className="text-sm text-gray-500 mb-1">
                     成人票价格
+                  </div>
+                  <div className="text-lg text-gray-400">
+                    ¥{rec.pass.price.child.regular.toLocaleString()}
+                  </div>
+                  <div className="text-xs text-gray-400">
+                    儿童票价格
                   </div>
                 </div>
               </div>
@@ -332,7 +342,7 @@ export default function PassCalculator() {
             暂无推荐
           </h3>
           <p className="text-gray-600">
-            根据您的旅行计划，暂时没有找到合适的JR通票推荐。
+            根据您的旅行计划，暂时没有找到合适的周游券推荐。
             <br />
             建议您调整旅行天数或目的地，或考虑单独购买车票。
           </p>

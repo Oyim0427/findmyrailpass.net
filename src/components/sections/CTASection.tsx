@@ -23,7 +23,7 @@ export default function CTASection() {
         <p className="text-xl text-gray-300 mb-8 font-light">
           立即使用我们的智能推荐系统，找到最适合您的JR通票
         </p>
-        <a href="#calculator" className="cyber-button px-8 py-4 text-lg font-semibold inline-flex items-center rounded-lg">
+        <a href="#calculator" className="cyber-button px-8 py-4 text-lg font-semibold inline-flex items-center">
           开始规划旅程
           <ArrowRight className="ml-2 w-5 h-5" />
         </a>

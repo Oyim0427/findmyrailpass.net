@@ -2,12 +2,10 @@
 
 import { ArrowRight } from "lucide-react";
 import PassCard from "@/components/PassCard";
-import { unifiedPasses, passesByCategory } from "@/data/all-passes";
+import { popularPasses } from "@/data/all-passes";
 import Link from "next/link";
 
 export default function PassesSection() {
-  const popularPasses = passesByCategory.national.slice(0, 3);
-  const regionalPasses = passesByCategory.regional.slice(0, 6);
 
   return (
     <section id="passes" className="py-20 relative">
@@ -31,28 +29,17 @@ export default function PassesSection() {
           </p>
         </div>
 
-        {/* Popular Passes */}
+        {/* Top Rated Passes */}
         <div className="mb-16">
-          <h3 className="text-2xl font-bold text-cyan-400 mb-8 text-center font-mono tracking-wider">[NATIONAL PASSES]</h3>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {popularPasses.map((pass) => (
               <PassCard key={pass.id} pass={pass} />
             ))}
           </div>
         </div>
 
-        {/* Regional Passes */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold text-yellow-400 mb-8 text-center font-mono tracking-wider">[REGIONAL PASSES]</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {regionalPasses.map((pass) => (
-              <PassCard key={pass.id} pass={pass} />
-            ))}
-          </div>
-        </div>
-
         <div className="text-center">
-          <Link href="/passlist" className="cyber-button px-8 py-4 text-lg font-semibold inline-flex items-center rounded-lg">
+          <Link href="/passlist" className="cyber-button px-8 py-4 text-lg font-semibold inline-flex items-center">
             查看所有JR通票
             <ArrowRight className="ml-2 w-5 h-5" />
           </Link>

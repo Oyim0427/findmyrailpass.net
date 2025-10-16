@@ -176,11 +176,11 @@ export default function OmikujiSection() {
         <div className="max-w-2xl mx-auto">
           {/* 抽签盒 */}
           <div className="relative mb-8">
-            <div className="bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-lg p-8 border border-purple-500/30 shadow-2xl">
+            <div className="bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-sm p-8 border border-purple-500/30 shadow-2xl">
               <div className="text-center">
                 <div className="mb-8">
                   {/* 竹筒容器 - 向上移动 */}
-                  <div className="relative mx-auto w-24 h-40 mb-8">
+                  <div className="relative mx-auto w-24 h-40 mb-4">
                     {/* 竹筒主体 - 向上移动 */}
                     <div className={`absolute top-5 left-1/2 transform -translate-x-1/2 w-16 h-24 bg-gradient-to-b from-amber-800 to-amber-600 rounded-t-2xl border-2 border-amber-700 shadow-lg z-10 transition-transform duration-1000 ${
                       animationPhase === 'rotating' && isDrawing ? 'animate-spin' : ''
@@ -215,7 +215,7 @@ export default function OmikujiSection() {
                 <button
                   onClick={drawOmikuji}
                   disabled={isDrawing}
-                  className={`px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 transform ${
+                  className={`px-8 py-4 font-bold text-lg transition-all duration-300 transform ${
                     isDrawing
                       ? 'bg-gradient-to-r from-gray-500 to-gray-600 cursor-not-allowed'
                       : 'bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500 hover:from-purple-600 hover:via-pink-600 hover:to-cyan-600 hover:scale-105 shadow-lg shadow-purple-500/30 hover:shadow-xl'

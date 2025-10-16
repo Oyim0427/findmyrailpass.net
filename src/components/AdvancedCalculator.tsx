@@ -307,7 +307,7 @@ export default function AdvancedCalculator() {
             <button
               onClick={calculateAdvancedRecommendations}
               disabled={isCalculating || !route.from || !route.to}
-              className="cyber-button px-8 py-4 text-lg font-semibold flex items-center justify-center group mx-auto disabled:opacity-50 disabled:cursor-not-allowed rounded-lg"
+              className="cyber-button px-8 py-4 text-lg font-semibold flex items-center justify-center group mx-auto disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isCalculating ? (
                 <>
@@ -432,7 +432,7 @@ export default function AdvancedCalculator() {
               {/* 炫彩边框效果 */}
               <div className={`absolute inset-0 rounded-2xl p-[3px] ${
                 index === 0 
-                  ? 'bg-gradient-to-r from-red-500 via-pink-500 via-rose-500 to-red-600 animate-pulse' 
+                  ? 'bg-gradient-to-r from-red-500 via-pink-500 to-red-600 animate-pulse' 
                   : 'bg-gradient-to-r from-red-400 via-pink-400 to-rose-400 group-hover:from-red-500 group-hover:via-pink-500 group-hover:to-rose-500'
               }`}>
                 <div className="w-full h-full bg-white/95 backdrop-blur-sm rounded-xl shadow-inner"></div>
@@ -485,8 +485,14 @@ export default function AdvancedCalculator() {
                   <div className="text-3xl sm:text-3xl font-bold text-red-600 mb-1">
                     ¥{rec.pass.price.adult.regular.toLocaleString()}
                   </div>
-                  <div className="text-sm text-gray-500">
+                  <div className="text-sm text-gray-500 mb-1">
                     成人票价格
+                  </div>
+                  <div className="text-lg text-gray-400">
+                    ¥{rec.pass.price.child.regular.toLocaleString()}
+                  </div>
+                  <div className="text-xs text-gray-400">
+                    儿童票价格
                   </div>
                 </div>
               </div>

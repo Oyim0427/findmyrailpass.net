@@ -3,7 +3,7 @@
 import NavigationSection from "@/components/sections/NavigationSection";
 import FooterSection from "@/components/sections/FooterSection";
 import PassCard from "@/components/PassCard";
-import { unifiedPasses, passesByRegion } from "@/data/all-passes";
+import { unifiedPasses } from "@/data/all-passes";
 import { JRPass } from "@/types/pass";
 import { useState, useEffect, Suspense } from 'react';
 import { Search, Filter, X } from 'lucide-react';
@@ -29,16 +29,19 @@ function PassListContent() {
   useEffect(() => {
     const region = searchParams.get('region');
     if (region) {
+      setSelectedRegion(region);
       setSelectedCategory('regional');
-      // 这里可以添加地区筛选逻辑
     }
   }, [searchParams]);
 
   const categories = [
     { id: 'all', name: '全部', count: allPasses.length },
-    { id: 'national', name: '全国版', count: allPasses.filter(pass => pass.category === 'national').length },
-    { id: 'regional', name: '地区版', count: allPasses.filter(pass => pass.category === 'regional').length },
-    { id: 'city', name: '城市版', count: allPasses.filter(pass => pass.category === 'city').length }
+    { id: 'national', name: '全国通票', count: allPasses.filter(pass => pass.category === 'national').length },
+    { id: 'regional', name: '地区通票', count: allPasses.filter(pass => pass.category === 'regional').length },
+    { id: 'city', name: '城市交通券', count: allPasses.filter(pass => pass.category === 'city').length },
+    { id: 'bus', name: '巴士通票', count: allPasses.filter(pass => pass.category === 'bus').length },
+    { id: 'private', name: '私铁', count: allPasses.filter(pass => pass.category === 'private').length },
+    { id: 'special', name: '特别组合', count: allPasses.filter(pass => pass.category === 'special').length }
   ];
 
   const regions = [
@@ -88,7 +91,6 @@ function PassListContent() {
     { id: '普通列车', name: '普通列车' },
     { id: '地铁', name: '地铁' },
     { id: '私铁', name: '私铁' },
-    { id: 'JR', name: 'JR' },
     { id: '巴士', name: '巴士' },
     { id: '观光列车', name: '观光列车' }
   ];
@@ -207,10 +209,10 @@ function PassListContent() {
                 <button
                   key={category.id}
                   onClick={() => setSelectedCategory(category.id)}
-                  className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                  className={`px-4 py-2 transition-colors ${
                     selectedCategory === category.id
-                      ? 'bg-gradient-to-r from-amber-400 to-orange-500 text-white shadow-lg shadow-amber-400/25'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      ? 'bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg shadow-red-400/25 font-bold'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200 font-normal'
                   }`}
                 >
                   {category.name} ({category.count})
@@ -229,10 +231,10 @@ function PassListContent() {
                       <button
                         key={region.id}
                         onClick={() => setSelectedRegion(region.id)}
-                        className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                        className={`px-3 py-2 text-sm transition-colors ${
                           selectedRegion === region.id
-                            ? 'bg-gradient-to-r from-green-400 to-teal-500 text-white shadow-lg'
-                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                            ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-lg font-bold'
+                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200 font-normal'
                         }`}
                       >
                         {region.name}
@@ -249,10 +251,10 @@ function PassListContent() {
                       <button
                         key={duration.id}
                         onClick={() => setSelectedDuration(duration.id)}
-                        className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                        className={`px-3 py-2 text-sm transition-colors ${
                           selectedDuration === duration.id
-                            ? 'bg-gradient-to-r from-purple-400 to-pink-500 text-white shadow-lg'
-                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                            ? 'bg-gradient-to-r from-yellow-500 to-yellow-600 text-white shadow-lg font-bold'
+                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200 font-normal'
                         }`}
                       >
                         {duration.name}
@@ -269,10 +271,10 @@ function PassListContent() {
                       <button
                         key={price.id}
                         onClick={() => setSelectedPriceRange(price.id)}
-                        className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                        className={`px-3 py-2 text-sm transition-colors ${
                           selectedPriceRange === price.id
-                            ? 'bg-gradient-to-r from-yellow-400 to-orange-500 text-white shadow-lg'
-                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                            ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg font-bold'
+                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200 font-normal'
                         }`}
                       >
                         {price.name}
@@ -289,10 +291,10 @@ function PassListContent() {
                       <button
                         key={rating.id}
                         onClick={() => setSelectedRating(rating.id)}
-                        className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                        className={`px-3 py-2 text-sm transition-colors ${
                           selectedRating === rating.id
-                            ? 'bg-gradient-to-r from-red-400 to-pink-500 text-white shadow-lg'
-                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                            ? 'bg-gradient-to-r from-cyan-500 to-cyan-600 text-white shadow-lg font-bold'
+                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200 font-normal'
                         }`}
                       >
                         {rating.name}
@@ -309,10 +311,10 @@ function PassListContent() {
                       <button
                         key={trainType.id}
                         onClick={() => setSelectedTrainType(trainType.id)}
-                        className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                        className={`px-3 py-2 text-sm transition-colors ${
                           selectedTrainType === trainType.id
-                            ? 'bg-gradient-to-r from-indigo-400 to-blue-500 text-white shadow-lg'
-                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                            ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg font-bold'
+                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200 font-normal'
                         }`}
                       >
                         {trainType.name}
@@ -385,10 +387,10 @@ function PassListContent() {
               <button
                 onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
                 disabled={currentPage === 1}
-                className={`px-3 py-2 rounded-lg font-medium transition-colors ${
+                className={`px-4 py-2 font-medium transition-all duration-300 ${
                   currentPage === 1
-                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                    : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-300'
+                    ? 'bg-gray-200 text-gray-400 cursor-not-allowed border border-gray-300'
+                    : 'bg-white text-yellow-600 border border-yellow-400 hover:bg-yellow-400 hover:text-black hover:shadow-lg hover:shadow-yellow-400/50 active:scale-95'
                 }`}
               >
                 上一页
@@ -412,10 +414,10 @@ function PassListContent() {
                     <button
                       key={pageNum}
                       onClick={() => setCurrentPage(pageNum)}
-                      className={`px-3 py-2 rounded-lg font-medium transition-colors ${
+                      className={`px-4 py-2 font-medium transition-all duration-300 ${
                         currentPage === pageNum
-                          ? 'bg-gradient-to-r from-red-500 to-pink-500 text-white shadow-lg'
-                          : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-300'
+                          ? 'bg-yellow-400 text-black border border-yellow-400 shadow-lg shadow-yellow-400/50'
+                          : 'bg-white text-yellow-600 border border-yellow-400 hover:bg-yellow-400 hover:text-black hover:shadow-lg hover:shadow-yellow-400/50 active:scale-95'
                       }`}
                     >
                       {pageNum}
@@ -428,10 +430,10 @@ function PassListContent() {
               <button
                 onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
                 disabled={currentPage === totalPages}
-                className={`px-3 py-2 rounded-lg font-medium transition-colors ${
+                className={`px-4 py-2 font-medium transition-all duration-300 ${
                   currentPage === totalPages
-                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                    : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-300'
+                    ? 'bg-gray-200 text-gray-400 cursor-not-allowed border border-gray-300'
+                    : 'bg-white text-yellow-600 border border-yellow-400 hover:bg-yellow-400 hover:text-black hover:shadow-lg hover:shadow-yellow-400/50 active:scale-95'
                 }`}
               >
                 下一页

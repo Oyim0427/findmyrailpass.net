@@ -40,33 +40,38 @@ export default function PassCard({ pass, onClick }: PassCardProps) {
           </div>
         </div>
         {/* Header */}
-        <div className="flex justify-between items-start mb-4">
-          <div className="flex-1">
-            <h3 className="text-xl font-bold text-gray-900 mb-1">
+        <div className="flex justify-between items-start mb-6">
+          <div className="flex-1 pr-4">
+          
+            <h3 className="text-2xl font-bold text-gray-900 mb-1">
               {pass.name.en}
             </h3>
-            <p className="text-gray-600 text-sm mb-2">{pass.name.jp}</p>
-            <div className="flex items-center space-x-1">
+            <p className="text-gray-700 text-sm mb-4 line-clamp-2">
+          {pass.description}
+        </p>
+        <div className="flex items-center space-x-1">
               {renderStars(pass.popularity)}
               <span className="text-sm text-gray-500 ml-2">
                 ({pass.popularity}/5)
               </span>
             </div>
           </div>
-          <div className="text-right">
+          <div className="text-right flex-shrink-0">
             <div className="text-2xl font-bold text-red-600">
               ¥{pass.price.adult.regular.toLocaleString()}
             </div>
-            <div className="text-sm text-gray-500">
+            <div className="text-sm text-gray-500 mb-1">
               成人价格
+            </div>
+            <div className="text-lg text-gray-400">
+              ¥{pass.price.child.regular.toLocaleString()}
+            </div>
+            <div className="text-xs text-gray-400">
+              儿童价格
             </div>
           </div>
         </div>
 
-        {/* Description */}
-        <p className="text-gray-700 text-sm mb-4 line-clamp-2">
-          {pass.description}
-        </p>
 
         {/* Duration */}
         <div className="flex items-center text-sm text-gray-600 mb-3">

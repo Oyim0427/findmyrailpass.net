@@ -28,7 +28,7 @@ export interface JRPass {
     name: string;
     url: string;
   }[];
-  category: 'national' | 'regional' | 'local' | 'city';
+  category: 'national' | 'regional' | 'local' | 'city' | 'bus' | 'private' | 'special';
   popularity: number; // 1-5星评级
   bestFor: string[]; // 适用场景
 }

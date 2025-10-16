@@ -21,10 +21,10 @@ export default function CalculatorSection() {
             </span>
           </div>
           <h2 className="text-4xl font-bold cyber-text text-cyan-400 mb-4">
-            JR通票计算器
+            周游券计算器
           </h2>
-          <p className="text-gray-400 font-mono text-sm tracking-wider">
-            选择计算模式以开始分析
+          <p className="text-gray-400 font-mono text-sm tracking-wider mb-4">
+            输入您的旅行计划，AI为您推荐最合适的周游券并计算节省费用
           </p>
           <div className="inline-flex bg-black/50 border border-cyan-400/30 rounded-lg p-1 backdrop-blur-sm">
             <button

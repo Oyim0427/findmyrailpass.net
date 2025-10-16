@@ -113,7 +113,7 @@ export default function BlogPage() {
         </div>
 
         <div className="text-center mt-12">
-          <button className="cyber-button px-8 py-4 text-lg font-semibold inline-flex items-center rounded-lg">
+          <button className="cyber-button px-8 py-4 text-lg font-semibold inline-flex items-center">
             分享您的故事
             <ArrowRight className="ml-2 w-5 h-5" />
           </button>

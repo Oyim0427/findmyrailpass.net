@@ -93,24 +93,25 @@ export default function MapSection() {
                     </Link>
                   </div>
                   
-                  {/* 四国 - 占宽度1/3，单独一行，靠左 */}
-                  <div className="flex justify-start">
-                    <Link href="/passlist?region=四国" className="w-1/3 h-16 bg-gradient-to-r from-indigo-200 to-indigo-300 rounded-lg flex items-center justify-center hover:from-indigo-300 hover:to-indigo-400 transition-all duration-300 cursor-pointer group">
-                      <div className="text-center">
-                        <MapPin className="w-4 h-4 text-indigo-600 mx-auto mb-1 group-hover:scale-110 transition-transform" />
-                        <div className="text-sm font-semibold text-indigo-700">四国</div>
-                      </div>
-                    </Link>
-                  </div>
-                  
-                  {/* 九州 - 占宽度1/3，单独一行，靠左 */}
-                  <div className="flex justify-start">
-                    <Link href="/passlist?region=九州" className="w-1/3 h-16 bg-gradient-to-r from-yellow-200 to-yellow-300 rounded-lg flex items-center justify-center hover:from-yellow-300 hover:to-yellow-400 transition-all duration-300 cursor-pointer group">
+                  {/* 九州和四国 - 同一行，各占1/4宽度，右侧留2个空白区域 */}
+                  <div className="grid grid-cols-4 gap-4">
+                    <Link href="/passlist?region=九州" className="h-16 bg-gradient-to-r from-yellow-200 to-yellow-300 rounded-lg flex items-center justify-center hover:from-yellow-300 hover:to-yellow-400 transition-all duration-300 cursor-pointer group">
                       <div className="text-center">
                         <MapPin className="w-4 h-4 text-yellow-600 mx-auto mb-1 group-hover:scale-110 transition-transform" />
                         <div className="text-sm font-semibold text-yellow-800">九州</div>
                       </div>
                     </Link>
+                    
+                    <Link href="/passlist?region=四国" className="h-16 bg-gradient-to-r from-indigo-200 to-indigo-300 rounded-lg flex items-center justify-center hover:from-indigo-300 hover:to-indigo-400 transition-all duration-300 cursor-pointer group">
+                      <div className="text-center">
+                        <MapPin className="w-4 h-4 text-indigo-600 mx-auto mb-1 group-hover:scale-110 transition-transform" />
+                        <div className="text-sm font-semibold text-indigo-700">四国</div>
+                      </div>
+                    </Link>
+                    
+                    {/* 空白区域 */}
+                    <div></div>
+                    <div></div>
                   </div>
                 </div>
 

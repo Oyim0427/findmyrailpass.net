@@ -25,9 +25,9 @@ export default function FeaturesSection() {
       </div>
 
       <div className="grid md:grid-cols-3 gap-8 relative z-10">
-        <div className="bg-black/80 backdrop-blur-md border border-yellow-400/30 p-8 rounded-2xl shadow-lg text-center hover:shadow-yellow-400/25 transition-all duration-300 group">
-          <div className="bg-yellow-500/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-500/30 transition-colors">
-            <MapPin className="w-8 h-8 text-yellow-400" />
+        <div className="bg-black/80 backdrop-blur-md border p-8 rounded-2xl shadow-lg text-center transition-all duration-300 group" style={{borderColor: '#ffd700', boxShadow: '0 0 20px rgba(255, 215, 0, 0.1)'}} onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 0 30px rgba(255, 215, 0, 0.3)'} onMouseLeave={(e) => e.currentTarget.style.boxShadow = '0 0 20px rgba(255, 215, 0, 0.1)'}>
+          <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors" style={{backgroundColor: 'rgba(255, 215, 0, 0.2)'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 215, 0, 0.3)'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 215, 0, 0.2)'}>
+            <MapPin className="w-8 h-8" style={{color: '#ffd700'}} />
           </div>
           <h3 className="text-2xl font-bold text-white mb-4 font-mono tracking-wider">智能路线推荐</h3>
           <p className="text-gray-300">
@@ -35,9 +35,9 @@ export default function FeaturesSection() {
           </p>
         </div>
 
-        <div className="bg-black/80 backdrop-blur-md border border-green-400/30 p-8 rounded-2xl shadow-lg text-center hover:shadow-green-400/25 transition-all duration-300 group">
-          <div className="bg-green-500/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-500/30 transition-colors">
-            <Clock className="w-8 h-8 text-green-400" />
+        <div className="bg-black/80 backdrop-blur-md border p-8 rounded-2xl shadow-lg text-center transition-all duration-300 group" style={{borderColor: '#00d3f3', boxShadow: '0 0 20px rgba(0, 211, 243, 0.1)'}} onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 0 30px rgba(0, 211, 243, 0.3)'} onMouseLeave={(e) => e.currentTarget.style.boxShadow = '0 0 20px rgba(0, 211, 243, 0.1)'}>
+          <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors" style={{backgroundColor: 'rgba(0, 211, 243, 0.2)'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(0, 211, 243, 0.3)'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(0, 211, 243, 0.2)'}>
+            <Clock className="w-8 h-8" style={{color: '#00d3f3'}} />
           </div>
           <h3 className="text-2xl font-bold text-white mb-4 font-mono tracking-wider">实时价格对比</h3>
           <p className="text-gray-300">
@@ -45,9 +45,9 @@ export default function FeaturesSection() {
           </p>
         </div>
 
-        <div className="bg-black/80 backdrop-blur-md border border-orange-400/30 p-8 rounded-2xl shadow-lg text-center hover:shadow-orange-400/25 transition-all duration-300 group">
-          <div className="bg-orange-500/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-orange-500/30 transition-colors">
-            <Users className="w-8 h-8 text-orange-400" />
+        <div className="bg-black/80 backdrop-blur-md border p-8 rounded-2xl shadow-lg text-center transition-all duration-300 group" style={{borderColor: '#ff6b9d', boxShadow: '0 0 20px rgba(255, 107, 157, 0.1)'}} onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 0 30px rgba(255, 107, 157, 0.3)'} onMouseLeave={(e) => e.currentTarget.style.boxShadow = '0 0 20px rgba(255, 107, 157, 0.1)'}>
+          <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 transition-colors" style={{backgroundColor: 'rgba(255, 107, 157, 0.2)'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 107, 157, 0.3)'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 107, 157, 0.2)'}>
+            <Users className="w-8 h-8" style={{color: '#ff6b9d'}} />
           </div>
           <h3 className="text-2xl font-bold text-white mb-4 font-mono tracking-wider">用户真实评价</h3>
           <p className="text-gray-300">
