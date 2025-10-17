@@ -26,14 +26,9 @@ export default function PassCalculator() {
     setTimeout(() => {
       const results: PassRecommendation[] = [];
       
-      // 根据路线和天数计算推荐
-      unifiedPasses.forEach(pass => {
-        let score = 0;
-        let reason = '';
-        let savings = 0;
-        
-        // 地区匹配度评分
-        const regionMatch = pass.coverage.regions.some(region => 
+      // 快速精准筛选：首先按地区精准匹配
+      const regionFilteredPasses = unifiedPasses.filter(pass => {
+        return pass.coverage.regions.some(region => 
           region === route.to || 
           (route.to === '全国' && region === '全国') ||
           (route.to === '北海道' && region === '北海道') ||
@@ -45,58 +40,61 @@ export default function PassCalculator() {
           (route.to === '四国' && region === '四国') ||
           (route.to === '九州' && region === '九州')
         );
+      });
+      
+      // 对精准匹配的通票进行评分
+      regionFilteredPasses.forEach(pass => {
+        let score = 0;
+        let reason = '';
+        let savings = 0;
         
-        if (regionMatch) {
-          score += 40;
-          reason += '✅ 覆盖您的旅行地区 ';
-        } else {
-          score -= 20;
-          reason += '❌ 不覆盖您的旅行地区 ';
-        }
+        // 地区精准匹配（必须条件）
+        score += 50; // 基础高分，因为已经通过地区筛选
+        reason += '🎯 精准地区匹配 ';
         
-        // 天数匹配度评分
-        const durationMatch = pass.duration.includes(route.duration) || 
-                             (route.duration <= Math.max(...pass.duration) && route.duration >= Math.min(...pass.duration));
+        // 天数匹配度评分（允许±2天误差）
+        const durationMatch = pass.duration.some(duration => 
+          Math.abs(duration - route.duration) <= 2
+        );
         
         if (durationMatch) {
-          score += 30;
-          reason += '✅ 天数匹配 ';
+          score += 25;
+          reason += '✅ 天数完美匹配 ';
         } else {
-          score -= 10;
-          reason += '⚠️ 天数不完全匹配 ';
+          score += 10;
+          reason += '⚠️ 天数可调整 ';
         }
         
         // 价格性价比评分
         const dailyCost = pass.price.adult.regular / Math.min(...pass.duration);
         if (dailyCost < 5000) {
-          score += 20;
-          reason += '✅ 性价比高 ';
+          score += 15;
+          reason += '✅ 超高性价比 ';
         } else if (dailyCost < 10000) {
           score += 10;
-          reason += '⚠️ 价格中等 ';
+          reason += '✅ 性价比良好 ';
         } else {
-          score -= 5;
-          reason += '❌ 价格较高 ';
+          score += 5;
+          reason += '⚠️ 价格适中 ';
         }
         
         // 人气评分
-        score += pass.popularity * 2;
+        score += pass.popularity * 3;
         reason += `⭐ 人气${pass.popularity}/5星 `;
         
-        // 计算节省费用（模拟）
-        const estimatedIndividualCost = route.duration * 8000; // 假设每天8000日元
+        // 大致节省费用估算（快速计算）
+        const estimatedDailyCost = route.duration * 8000; // 大致每天8000日元
         const passCost = pass.price.adult.regular;
-        savings = estimatedIndividualCost - passCost;
+        savings = Math.max(0, estimatedDailyCost - passCost);
         
         if (savings > 0) {
-          score += 15;
-          reason += `💰 可节省¥${savings.toLocaleString()} `;
+          score += 10;
+          reason += `💰 约节省¥${savings.toLocaleString()} `;
         } else {
-          score -= 10;
-          reason += `💸 可能不划算 `;
+          score += 5;
+          reason += `💡 价格合理 `;
         }
         
-        // 从全部周游券中筛选，显示所有通票
         results.push({
           pass,
           savings,
@@ -105,23 +103,43 @@ export default function PassCalculator() {
         });
       });
       
-      // 按分数排序
+      // 按分数排序，突出最佳匹配
       results.sort((a, b) => b.score - a.score);
       setRecommendations(results);
       setIsCalculating(false);
       setShowResults(true);
-    }, 1500);
+    }, 1200); // 快速检索
   };
 
 
   return (
-    <div className="glass-calculator rounded-2xl shadow-xl p-8 max-w-6xl mx-auto">
+    <div className="glass-calculator rounded-2xl shadow-xl p-8 max-w-4xl mx-auto">
       <div className="text-center mb-8">
         <h2 className="text-3xl font-bold text-gray-900 mb-4">
-          🚄 智能JR通票计算器
+         周游券计算器
         </h2>
+        <div className="flex justify-center mb-4">
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800 border border-red-200 ml-1 mr-1">
+            <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+            </svg>
+            快速周游券推荐
+          </span>
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800 border border-red-200 ml-1 mr-1">
+            <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+            </svg>
+            快速了解节省金额
+          </span>
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800 border border-red-200 ml-1 mr-1">
+            <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+            </svg>
+            快速获取购买链接
+          </span>
+        </div>
         <p className="text-gray-600">
-          输入您的旅行计划，AI为您推荐最合适的JR通票并计算节省费用
+          输入您的旅行计划，AI为您推荐最合适的周游券并大致计算节省费用
         </p>
       </div>
 

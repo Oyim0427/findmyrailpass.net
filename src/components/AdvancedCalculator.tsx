@@ -54,16 +54,12 @@ export default function AdvancedCalculator() {
       const routeKey = `${route.from}-${route.to}`;
       const segments = routeData[routeKey] || [];
       
-      // 计算单独购票总费用
+      // 计算单独购票总费用（精确计算）
       const individualCost = segments.reduce((total, segment) => total + segment.cost, 0) * travelers;
       
-      unifiedPasses.forEach(pass => {
-        let score = 0;
-        let reason = '';
-        let savings = 0;
-        
-        // 地区匹配度评分
-        const regionMatch = pass.coverage.regions.some(region => 
+      // 第一步：精准地区匹配筛选
+      const regionFilteredPasses = unifiedPasses.filter(pass => {
+        return pass.coverage.regions.some(region => 
           region === route.to || 
           (route.to === '全国' && region === '全国') ||
           (route.to === '关东' && region === '关东') ||
@@ -71,54 +67,69 @@ export default function AdvancedCalculator() {
           (route.to === '东北' && region === '东北') ||
           (route.to === '九州' && region === '九州')
         );
+      });
+      
+      // 第二步：对精准匹配的通票进行综合评分
+      regionFilteredPasses.forEach(pass => {
+        let score = 0;
+        let reason = '';
+        let savings = 0;
+        let isPerfectMatch = true;
         
-        if (regionMatch) {
+        // 地区精准匹配（必须条件，基础分）
+        score += 60;
+        reason += '🎯 精准地区匹配 ';
+        
+        // 天数匹配：严格优先完美匹配
+        const validDurations = pass.duration.filter(duration => duration <= route.duration);
+        const exactDurationMatch = pass.duration.includes(route.duration);
+        
+        if (exactDurationMatch) {
+          // 完美天数匹配，最高分
           score += 40;
-          reason += '✅ 覆盖您的旅行地区 ';
+          reason += '✅ 天数完美匹配 ';
+        } else if (validDurations.length > 0) {
+          // 有合适的天数选项，但非完美匹配
+          const bestDuration = Math.max(...validDurations);
+          score += 25;
+          reason += `✅ 天数匹配(${bestDuration}天) `;
+          isPerfectMatch = false;
         } else {
-          score -= 20;
-          reason += '❌ 不覆盖您的旅行地区 ';
+          // 天数不匹配，大幅扣分
+          const minDuration = Math.min(...pass.duration);
+          const maxDuration = Math.max(...pass.duration);
+          
+          if (minDuration > route.duration) {
+            score += 5;
+            reason += `⚠️ 天数较长(${minDuration}天) `;
+          } else {
+            score += 5;
+            reason += `⚠️ 天数较短(${maxDuration}天) `;
+          }
+          isPerfectMatch = false;
         }
         
-        // 天数匹配度评分
-        const durationMatch = pass.duration.includes(route.duration) || 
-                             (route.duration <= Math.max(...pass.duration) && route.duration >= Math.min(...pass.duration));
-        
-        if (durationMatch) {
-          score += 30;
-          reason += '✅ 天数匹配 ';
-        } else {
-          score -= 10;
-          reason += '⚠️ 天数不完全匹配 ';
-        }
-        
-        // 价格性价比评分
-        const dailyCost = pass.price.adult.regular / Math.min(...pass.duration);
-        if (dailyCost < 5000) {
-          score += 20;
-          reason += '✅ 性价比高 ';
-        } else if (dailyCost < 10000) {
-          score += 10;
-          reason += '⚠️ 价格中等 ';
-        } else {
-          score -= 5;
-          reason += '❌ 价格较高 ';
-        }
-        
-        // 人气评分
-        score += pass.popularity * 2;
-        reason += `⭐ 人气${pass.popularity}/5星 `;
-        
-        // 计算节省费用
+        // 精确节省费用计算（核心评分项）
         const passCost = pass.price.adult.regular * travelers;
         savings = individualCost - passCost;
         
         if (savings > 0) {
-          score += 15;
-          reason += `💰 可节省¥${savings.toLocaleString()} `;
+          // 根据节省金额给予不同分数
+          if (savings >= 10000) {
+            score += 35;
+            reason += `💰 大幅节省¥${savings.toLocaleString()} `;
+          } else if (savings >= 5000) {
+            score += 30;
+            reason += `💰 显著节省¥${savings.toLocaleString()} `;
+          } else {
+            score += 20;
+            reason += `💰 节省¥${savings.toLocaleString()} `;
+          }
         } else {
-          score -= 10;
-          reason += `💸 可能不划算 `;
+          // 不划算，大幅扣分
+          score -= 25;
+          reason += `💸 不划算(多花¥${Math.abs(savings).toLocaleString()}) `;
+          isPerfectMatch = false;
         }
         
         // 路线覆盖度评分
@@ -129,19 +140,46 @@ export default function AdvancedCalculator() {
           );
         });
         
-        const coverageRatio = coveredSegments.length / segments.length;
-        if (coverageRatio >= 0.8) {
-          score += 10;
-          reason += '✅ 路线覆盖度高 ';
+        const coverageRatio = segments.length > 0 ? coveredSegments.length / segments.length : 1;
+        if (coverageRatio >= 0.9) {
+          score += 20;
+          reason += '✅ 路线全覆盖 ';
+        } else if (coverageRatio >= 0.7) {
+          score += 15;
+          reason += '✅ 路线高覆盖 ';
         } else if (coverageRatio >= 0.5) {
-          score += 5;
+          score += 10;
           reason += '⚠️ 路线部分覆盖 ';
         } else {
-          score -= 5;
+          score -= 10;
           reason += '❌ 路线覆盖度低 ';
+          isPerfectMatch = false;
         }
         
-        // 只推荐分数大于50的通票
+        // 性价比评分
+        const dailyCost = pass.price.adult.regular / Math.min(...pass.duration);
+        if (dailyCost < 5000) {
+          score += 15;
+          reason += '✅ 超高性价比 ';
+        } else if (dailyCost < 10000) {
+          score += 10;
+          reason += '✅ 性价比良好 ';
+        } else {
+          score += 5;
+          reason += '⚠️ 价格适中 ';
+        }
+        
+        // 人气评分
+        score += pass.popularity * 2;
+        reason += `⭐ 人气${pass.popularity}/5星 `;
+        
+        // 完美匹配奖励分
+        if (isPerfectMatch) {
+          score += 15;
+          reason += '🏆 完美匹配 ';
+        }
+        
+        // 推荐门槛：优先推荐高分方案
         if (score > 50) {
           results.push({
             pass,
@@ -152,29 +190,126 @@ export default function AdvancedCalculator() {
         }
       });
       
-      // 按分数排序
+      // 第三步：如果精准匹配没有结果，尝试同地区备选推荐
+      if (results.length === 0) {
+        // 获取同地区的所有通票作为备选
+        const fallbackPasses = unifiedPasses.filter(pass => {
+          return pass.coverage.regions.some(region => 
+            region === route.to || 
+            (route.to === '全国' && region === '全国') ||
+            (route.to === '关东' && region === '关东') ||
+            (route.to === '关西' && region === '关西') ||
+            (route.to === '东北' && region === '东北') ||
+            (route.to === '九州' && region === '九州')
+          );
+        });
+        
+        // 对备选通票进行评分（降低门槛）
+        fallbackPasses.forEach(pass => {
+          let score = 0;
+          let reason = '';
+          let savings = 0;
+          
+          // 地区匹配（基础分）
+          score += 40;
+          reason += '🎯 同地区匹配 ';
+          
+          // 天数匹配（放宽要求）
+          const validDurations = pass.duration.filter(duration => duration <= route.duration);
+          if (validDurations.length > 0) {
+            const bestDuration = Math.max(...validDurations);
+            score += 20;
+            reason += `✅ 天数匹配(${bestDuration}天) `;
+          } else {
+            score += 5;
+            reason += '⚠️ 天数不匹配 ';
+          }
+          
+          // 节省费用
+          const passCost = pass.price.adult.regular * travelers;
+          savings = individualCost - passCost;
+          
+          if (savings > 0) {
+            score += 25;
+            reason += `💰 节省¥${savings.toLocaleString()} `;
+          } else {
+            score -= 10;
+            reason += `💸 不划算(多花¥${Math.abs(savings).toLocaleString()}) `;
+          }
+          
+          // 性价比
+          const dailyCost = pass.price.adult.regular / Math.min(...pass.duration);
+          if (dailyCost < 10000) {
+            score += 10;
+            reason += '✅ 性价比良好 ';
+          }
+          
+          // 人气
+          score += pass.popularity * 2;
+          reason += `⭐ 人气${pass.popularity}/5星 `;
+          
+          // 降低推荐门槛
+          if (score > 30) {
+            results.push({
+              pass,
+              savings,
+              reason,
+              score
+            });
+          }
+        });
+      }
+      
+      // 按分数排序，确保最佳推荐在第一位
       results.sort((a, b) => b.score - a.score);
+      
       setRecommendations(results);
       setRouteSegments(segments);
       setIsCalculating(false);
       setShowResults(true);
-    }, 2000);
+    }, 2000); // 精确计算需要更多时间
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl p-8 max-w-7xl mx-auto">
+    <div className="bg-white rounded-2xl shadow-xl p-8 max-w-4xl mx-auto">
       <div className="text-center mb-8">
         <h2 className="text-3xl font-bold text-black mb-4">
-          🚄 高级智能JR通票计算器
+           智能周游券高级计算器
         </h2>
+        <div className="flex justify-center mb-4 flex-wrap gap-2">
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800 border border-red-200">
+            <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+            </svg>
+            精准地区匹配
+          </span>
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800 border border-red-200">
+            <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+            </svg>
+            精准天数匹配
+          </span>
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800 border border-red-200">
+            <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+            </svg>
+            精确节省费用计算
+          </span>
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800 border border-red-200">
+            <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+            </svg>
+            综合最佳推荐
+          </span>
+        </div>
         <p className="text-gray-800">
-          基于实际路线规划，AI为您推荐最合适的JR通票并精确计算节省费用
+        智能精准检索：地区必须精准匹配，天数严格优先完美匹配，精确计算节省费用，综合评分选出最佳方案。如无完美匹配，则推荐同地区最优备选方案。
         </p>
       </div>
 
-      <div className="grid lg:grid-cols-8 gap-8">
+      <div className="w-full">
         {/* 输入区域 */}
-        <div className="lg:col-span-6 space-y-6">
+        <div className="w-full space-y-6">
           <div className="grid md:grid-cols-2 gap-6">
               <div>
               <label className="block text-sm font-medium text-black mb-2">
@@ -324,47 +459,6 @@ export default function AdvancedCalculator() {
           </div>
         </div>
 
-        {/* 侧边栏信息 */}
-        <div className="lg:col-span-2 space-y-6">
-          <div className="bg-blue-50 rounded-lg p-6">
-            <h3 className="font-bold text-black mb-3 flex items-center">
-              <Route className="w-5 h-5 mr-2" />
-              智能分析功能
-            </h3>
-            <ul className="space-y-2 text-sm text-gray-800">
-              <li className="flex items-center">
-                <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                实际路线规划
-              </li>
-              <li className="flex items-center">
-                <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                精确费用对比
-              </li>
-              <li className="flex items-center">
-                <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                AI智能推荐
-              </li>
-              <li className="flex items-center">
-                <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                节省费用计算
-              </li>
-            </ul>
-          </div>
-
-          <div className="bg-green-50 rounded-lg p-6">
-            <h3 className="font-bold text-black mb-3 flex items-center">
-              <TrendingUp className="w-5 h-5 mr-2" />
-              计算优势
-            </h3>
-            <ul className="space-y-2 text-sm text-gray-800">
-              <li>• 基于真实JR票价数据</li>
-              <li>• 考虑新干线、特急等不同车型</li>
-              <li>• 多维度评分算法</li>
-              <li>• 个性化推荐理由</li>
-            </ul>
-          </div>
-
-      </div>
     </div>
 
 
@@ -415,10 +509,10 @@ export default function AdvancedCalculator() {
         <div className="mt-8 space-y-6">
           <div className="text-center">
             <h3 className="text-2xl font-bold text-black mb-2">
-              🎯 AI智能推荐结果
+              🎯 精准推荐结果
             </h3>
             <p className="text-gray-800">
-              基于实际路线分析，为您推荐了 {recommendations.length} 个最佳选择
+              基于智能精准检索算法，综合地区匹配、天数匹配、节省费用、路线覆盖度等多维度评分，为您推荐了 {recommendations.length} 个最佳方案
             </p>
           </div>
 
@@ -429,24 +523,29 @@ export default function AdvancedCalculator() {
                 ? 'bg-gradient-to-br from-red-50/80 via-pink-50/60 to-rose-50/80 backdrop-blur-sm' 
                 : 'bg-white/90 backdrop-blur-sm'
             }`}>
-              {/* 炫彩边框效果 */}
+              {/* 炫彩边框效果 - 只有最佳推荐有特殊效果 */}
               <div className={`absolute inset-0 rounded-2xl p-[3px] ${
                 index === 0 
                   ? 'bg-gradient-to-r from-red-500 via-pink-500 to-red-600 animate-pulse' 
-                  : 'bg-gradient-to-r from-red-400 via-pink-400 to-rose-400 group-hover:from-red-500 group-hover:via-pink-500 group-hover:to-rose-500'
+                  : 'bg-gradient-to-r from-gray-300 via-gray-400 to-gray-500 group-hover:from-gray-400 group-hover:via-gray-500 group-hover:to-gray-600'
               }`}>
                 <div className="w-full h-full bg-white/95 backdrop-blur-sm rounded-xl shadow-inner"></div>
               </div>
               
-              {/* 装饰性光效 */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-yellow-200/20 to-transparent rounded-full blur-2xl"></div>
-              <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-pink-200/20 to-transparent rounded-full blur-xl"></div>
+              {/* 装饰性光效 - 只有最佳推荐有 */}
+              {index === 0 && (
+                <>
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-yellow-200/20 to-transparent rounded-full blur-2xl"></div>
+                  <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-pink-200/20 to-transparent rounded-full blur-xl"></div>
+                </>
+              )}
               
               {/* 内容区域 */}
               <div className="relative z-10">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4">
                 <div className="flex-1 mb-4 sm:mb-0">
                   <div className="flex flex-col sm:flex-row sm:items-center mb-2">
+                    {/* 只有第一个（最佳推荐）显示标签 */}
                     {index === 0 && (
                       <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 text-white px-4 py-2 rounded text-sm font-bold mb-2 sm:mb-0 sm:mr-3 shadow-xl shadow-amber-400/30 w-fit transition-all duration-300 border border-white/20">
                         🏆 最佳推荐
@@ -549,9 +648,9 @@ export default function AdvancedCalculator() {
             暂无推荐
           </h3>
           <p className="text-gray-800">
-            根据您的旅行计划，暂时没有找到合适的JR通票推荐。
+            根据您的旅行计划，该地区暂时没有找到合适的周游券推荐。
             <br />
-            建议您调整旅行天数或目的地，或考虑单独购买车票。
+            建议您调整目的地或考虑单独购买车票。
           </p>
         </div>
       )}

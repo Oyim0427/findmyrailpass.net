@@ -176,7 +176,7 @@ export default function OmikujiSection() {
         <div className="max-w-2xl mx-auto">
           {/* 抽签盒 */}
           <div className="relative mb-8">
-            <div className="bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-sm p-8 border border-purple-500/30 shadow-2xl">
+            <div className="bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-sm p-8 border border-purple-500/30 shadow-2xl rounded-2xl">
               <div className="text-center">
                 <div className="mb-8">
                   {/* 竹筒容器 - 向上移动 */}
