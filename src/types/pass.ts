@@ -3,16 +3,17 @@ export interface JRPass {
   name: {
     en: string;
     jp: string;
+    cn: string;
   };
   description: string;
   price: {
     adult: {
       regular: number;
-      green: number;
+      advance?: number; // 预购价格
     };
     child: {
       regular: number;
-      green: number;
+      advance?: number; // 预购价格
     };
   };
   duration: number[]; // 可选天数
@@ -20,6 +21,7 @@ export interface JRPass {
     regions: string[];
     map: string; // 地图图片路径
   };
+  targetAudience: string[]; // 适用人群
   trainTypes: string[];
   advantages: string[];
   disadvantages: string[];

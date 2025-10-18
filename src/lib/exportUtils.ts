@@ -13,7 +13,7 @@ export const exportToPDF = (recommendations: PassRecommendation[], route: RouteI
     <html>
     <head>
       <meta charset="UTF-8">
-      <title>JR通票推荐报告</title>
+      <title>周游券推荐报告</title>
       <style>
         body { font-family: Arial, sans-serif; margin: 20px; }
         .header { text-align: center; margin-bottom: 30px; }
@@ -31,7 +31,7 @@ export const exportToPDF = (recommendations: PassRecommendation[], route: RouteI
     <body>
       <div class="header">
         <div class="logo">🚄 FindMyJR-Pass</div>
-        <h1>JR通票推荐报告</h1>
+        <h1>周游券推荐报告</h1>
         <p>生成时间: ${new Date().toLocaleString('zh-CN')}</p>
       </div>
 
@@ -90,8 +90,8 @@ export const exportToJSON = (data: unknown, filename: string) => {
 
 export const shareResults = async (recommendations: PassRecommendation[], _route: RouteInfo) => {
   const shareData = {
-    title: 'JR通票推荐结果',
-    text: `我在FindMyJR-Pass找到了最适合的JR通票！推荐: ${recommendations[0]?.pass.name.en}，节省¥${recommendations[0]?.savings.toLocaleString()}`,
+    title: '周游券推荐结果',
+    text: `我在FindMyJR-Pass找到了最适合的周游券！推荐: ${recommendations[0]?.pass.name.en}，节省¥${recommendations[0]?.savings.toLocaleString()}`,
     url: window.location.href,
   };
 

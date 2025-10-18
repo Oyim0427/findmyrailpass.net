@@ -22,7 +22,7 @@ export default function PassesSection() {
             </span>
           </div>
           <h2 className="text-4xl font-bold cyber-text text-cyan-400 mb-4">
-            热门JR通票推荐
+            热门周游券推荐
           </h2>
           <p className="text-xl text-gray-300 font-light">
             精选最受欢迎的日本铁路通票，覆盖全日本各地区
@@ -40,7 +40,7 @@ export default function PassesSection() {
 
         <div className="text-center">
           <Link href="/passlist" className="cyber-button px-8 py-4 text-lg font-semibold inline-flex items-center">
-            查看所有JR通票
+            查看所有周游券
             <ArrowRight className="ml-2 w-5 h-5" />
           </Link>
         </div>

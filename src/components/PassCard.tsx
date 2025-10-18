@@ -1,7 +1,7 @@
 'use client';
 
 import { JRPass } from '@/types/pass';
-import { Star, MapPin, Clock, Train, ExternalLink } from 'lucide-react';
+import { Star, MapPin, Clock, Train, ExternalLink, Users } from 'lucide-react';
 
 interface PassCardProps {
   pass: JRPass;
@@ -30,7 +30,7 @@ export default function PassCard({ pass, onClick }: PassCardProps) {
         <div className="relative h-48 w-full overflow-hidden rounded-xl mb-4">
           <img 
             src={pass.coverage.map || '/images/default-pass.jpg'} 
-            alt={pass.name.en}
+            alt={pass.name.cn}
             className="w-full h-full object-cover"
           />
           <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
@@ -44,9 +44,9 @@ export default function PassCard({ pass, onClick }: PassCardProps) {
           <div className="flex-1 pr-4">
           
             <h3 className="text-2xl font-bold text-gray-900 mb-1">
-              {pass.name.en}
+              {pass.name.cn}
             </h3>
-            <p className="text-gray-700 text-sm mb-4 line-clamp-2">
+            <p className="text-gray-700 text-sm mb-4">
           {pass.description}
         </p>
         <div className="flex items-center space-x-1">
@@ -85,18 +85,21 @@ export default function PassCard({ pass, onClick }: PassCardProps) {
           <span>{pass.coverage.regions.join('、')}</span>
         </div>
 
+        {/* Target Audience */}
+        <div className="flex items-center text-sm text-gray-600 mb-3">
+          <Users className="w-4 h-4 mr-2" />
+          <span>{pass.targetAudience?.join('、') || '通用'}</span>
+        </div>
+
         {/* Train Types */}
         <div className="flex items-center text-sm text-gray-600 mb-4">
           <Train className="w-4 h-4 mr-2" />
-          <span>{pass.trainTypes.slice(0, 2).join('、')}</span>
-          {pass.trainTypes.length > 2 && (
-            <span className="text-gray-400 ml-1">等{pass.trainTypes.length}种</span>
-          )}
+          <span>{pass.trainTypes.join('、')}</span>
         </div>
 
         {/* Best For Tags */}
         <div className="flex flex-wrap gap-2 mb-4">
-          {pass.bestFor.slice(0, 3).map((tag) => (
+          {pass.bestFor.slice(0, 4).map((tag) => (
             <span
               key={tag}
               className="bg-red-50 text-red-700 px-3 py-1 rounded-full text-xs font-medium"

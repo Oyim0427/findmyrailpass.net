@@ -166,10 +166,10 @@ export default function OmikujiSection() {
             </span>
           </div>
           <h2 className="text-4xl font-bold cyber-text text-cyan-400 mb-4">
-          赛博抽签占卜
+          赛博抽签
           </h2>
           <p className="text-gray-400 font-mono text-sm tracking-wider">
-          让AI为您预测日本之旅的运势，抽一支数字签文，看看旅途的兆头如何。结合传统占卜文化与现代科技，为您带来独特的旅行体验！
+          让AI为您预测日本之旅的运势，抽一支数字签文，看看旅途的兆头如何。<br />结合传统占卜文化与现代科技，为您带来独特的旅行体验！
           </p>
         </div>
 
@@ -180,7 +180,7 @@ export default function OmikujiSection() {
               <div className="text-center">
                 <div className="mb-8">
                   {/* 竹筒容器 - 向上移动 */}
-                  <div className="relative mx-auto w-24 h-40 mb-4">
+                  <div className="relative mx-auto w-24 h-40 mb-6">
                     {/* 竹筒主体 - 向上移动 */}
                     <div className={`absolute top-5 left-1/2 transform -translate-x-1/2 w-16 h-24 bg-gradient-to-b from-amber-800 to-amber-600 rounded-t-2xl border-2 border-amber-700 shadow-lg z-10 transition-transform duration-1000 ${
                       animationPhase === 'rotating' && isDrawing ? 'animate-spin' : ''
@@ -209,8 +209,8 @@ export default function OmikujiSection() {
                     <div className="absolute top-28 left-1/2 transform -translate-x-1/2 w-20 h-4 bg-black/20 rounded-full blur-sm"></div>
                   </div>
                   
-                  <p className="text-gray-300">这是基于AI算法的娱乐性占卜，结合了日本传统文化元素和现代科技。
-                  抽签结果仅供参考，真正的旅途体验还需要您亲自去感受和创造！点击下方按钮，让AI为您抽取旅途运势</p>
+                  <p className="text-gray-300">这是基于AI算法的娱乐性抽签，结合了日本传统文化元素和现代科技。<br />
+                  抽签结果仅供参考，真正的旅途体验还需要您亲自去感受和创造！<br />点击下方按钮，为您抽取旅途运势</p>
                 </div>
                 <button
                   onClick={drawOmikuji}

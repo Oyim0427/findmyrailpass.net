@@ -27,7 +27,7 @@ export default function HeroSection() {
         </h1>
         
         <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto font-light">
-        智能推荐系统为您精选最经济实惠的JR通票，助力您轻松规划日本行程。<br />
+        智能推荐系统为您精选最经济实惠的周游券，助力您轻松规划日本行程。<br />
         让旅行更加便捷高效，同时最大限度地节省花费，开启智能旅行新体验！
         </p>
         

@@ -39,7 +39,7 @@ function PassListContent() {
     { id: 'national', name: '全国通票', count: allPasses.filter(pass => pass.category === 'national').length },
     { id: 'regional', name: '地区通票', count: allPasses.filter(pass => pass.category === 'regional').length },
     { id: 'city', name: '城市交通券', count: allPasses.filter(pass => pass.category === 'city').length },
-    { id: 'bus', name: '巴士通票', count: allPasses.filter(pass => pass.category === 'bus').length },
+    { id: 'bus', name: '巴士通票', count: allPasses.filter(pass => pass.trainTypes.includes('巴士')).length },
     { id: 'private', name: '私铁', count: allPasses.filter(pass => pass.category === 'private').length },
     { id: 'special', name: '特别组合', count: allPasses.filter(pass => pass.category === 'special').length }
   ];

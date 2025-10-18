@@ -282,7 +282,7 @@ export default function PassCalculator() {
               🎯 AI智能推荐结果
             </h3>
             <p className="text-gray-600">
-              基于您的旅行计划，为您筛选了 {recommendations.length} 个JR通票选项
+              基于您的旅行计划，为您筛选了 {recommendations.length} 个周游券选项
             </p>
           </div>
 

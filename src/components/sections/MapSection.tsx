@@ -33,7 +33,7 @@ export default function MapSection() {
             通票地图
           </h2>
           <p className="text-xl text-gray-300 font-light">
-            可视化查看各JR通票的覆盖范围，选择适合您行程的通票
+            可视化查看各周游券的覆盖范围，选择适合您行程的周游券
           </p>
         </div>
 
