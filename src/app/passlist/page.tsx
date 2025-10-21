@@ -109,9 +109,34 @@ function PassListContent() {
                            (selectedCategory === 'regional' && pass.category === 'regional') ||
                            (selectedCategory === 'city' && pass.category === 'city');
     
-    // 地区匹配
+    // 地区匹配 - 使用智能匹配逻辑
     const matchesRegion = selectedRegion === 'all' || 
-                         pass.coverage.regions.includes(selectedRegion);
+                         (() => {
+                           if (selectedRegion === '全国') {
+                             return pass.coverage.regions.includes('全国');
+                           }
+                           
+                           // 地区关键词映射
+                           const regionKeywords = {
+                             '北海道': ['北海道', '札幌', '富良野', '美瑛', '登别', '小樽', '旭川', '新千岁机场'],
+                             '东北': ['东北', '青森', '仙台', '秋田', '山形', '福岛'],
+                             '关东': ['关东', '东京', '富士山', '日光', '轻井泽', '伊豆'],
+                             '中部': ['中部', '名古屋', '金泽', '飞驒高山', '静冈', '伊势', '熊野', '和歌山', '白川鄉', '合掌村'],
+                             '关西': ['关西', '大阪', '京都', '奈良', '神户', '仓敷', '冈山', '丹後地区'],
+                             '中国': ['中国', '广岛', '山口', '山阳', '山阴'],
+                             '四国': ['四国'],
+                             '九州': ['九州', '福冈', '博多', '熊本', '鹿儿岛', '长崎', '宫崎']
+                           };
+                           
+                           const keywords = regionKeywords[selectedRegion as keyof typeof regionKeywords];
+                           if (keywords) {
+                             return pass.coverage.regions.some(region => 
+                               keywords.some(keyword => region.includes(keyword))
+                             );
+                           }
+                           
+                           return false;
+                         })();
     
     // 时长匹配
     const matchesDuration = selectedDuration === 'all' || 
@@ -122,10 +147,12 @@ function PassListContent() {
     
     // 价格匹配
     const matchesPrice = selectedPriceRange === 'all' || 
-                        (selectedPriceRange === '0-10000' && pass.price.adult.regular <= 10000) ||
-                        (selectedPriceRange === '10000-20000' && pass.price.adult.regular > 10000 && pass.price.adult.regular <= 20000) ||
-                        (selectedPriceRange === '20000-30000' && pass.price.adult.regular > 20000 && pass.price.adult.regular <= 30000) ||
-                        (selectedPriceRange === '30000+' && pass.price.adult.regular > 30000);
+                        (selectedPriceRange === '0-5000' && pass.price.adult.regular <= 5000) ||
+                        (selectedPriceRange === '5001-10000' && pass.price.adult.regular > 5000 && pass.price.adult.regular <= 10000) ||
+                        (selectedPriceRange === '10001-20000' && pass.price.adult.regular > 10000 && pass.price.adult.regular <= 20000) ||
+                        (selectedPriceRange === '20001-30000' && pass.price.adult.regular > 20000 && pass.price.adult.regular <= 30000) ||
+                        (selectedPriceRange === '30001-40000' && pass.price.adult.regular > 30000 && pass.price.adult.regular <= 40000) ||
+                        (selectedPriceRange === '40001+' && pass.price.adult.regular > 40000);
     
     // 评分匹配
     const matchesRating = selectedRating === 'all' || 
@@ -143,6 +170,78 @@ function PassListContent() {
     
     return matchesSearch && matchesCategory && matchesRegion && matchesDuration && 
            matchesPrice && matchesRating && matchesTrainType && matchesUrlRegion;
+  }).sort((a, b) => {
+    // 首先按地区排序：全国版优先
+    const aIsNational = a.coverage.regions.includes('全国');
+    const bIsNational = b.coverage.regions.includes('全国');
+    
+    if (aIsNational && !bIsNational) return -1; // a是全国版，b不是，a排在前面
+    if (!aIsNational && bIsNational) return 1;  // b是全国版，a不是，b排在前面
+    
+    // 如果都是全国版，则按sortOrder排序
+    if (aIsNational && bIsNational) {
+      if (a.sortOrder !== undefined && b.sortOrder !== undefined) {
+        return a.sortOrder - b.sortOrder;
+      }
+      if (a.sortOrder !== undefined && b.sortOrder === undefined) {
+        return -1; // a有sortOrder，b没有，a排在前面
+      }
+      if (a.sortOrder === undefined && b.sortOrder !== undefined) {
+        return 1; // b有sortOrder，a没有，b排在前面
+      }
+      return b.popularity - a.popularity; // 都没有sortOrder，按人气排序
+    }
+    
+    // 如果都不是全国版，则按地区列表顺序排列
+    const regionOrder = ['北海道','东北', '关东', '中部','关西','中国', '四国', '九州'];
+    
+    // 获取周游券的主要地区
+    const getMainRegion = (pass: JRPass) => {
+      // 检查每个地区关键词
+      const regionKeywords = {
+        '北海道': ['北海道', '札幌', '富良野', '美瑛', '登别', '函館'],
+        '东北': ['东北', '青森', '仙台', '秋田', '山形', '福岛'],
+        '关东': ['关东', '东京', '富士山', '日光', '轻井泽', '伊豆'],
+        '中部': ['中部', '名古屋', '金泽', '飞驒高山', '静冈', '伊势', '熊野', '和歌山', '白川鄉', '合掌村'],
+        '关西': ['关西', '大阪', '京都', '奈良', '神户', '仓敷', '冈山', '丹後地区'],
+        '中国': ['中国', '广岛', '山口', '山阳', '山阴'],
+        '四国': ['四国'],
+        '九州': ['九州', '福冈', '博多', '熊本', '鹿儿岛', '长崎', '宫崎']
+      };
+      
+      for (const [region, keywords] of Object.entries(regionKeywords)) {
+        if (pass.coverage.regions.some((r: string) => 
+          keywords.some(keyword => r.includes(keyword))
+        )) {
+          return region;
+        }
+      }
+      return '其他'; // 如果不在列表中，归为其他
+    };
+    
+    const aRegion = getMainRegion(a);
+    const bRegion = getMainRegion(b);
+    
+    // 按地区列表顺序排序
+    const aRegionIndex = regionOrder.indexOf(aRegion);
+    const bRegionIndex = regionOrder.indexOf(bRegion);
+    
+    if (aRegionIndex !== bRegionIndex) {
+      return aRegionIndex - bRegionIndex;
+    }
+    
+    // 如果地区相同，则按sortOrder排序，如果没有sortOrder则按人气排序
+    if (a.sortOrder !== undefined && b.sortOrder !== undefined) {
+      return a.sortOrder - b.sortOrder;
+    }
+    if (a.sortOrder !== undefined && b.sortOrder === undefined) {
+      return -1; // a有sortOrder，b没有，a排在前面
+    }
+    if (a.sortOrder === undefined && b.sortOrder !== undefined) {
+      return 1; // b有sortOrder，a没有，b排在前面
+    }
+    // 都没有sortOrder，按人气排序
+    return b.popularity - a.popularity;
   });
 
   // 分页计算

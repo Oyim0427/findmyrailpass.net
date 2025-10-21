@@ -27,10 +27,10 @@ export default function FooterSection() {
           <div>
             <h3 className="text-lg font-semibold mb-4 cyber-text text-cyan-400">[PRODUCTS]</h3>
             <ul className="space-y-2 text-gray-400">
-              <li><Link href="/passes" className="hover:text-cyan-400 transition-colors font-mono text-sm tracking-wider">通票查询</Link></li>
-              <li><a href="#map" className="hover:text-cyan-400 transition-colors font-mono text-sm tracking-wider">覆盖地图</a></li>
-              <li><Link href="/blog" className="hover:text-cyan-400 transition-colors font-mono text-sm tracking-wider">用户故事</Link></li>
-              <li><a href="#" className="hover:text-cyan-400 transition-colors font-mono text-sm tracking-wider">价格对比</a></li>
+              <li><Link href="/passes" className="hover:text-cyan-400 transition-colors font-mono text-sm tracking-wider">周游券查询</Link></li>
+              <li><Link href="/blog" className="hover:text-cyan-400 transition-colors font-mono text-sm tracking-wider">赛博抽签</Link></li>
+              <li><a href="#map" className="hover:text-cyan-400 transition-colors font-mono text-sm tracking-wider">周游券地图</a></li>
+              <li><Link href="/blog" className="hover:text-cyan-400 transition-colors font-mono text-sm tracking-wider">热门周游券推荐</Link></li>
             </ul>
           </div>
           

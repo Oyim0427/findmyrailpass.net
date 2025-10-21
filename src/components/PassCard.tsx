@@ -1,7 +1,7 @@
 'use client';
 
 import { JRPass } from '@/types/pass';
-import { Star, MapPin, Clock, Train, ExternalLink, Users } from 'lucide-react';
+import { Star, MapPin, Calendar, CalendarDays, Train, ExternalLink, Users, Clock } from 'lucide-react';
 
 interface PassCardProps {
   pass: JRPass;
@@ -33,10 +33,20 @@ export default function PassCard({ pass, onClick }: PassCardProps) {
             alt={pass.name.cn}
             className="w-full h-full object-cover"
           />
-          <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
-            <span className="text-sm font-semibold text-gray-800">
-              {pass.category === 'national' ? '全国版' : '地区版'}
-            </span>
+          {/* 期间限定标志 */}
+          {pass.isLimitedPeriod && (
+            <div className="absolute top-4 left-4">
+              <div className="bg-red-500 text-white px-3 py-1 rounded-lg shadow-lg">
+                <span className="text-sm font-bold">期间限定</span>
+              </div>
+            </div>
+          )}
+          <div className="absolute top-4 right-4">
+            <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
+              <span className="text-sm font-semibold text-gray-800">
+                {pass.category === 'national' ? '全国版' : '地区版'}
+              </span>
+            </div>
           </div>
         </div>
         {/* Header */}
@@ -79,6 +89,17 @@ export default function PassCard({ pass, onClick }: PassCardProps) {
           <span>{pass.duration.join(' / ')}天</span>
         </div>
 
+        {/* 使用期限 */}
+        {pass.validityPeriod && (
+          <div className="flex items-center text-sm text-gray-600 mb-3">
+            <Calendar className="w-4 h-4 mr-2" />
+            <span>
+              {pass.validityPeriod.description || '使用期限'}
+              {pass.validityPeriod.description !== '全年可用' && pass.validityPeriod.description !== '周六周日节假日限定' && `: ${pass.validityPeriod.startDate} - ${pass.validityPeriod.endDate}`}
+            </span>
+          </div>
+        )}
+
         {/* Coverage */}
         <div className="flex items-center text-sm text-gray-600 mb-3">
           <MapPin className="w-4 h-4 mr-2" />
@@ -92,14 +113,14 @@ export default function PassCard({ pass, onClick }: PassCardProps) {
         </div>
 
         {/* Train Types */}
-        <div className="flex items-center text-sm text-gray-600 mb-4">
+        <div className="flex items-center text-sm text-gray-600 mb-3">
           <Train className="w-4 h-4 mr-2" />
           <span>{pass.trainTypes.join('、')}</span>
         </div>
 
         {/* Best For Tags */}
         <div className="flex flex-wrap gap-2 mb-4">
-          {pass.bestFor.slice(0, 4).map((tag) => (
+          {pass.bestFor.map((tag) => (
             <span
               key={tag}
               className="bg-red-50 text-red-700 px-3 py-1 rounded-full text-xs font-medium"
@@ -109,28 +130,42 @@ export default function PassCard({ pass, onClick }: PassCardProps) {
           ))}
         </div>
 
-        {/* Advantages Preview */}
-        <div className="mb-4">
-          <h4 className="text-sm font-semibold text-gray-900 mb-2">主要优势</h4>
-          <ul className="text-sm text-gray-600 space-y-1">
-            {pass.advantages.slice(0, 2).map((advantage, index) => (
-              <li key={index} className="flex items-start">
-                <span className="text-green-500 mr-2">✓</span>
-                {advantage}
-              </li>
-            ))}
-          </ul>
-        </div>
 
         {/* Action Buttons */}
         <div className="flex space-x-3 mt-auto">
-          <button className="flex-1 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2">
-            <ExternalLink className="w-4 h-4" />
-            官方购买
-          </button>
-          <button className="flex-1 bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2">
-            查看详情
-          </button>
+          {pass.purchaseLinks && pass.purchaseLinks.length > 0 ? (
+            <a 
+              href={pass.purchaseLinks[0].url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2"
+            >
+              <ExternalLink className="w-4 h-4" />
+              官方购买
+            </a>
+          ) : (
+            <button className="flex-1 bg-gray-400 text-white px-4 py-2 rounded-lg text-sm font-medium cursor-not-allowed flex items-center justify-center gap-2">
+              <ExternalLink className="w-4 h-4" />
+              官方购买
+            </button>
+          )}
+          {pass.officialLinks && pass.officialLinks.length > 0 ? (
+            <a 
+              href={pass.officialLinks[0].url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2"
+            >
+              <ExternalLink className="w-4 h-4" />
+              查看详情
+            </a>
+          ) : (
+            <button 
+              className="flex-1 bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2"
+            >
+              查看详情
+            </button>
+          )}
         </div>
       </div>
     </div>
