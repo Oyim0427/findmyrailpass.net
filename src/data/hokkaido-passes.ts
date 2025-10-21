@@ -53,7 +53,7 @@ export const hokkaidoPasses: JRPass[] = [
     ],
     category: 'regional',
     popularity: 4,
-    bestFor: ['北海道全域', '经典周游券', '预购有优惠'],
+    bestFor: ['北海道全域', '经典周游券', '预购有1000円优惠'],
     sortOrder: 1
   },
   {
@@ -107,7 +107,7 @@ export const hokkaidoPasses: JRPass[] = [
     ],
     category: 'regional',
     popularity: 4,
-    bestFor: ['北海道全域', '经典周游券', '预购有优惠'],
+    bestFor: ['北海道全域', '经典周游券', '预购有1000円优惠'],
     sortOrder: 2
   },
   {
