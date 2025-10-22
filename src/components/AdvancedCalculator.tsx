@@ -61,11 +61,11 @@ export default function AdvancedCalculator() {
       const regionFilteredPasses = unifiedPasses.filter(pass => {
         return pass.coverage.regions.some(region => 
           region === route.to || 
-          (route.to === '全国' && region === '全国') ||
-          (route.to === '关东' && region === '关东') ||
-          (route.to === '关西' && region === '关西') ||
-          (route.to === '东北' && region === '东北') ||
-          (route.to === '九州' && region === '九州')
+          (route.to === '全　国' && region === '全国') ||
+          (route.to === '関　東' && region === '関東') ||
+          (route.to === '近　畿' && region === '近畿') ||
+          (route.to === '東　北' && region === '東北') ||
+          (route.to === '九　州' && region === '九州')
         );
       });
       
@@ -196,11 +196,11 @@ export default function AdvancedCalculator() {
         const fallbackPasses = unifiedPasses.filter(pass => {
           return pass.coverage.regions.some(region => 
             region === route.to || 
-            (route.to === '全国' && region === '全国') ||
-            (route.to === '关东' && region === '关东') ||
-            (route.to === '关西' && region === '关西') ||
-            (route.to === '东北' && region === '东北') ||
-            (route.to === '九州' && region === '九州')
+            (route.to === '全　国' && region === '全国') ||
+            (route.to === '関　東' && region === '関東') ||
+            (route.to === '近　畿' && region === '近畿') ||
+            (route.to === '東　北' && region === '東北') ||
+            (route.to === '九　州' && region === '九州')
           );
         });
         
@@ -385,10 +385,11 @@ export default function AdvancedCalculator() {
             <option value="">选择旅行地区</option>
                   <option value="全国">全国旅行</option>
             <option value="北海道">北海道地区</option>
-            <option value="东北">东北地区</option>
-                  <option value="关东">关东地区</option>
-            <option value="中部">中部地区</option>
-                  <option value="关西">关西地区</option>
+            <option value="東北">東北地区</option>
+                  <option value="関東">関東地区</option>
+            <option value="東海">東海地区</option>
+                  <option value="北信越">北信越地区</option>
+                  <option value="近畿">近畿地区</option>
             <option value="中国">中国地区</option>
             <option value="四国">四国地区</option>
                   <option value="九州">九州地区</option>

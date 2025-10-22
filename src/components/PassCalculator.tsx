@@ -32,10 +32,11 @@ export default function PassCalculator() {
           region === route.to || 
           (route.to === '全国' && region === '全国') ||
           (route.to === '北海道' && region === '北海道') ||
-          (route.to === '东北' && region === '东北') ||
-          (route.to === '关东' && region === '关东') ||
-          (route.to === '中部' && region === '中部') ||
-          (route.to === '关西' && region === '关西') ||
+          (route.to === '東北' && region === '東北') ||
+          (route.to === '関東' && region === '関東') ||
+          (route.to === '東海' && region === '東海') ||
+          (route.to === '北信越' && region === '北信越') ||
+          (route.to === '近畿' && region === '近畿') ||
           (route.to === '中国' && region === '中国') ||
           (route.to === '四国' && region === '四国') ||
           (route.to === '九州' && region === '九州')
