@@ -1,67 +1,7 @@
 import { JRPass } from '@/types/pass';
 
-// 中部/北陆地区周游券
-export const chubuHokurikuPasses: JRPass[] = [
-  {
-    id: 'takayama-hokuriku-area-tourist-pass',
-    name: {
-      en: 'Takayama-Hokuriku Area Tourist Pass',
-      jp: '高山・北陆地区周游券',
-      cn: '高山・北陆地区周游券'
-    },
-    description: '名古屋、金泽、飞驒高山的5日周游券，热门山地路线，适合探索日本中部山区。',
-    price: {
-      adult: {
-        regular: 0,
-      },
-      child: {
-        regular: 0,
-      }
-    },
-    duration: [5],
-    validityPeriod: {
-      startDate: '',
-      endDate: '',
-      description: '全年可用'
-    },
-    coverage: {
-      regions: ['名古屋', '金泽', '飞驒高山', '北陆地区'],
-      map: '/images/coverage/takayama-hokuriku-area-tourist-pass.png'
-    },
-    targetAudience: ['持有旅游签证的外国护照游客'],
-    trainTypes: ['特急电车', '急行电车', '普通电车'],
-    advantages: [
-      '覆盖名古屋、金泽、飞驒高山',
-      '热门山地路线',
-      '5天连续使用',
-      '适合探索日本中部山区',
-      '价格合理'
-    ],
-    disadvantages: [
-      '仅限中部地区',
-      '不包含新干线',
-      '部分特急电车需额外费用'
-    ],
-    tips: [
-      '适合探索日本中部山区',
-      '可游览名古屋、金泽、飞驒高山',
-      '建议提前规划路线',
-      '注意各线路的运行时间'
-    ],
-    officialLinks: [
-      { name: 'JR东海', url: 'https://www.jr-central.co.jp/' }
-    ],
-    purchaseLinks: [
-      { name: 'JR东海官方', url: 'https://www.jr-central.co.jp/', type: 'official' },
-      { name: 'Klook购买', url: 'https://www.klook.com/zh-CN/activity/53-takayama-hokuriku-pass/' },
-      { name: 'KKday购买', url: 'https://www.kkday.com/zh-tw/product/53-takayama-hokuriku-pass' },
-      { name: 'Voyagin购买', url: 'https://www.voyagin.com/zh-cn/activities/takayama-hokuriku-pass' }
-    ],
-    category: 'regional',
-    popularity: 4,
-    bestFor: ['中部山区', '名古屋金泽', '高山探索'],
-    sortOrder: 1
-  },
+// 东海地区周游券
+export const tohokuPasses: JRPass[] = [
   {
     id: 'mt-fuji-shizuoka-area-pass',
     name: {
@@ -85,7 +25,7 @@ export const chubuHokurikuPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['静冈', '富士山周边'],
+      regions: ['東海'],
       map: '/images/coverage/mt-fuji-shizuoka-area-pass.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
@@ -120,6 +60,66 @@ export const chubuHokurikuPasses: JRPass[] = [
     category: 'regional',
     popularity: 4,
     bestFor: ['富士山观光', '静冈地区', '山景体验'],
+    sortOrder: 1
+  },
+  {
+    id: 'takayama-hokuriku-area-tourist-pass',
+    name: {
+      en: 'Takayama-Hokuriku Area Tourist Pass',
+      jp: '高山・北陆地区周游券',
+      cn: '高山・北陆地区周游券'
+    },
+    description: '名古屋、金泽、飞驒高山的5日周游券，热门山地路线，适合探索日本中部山区。',
+    price: {
+      adult: {
+        regular: 0,
+      },
+      child: {
+        regular: 0,
+      }
+    },
+    duration: [5],
+    validityPeriod: {
+      startDate: '',
+      endDate: '',
+      description: '全年可用'
+    },
+    coverage: {
+      regions: ['東海', '北信越'],
+      map: '/images/coverage/takayama-hokuriku-area-tourist-pass.png'
+    },
+    targetAudience: ['持有旅游签证的外国护照游客'],
+    trainTypes: ['特急电车', '急行电车', '普通电车'],
+    advantages: [
+      '覆盖名古屋、金泽、飞驒高山',
+      '热门山地路线',
+      '5天连续使用',
+      '适合探索日本中部山区',
+      '价格合理'
+    ],
+    disadvantages: [
+      '仅限中部地区',
+      '不包含新干线',
+      '部分特急电车需额外费用'
+    ],
+    tips: [
+      '适合探索日本中部山区',
+      '可游览名古屋、金泽、飞驒高山',
+      '建议提前规划路线',
+      '注意各线路的运行时间'
+    ],
+    officialLinks: [
+      { name: 'JR东海', url: 'https://www.jr-central.co.jp/' }
+    ],
+    purchaseLinks: [
+      { name: 'JR东海官方', url: 'https://www.jr-central.co.jp/', type: 'official' },
+      { name: 'Klook购买', url: 'https://www.klook.com/zh-CN/activity/53-takayama-hokuriku-pass/' },
+      { name: 'KKday购买', url: 'https://www.kkday.com/zh-tw/product/53-takayama-hokuriku-pass' },
+      { name: 'Voyagin购买', url: 'https://www.voyagin.com/zh-cn/activities/takayama-hokuriku-pass' }
+    ],
+    category: 'regional',
+    popularity: 4,
+    bestFor: ['中部山区', '名古屋金泽', '高山探索'],
     sortOrder: 2
   },
   {
@@ -145,7 +145,7 @@ export const chubuHokurikuPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['伊势', '熊野', '和歌山', '关西南部'],
+      regions: ['東海', '近畿'],
       map: '/images/coverage/ise-kumano-wakayama-area-pass.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],

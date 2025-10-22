@@ -2,8 +2,11 @@ import { JRPass } from '@/types/pass';
 
 // 全国版周游券
 export const nationalPasses: JRPass[] = [
-  // 普通车用周游券
+  // ========================================
+   // 日本全国周游券7日券(普通车用)
+   // ========================================
   {
+    sortOrder: 1,
     id: 'japan-rail-pass-7day-ordinary',
     name: {
       en: 'Japan Rail Pass 7-Day (Ordinary Car)',
@@ -60,10 +63,13 @@ export const nationalPasses: JRPass[] = [
     ],
     category: 'national',
     popularity: 5,
-    bestFor: ['新干线体验', '中型旅游'],
-    sortOrder: 1
+    bestFor: ['新干线体验', '中型旅游']
   },
+  // ========================================
+   // 日本全国周游券14日券(普通车用)
+   // ========================================
   {
+    sortOrder: 2,
     id: 'japan-rail-pass-14day-ordinary',
     name: {
       en: 'Japan Rail Pass 14-Day (Ordinary Car)',
@@ -120,10 +126,13 @@ export const nationalPasses: JRPass[] = [
     ],
     category: 'national',
     popularity: 5,
-    bestFor: ['新干线体验', '长途旅游'],
-    sortOrder: 2
+    bestFor: ['新干线体验', '长途旅游']
   },
+  // ========================================
+   // 日本全国周游券21日券(普通车用)
+   // ========================================
   {
+    sortOrder: 3,
     id: 'japan-rail-pass-21day-ordinary',
     name: {
       en: 'Japan Rail Pass 21-Day (Ordinary Car)',
@@ -180,11 +189,13 @@ export const nationalPasses: JRPass[] = [
     ],
     category: 'national',
     popularity: 5,
-    bestFor: ['新干线体验', '超长途旅游'],
-    sortOrder: 3
+    bestFor: ['新干线体验', '超长途旅游']
   },
-  // 绿车用周游券
+// ========================================
+   // 日本全国周游券7日券(绿车用)
+   // ========================================
   {
+    sortOrder: 4,
     id: 'japan-rail-pass-7day-green',
     name: {
       en: 'Japan Rail Pass 7-Day (Green Car)',
@@ -242,10 +253,13 @@ export const nationalPasses: JRPass[] = [
     ],
     category: 'national',
     popularity: 5,
-    bestFor: ['高级车厢体验','中途旅游'],
-    sortOrder: 4
+    bestFor: ['高级车厢体验','中途旅游']
   },
+  // ========================================
+   // 日本全国周游券14日券(绿车用)
+   // ========================================
   {
+    sortOrder: 5,
     id: 'japan-rail-pass-14day-green',
     name: {
       en: 'Japan Rail Pass 14-Day (Green Car)',
@@ -303,10 +317,13 @@ export const nationalPasses: JRPass[] = [
     ],
     category: 'national',
     popularity: 4,
-    bestFor: ['高级车厢体验','长途旅游'],
-    sortOrder: 5
+    bestFor: ['高级车厢体验','长途旅游']
   },
+  // ========================================
+   // 日本全国周游券21日券(绿车用)
+   // ========================================
   {
+    sortOrder: 6,
     id: 'japan-rail-pass-21day-green',
     name: {
       en: 'Japan Rail Pass 21-Day (Green Car)',
@@ -364,60 +381,6 @@ export const nationalPasses: JRPass[] = [
     ],
     category: 'national',
     popularity: 4,
-    bestFor: ['高级车厢体验', '超长途旅游'],
-    sortOrder: 6
-  },
-  {
-    id: 'jr-east-south-hokkaido-rail-pass-6day',
-    name: {
-      en: 'JR East-South Hokkaido Rail Pass 6-Day',
-      jp: 'JR东日本・南北海道铁路周游券 6日券',
-      cn: 'JR东日本・南北海道铁路周游券6日券'
-    },
-    description: '东日本 + 南北海道的6日周游券，连接东京、仙台、函馆，覆盖东北和北海道南部地区。',
-    price: {
-      adult: {
-        regular: 35370,
-      },
-      child: {
-        regular: 17680,
-      }
-    },
-    duration: [6],
-    coverage: {
-      regions: ['东京', '仙台', '函馆', '东北', '北海道南部'],
-      map: '/images/coverage/jr-east-south-hokkaido-rail-pass-6day.png'
-    },
-    targetAudience: ['跨地区旅行者', '新干线体验者', '深度游爱好者'],
-    trainTypes: ['东北新干线', '北海道新干线', '特急电车', '普通电车'],
-    advantages: [
-      '连接东京、仙台、函馆',
-      '覆盖东北和北海道南部',
-      '包含东北新干线和北海道新干线',
-      '6天连续使用',
-      '跨地区旅行便利'
-    ],
-    disadvantages: [
-      '仅限东北和北海道南部',
-      '不包含北海道北部',
-      '部分特急电车需额外费用'
-    ],
-    tips: [
-      '适合东北和北海道南部旅行',
-      '可游览东京、仙台、函馆',
-      '建议提前规划路线',
-      '注意各线路的运行时间'
-    ],
-    officialLinks: [
-      { name: 'JR北海道', url: 'https://www.jreast.co.jp/zh-CHS/multi/pass/easthokkaido.html' }
-    ],
-    purchaseLinks: [
-      { name: 'JR北海道官方', url: 'https://www.eki-net.com/zh-CHS/jreast-train-reservation/reserve/wb/PurchaseTicketSelect/Index', type: 'official' }
-    ],
-    category: 'national',
-    popularity: 4,
-    bestFor: ['东北北海道', '东京仙台函馆', '跨地区旅行'],
-    sortOrder: 7
-  },
-
+    bestFor: ['高级车厢体验', '超长途旅游']
+  }
 ];

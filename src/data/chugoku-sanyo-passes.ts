@@ -25,7 +25,7 @@ export const chugokuSanyoPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['广岛', '中国地区'],
+      regions: ['中国'],
       map: '/images/coverage/hiroshima-tourist-pass-2day.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
@@ -86,7 +86,7 @@ export const chugokuSanyoPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['广岛', '中国地区'],
+      regions: ['中国'],
       map: '/images/coverage/hiroshima-tourist-pass-3day.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
@@ -147,7 +147,7 @@ export const chugokuSanyoPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['大阪', '冈山', '广岛', '博多', '山阳', '山阴'],
+      regions: ['近畿', '中国', '九州'],
       map: '/images/coverage/sanyo-sanin-area-pass.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
@@ -207,7 +207,7 @@ export const chugokuSanyoPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['广岛', '山口', '西日本海岸'],
+      regions: ['中国'],
       map: '/images/coverage/hiroshima-yamaguchi-area-pass.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],

@@ -25,7 +25,7 @@ export const kyushuPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['九州全岛', '熊本', '鹿儿岛', '博多'],
+      regions: ['九州'],
       map: '/images/coverage/jr-kyushu-rail-pass-all-kyushu-3day.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
@@ -85,7 +85,7 @@ export const kyushuPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['九州全岛', '熊本', '鹿儿岛', '博多'],
+      regions: ['九州'],
       map: '/images/coverage/jr-kyushu-rail-pass-all-kyushu-5day.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
@@ -145,7 +145,7 @@ export const kyushuPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['九州全岛', '熊本', '鹿儿岛', '博多'],
+      regions: ['九州'],
       map: '/images/coverage/jr-kyushu-rail-pass-all-kyushu-7day.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
@@ -205,7 +205,7 @@ export const kyushuPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['北九州', '博多', '长崎'],
+      regions: ['九州'],
       map: '/images/coverage/jr-northern-kyushu-pass-3day.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
@@ -265,7 +265,7 @@ export const kyushuPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['鹿儿岛', '宫崎', '南九州'],
+      regions: ['九州'],
       map: '/images/coverage/jr-southern-kyushu-pass.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],

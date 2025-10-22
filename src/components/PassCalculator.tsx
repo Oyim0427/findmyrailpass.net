@@ -32,14 +32,14 @@ export default function PassCalculator() {
           region === route.to || 
           (route.to === '全国' && region === '全国') ||
           (route.to === '北海道' && region === '北海道') ||
-          (route.to === '東北' && region === '東北') ||
-          (route.to === '関東' && region === '関東') ||
-          (route.to === '東海' && region === '東海') ||
+          (route.to === '東北' && (region === '東北' || region === '東北')) ||
+          (route.to === '関東' && (region === '関東' || region === '関東')) ||
+          (route.to === '東海' && (region === '東海' || region === '東海')) ||
           (route.to === '北信越' && region === '北信越') ||
-          (route.to === '近畿' && region === '近畿') ||
-          (route.to === '中国' && region === '中国') ||
-          (route.to === '四国' && region === '四国') ||
-          (route.to === '九州' && region === '九州')
+          (route.to === '近畿' && (region === '近畿' || region === '近畿')) ||
+          (route.to === '中国' && (region === '中国' || region === '中国')) ||
+          (route.to === '四国' && (region === '四国' || region === '四国')) ||
+          (route.to === '九州' && (region === '九州' || region === '九州'))
         );
       });
       
@@ -219,10 +219,11 @@ export default function PassCalculator() {
             <option value="">选择旅行地区</option>
             <option value="全国">全国旅行</option>
             <option value="北海道">北海道地区</option>
-            <option value="东北">东北地区</option>
-            <option value="关东">关东地区</option>
-            <option value="中部">中部地区</option>
-            <option value="关西">关西地区</option>
+            <option value="東北">東北地区</option>
+            <option value="関東">関東地区</option>
+            <option value="東海">東海地区</option>
+            <option value="北信越">北信越地区</option>
+            <option value="近畿">近畿地区</option>
             <option value="中国">中国地区</option>
             <option value="四国">四国地区</option>
             <option value="九州">九州地区</option>

@@ -2,7 +2,72 @@ import { JRPass } from '@/types/pass';
 
 // 北海道地区周游券
 export const hokkaidoPasses: JRPass[] = [
+
+    // ========================================
+  // JR东日本・南北海道铁路周游券 6日券
+  // ========================================
   {
+    sortOrder: 1,
+    id: 'jr-east-south-hokkaido-rail-pass-6day',
+    name: {
+      en: 'JR East-South Hokkaido Rail Pass 6-Day',
+      jp: 'JR东日本・南北海道铁路周游券 6日券',
+      cn: 'JR东日本・南北海道铁路周游券6日券'
+    },
+    description: '东日本 + 南北海道的6日周游券，连接东京、仙台、函馆，覆盖东北和北海道南部地区。',
+    price: {
+      adult: {
+        regular: 35370,
+      },
+      child: {
+        regular: 17680,
+      }
+    },
+    duration: [6],
+    validityPeriod: {
+      startDate: '',
+      endDate: '',
+      description: '全年可用'
+    },
+    coverage: {
+      regions: ['東北', '北海道'],
+      map: '/images/coverage/jr-east-south-hokkaido-rail-pass-6day.png'
+    },
+    targetAudience: ['持有旅游签证的外国护照游客'],
+    trainTypes: ['新干线', '特急电车', '急行电车', '普通电车', 'JR巴士'],
+    advantages: [
+      '连接东京、仙台、函馆',
+      '覆盖东北和北海道南部',
+      '包含东北新干线和北海道新干线',
+      '6天连续使用',
+      '跨地区旅行便利'
+    ],
+    disadvantages: [
+      '仅限东北和北海道南部',
+      '不包含北海道北部',
+      '部分特急电车需额外费用'
+    ],
+    tips: [
+      '适合东北和北海道南部旅行',
+      '可游览东京、仙台、函馆',
+      '建议提前规划路线',
+      '注意各线路的运行时间'
+    ],
+    officialLinks: [
+      { name: 'JR北海道', url: 'https://www.jreast.co.jp/zh-CHS/multi/pass/easthokkaido.html' }
+    ],
+    purchaseLinks: [
+      { name: 'JR北海道官方', url: 'https://www.eki-net.com/zh-CHS/jreast-train-reservation/reserve/wb/PurchaseTicketSelect/Index', type: 'official' }
+    ],
+    category: 'regional',
+    popularity: 4,
+    bestFor: ['跨地区旅行','中途旅游']
+  },
+    // ========================================
+  // 北海道铁路周游券5日券
+  // ========================================
+  {
+    sortOrder: 2,
     id: 'hokkaido-rail-pass-5day',
     name: {
       en: 'Hokkaido Rail Pass 5-Day',
@@ -22,7 +87,7 @@ export const hokkaidoPasses: JRPass[] = [
     },
     duration: [5],
     coverage: {
-      regions: ['北海道全域'],
+      regions: ['北海道'],
       map: '/images/coverage/hokkaido-rail-pass-5day.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
@@ -53,10 +118,14 @@ export const hokkaidoPasses: JRPass[] = [
     ],
     category: 'regional',
     popularity: 4,
-    bestFor: ['北海道全域', '经典周游券', '预购有1000円优惠'],
-    sortOrder: 1
+    bestFor: ['北海道全域', '预购有1000円优惠']
   },
+
+  // ========================================
+  // 北海道铁路周游券7日券
+  // ========================================
   {
+    sortOrder: 3,
     id: 'hokkaido-rail-pass-7day',
     name: {
       en: 'Hokkaido Rail Pass 7-Day',
@@ -76,7 +145,7 @@ export const hokkaidoPasses: JRPass[] = [
     },
     duration: [7],
     coverage: {
-      regions: ['北海道全域'],
+      regions: ['北海道'],
       map: '/images/coverage/hokkaido-rail-pass-7day.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
@@ -107,10 +176,14 @@ export const hokkaidoPasses: JRPass[] = [
     ],
     category: 'regional',
     popularity: 4,
-    bestFor: ['北海道全域', '经典周游券', '预购有1000円优惠'],
-    sortOrder: 2
+    bestFor: ['北海道全域', '预购有1000円优惠']
   },
+
+  // ========================================
+  // 北海道铁路周游券10日券
+  // ========================================
   {
+    sortOrder: 4,
     id: 'hokkaido-rail-pass-10day',
     name: {
       en: 'Hokkaido Rail Pass 10-Day',
@@ -130,7 +203,7 @@ export const hokkaidoPasses: JRPass[] = [
     },
     duration: [10],
     coverage: {
-      regions: ['北海道全域'],
+      regions: ['北海道'],
       map: '/images/coverage/hokkaido-rail-pass-10day.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
@@ -161,10 +234,14 @@ export const hokkaidoPasses: JRPass[] = [
     ],
     category: 'regional',
     popularity: 4,
-    bestFor: ['北海道全域', '经典周游券', '预购有优惠'],
-    sortOrder: 3
+    bestFor: ['北海道全域', '预购有1000円优惠']
   },
+
+  // ========================================
+  // 札幌・富良野地区周游券
+  // ========================================
   {
+    sortOrder: 5,
     id: 'sapporo-furano-area-pass',
     name: {
       en: 'Sapporo-Furano Area Pass',
@@ -182,7 +259,7 @@ export const hokkaidoPasses: JRPass[] = [
     },
     duration: [4],
     coverage: {
-      regions: ['札幌', '富良野', '美瑛', '小樽', '旭川', '新千岁机场'],
+      regions: ['北海道'],
       map: '/images/coverage/sapporo-furano-area-pass.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
@@ -213,15 +290,19 @@ export const hokkaidoPasses: JRPass[] = [
     ],
     category: 'regional',
     popularity: 4,
-    bestFor: ['夏季花田', '札幌富良野', '美瑛观光','预购有优惠'],
-    sortOrder: 4,
+    bestFor: ['札幌・富良野・美瑛观光', '预购有1000円优惠'],
     validityPeriod: {
-      startDate: '2024-06-01',
-      endDate: '2024-09-30',
-      description: '夏季限定期间'
+      startDate: '',
+      endDate: '',
+      description: '全年可用'
     }
   },
+
+  // ========================================
+  // 札幌・登别周游券
+  // ========================================
   {
+    sortOrder: 6,
     id: 'sapporo-noboribetsu-pass',
     name: {
       en: 'Sapporo-Noboribetsu Pass',
@@ -237,9 +318,9 @@ export const hokkaidoPasses: JRPass[] = [
         regular: 5500,
       }
     },
-    duration: [2],
+    duration: [4],
     coverage: {
-      regions: ['札幌', '登别','小樽','新千岁机场'],
+      regions: ['北海道'],
       map: '/images/coverage/sapporo-noboribetsu-pass.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
@@ -270,67 +351,19 @@ export const hokkaidoPasses: JRPass[] = [
     ],
     category: 'regional',
     popularity: 3,
-    bestFor: ['温泉度假', '札幌登别', '温泉观光','预购有优惠'],
-    sortOrder: 5
-  },
-  {
-    id: 'jr-east-south-hokkaido-rail-pass-6day',
-    name: {
-      en: 'JR East-South Hokkaido Rail Pass 6-Day',
-      jp: 'JR东日本・南北海道铁路周游券 6日券',
-      cn: 'JR东日本・南北海道铁路周游券6日券'
-    },
-    description: '东日本 + 南北海道的6日周游券，连接东京、仙台、函馆，覆盖东北和北海道南部地区。',
-    price: {
-      adult: {
-        regular: 35370,
-      },
-      child: {
-        regular: 17680,
-      }
-    },
-    duration: [6],
+    bestFor: ['札幌・登别观光','预购有1000円优惠'],
     validityPeriod: {
       startDate: '',
       endDate: '',
       description: '全年可用'
-    },
-    coverage: {
-      regions: ['东京', '仙台', '函馆', '东北', '北海道南部'],
-      map: '/images/coverage/jr-east-south-hokkaido-rail-pass-6day.png'
-    },
-    targetAudience: ['跨地区旅行者', '新干线体验者', '深度游爱好者'],
-    trainTypes: ['东北新干线', '北海道新干线', '特急电车', '普通电车'],
-    advantages: [
-      '连接东京、仙台、函馆',
-      '覆盖东北和北海道南部',
-      '包含东北新干线和北海道新干线',
-      '6天连续使用',
-      '跨地区旅行便利'
-    ],
-    disadvantages: [
-      '仅限东北和北海道南部',
-      '不包含北海道北部',
-      '部分特急电车需额外费用'
-    ],
-    tips: [
-      '适合东北和北海道南部旅行',
-      '可游览东京、仙台、函馆',
-      '建议提前规划路线',
-      '注意各线路的运行时间'
-    ],
-    officialLinks: [
-      { name: 'JR北海道', url: 'https://www.jreast.co.jp/zh-CHS/multi/pass/easthokkaido.html' }
-    ],
-    purchaseLinks: [
-      { name: 'JR北海道官方', url: 'https://www.eki-net.com/zh-CHS/jreast-train-reservation/reserve/wb/PurchaseTicketSelect/Index', type: 'official' }
-    ],
-    category: 'regional',
-    popularity: 4,
-    bestFor: ['东北北海道', '东京仙台函馆', '跨地区旅行'],
-    sortOrder: 6
+    }
   },
+
+  // ========================================
+  // 札幌市营地铁全线一日券
+  // ========================================
   {
+    sortOrder: 7,
     id: 'sapporo-subway-1day',
     name: {
       en: 'Sapporo Subway One-day Pass',
@@ -353,7 +386,7 @@ export const hokkaidoPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['札幌', '札幌地铁全线路'],
+      regions: ['北海道'],
       map: '/images/coverage/sapporo-subway-1day.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -385,10 +418,14 @@ export const hokkaidoPasses: JRPass[] = [
     ],
     category: 'city',
     popularity: 3,
-    bestFor: ['札幌全线一日游', '现金支付','购票机可购买'],
-    sortOrder: 7
+    bestFor: ['札幌一日游', '现金支付','购票机可购买']
   },
+
+  // ========================================
+  // 休息日限定地铁全线一日券
+  // ========================================
   {
+    sortOrder: 8,
     id: 'toei-subway-2day',
     name: {
       en: 'Weekends Subway One-day Pass',
@@ -408,10 +445,10 @@ export const hokkaidoPasses: JRPass[] = [
     validityPeriod: {
       startDate: '',
       endDate: '',
-      description: '全年可用'
+      description: '周六、周日、节假日'
     },
     coverage: {
-      regions: ['札幌', '札幌地铁全线路'],
+      regions: ['北海道'],
       map: '/images/coverage/sapporo-subway-1day.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -442,11 +479,13 @@ export const hokkaidoPasses: JRPass[] = [
       { name: '札幌地铁官方', url: 'https://www.city.sapporo.jp/st/josyaken/ticket_h.html', type: 'official' }
     ],
     category: 'city',
-    popularity: 3,
-    bestFor: ['札幌一日游', '现金支付', '地铁随便坐','购票机可购买'],
-    sortOrder: 8,
+    popularity: 5,
+    bestFor: ['札幌一日游', '现金支付','购票机可购买'],
     isLimitedPeriod: true
   },
+  // ========================================
+  // 函馆旅行一日券
+  // ========================================
   {
     id: 'hakodate-travel-passport',
     name: {
@@ -470,7 +509,7 @@ export const hokkaidoPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['函館','五稜郭','七飯','大沼公園','森','八雲','長万部','新函館北斗','木古内','奥津軽いまべつ'],
+      regions: ['北海道'],
       map: '/images/coverage/hakodate-travel-passport.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -504,6 +543,9 @@ export const hokkaidoPasses: JRPass[] = [
     bestFor: ['函馆深度游', '电子票有优惠', '市内交通', '一日游'],
     sortOrder: 9
   },
+    // ========================================
+  // 北海道自由券
+  // ========================================
   {
     id: 'hokkaido-free-pass',
     name: {
@@ -527,7 +569,7 @@ export const hokkaidoPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['北海道全域'],
+      regions: ['北海道'],
       map: '/images/coverage/hokkaido-free-pass.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
@@ -560,6 +602,9 @@ export const hokkaidoPasses: JRPass[] = [
     bestFor: ['北海道全域', '经典周游券', '预购有优惠'],
     sortOrder: 10
   },
+    // ========================================
+  // 道北一日散步券
+  // ========================================
   {
     id: 'hokuhoku-one-day-stroll-pass',
     name: {
@@ -578,7 +623,7 @@ export const hokkaidoPasses: JRPass[] = [
     },
     duration: [1],
     coverage: {
-      regions: ['旭川', '富良野', '美瑛', '上川', '留萌'],
+      regions: ['北海道'],
       map: '/images/coverage/hokuhoku-one-day-stroll-pass.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -617,6 +662,9 @@ export const hokkaidoPasses: JRPass[] = [
       description: '2025年4月19日～11月9日'
     }
   },
+    // ========================================
+  // 北海道一日散步券
+  // ========================================
   {
     id: 'one-day-stroll-pass',
     name: {
@@ -640,7 +688,7 @@ export const hokkaidoPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['札幌', '小樽', '函馆', '旭川', '钏路'],
+      regions: ['北海道'],
       map: '/images/coverage/one-day-stroll-pass.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -674,6 +722,9 @@ export const hokkaidoPasses: JRPass[] = [
     bestFor: ['一日游', '主要观光地区', '价格合理'],
     sortOrder: 12
   },
+    // ========================================
+  // 成人假日俱乐部券（北海道）
+  // ========================================
   {
     id: 'adult-holiday-club-pass-hokkaido',
     name: {
@@ -697,7 +748,7 @@ export const hokkaidoPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['札幌', '函馆', '旭川', '钏路', '网走'],
+      regions: ['北海道'],
       map: '/images/coverage/adult-holiday-club-pass-hokkaido.png'
     },
     targetAudience: ['成人游客'],
@@ -730,6 +781,9 @@ export const hokkaidoPasses: JRPass[] = [
     bestFor: ['成人深度游', '北海道主要地区', '3日游'],
     sortOrder: 13
   },
+    // ========================================
+  // 成人假日券（北海道特别版）
+  // ========================================
   {
     id: 'adult-holiday-pass-hokkaido-special',
     name: {
@@ -753,7 +807,7 @@ export const hokkaidoPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['札幌', '函馆', '旭川', '钏路', '网走', '知床'],
+      regions: ['北海道'],
       map: '/images/coverage/adult-holiday-pass-hokkaido-special.png'
     },
     targetAudience: ['成人游客'],
@@ -786,6 +840,9 @@ export const hokkaidoPasses: JRPass[] = [
     bestFor: ['成人深度游', '北海道特别地区', '4日游', '知床观光'],
     sortOrder: 14
   },
+    // ========================================
+  // Peach东北海道自由券
+  // ========================================
   {
     id: 'peach-higashi-hokkaido-free-pass',
     name: {
@@ -809,7 +866,7 @@ export const hokkaidoPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['钏路', '网走', '知床', '根室', '中標津'],
+      regions: ['北海道'],
       map: '/images/coverage/peach-higashi-hokkaido-free-pass.png'
     },
     targetAudience: ['Peach航空乘客', '关西地区游客'],
@@ -842,6 +899,9 @@ export const hokkaidoPasses: JRPass[] = [
     bestFor: ['Peach航空乘客', '东北海道', '3日游', '知床观光'],
     sortOrder: 15
   },
+    // ========================================
+  // FDA东北海道自由券
+  // ========================================
   {
     id: 'fda-higashi-hokkaido-free-pass',
     name: {
@@ -865,7 +925,7 @@ export const hokkaidoPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['钏路', '网走', '知床', '根室', '中標津'],
+      regions: ['北海道'],
       map: '/images/coverage/fda-higashi-hokkaido-free-pass.png'
     },
     targetAudience: ['FDA航空乘客', '关西地区游客'],
@@ -898,6 +958,9 @@ export const hokkaidoPasses: JRPass[] = [
     bestFor: ['FDA航空乘客', '东北海道', '3日游', '知床观光'],
     sortOrder: 16
   },
+    // ========================================
+  // Peach北北海道自由券
+  // ======================================== 
   {
     id: 'peach-kita-hokkaido-free-pass',
     name: {
@@ -921,7 +984,7 @@ export const hokkaidoPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['旭川', '富良野', '美瑛', '稚内', '留萌'],
+      regions: ['北海道'],
       map: '/images/coverage/peach-kita-hokkaido-free-pass.png'
     },
     targetAudience: ['Peach航空乘客', '关西地区游客'],
@@ -954,6 +1017,9 @@ export const hokkaidoPasses: JRPass[] = [
     bestFor: ['Peach航空乘客', '北北海道', '3日游', '富良野美瑛'],
     sortOrder: 17
   },
+    // ========================================
+  // FDA北北海道自由券
+  // ========================================
   {
     id: 'fda-kita-hokkaido-free-pass',
     name: {
@@ -977,7 +1043,7 @@ export const hokkaidoPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['旭川', '富良野', '美瑛', '稚内', '留萌'],
+      regions: ['北海道'],
       map: '/images/coverage/fda-kita-hokkaido-free-pass.png'
     },
     targetAudience: ['FDA航空乘客', '关西地区游客'],
@@ -1010,6 +1076,9 @@ export const hokkaidoPasses: JRPass[] = [
     bestFor: ['FDA航空乘客', '北北海道', '3日游', '富良野美瑛'],
     sortOrder: 18
   },
+    // ========================================
+  // ANA北北海道自由券
+  // ========================================
   {
     id: 'ana-kita-hokkaido-free-pass',
     name: {
@@ -1028,7 +1097,7 @@ export const hokkaidoPasses: JRPass[] = [
     },
     duration: [3],
     coverage: {
-      regions: ['旭川', '富良野', '美瑛', '稚内', '留萌'],
+      regions: ['北海道'],
       map: '/images/coverage/ana-kita-hokkaido-free-pass.png'
     },
     targetAudience: ['ANA航空乘客', '关西地区游客'],
@@ -1066,6 +1135,9 @@ export const hokkaidoPasses: JRPass[] = [
       description: '2025年4月1日～2026年3月31日'
     }
   },
+    // ========================================
+  // 网走＆小清水＆知床环游护照
+  // ========================================
   {
     id: 'abashiri-koshimizu-shiretoko-guru-tabipassport',
     name: {
@@ -1084,7 +1156,7 @@ export const hokkaidoPasses: JRPass[] = [
     },
     duration: [2],
     coverage: {
-      regions: ['网走', '小清水', '知床', '斜里', '罗臼'],
+      regions: ['北海道'],
       map: '/images/coverage/abashiri-koshimizu-shiretoko-guru-tabipassport.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -1122,6 +1194,9 @@ export const hokkaidoPasses: JRPass[] = [
       description: '2025年7月15日～9月30日'
     }
   },
+    // ========================================
+  // 钏网线自由券
+  // ========================================
   {
     id: 'senmo-line-free-pass',
     name: {
@@ -1140,7 +1215,7 @@ export const hokkaidoPasses: JRPass[] = [
     },
     duration: [1],
     coverage: {
-      regions: ['钏路', '网走', '摩周', '知床斜里', '中標津'],
+      regions: ['北海道'],
       map: '/images/coverage/senmo-line-free-pass.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -1178,6 +1253,9 @@ export const hokkaidoPasses: JRPass[] = [
       description: '2025年8月28日～2026年3月13日'
     }
   },
+    // ========================================
+  // 地球探索铁道花咲线自由券
+  // ========================================
   {
     id: 'chikyu-tansaku-tetsudo-hanasaki-line-free-pass',
     name: {
@@ -1196,7 +1274,7 @@ export const hokkaidoPasses: JRPass[] = [
     },
     duration: [1],
     coverage: {
-      regions: ['钏路', '根室', '中標津', '別海', '厚岸'],
+      regions: ['北海道'],
       map: '/images/coverage/chikyu-tansaku-tetsudo-hanasaki-line-free-pass.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -1234,6 +1312,9 @@ export const hokkaidoPasses: JRPass[] = [
       description: '2025年8月28日～2026年3月13日'
     }
   },
+    // ========================================
+  // 札幌市电一日券
+  // ========================================
   {
     id: 'sapporo-streetcar-1day',
     name: {
@@ -1252,7 +1333,7 @@ export const hokkaidoPasses: JRPass[] = [
     },
     duration: [1],
     coverage: {
-      regions: ['札幌', '札幌市电全线路'],
+      regions: ['北海道'],
       map: '/images/coverage/sapporo-streetcar-1day.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -1292,6 +1373,9 @@ export const hokkaidoPasses: JRPass[] = [
       description: '全年可用'
     }
   },
+    // ========================================
+  // 札幌市电24小时券
+  // ========================================
   {
     id: 'sapporo-streetcar-24hour',
     name: {
@@ -1310,7 +1394,7 @@ export const hokkaidoPasses: JRPass[] = [
     },
     duration: [1],
     coverage: {
-      regions: ['札幌', '札幌市电全线路'],
+      regions: ['北海道'],
       map: '/images/coverage/sapporo-streetcar-24hour.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -1350,6 +1434,9 @@ export const hokkaidoPasses: JRPass[] = [
       description: '全年可用'
     }
   },
+    // ========================================
+  // 道产子券
+  // ========================================
   {
     id: 'dosanko-pass',
     name: {
@@ -1368,7 +1455,7 @@ export const hokkaidoPasses: JRPass[] = [
     },
     duration: [1],
     coverage: {
-      regions: ['札幌', '札幌地铁全线路', '札幌市电全线路'],
+      regions: ['北海道'],
       map: '/images/coverage/dosanko-pass.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -1408,6 +1495,9 @@ export const hokkaidoPasses: JRPass[] = [
       description: '全年可用'
     }
   },
+    // ========================================
+  // 函馆市电一日券
+  // ========================================
   {
     id: 'hakodate-streetcar-1day',
     name: {
@@ -1426,7 +1516,7 @@ export const hokkaidoPasses: JRPass[] = [
     },
     duration: [1],
     coverage: {
-      regions: ['函馆', '函馆市电全线路'],
+      regions: ['北海道'],
       map: '/images/coverage/hakodate-streetcar-1day.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -1466,6 +1556,9 @@ export const hokkaidoPasses: JRPass[] = [
       description: '全年可用'
     }
   },
+    // ========================================
+  // 函馆智能手机市电一日券
+  // ========================================
   {
     id: 'hakodate-smartphone-streetcar-1day',
     name: {
@@ -1484,7 +1577,7 @@ export const hokkaidoPasses: JRPass[] = [
     },
     duration: [1],
     coverage: {
-      regions: ['函馆', '函馆市电全线路'],
+      regions: ['北海道'],
       map: '/images/coverage/hakodate-smartphone-streetcar-1day.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -1524,6 +1617,9 @@ export const hokkaidoPasses: JRPass[] = [
       description: '全年可用'
     }
   },
+    // ========================================
+  // 函馆智能手机市电24小时券
+  // ========================================
   {
     id: 'hakodate-smartphone-streetcar-24hour',
     name: {
@@ -1542,7 +1638,7 @@ export const hokkaidoPasses: JRPass[] = [
     },
     duration: [1],
     coverage: {
-      regions: ['函馆', '函馆市电全线路'],
+      regions: ['北海道'],
       map: '/images/coverage/hakodate-smartphone-streetcar-24hour.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -1582,6 +1678,9 @@ export const hokkaidoPasses: JRPass[] = [
       description: '全年可用'
     }
   },
+    // ========================================
+  // 函馆智能手机市电・函馆巴士共通一日券
+  // ========================================
   {
     id: 'hakodate-smartphone-streetcar-bus-1day',
     name: {
@@ -1600,7 +1699,7 @@ export const hokkaidoPasses: JRPass[] = [
     },
     duration: [1],
     coverage: {
-      regions: ['函馆', '函馆市电全线路', '函馆巴士全线路'],
+      regions: ['北海道'],
       map: '/images/coverage/hakodate-smartphone-streetcar-bus-1day.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -1639,6 +1738,9 @@ export const hokkaidoPasses: JRPass[] = [
       description: '全年可用'
     }
   },
+    // ========================================
+  // 函馆智能手机市电・函馆巴士共通二日券
+  // ========================================
   {
     id: 'hakodate-smartphone-streetcar-bus-2day',
     name: {
@@ -1657,7 +1759,7 @@ export const hokkaidoPasses: JRPass[] = [
     },
     duration: [2],
     coverage: {
-      regions: ['函馆', '函馆市电全线路', '函馆巴士全线路'],
+      regions: ['北海道'],
       map: '/images/coverage/hakodate-smartphone-streetcar-bus-2day.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -1696,6 +1798,9 @@ export const hokkaidoPasses: JRPass[] = [
       description: '全年可用'
     }
   },
+    // ========================================
+  // 石狩一日券
+  // ======================================== 
   {
     id: 'isarihi-1day-ticket',
     name: {
@@ -1714,7 +1819,7 @@ export const hokkaidoPasses: JRPass[] = [
     },
     duration: [1],
     coverage: {
-      regions: ['道南', 'いさりび鉄道全线路'],
+      regions: ['北海道'],
       map: '/images/coverage/isarihi-1day-ticket.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -1754,6 +1859,9 @@ export const hokkaidoPasses: JRPass[] = [
       description: '全年可用'
     }
   },
+    // ========================================
+  // 石狩一日校园券
+  // ========================================
   {
     id: 'isarihi-1day-campus',
     name: {
@@ -1772,7 +1880,7 @@ export const hokkaidoPasses: JRPass[] = [
     },
     duration: [1],
     coverage: {
-      regions: ['道南', 'いさりび鉄道全线路'],
+      regions: ['北海道'],
       map: '/images/coverage/isarihi-1day-campus.png'
     },
     targetAudience: ['学生', '不问国籍所有游客皆可购买'],
@@ -1811,6 +1919,252 @@ export const hokkaidoPasses: JRPass[] = [
       endDate: '',
       description: '全年可用'
     }
+  },
+    // ========================================
+  // 札幌市营地铁周末券
+  // ========================================
+  {
+    id: 'sapporo-subway-weekend-pass',
+    name: {
+      en: 'Sapporo Subway Weekend Pass',
+      jp: '札幌市営地下鉄 週末パス',
+      cn: '札幌市营地铁周末券'
+    },
+    description: '札幌地铁的周末券，适合周末来札幌市内一日游，价格优惠。',
+    price: {
+      adult: {
+        regular: 520,
+      },
+      child: {
+        regular: 260,
+      }
+    },
+    duration: [1],
+    coverage: {
+      regions: ['北海道'],
+      map: '/images/coverage/sapporo-subway-weekend-pass.png'
+    },
+    targetAudience: ['不问国籍所有游客皆可购买'],
+    trainTypes: ['地铁'],
+    advantages: [
+      '覆盖札幌地铁全线路',
+      '周末优惠价格',
+      '一自然日有效',
+      '适合周末札幌市内一日游',
+      '购买方便'
+    ],
+    disadvantages: [
+      '仅限札幌地铁',
+      '仅限周末使用',
+      '不包含JR线路',
+      '不包含巴士'
+    ],
+    tips: [
+      '适合周末札幌市内一日游',
+      '可游览札幌主要景点',
+      '建议提前规划路线',
+      '注意各线路的运行时间'
+    ],
+    officialLinks: [
+      { name: '札幌地铁官方', url: 'https://www.city.sapporo.jp/st/josyaken/card.html#weekend' }
+    ],
+    purchaseLinks: [
+      { name: '札幌地铁官方', url: 'https://www.city.sapporo.jp/st/josyaken/ticket_h.html', type: 'official' }
+    ],
+    category: 'city',
+    popularity: 3,
+    bestFor: ['周末札幌一日游', '现金支付', '地铁随便坐', '购票机可购买'],
+    sortOrder: 33,
+    validityPeriod: {
+      startDate: '',
+      endDate: '',
+      description: '【期间限定】'
+    },
+    isLimitedPeriod: true
+  },
+    // ========================================
+  // 函馆夜间电车券
+  // ========================================
+  {
+    id: 'hakodate-night-tram-ticket',
+    name: {
+      en: 'Hakodate Night Tram Ticket',
+      jp: 'NighTram TICKET',
+      cn: '函馆夜间电车券'
+    },
+    description: '函馆夜间电车券，适合夜间游览函馆，包含函馆市电夜间使用。',
+    price: {
+      adult: {
+        regular: 500,
+      },
+      child: {
+        regular: 250,
+      }
+    },
+    duration: [1],
+    coverage: {
+      regions: ['北海道'],
+      map: '/images/coverage/hakodate-night-tram-ticket.png'
+    },
+    targetAudience: ['不问国籍所有游客皆可购买'],
+    trainTypes: ['路面电车'],
+    advantages: [
+      '覆盖函馆市电全线路',
+      '夜间优惠价格',
+      '一自然日有效',
+      '适合夜间游览函馆',
+      '购买方便'
+    ],
+    disadvantages: [
+      '仅限函馆市电',
+      '仅限夜间使用',
+      '不包含JR线路',
+      '不包含巴士'
+    ],
+    tips: [
+      '适合夜间游览函馆',
+      '可游览函馆夜景',
+      '建议提前规划路线',
+      '注意各线路的运行时间'
+    ],
+    officialLinks: [
+      { name: '函馆市企业局交通部', url: 'https://www.city.hakodate.hokkaido.jp/koutsuu/nighttram.html' }
+    ],
+    purchaseLinks: [
+      { name: '函馆市企业局交通部', url: 'https://www.city.hakodate.hokkaido.jp/koutsuu/nighttram.html', type: 'official' }
+    ],
+    category: 'city',
+    popularity: 3,
+    bestFor: ['夜间函馆游', '现金支付', '市电随便坐', '购票机可购买'],
+    sortOrder: 34,
+    validityPeriod: {
+      startDate: '',
+      endDate: '',
+      description: '【期间限定】'
+    },
+    isLimitedPeriod: true
+  },
+    // ========================================
+  // GLAY设计 函馆电车・函馆巴士共通一日券
+  // ========================================
+  {
+    id: 'hakodate-glay-design-pass',
+    name: {
+      en: 'Hakodate GLAY Design Pass',
+      jp: 'GLAYデザイン 函馆电车・函馆巴士共通1日券',
+      cn: 'GLAY设计 函馆电车・函馆巴士共通一日券'
+    },
+    description: 'GLAY设计的函馆电车・函馆巴士共通一日券，适合函馆市内一日游，包含函馆市电和巴士全线路。',
+    price: {
+      adult: {
+        regular: 1000,
+      },
+      child: {
+        regular: 500,
+      }
+    },
+    duration: [1],
+    coverage: {
+      regions: ['北海道'],
+      map: '/images/coverage/hakodate-glay-design-pass.png'
+    },
+    targetAudience: ['不问国籍所有游客皆可购买'],
+    trainTypes: ['路面电车', '巴士'],
+    advantages: [
+      '覆盖函馆市电和巴士全线路',
+      'GLAY特别设计',
+      '一自然日有效',
+      '适合函馆市内一日游',
+      '购买方便'
+    ],
+    disadvantages: [
+      '仅限函馆市内',
+      '不包含JR线路',
+      '仅支持现金支付'
+    ],
+    tips: [
+      '适合函馆市内一日游',
+      'GLAY特别设计',
+      '可游览函馆主要景点',
+      '建议提前规划路线'
+    ],
+    officialLinks: [
+      { name: '函馆市企业局交通部', url: 'https://www.city.hakodate.hokkaido.jp/koutsuu/glay.html' }
+    ],
+    purchaseLinks: [
+      { name: '函馆市企业局交通部', url: 'https://www.city.hakodate.hokkaido.jp/koutsuu/glay.html', type: 'official' }
+    ],
+    category: 'city',
+    popularity: 3,
+    bestFor: ['函馆一日游', 'GLAY设计', '市电巴士随便坐', '购票机可购买'],
+    sortOrder: 35,
+    validityPeriod: {
+      startDate: '',
+      endDate: '',
+      description: '【期间限定】'
+    },
+    isLimitedPeriod: true
+  },
+    // ========================================
+  // 特别设计 函馆电车・函馆巴士共通一日券
+  // ========================================
+  {
+    id: 'hakodate-special-design-pass',
+    name: {
+      en: 'Hakodate Special Design Pass',
+      jp: '特別デザイン 函馆电车・函馆巴士共通1日券',
+      cn: '特别设计 函馆电车・函馆巴士共通一日券'
+    },
+    description: '特别设计的函馆电车・函馆巴士共通一日券，适合函馆市内一日游，包含函馆市电和巴士全线路。',
+    price: {
+      adult: {
+        regular: 1000,
+      },
+      child: {
+        regular: 500,
+      }
+    },
+    duration: [1],
+    coverage: {
+      regions: ['北海道'],
+      map: '/images/coverage/hakodate-special-design-pass.png'
+    },
+    targetAudience: ['不问国籍所有游客皆可购买'],
+    trainTypes: ['路面电车', '巴士'],
+    advantages: [
+      '覆盖函馆市电和巴士全线路',
+      '特别设计',
+      '一自然日有效',
+      '适合函馆市内一日游',
+      '购买方便'
+    ],
+    disadvantages: [
+      '仅限函馆市内',
+      '不包含JR线路',
+      '仅支持现金支付'
+    ],
+    tips: [
+      '适合函馆市内一日游',
+      '特别设计',
+      '可游览函馆主要景点',
+      '建议提前规划路线'
+    ],
+    officialLinks: [
+      { name: '函馆市企业局交通部', url: 'https://www.city.hakodate.hokkaido.jp/koutsuu/special.html' }
+    ],
+    purchaseLinks: [
+      { name: '函馆市企业局交通部', url: 'https://www.city.hakodate.hokkaido.jp/koutsuu/special.html', type: 'official' }
+    ],
+    category: 'city',
+    popularity: 3,
+    bestFor: ['函馆一日游', '特别设计', '市电巴士随便坐', '购票机可购买'],
+    sortOrder: 36,
+    validityPeriod: {
+      startDate: '',
+      endDate: '',
+      description: '【期间限定】'
+    },
+    isLimitedPeriod: true
   }
   
 ];

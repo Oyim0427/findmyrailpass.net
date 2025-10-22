@@ -1,7 +1,7 @@
 import { JRPass } from '@/types/pass';
 
-// 关西地区周游券
-export const kansaiPasses: JRPass[] = [
+// 近畿地区周游券
+export const kinkiPasses: JRPass[] = [
   {
     id: 'kansai-one-day-pass',
     name: {
@@ -9,7 +9,7 @@ export const kansaiPasses: JRPass[] = [
       jp: '関西一日券',
       cn: '关西一日券'
     },
-    description: '大阪、京都、神户等关西地区的1日周游券，适合短途深度游，含部分特快电车。',
+    description: '大阪、京都、神户等近畿地区的1日周游券，适合短途深度游，含部分特快电车。',
     price: {
       adult: {
         regular: 2800,
@@ -25,13 +25,13 @@ export const kansaiPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['关西', '大阪', '京都', '神户'],
+      regions: ['近畿'],
       map: '/images/coverage/kansai-one-day-pass.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
     trainTypes: ['特急电车', '急行电车', '普通电车'],
     advantages: [
-      '覆盖关西主要城市',
+      '覆盖近畿主要城市',
       '包含部分特快电车',
       '价格便宜',
       '适合短途深度游',
@@ -43,7 +43,7 @@ export const kansaiPasses: JRPass[] = [
       '部分特急电车需额外费用'
     ],
     tips: [
-      '适合关西地区一日游',
+      '适合近畿地区一日游',
       '可游览大阪、京都、神户',
       '建议提前规划路线',
       '注意各线路的运行时间'
@@ -58,7 +58,7 @@ export const kansaiPasses: JRPass[] = [
     ],
     category: 'regional',
     popularity: 3,
-    bestFor: ['关西一日游', '大阪京都', '短途旅行'],
+    bestFor: ['近畿一日游', '大阪京都', '短途旅行'],
     sortOrder: 1
   },
   {
@@ -68,7 +68,7 @@ export const kansaiPasses: JRPass[] = [
       jp: '関西2日券',
       cn: '关西2日券'
     },
-    description: '大阪、京都、奈良等关西地区的2日周游券，可连续或分开使用，灵活度高，覆盖关西主要城市。',
+    description: '大阪、京都、奈良等近畿地区的2日周游券，可连续或分开使用，灵活度高，覆盖近畿主要城市。',
     price: {
       adult: {
         regular: 5600,
@@ -84,13 +84,13 @@ export const kansaiPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['关西', '大阪', '京都', '奈良'],
+      regions: ['近畿'],
       map: '/images/coverage/kansai-two-day-pass.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
     trainTypes: ['特急电车', '急行电车', '普通电车'],
     advantages: [
-      '覆盖关西主要城市',
+      '覆盖近畿主要城市',
       '可连续或分开使用',
       '灵活度高',
       '价格合理',
@@ -102,7 +102,7 @@ export const kansaiPasses: JRPass[] = [
       '部分特急电车需额外费用'
     ],
     tips: [
-      '适合关西地区2日游',
+      '适合近畿地区2日游',
       '可游览大阪、京都、奈良',
       '建议提前规划路线',
       '注意各线路的运行时间'
@@ -117,7 +117,7 @@ export const kansaiPasses: JRPass[] = [
     ],
     category: 'regional',
     popularity: 3,
-    bestFor: ['关西2日游', '大阪京都奈良', '灵活旅行'],
+    bestFor: ['近畿2日游', '大阪京都奈良', '灵活旅行'],
     sortOrder: 2
   },
   {
@@ -127,7 +127,7 @@ export const kansaiPasses: JRPass[] = [
       jp: '関西3日券',
       cn: '关西3日券'
     },
-    description: '关西主要城市的3日周游券，3日内无限乘坐，适合广泛游览。',
+    description: '近畿主要城市的3日周游券，3日内无限乘坐，适合广泛游览。',
     price: {
       adult: {
         regular: 7000,
@@ -143,13 +143,13 @@ export const kansaiPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['关西', '大阪', '京都', '奈良', '神户'],
+      regions: ['近畿'],
       map: '/images/coverage/kansai-three-day-pass.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
     trainTypes: ['特急电车', '急行电车', '普通电车'],
     advantages: [
-      '覆盖关西主要城市',
+      '覆盖近畿主要城市',
       '3日内无限乘坐',
       '适合广泛游览',
       '价格合理',
@@ -161,7 +161,7 @@ export const kansaiPasses: JRPass[] = [
       '部分特急电车需额外费用'
     ],
     tips: [
-      '适合关西地区3日游',
+      '适合近畿地区3日游',
       '可游览大阪、京都、奈良、神户',
       '建议提前规划路线',
       '注意各线路的运行时间'
@@ -176,7 +176,7 @@ export const kansaiPasses: JRPass[] = [
     ],
     category: 'regional',
     popularity: 4,
-    bestFor: ['关西3日游', '广泛游览', '深度体验'],
+    bestFor: ['近畿3日游', '广泛游览', '深度体验'],
     sortOrder: 3
   },
   {
@@ -186,7 +186,7 @@ export const kansaiPasses: JRPass[] = [
       jp: '関西4日券',
       cn: '关西4日券'
     },
-    description: '关西广泛区域的4日周游券，适合深度旅游，覆盖范围更广。',
+    description: '近畿广泛区域的4日周游券，适合深度旅游，覆盖范围更广。',
     price: {
       adult: {
         regular: 8500,
@@ -202,13 +202,13 @@ export const kansaiPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['关西', '大阪', '京都', '奈良', '神户', '和歌山'],
+      regions: ['近畿'],
       map: '/images/coverage/kansai-four-day-pass.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
     trainTypes: ['特急电车', '急行电车', '普通电车'],
     advantages: [
-      '覆盖关西广泛区域',
+      '覆盖近畿广泛区域',
       '适合深度旅游',
       '4日内无限乘坐',
       '覆盖范围更广',
@@ -220,7 +220,7 @@ export const kansaiPasses: JRPass[] = [
       '部分特急电车需额外费用'
     ],
     tips: [
-      '适合关西地区深度游',
+      '适合近畿地区深度游',
       '可游览大阪、京都、奈良、神户、和歌山',
       '建议提前规划路线',
       '注意各线路的运行时间'
@@ -235,7 +235,7 @@ export const kansaiPasses: JRPass[] = [
     ],
     category: 'regional',
     popularity: 3,
-    bestFor: ['关西深度游', '广泛区域', '4日旅行'],
+    bestFor: ['近畿深度游', '广泛区域', '4日旅行'],
     sortOrder: 4
   },
   {
@@ -261,7 +261,7 @@ export const kansaiPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['关西', '大阪', '京都', '神户', '仓敷', '冈山'],
+      regions: ['近畿', '中国'],
       map: '/images/coverage/kansai-wide-area-pass.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
@@ -279,7 +279,7 @@ export const kansaiPasses: JRPass[] = [
       '部分私铁线路需额外费用'
     ],
     tips: [
-      '适合关西广泛区域旅行',
+      '适合近畿广泛区域旅行',
       '可游览大阪、京都、神户、仓敷、冈山',
       '建议提前规划路线',
       '注意各线路的运行时间'
@@ -294,7 +294,7 @@ export const kansaiPasses: JRPass[] = [
     ],
     category: 'regional',
     popularity: 4,
-    bestFor: ['关西广泛区域', '新干线体验', '深度游览'],
+    bestFor: ['近畿广泛区域', '新干线体验', '深度游览'],
     sortOrder: 5
   },
   {
@@ -304,7 +304,7 @@ export const kansaiPasses: JRPass[] = [
       jp: '关西地区铁路周游券1日券',
       cn: '关西地区铁路周游券1日券'
     },
-    description: '大阪、京都、奈良、神户等关西地区的1日周游券，可搭乘关空特急HARUKA指定席。',
+    description: '大阪、京都、奈良、神户等近畿地区的1日周游券，可搭乘关空特急HARUKA指定席。',
     price: {
       adult: {
         regular: 2800,
@@ -320,25 +320,25 @@ export const kansaiPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['关西', '大阪', '京都', '奈良', '神户'],
+      regions: ['近畿'],
       map: '/images/coverage/kansai-area-rail-pass-1day.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
     trainTypes: ['特急电车', '急行电车', '普通电车', '关空特急HARUKA'],
     advantages: [
-      '覆盖关西主要城市',
+      '覆盖近畿主要城市',
       '1日有效',
       '可搭乘关空特急HARUKA指定席',
       '价格合理',
       '购买方便'
     ],
     disadvantages: [
-      '仅限关西地区',
+      '仅限近畿地区',
       '不包含新干线',
       '部分特急电车需额外费用'
     ],
     tips: [
-      '适合关西地区旅行',
+      '适合近畿地区旅行',
       '可游览大阪、京都、奈良、神户',
       '建议提前规划路线',
       '注意各线路的运行时间'
@@ -353,7 +353,7 @@ export const kansaiPasses: JRPass[] = [
     ],
     category: 'regional',
     popularity: 4,
-    bestFor: ['关西旅行', '大阪京都奈良', '1日旅行'],
+    bestFor: ['近畿旅行', '大阪京都奈良', '1日旅行'],
     sortOrder: 6
   },
   {
@@ -363,7 +363,7 @@ export const kansaiPasses: JRPass[] = [
       jp: '关西地区铁路周游券2日券',
       cn: '关西地区铁路周游券2日券'
     },
-    description: '大阪、京都、奈良、神户等关西地区的2日周游券，可连续使用，可搭乘关空特急HARUKA指定席。',
+    description: '大阪、京都、奈良、神户等近畿地区的2日周游券，可连续使用，可搭乘关空特急HARUKA指定席。',
     price: {
       adult: {
         regular: 5600,
@@ -379,25 +379,25 @@ export const kansaiPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['关西', '大阪', '京都', '奈良', '神户'],
+      regions: ['近畿'],
       map: '/images/coverage/kansai-area-rail-pass-2day.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
     trainTypes: ['特急电车', '急行电车', '普通电车', '关空特急HARUKA'],
     advantages: [
-      '覆盖关西主要城市',
+      '覆盖近畿主要城市',
       '2日有效',
       '可连续使用',
       '可搭乘关空特急HARUKA指定席',
       '价格合理'
     ],
     disadvantages: [
-      '仅限关西地区',
+      '仅限近畿地区',
       '不包含新干线',
       '部分特急电车需额外费用'
     ],
     tips: [
-      '适合关西地区旅行',
+      '适合近畿地区旅行',
       '可游览大阪、京都、奈良、神户',
       '建议提前规划路线',
       '注意各线路的运行时间'
@@ -412,7 +412,7 @@ export const kansaiPasses: JRPass[] = [
     ],
     category: 'regional',
     popularity: 4,
-    bestFor: ['关西旅行', '大阪京都奈良', '2日旅行'],
+    bestFor: ['近畿旅行', '大阪京都奈良', '2日旅行'],
     sortOrder: 7
   },
   {
@@ -422,7 +422,7 @@ export const kansaiPasses: JRPass[] = [
       jp: '关西地区铁路周游券3日券',
       cn: '关西地区铁路周游券3日券'
     },
-    description: '大阪、京都、奈良、神户等关西地区的3日周游券，可连续使用，可搭乘关空特急HARUKA指定席。',
+    description: '大阪、京都、奈良、神户等近畿地区的3日周游券，可连续使用，可搭乘关空特急HARUKA指定席。',
     price: {
       adult: {
         regular: 8400,
@@ -438,25 +438,25 @@ export const kansaiPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['关西', '大阪', '京都', '奈良', '神户'],
+      regions: ['近畿'],
       map: '/images/coverage/kansai-area-rail-pass-3day.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
     trainTypes: ['特急电车', '急行电车', '普通电车', '关空特急HARUKA'],
     advantages: [
-      '覆盖关西主要城市',
+      '覆盖近畿主要城市',
       '3日有效',
       '可连续使用',
       '可搭乘关空特急HARUKA指定席',
       '价格合理'
     ],
     disadvantages: [
-      '仅限关西地区',
+      '仅限近畿地区',
       '不包含新干线',
       '部分特急电车需额外费用'
     ],
     tips: [
-      '适合关西地区旅行',
+      '适合近畿地区旅行',
       '可游览大阪、京都、奈良、神户',
       '建议提前规划路线',
       '注意各线路的运行时间'
@@ -471,7 +471,7 @@ export const kansaiPasses: JRPass[] = [
     ],
     category: 'regional',
     popularity: 4,
-    bestFor: ['关西旅行', '大阪京都奈良', '3日旅行'],
+    bestFor: ['近畿旅行', '大阪京都奈良', '3日旅行'],
     sortOrder: 8
   }
 ];

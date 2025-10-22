@@ -25,7 +25,7 @@ export const cityPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['东京', '东京Metro全9条线路'],
+      regions: ['関東'],
       map: '/images/coverage/tokyo-metro-24hour.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
@@ -84,7 +84,7 @@ export const cityPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['东京', '都营地铁线路'],
+      regions: ['関東'],
       map: '/images/coverage/toei-subway-1day.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
@@ -143,7 +143,7 @@ export const cityPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['东京', '东京Metro全9条线路'],
+      regions: ['関東'],
       map: '/images/coverage/tokyo-metro-2day.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
@@ -202,7 +202,7 @@ export const cityPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['东京', '东京Metro全9条线路'],
+      regions: ['関東'],
       map: '/images/coverage/tokyo-metro-3day.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
@@ -261,7 +261,7 @@ export const cityPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['大阪', '大阪市营地铁全线'],
+      regions: ['近畿'],
       map: '/images/coverage/osaka-subway-1day.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
@@ -320,7 +320,7 @@ export const cityPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['京都', '京都市营地铁全线及公交'],
+      regions: ['近畿'],
       map: '/images/coverage/kyoto-subway-1day.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],

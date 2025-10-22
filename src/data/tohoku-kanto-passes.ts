@@ -26,7 +26,7 @@ export const tohokuKantoPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['东京', '青森', '仙台', '秋田', '山形', '福岛'],
+      regions: ['東北'],
       map: '/images/coverage/jr-east-tohoku-pass.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
@@ -86,7 +86,7 @@ export const tohokuKantoPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['东京', '长野', '新潟', '轻井泽', '上越'],
+      regions: ['関東', '北信越'],
       map: '/images/coverage/jr-east-nagano-niigata-pass.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
@@ -148,7 +148,7 @@ export const tohokuKantoPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['东京', '富士山', '日光', '轻井泽', '伊豆'],
+      regions: ['関東'],
       map: '/images/coverage/tokyo-wide-pass.png'
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
