@@ -16,6 +16,8 @@ export interface JRPass {
       regular: number; // 儿童常规价格
       advance?: number; // 儿童预购价格（可选）
     };
+    under25?: number; // 25岁以下价格（可选）
+    under18?: number; // 18岁以下价格（可选）
   };
   duration: number[]; // 适用天数列表，如[3,5,7]
   coverage: {
