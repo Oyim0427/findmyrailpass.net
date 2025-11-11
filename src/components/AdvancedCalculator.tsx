@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { MapPin, Calendar, Users, Calculator, TrendingUp, Star, CheckCircle, AlertCircle, ArrowRight, ExternalLink, Route, Clock } from 'lucide-react';
 import { Route as RouteType, PassRecommendation } from '@/types/pass';
-import { unifiedPasses } from '@/data/all-passes';
+import { unifiedPasses } from '@/ts-data/all-passes';
 
 interface RouteSegment {
   from: string;

@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "BROWSER=1 next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint",
-    "convert-csv": "node scripts/csv-to-ts-converter.js"
+    "convert-excel-to-ts": "node scripts/excel-to-ts-converter.js",
+    "convert-excel": "node scripts/ts-to-excel-converter.js"
   },
   "dependencies": {
     "@next/font": "^14.2.15",
@@ -32,6 +33,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.5.4",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "xlsx": "^0.18.5"
   }
 }

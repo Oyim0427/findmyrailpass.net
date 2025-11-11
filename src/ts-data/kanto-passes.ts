@@ -1,16 +1,13 @@
 import { JRPass } from '@/types/pass';
 
-// 全国版周游券
-export const nationalPasses: JRPass[] = [
-  // ========================================
-   // 日本全国周游券7日券(普通车用)
-   // ========================================
+// kanto地区周游券
+export const kantoPasses: JRPass[] = [
   {
     sortOrder: 1,
     id: 'japan-rail-pass-7day-ordinary',
     name: {
-      en: 'Japan Rail Pass 7-Day (Ordinary Car)',
-      jp: 'ジャパンレールパス 7日券（普通車用）',
+      en: '日本全国周游券7日券(普通车用)',
+      jp: '日本全国周游券7日券(普通车用)',
       cn: '日本全国周游券7日券(普通车用)'
     },
     description: '日本全国JR线路的7日周游券，包含新干线普通车厢（除Nozomi和Mizuho），覆盖日本全国JR线路。',
@@ -65,24 +62,22 @@ export const nationalPasses: JRPass[] = [
     popularity: 5,
     bestFor: ['新干线体验', '中型旅游']
   },
-  // ========================================
-   // 日本全国周游券14日券(普通车用)
-   // ========================================
+
   {
     sortOrder: 2,
     id: 'japan-rail-pass-14day-ordinary',
     name: {
-      en: 'Japan Rail Pass 14-Day (Ordinary Car)',
-      jp: 'ジャパンレールパス 14日券（普通車用）',
+      en: '日本全国周游券14日券(普通车用)',
+      jp: '日本全国周游券14日券(普通车用)',
       cn: '日本全国周游券14日券(普通车用)'
     },
     description: '日本全国JR线路的14日周游券，包含新干线普通车厢（除Nozomi和Mizuho），覆盖日本全国JR线路。',
     price: {
       adult: {
-        regular: 80000,
+        regular: 80000
       },
       child: {
-        regular: 40000,
+        regular: 40000
       }
     },
     duration: [14],
@@ -128,24 +123,22 @@ export const nationalPasses: JRPass[] = [
     popularity: 5,
     bestFor: ['新干线体验', '长途旅游']
   },
-  // ========================================
-   // 日本全国周游券21日券(普通车用)
-   // ========================================
+
   {
     sortOrder: 3,
     id: 'japan-rail-pass-21day-ordinary',
     name: {
-      en: 'Japan Rail Pass 21-Day (Ordinary Car)',
-      jp: 'ジャパンレールパス 21日券（普通車用）',
+      en: '日本全国周游券21日券(普通车用)',
+      jp: '日本全国周游券21日券(普通车用)',
       cn: '日本全国周游券21日券(普通车用)'
     },
     description: '日本全国JR线路的21日周游券，包含新干线普通车厢（除Nozomi和Mizuho），覆盖日本全国JR线路。',
     price: {
       adult: {
-        regular: 100000,
+        regular: 100000
       },
       child: {
-        regular: 50000,
+        regular: 50000
       }
     },
     duration: [21],
@@ -191,15 +184,13 @@ export const nationalPasses: JRPass[] = [
     popularity: 5,
     bestFor: ['新干线体验', '超长途旅游']
   },
-// ========================================
-   // 日本全国周游券7日券(绿车用)
-   // ========================================
+
   {
     sortOrder: 4,
     id: 'japan-rail-pass-7day-green',
     name: {
-      en: 'Japan Rail Pass 7-Day (Green Car)',
-      jp: 'ジャパンレールパス 7日券（グリーン車用）',
+      en: '日本全国周游券7日券(绿车用)',
+      jp: '日本全国周游券7日券(绿车用)',
       cn: '日本全国周游券7日券(绿车用)'
     },
     description: '日本全国JR线路的7日绿色车厢周游券，包含新干线绿色车厢（除Nozomi和Mizuho），覆盖日本全国JR线路的高级版本。',
@@ -253,17 +244,15 @@ export const nationalPasses: JRPass[] = [
     ],
     category: 'national',
     popularity: 5,
-    bestFor: ['高级车厢体验','中途旅游']
+    bestFor: ['高级车厢体验', '中途旅游']
   },
-  // ========================================
-   // 日本全国周游券14日券(绿车用)
-   // ========================================
+
   {
     sortOrder: 5,
     id: 'japan-rail-pass-14day-green',
     name: {
-      en: 'Japan Rail Pass 14-Day (Green Car)',
-      jp: 'ジャパンレールパス 14日券（グリーン車用）',
+      en: '日本全国周游券14日券(绿车用)',
+      jp: '日本全国周游券14日券(绿车用)',
       cn: '日本全国周游券14日券(绿车用)'
     },
     description: '日本全国JR线路的14日绿色车厢周游券，包含新干线绿色车厢（除Nozomi和Mizuho），覆盖日本全国JR线路的高级版本。',
@@ -317,17 +306,15 @@ export const nationalPasses: JRPass[] = [
     ],
     category: 'national',
     popularity: 4,
-    bestFor: ['高级车厢体验','长途旅游']
+    bestFor: ['高级车厢体验', '长途旅游']
   },
-  // ========================================
-   // 日本全国周游券21日券(绿车用)
-   // ========================================
+
   {
     sortOrder: 6,
     id: 'japan-rail-pass-21day-green',
     name: {
-      en: 'Japan Rail Pass 21-Day (Green Car)',
-      jp: 'ジャパンレールパス 21日券（グリーン車用）',
+      en: '日本全国周游券21日券(绿车用)',
+      jp: '日本全国周游券21日券(绿车用)',
       cn: '日本全国周游券21日券(绿车用)'
     },
     description: '日本全国JR线路的21日绿色车厢周游券，包含新干线绿色车厢（除Nozomi和Mizuho），覆盖日本全国JR线路的高级版本。',

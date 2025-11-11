@@ -3,7 +3,7 @@
 import NavigationSection from "@/components/sections/NavigationSection";
 import FooterSection from "@/components/sections/FooterSection";
 import PassCard from "@/components/PassCard";
-import { unifiedPasses } from "@/data/all-passes";
+import { unifiedPasses } from "@/ts-data/all-passes";
 import { JRPass } from "@/types/pass";
 import { useState, useEffect, Suspense } from 'react';
 import { Search, Filter, X } from 'lucide-react';
@@ -113,27 +113,36 @@ function PassListContent() {
     const matchesRegion = selectedRegion === 'all' || 
                          (() => {
                            if (selectedRegion === '全国') {
-                             return pass.coverage.regions.includes('全国');
+                             // 全国版只显示来自 national-passes.ts 的周游券（category === 'national'）
+                             return pass.category === 'national' && pass.coverage.regions.includes('全国');
                            }
                            
                            // 地区关键词映射
                            const regionKeywords = {
-                             '北海道': ['北海道', '札幌', '富良野', '美瑛', '登别', '小樽', '旭川', '新千岁机场'],
-                             '東北': ['东北', '東北', '東北', '青森', '仙台', '秋田', '山形', '福岛'],
-                             '関東': ['关东', '関東', '関東', '东京', '東京', '富士山', '日光', '轻井泽', '軽井沢', '伊豆'],
-                             '東海': ['东海', '東海', '東海', '名古屋', '静冈', '静岡', '伊势', '伊勢', '熊野', '和歌山'],
-                             '北信越': ['北信越', '金泽', '金沢', '飞驒高山', '飛騨高山', '白川鄉', '白川郷', '合掌村'],
-                             '近畿': ['近畿', '近畿', '关西', '関西', '大阪', '京都', '奈良', '神户', '神戸', '仓敷', '倉敷', '冈山', '岡山', '丹後地区'],
-                             '中国': ['中国', '中国', '广岛', '広島', '山口', '山阳', '山陽', '山阴', '山陰'],
-                             '四国': ['四国', '四国'],
-                             '九州': ['九州', '九州', '福冈', '福岡', '博多', '熊本', '鹿儿岛', '鹿児島', '长崎', '長崎', '宫崎', '宮崎']
+                             '北海道': ['北海道', '札幌', '富良野', '美瑛', '登别', '小樽', '旭川', '新千岁机场', '函館'],
+                             '東北': ['东北', '東北', '青森', '仙台', '秋田', '山形', '福岛'],
+                             '関東': ['关东', '関東', '东京', '東京', '富士山', '日光', '轻井泽', '軽井沢', '伊豆'],
+                             '東海': ['东海', '東海', '名古屋', '静冈', '静岡', '伊势', '伊勢', '熊野', '和歌山'],
+                             '北信越': ['北信越', '金泽', '金沢', '飞驒高山', '飛騨高山', '白川鄉', '白川郷', '合掌村', '长野', '新潟'],
+                             '近畿': ['近畿', '关西', '関西', '大阪', '京都', '奈良', '神户', '神戸', '仓敷', '倉敷', '冈山', '岡山', '丹後地区'],
+                             '中国': ['中国', '广岛', '広島', '山口', '山阳', '山陽', '山阴', '山陰'],
+                             '四国': ['四国'],
+                             '九州': ['九州', '福冈', '福岡', '博多', '熊本', '鹿儿岛', '鹿児島', '长崎', '長崎', '宫崎', '宮崎']
                            };
                            
                            const keywords = regionKeywords[selectedRegion as keyof typeof regionKeywords];
                            if (keywords) {
-                             return pass.coverage.regions.some(region => 
-                               keywords.some(keyword => region.includes(keyword))
-                             );
+                             // 处理 regions 数组，支持单个字符串包含多个地区（用逗号分隔）的情况
+                             return pass.coverage.regions.some(region => {
+                               // 如果 region 是包含逗号的字符串（如 '東北, 北海道'），先分割再匹配
+                               const regionParts = typeof region === 'string' 
+                                 ? region.split(',').map(r => r.trim())
+                                 : [region];
+                               
+                               return regionParts.some(part => 
+                                 keywords.some(keyword => part.includes(keyword))
+                               );
+                             });
                            }
                            
                            return false;

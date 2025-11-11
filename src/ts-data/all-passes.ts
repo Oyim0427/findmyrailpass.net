@@ -3,26 +3,33 @@ import { JRPass } from '@/types/pass';
 // 导入各地区周游券
 import { nationalPasses } from './national-passes';
 import { hokkaidoPasses } from './hokkaido-passes';
-import { tohokuKantoPasses } from './tohoku-kanto-passes';
 import { tohokuPasses } from './tohoku-passes';
-import { hokurikuPasses } from './hokuriku-passes';
+import { kantoPasses } from './kanto-passes';
+import { toukaiPasses } from './toukai-passes';
+import { hokushinetsuPasses } from './hokushinetsu-passes';
 import { kinkiPasses } from './kinki-passes';
-import { chugokuSanyoPasses } from './chugoku-sanyo-passes';
+import { chukokuPasses } from './chukoku-passes';
+import { shikokuPasses } from './shikoku-passes';
 import { kyushuPasses } from './kyushu-passes';
-import { cityPasses } from './city-passes';
 
-// 统一的周游券数据
-export const unifiedPasses: JRPass[] = [
+// 统一的周游券数据（去重处理）
+const allPassesRaw: JRPass[] = [
   ...nationalPasses,
   ...hokkaidoPasses,
-  ...tohokuKantoPasses,
   ...tohokuPasses,
-  ...hokurikuPasses,
+  ...kantoPasses,
+  ...toukaiPasses,
+  ...hokushinetsuPasses,
   ...kinkiPasses,
-  ...chugokuSanyoPasses,
-  ...kyushuPasses,
-  ...cityPasses
+  ...chukokuPasses,
+  ...shikokuPasses,
+  ...kyushuPasses
 ];
+
+// 基于 id 去重，保留第一次出现的周游券
+export const unifiedPasses: JRPass[] = Array.from(
+  new Map(allPassesRaw.map(pass => [pass.id, pass])).values()
+);
 
 // 按类别分组的周游券
 export const passesByCategory = {   

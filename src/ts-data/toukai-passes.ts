@@ -1,22 +1,22 @@
 import { JRPass } from '@/types/pass';
 
-// 东北/关东地区周游券
-export const tohokuKantoPasses: JRPass[] = [
-  // 东北地区周游券
+// toukai地区周游券
+export const toukaiPasses: JRPass[] = [
   {
+    sortOrder: 1,
     id: 'jr-east-tohoku-pass',
     name: {
-      en: 'JR East Pass (Tohoku Area)',
+      en: 'JR东日本铁路周游券（东北地区）',
       jp: 'JR东日本铁路周游券（东北地区）',
       cn: 'JR东日本铁路周游券（东北地区）'
     },
     description: '东京→青森、仙台、秋田、山形、福岛等东北地区的周游券，任意5天内自由使用。',
     price: {
       adult: {
-        regular: 30000,
+        regular: 30000
       },
       child: {
-        regular: 15000,
+        regular: 15000
       }
     },
     duration: [5],
@@ -54,29 +54,30 @@ export const tohokuKantoPasses: JRPass[] = [
     ],
     purchaseLinks: [
       { name: 'JR东日本官方', url: 'https://www.jreast.co.jp/', type: 'official' },
-      { name: 'Klook购买', url: 'https://www.klook.com/zh-CN/activity/50-jr-east-tohoku-pass/' },
-      { name: 'KKday购买', url: 'https://www.kkday.com/zh-tw/product/50-jr-east-tohoku-pass' },
-      { name: 'Voyagin购买', url: 'https://www.voyagin.com/zh-cn/activities/jr-east-tohoku-pass' }
+      { name: 'Klook购买', url: 'https://www.klook.com/zh-CN/activity/50-jr-east-tohoku-pass/', type: 'official' },
+      { name: 'KKday购买', url: 'https://www.kkday.com/zh-tw/product/50-jr-east-tohoku-pass', type: 'official' },
+      { name: 'Voyagin购买', url: 'https://www.voyagin.com/zh-cn/activities/jr-east-tohoku-pass', type: 'official' }
     ],
     category: 'regional',
     popularity: 4,
-    bestFor: ['东北地区', '青森仙台', '秋田山形'],
-    sortOrder: 1
+    bestFor: ['东北地区', '青森仙台', '秋田山形']
   },
+
   {
+    sortOrder: 2,
     id: 'jr-east-nagano-niigata-pass',
     name: {
-      en: 'JR East Pass (Nagano & Niigata Area)',
+      en: 'JR东日本铁路周游券（长野・新潟地区）',
       jp: 'JR东日本铁路周游券（长野・新潟地区）',
       cn: 'JR东日本铁路周游券（长野・新潟地区）'
     },
     description: '东京、长野、新潟、轻井泽、上越等地区的周游券，任意5天内自由使用。',
     price: {
       adult: {
-        regular: 27000,
+        regular: 27000
       },
       child: {
-        regular: 13500,
+        regular: 13500
       }
     },
     duration: [5],
@@ -114,31 +115,30 @@ export const tohokuKantoPasses: JRPass[] = [
     ],
     purchaseLinks: [
       { name: 'JR东日本官方', url: 'https://www.jreast.co.jp/', type: 'official' },
-      { name: 'Klook购买', url: 'https://www.klook.com/zh-CN/activity/51-jr-east-nagano-niigata-pass/' },
-      { name: 'KKday购买', url: 'https://www.kkday.com/zh-tw/product/51-jr-east-nagano-niigata-pass' },
-      { name: 'Voyagin购买', url: 'https://www.voyagin.com/zh-cn/activities/jr-east-nagano-niigata-pass' }
+      { name: 'Klook购买', url: 'https://www.klook.com/zh-CN/activity/51-jr-east-nagano-niigata-pass/', type: 'official' },
+      { name: 'KKday购买', url: 'https://www.kkday.com/zh-tw/product/51-jr-east-nagano-niigata-pass', type: 'official' },
+      { name: 'Voyagin购买', url: 'https://www.voyagin.com/zh-cn/activities/jr-east-nagano-niigata-pass', type: 'official' }
     ],
     category: 'regional',
     popularity: 4,
-    bestFor: ['长野新潟', '轻井泽', '上越地区'],
-    sortOrder: 2
+    bestFor: ['长野新潟', '轻井泽', '上越地区']
   },
-  
-  // 关东地区周游券
+
   {
+    sortOrder: 3,
     id: 'tokyo-wide-pass',
     name: {
-      en: 'JR Tokyo Wide Pass',
-      jp: 'JR東京广域周游券',
+      en: 'JR东京广域周游券',
+      jp: 'JR东京广域周游券',
       cn: 'JR东京广域周游券'
     },
     description: '东京、富士山、日光、轻井泽、伊豆等关东近郊地区的周游券，连续3天有效。',
     price: {
       adult: {
-        regular: 15000,
+        regular: 15000
       },
       child: {
-        regular: 7500,
+        regular: 7500
       }
     },
     duration: [3],
@@ -176,13 +176,12 @@ export const tohokuKantoPasses: JRPass[] = [
     ],
     purchaseLinks: [
       { name: 'JR东日本官方', url: 'https://www.jreast.co.jp/', type: 'official' },
-      { name: 'Klook购买', url: 'https://www.klook.com/zh-CN/activity/52-tokyo-wide-pass/' },
-      { name: 'KKday购买', url: 'https://www.kkday.com/zh-tw/product/52-tokyo-wide-pass' },
-      { name: 'Voyagin购买', url: 'https://www.voyagin.com/zh-cn/activities/tokyo-wide-pass' }
+      { name: 'Klook购买', url: 'https://www.klook.com/zh-CN/activity/52-tokyo-wide-pass/', type: 'official' },
+      { name: 'KKday购买', url: 'https://www.kkday.com/zh-tw/product/52-tokyo-wide-pass', type: 'official' },
+      { name: 'Voyagin购买', url: 'https://www.voyagin.com/zh-cn/activities/tokyo-wide-pass', type: 'official' }
     ],
     category: 'regional',
     popularity: 4,
-    bestFor: ['东京周边', '富士山', '日光轻井泽', '伊豆'],
-    sortOrder: 3
+    bestFor: ['东京周边', '富士山', '日光轻井泽', '伊豆']
   }
 ];

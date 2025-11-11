@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { MapPin, Calendar, Calculator, TrendingUp, Star, CheckCircle, AlertCircle, ArrowRight, ExternalLink } from 'lucide-react';
 import { Route, PassRecommendation } from '@/types/pass';
-import { unifiedPasses } from '@/data/all-passes';
+import { unifiedPasses } from '@/ts-data/all-passes';
 
 export default function PassCalculator() {
   const router = useRouter();

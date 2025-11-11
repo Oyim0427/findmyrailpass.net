@@ -2,7 +2,7 @@
 
 import { ArrowRight } from "lucide-react";
 import PassCard from "@/components/PassCard";
-import { popularPasses } from "@/data/all-passes";
+import { popularPasses } from "@/ts-data/all-passes";
 import Link from "next/link";
 
 export default function PassesSection() {
