@@ -2,10 +2,22 @@
 
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function HeroSection() {
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative">
+      {/* 装饰人物图片（在文字后面） */}
+      <div className="absolute bottom-2 right-2 w-32 h-32 sm:w-40 sm:h-40 md:inset-0 md:w-auto md:h-auto z-0 pointer-events-none select-none">
+        <Image
+          src="/images/homepage/character.png"
+          alt="Character decoration"
+          fill
+          priority
+          sizes="(max-width: 768px) 100vw, 100vw"
+          className="object-contain md:object-[85%_100%] object-right-bottom"
+        />
+      </div>
       {/* 赛博朋克装饰元素 */}
       <div className="absolute top-10 left-10 w-20 h-20 border-2 border-cyan-400 rotate-45 opacity-30 animate-pulse"></div>
       <div className="absolute top-20 right-20 w-16 h-16 border-2 border-yellow-400 rotate-12 opacity-30 animate-pulse" style={{animationDelay: '0.5s'}}></div>

@@ -27,7 +27,7 @@ export default function PassCard({ pass, onClick }: PassCardProps) {
     >
       <div className="p-6 flex flex-col h-full">
         {/* Image */}
-        <div className="relative h-48 w-full overflow-hidden rounded-xl mb-4">
+        <div className="relative h-20 w-full overflow-hidden rounded-xl mb-4">
           <img 
             src={pass.coverage.map || '/images/default-pass.jpg'} 
             alt={pass.name.cn}
