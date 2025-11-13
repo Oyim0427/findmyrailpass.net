@@ -14,6 +14,10 @@ const nextConfig: NextConfig = {
   trailingSlash: false,
   // 静态导出配置 - 用于 FTP 部署
   output: 'export',
+  // 禁用图片优化以兼容静态导出
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;
