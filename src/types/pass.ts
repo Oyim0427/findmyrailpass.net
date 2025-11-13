@@ -11,10 +11,12 @@ export interface JRPass {
     adult: {
       regular: number; // 成人常规价格
       advance?: number; // 成人预购价格（可选）
+      phone?: number; // 成人电话购买价格（可选）
     };
     child: {
       regular: number; // 儿童常规价格
       advance?: number; // 儿童预购价格（可选）
+      phone?: number; // 儿童电话购买价格（可选）
     };
     under25?: number; // 25岁以下价格（可选）
     under18?: number; // 18岁以下价格（可选）
@@ -48,6 +50,7 @@ export interface JRPass {
     endDate: string; // 有效截止日期，格式 YYYY-MM-DD
     description?: string; // 有效期间描述（如2024年度）
   };
+  note?: string; // 备注信息（可选）
 }
 
 // Route 接口用于描述行程路线的结构

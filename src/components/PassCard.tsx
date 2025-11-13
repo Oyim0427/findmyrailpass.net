@@ -1,7 +1,7 @@
 'use client';
 
 import { JRPass } from '@/types/pass';
-import { Star, MapPin, Calendar, CalendarDays, Train, ExternalLink, Users, Clock } from 'lucide-react';
+import { Star, MapPin, Calendar, Train, ExternalLink, Users, Clock } from 'lucide-react';
 
 interface PassCardProps {
   pass: JRPass;

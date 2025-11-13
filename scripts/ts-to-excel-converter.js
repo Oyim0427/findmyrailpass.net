@@ -87,12 +87,13 @@ async function convertTsToExcel(tsFilePath, outputExcelPath) {
     function convertToRows(passes) {
       const headers = [
         'sortOrder', 'id', 'name_cn', 'description',
-        'price_adult_regular', 'price_adult_advance', 'price_child_regular', 'price_child_advance',
+      'price_adult_regular', 'price_adult_advance', 'price_adult_phone',
+      'price_child_regular', 'price_child_advance', 'price_child_phone',
         'price_under25', 'price_under18', 'duration',
         'validityPeriod_startDate', 'validityPeriod_endDate', 'validityPeriod_description',
         'coverage_regions', 'coverage_map',
         'targetAudience', 'trainTypes', 'advantages', 'disadvantages', 'tips',
-        'officialLinks', 'purchaseLinks', 'category', 'popularity', 'bestFor', 'isLimitedPeriod'
+      'officialLinks', 'purchaseLinks', 'category', 'popularity', 'bestFor', 'isLimitedPeriod', 'note'
       ];
       
       const rows = [headers];
@@ -116,6 +117,12 @@ async function convertTsToExcel(tsFilePath, outputExcelPath) {
               break;
             case 'price_child_advance':
               value = pass.price?.child?.advance || '';
+              break;
+            case 'price_adult_phone':
+              value = pass.price?.adult?.phone || '';
+              break;
+            case 'price_child_phone':
+              value = pass.price?.child?.phone || '';
               break;
             case 'price_under25':
               value = pass.price?.under25 || '';
@@ -171,6 +178,9 @@ async function convertTsToExcel(tsFilePath, outputExcelPath) {
               break;
             case 'isLimitedPeriod':
               value = pass.isLimitedPeriod ? 'TRUE' : '';
+              break;
+            case 'note':
+              value = pass.note || '';
               break;
             default:
               value = pass[header] || '';

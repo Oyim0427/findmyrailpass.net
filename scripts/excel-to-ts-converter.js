@@ -67,7 +67,8 @@ function convertExcelToTs(excelFilePath, outputTsFilePath) {
 
 // 处理Excel行数据
 function processExcelRow(row) {
-  return {
+  const note = row.note ? String(row.note).trim() : '';
+  const pass = {
     sortOrder: parseInt(row.sortOrder) || 0,
     id: row.id || '',
     name: {
@@ -79,11 +80,13 @@ function processExcelRow(row) {
     price: {
       adult: {
         regular: parseInt(row.price_adult_regular) || 0,
-        advance: row.price_adult_advance ? parseInt(row.price_adult_advance) : undefined
+        advance: row.price_adult_advance ? parseInt(row.price_adult_advance) : undefined,
+        phone: row.price_adult_phone ? parseInt(row.price_adult_phone) : undefined
       },
       child: {
         regular: parseInt(row.price_child_regular) || 0,
-        advance: row.price_child_advance ? parseInt(row.price_child_advance) : undefined
+        advance: row.price_child_advance ? parseInt(row.price_child_advance) : undefined,
+        phone: row.price_child_phone ? parseInt(row.price_child_phone) : undefined
       },
       under25: row.price_under25 ? parseInt(row.price_under25) : undefined,
       under18: row.price_under18 ? parseInt(row.price_under18) : undefined
@@ -138,6 +141,12 @@ function processExcelRow(row) {
       : [],
     isLimitedPeriod: row.isLimitedPeriod === true || row.isLimitedPeriod === 'TRUE' || row.isLimitedPeriod === 'true' || row.isLimitedPeriod === '1'
   };
+
+  if (note) {
+    pass.note = note;
+  }
+
+  return pass;
 }
 
 // 解析链接字符串
@@ -198,10 +207,10 @@ export const ${constName}: JRPass[] = [
     description: '${String(pass.description || '').replace(/'/g, "\\'")}',
     price: {
       adult: {
-        regular: ${pass.price.adult.regular}${pass.price.adult.advance ? `,\n        advance: ${pass.price.adult.advance}` : ''}
+        regular: ${pass.price.adult.regular}${pass.price.adult.advance ? `,\n        advance: ${pass.price.adult.advance}` : ''}${pass.price.adult.phone ? `,\n        phone: ${pass.price.adult.phone}` : ''}
       },
       child: {
-        regular: ${pass.price.child.regular}${pass.price.child.advance ? `,\n        advance: ${pass.price.child.advance}` : ''}
+        regular: ${pass.price.child.regular}${pass.price.child.advance ? `,\n        advance: ${pass.price.child.advance}` : ''}${pass.price.child.phone ? `,\n        phone: ${pass.price.child.phone}` : ''}
       }${pass.price.under25 ? `,\n      under25: ${pass.price.under25}` : ''}${pass.price.under18 ? `,\n      under18: ${pass.price.under18}` : ''}
     },
     duration: [${pass.duration.join(', ')}],
@@ -233,7 +242,7 @@ export const ${constName}: JRPass[] = [
     ],
     category: '${pass.category}',
     popularity: ${pass.popularity},
-    bestFor: [${pass.bestFor.map(b => `'${String(b || '').replace(/'/g, "\\'")}'`).join(', ')}]${pass.isLimitedPeriod ? ',\n    isLimitedPeriod: true' : ''}
+    bestFor: [${pass.bestFor.map(b => `'${String(b || '').replace(/'/g, "\\'")}'`).join(', ')}]${pass.isLimitedPeriod ? ',\n    isLimitedPeriod: true' : ''}${pass.note ? `,\n    note: '${String(pass.note || '').replace(/'/g, "\\'")}'` : ''}
   }`;
   }).join(',\n\n');
 

@@ -12,8 +12,8 @@ const nextConfig: NextConfig = {
   },
   // 修复路由问题
   trailingSlash: false,
-  // 移除可能导致问题的输出配置
-  // output: 'standalone',
+  // 静态导出配置 - 用于 FTP 部署
+  output: 'export',
 };
 
 export default nextConfig;
