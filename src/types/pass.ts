@@ -28,9 +28,6 @@ export interface JRPass {
   };
   targetAudience: string[]; // 目标适用人群说明
   trainTypes: string[]; // 覆盖的列车/交通工具类型
-  advantages: string[]; // 优势列表
-  disadvantages: string[]; // 劣势列表
-  tips: string[]; // 使用建议与提示
   officialLinks: {
     name: string; // 官方链接显示名称
     url: string;  // 官方链接地址
@@ -50,7 +47,6 @@ export interface JRPass {
     endDate: string; // 有效截止日期，格式 YYYY-MM-DD
     description?: string; // 有效期间描述（如2024年度）
   };
-  note?: string; // 备注信息（可选）
 }
 
 // Route 接口用于描述行程路线的结构

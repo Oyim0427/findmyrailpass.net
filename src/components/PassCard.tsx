@@ -82,42 +82,6 @@ export default function PassCard({ pass, onClick }: PassCardProps) {
           </div>
         </div>
 
-
-        {/* Duration */}
-        <div className="flex items-center text-sm text-gray-600 mb-3">
-          <Clock className="w-4 h-4 mr-2" />
-          <span>{pass.duration.join(' / ')}天</span>
-        </div>
-
-        {/* 使用期限 */}
-        {pass.validityPeriod && (
-          <div className="flex items-center text-sm text-gray-600 mb-3">
-            <Calendar className="w-4 h-4 mr-2" />
-            <span>
-              {pass.validityPeriod.description || '使用期限'}
-              {pass.validityPeriod.description !== '全年可用' && pass.validityPeriod.description !== '周六周日节假日限定' && `: ${pass.validityPeriod.startDate} - ${pass.validityPeriod.endDate}`}
-            </span>
-          </div>
-        )}
-
-        {/* Coverage */}
-        <div className="flex items-center text-sm text-gray-600 mb-3">
-          <MapPin className="w-4 h-4 mr-2" />
-          <span>{pass.coverage.regions.join('、')}</span>
-        </div>
-
-        {/* Target Audience */}
-        <div className="flex items-center text-sm text-gray-600 mb-3">
-          <Users className="w-4 h-4 mr-2" />
-          <span>{pass.targetAudience?.join('、') || '通用'}</span>
-        </div>
-
-        {/* Train Types */}
-        <div className="flex items-center text-sm text-gray-600 mb-3">
-          <Train className="w-4 h-4 mr-2" />
-          <span>{pass.trainTypes.join('、')}</span>
-        </div>
-
         {/* Best For Tags */}
         <div className="flex flex-wrap gap-2 mb-4">
           {pass.bestFor.map((tag) => (
@@ -130,6 +94,64 @@ export default function PassCard({ pass, onClick }: PassCardProps) {
           ))}
         </div>
 
+        <div className="mb-4 rounded-xl border border-gray-100">
+          <table className="w-full text-sm text-gray-700">
+            <tbody>
+              <tr className="border-b border-gray-100">
+                <th className="w-28 px-4 py-3 text-left text-gray-500 font-medium">
+                  <div className="flex items-center gap-2">
+                    <Clock className="w-4 h-4" />
+                    使用天数
+                  </div>
+                </th>
+                <td className="px-4 py-3">{pass.duration.join(' / ')}天</td>
+              </tr>
+              {pass.validityPeriod && (
+                <tr className="border-b border-gray-100">
+                  <th className="px-4 py-3 text-left text-gray-500 font-medium">
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-4 h-4" />
+                      使用期限
+                    </div>
+                  </th>
+                  <td className="px-4 py-3">
+                    {pass.validityPeriod.description || '使用期限'}
+                    {pass.validityPeriod.description !== '全年可用' &&
+                      pass.validityPeriod.description !== '周六周日节假日限定' &&
+                      `：${pass.validityPeriod.startDate} - ${pass.validityPeriod.endDate}`}
+                  </td>
+                </tr>
+              )}
+              <tr className="border-b border-gray-100">
+                <th className="px-4 py-3 text-left text-gray-500 font-medium">
+                  <div className="flex items-center gap-2">
+                    <MapPin className="w-4 h-4" />
+                    覆盖范围
+                  </div>
+                </th>
+                <td className="px-4 py-3">{pass.coverage.regions.join('、')}</td>
+              </tr>
+              <tr className="border-b border-gray-100">
+                <th className="px-4 py-3 text-left text-gray-500 font-medium">
+                  <div className="flex items-center gap-2">
+                    <Users className="w-4 h-4" />
+                    适用人群
+                  </div>
+                </th>
+                <td className="px-4 py-3">{pass.targetAudience?.join('、') || '通用'}</td>
+              </tr>
+              <tr>
+                <th className="px-4 py-3 text-left text-gray-500 font-medium">
+                  <div className="flex items-center gap-2">
+                    <Train className="w-4 h-4" />
+                    可乘车种
+                  </div>
+                </th>
+                <td className="px-4 py-3">{pass.trainTypes.join('、')}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         {/* Action Buttons */}
         <div className="flex space-x-3 mt-auto">

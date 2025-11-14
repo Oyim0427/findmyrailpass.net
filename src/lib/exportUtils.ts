@@ -50,8 +50,10 @@ export const exportToPDF = (recommendations: PassRecommendation[], route: RouteI
           <div class="savings">节省 ¥${rec.savings.toLocaleString()}</div>
           <p><strong>推荐理由:</strong> ${rec.reason}</p>
           <div class="advantages">
-            <h4>主要优势:</h4>
-            ${rec.pass.advantages.map(adv => `<div class="advantage">• ${adv}</div>`).join('')}
+            <h4>适用场景:</h4>
+            ${rec.pass.bestFor.length > 0
+              ? rec.pass.bestFor.map(tag => `<div class="advantage">• ${tag}</div>`).join('')
+              : '<div class="advantage">• 暂无标签</div>'}
           </div>
         </div>
       `).join('')}

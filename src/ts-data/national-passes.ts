@@ -19,6 +19,7 @@ export const nationalPasses: JRPass[] = [
         regular: 25000
       }
     },
+    bestFor: ['新干线体验', '中型旅游'],
     duration: [7],
     validityPeriod: {
       startDate: '',
@@ -31,27 +32,6 @@ export const nationalPasses: JRPass[] = [
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
     trainTypes: ['新干线', '特急电车', '急行电车', '普通电车', 'JR巴士'],
-    advantages: [
-      '覆盖日本全国JR线路',
-      '包含所有新干线普通车厢（除Nozomi和Mizuho）',
-      '7天连续使用',
-      '可乘坐JR巴士',
-      '包含机场快线',
-      '性价比高'
-    ],
-    disadvantages: [
-      '价格较高',
-      '仅限外国游客购买',
-      '需在海外购买兑换券',
-      '不能乘坐Nozomi和Mizuho新干线',
-      '仅限普通车厢'
-    ],
-    tips: [
-      '适合跨地区长途旅行',
-      '建议提前计算路线费用',
-      '可在JR车站兑换',
-      '首次使用需激活'
-    ],
     officialLinks: [
       { name: 'JR官方', url: 'https://japanrailpass.net/cn/purchase/price/' }
     ],
@@ -59,8 +39,7 @@ export const nationalPasses: JRPass[] = [
       { name: '官方购买', url: 'https://japanrailpass.net/cn/purchase/online/', type: 'official' }
     ],
     category: 'national',
-    popularity: 5,
-    bestFor: ['新干线体验', '中型旅游']
+    popularity: 5
   },
 
   {
@@ -80,6 +59,7 @@ export const nationalPasses: JRPass[] = [
         regular: 40000
       }
     },
+    bestFor: ['新干线体验', '长途旅游'],
     duration: [14],
     validityPeriod: {
       startDate: '',
@@ -92,27 +72,6 @@ export const nationalPasses: JRPass[] = [
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
     trainTypes: ['新干线', '特急电车', '急行电车', '普通电车', 'JR巴士'],
-    advantages: [
-      '覆盖日本全国JR线路',
-      '包含所有新干线普通车厢（除Nozomi和Mizuho）',
-      '14天连续使用',
-      '可乘坐JR巴士',
-      '包含机场快线',
-      '性价比高'
-    ],
-    disadvantages: [
-      '价格较高',
-      '仅限外国游客购买',
-      '需在海外购买兑换券',
-      '不能乘坐Nozomi和Mizuho新干线',
-      '仅限普通车厢'
-    ],
-    tips: [
-      '适合跨地区长途旅行',
-      '建议提前计算路线费用',
-      '可在JR车站兑换',
-      '首次使用需激活'
-    ],
     officialLinks: [
       { name: 'JR官方', url: 'https://japanrailpass.net/cn/purchase/price/' }
     ],
@@ -120,8 +79,7 @@ export const nationalPasses: JRPass[] = [
       { name: '官方购买', url: 'https://japanrailpass.net/cn/purchase/online/', type: 'official' }
     ],
     category: 'national',
-    popularity: 5,
-    bestFor: ['新干线体验', '长途旅游']
+    popularity: 5
   },
 
   {
@@ -141,6 +99,7 @@ export const nationalPasses: JRPass[] = [
         regular: 50000
       }
     },
+    bestFor: ['新干线体验', '超长途旅游'],
     duration: [21],
     validityPeriod: {
       startDate: '',
@@ -153,27 +112,6 @@ export const nationalPasses: JRPass[] = [
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
     trainTypes: ['新干线', '特急电车', '急行电车', '普通电车', 'JR巴士'],
-    advantages: [
-      '覆盖日本全国JR线路',
-      '包含所有新干线普通车厢（除Nozomi和Mizuho）',
-      '21天连续使用',
-      '可乘坐JR巴士',
-      '包含机场快线',
-      '性价比高'
-    ],
-    disadvantages: [
-      '价格较高',
-      '仅限外国游客购买',
-      '需在海外购买兑换券',
-      '不能乘坐Nozomi和Mizuho新干线',
-      '仅限普通车厢'
-    ],
-    tips: [
-      '适合跨地区长途旅行',
-      '建议提前计算路线费用',
-      '可在JR车站兑换',
-      '首次使用需激活'
-    ],
     officialLinks: [
       { name: 'JR官方', url: 'https://japanrailpass.net/cn/purchase/price/' }
     ],
@@ -181,8 +119,7 @@ export const nationalPasses: JRPass[] = [
       { name: '官方购买', url: 'https://japanrailpass.net/cn/purchase/online/', type: 'official' }
     ],
     category: 'national',
-    popularity: 5,
-    bestFor: ['新干线体验', '超长途旅游']
+    popularity: 5
   },
 
   {
@@ -202,6 +139,7 @@ export const nationalPasses: JRPass[] = [
         regular: 35000
       }
     },
+    bestFor: ['高级车厢体验', '中途旅游'],
     duration: [7],
     validityPeriod: {
       startDate: '',
@@ -214,28 +152,6 @@ export const nationalPasses: JRPass[] = [
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
     trainTypes: ['新干线', '特急电车', '急行电车', '普通电车', 'JR巴士'],
-    advantages: [
-      '覆盖日本全国JR线路',
-      '可乘坐绿色车厢',
-      '包含所有新干线绿色车厢（除Nozomi和Mizuho）',
-      '7天连续使用',
-      '可乘坐JR巴士',
-      '包含机场快线',
-      '快捷舒适体验'
-    ],
-    disadvantages: [
-      '价格较高',
-      '仅限外国游客购买',
-      '需在海外购买兑换券',
-      '不能乘坐Nozomi和Mizuho新干线'
-    ],
-    tips: [
-      '适合跨地区长途旅行',
-      '高级车厢体验更舒适',
-      '建议提前计算路线费用',
-      '可在JR车站兑换',
-      '首次使用需激活'
-    ],
     officialLinks: [
       { name: 'JR官方', url: 'https://japanrailpass.net/cn/purchase/price/' }
     ],
@@ -243,8 +159,7 @@ export const nationalPasses: JRPass[] = [
       { name: '官方购买', url: 'https://japanrailpass.net/cn/purchase/online/', type: 'official' }
     ],
     category: 'national',
-    popularity: 5,
-    bestFor: ['高级车厢体验', '中途旅游']
+    popularity: 5
   },
 
   {
@@ -264,6 +179,7 @@ export const nationalPasses: JRPass[] = [
         regular: 55000
       }
     },
+    bestFor: ['高级车厢体验', '长途旅游'],
     duration: [14],
     validityPeriod: {
       startDate: '',
@@ -276,28 +192,6 @@ export const nationalPasses: JRPass[] = [
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
     trainTypes: ['新干线', '特急电车', '急行电车', '普通电车', 'JR巴士'],
-    advantages: [
-      '覆盖日本全国JR线路',
-      '可乘坐绿色车厢',
-      '包含所有新干线绿色车厢（除Nozomi和Mizuho）',
-      '14天连续使用',
-      '可乘坐JR巴士',
-      '包含机场快线',
-      '快捷舒适体验'
-    ],
-    disadvantages: [
-      '价格较高',
-      '仅限外国游客购买',
-      '需在海外购买兑换券',
-      '不能乘坐Nozomi和Mizuho新干线'
-    ],
-    tips: [
-      '适合跨地区长途旅行',
-      '高级车厢体验更舒适',
-      '建议提前计算路线费用',
-      '可在JR车站兑换',
-      '首次使用需激活'
-    ],
     officialLinks: [
       { name: 'JR官方', url: 'https://japanrailpass.net/cn/purchase/price/' }
     ],
@@ -305,8 +199,7 @@ export const nationalPasses: JRPass[] = [
       { name: '官方购买', url: 'https://japanrailpass.net/cn/purchase/online/', type: 'official' }
     ],
     category: 'national',
-    popularity: 4,
-    bestFor: ['高级车厢体验', '长途旅游']
+    popularity: 4
   },
 
   {
@@ -326,6 +219,7 @@ export const nationalPasses: JRPass[] = [
         regular: 70000
       }
     },
+    bestFor: ['高级车厢体验', '超长途旅游'],
     duration: [21],
     validityPeriod: {
       startDate: '',
@@ -338,28 +232,6 @@ export const nationalPasses: JRPass[] = [
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
     trainTypes: ['新干线', '特急电车', '急行电车', '普通电车', 'JR巴士'],
-    advantages: [
-      '覆盖日本全国JR线路',
-      '可乘坐绿色车厢',
-      '包含所有新干线绿色车厢（除Nozomi和Mizuho）',
-      '21天连续使用',
-      '可乘坐JR巴士',
-      '包含机场快线',
-      '快捷舒适体验'
-    ],
-    disadvantages: [
-      '价格较高',
-      '仅限外国游客购买',
-      '需在海外购买兑换券',
-      '不能乘坐Nozomi和Mizuho新干线'
-    ],
-    tips: [
-      '适合跨地区长途旅行',
-      '高级车厢体验更舒适',
-      '建议提前计算路线费用',
-      '可在JR车站兑换',
-      '首次使用需激活'
-    ],
     officialLinks: [
       { name: 'JR官方', url: 'https://japanrailpass.net/cn/purchase/price/' }
     ],
@@ -367,7 +239,6 @@ export const nationalPasses: JRPass[] = [
       { name: '官方购买', url: 'https://japanrailpass.net/cn/purchase/online/', type: 'official' }
     ],
     category: 'national',
-    popularity: 4,
-    bestFor: ['高级车厢体验', '超长途旅游']
+    popularity: 4
   }
 ];

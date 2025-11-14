@@ -19,6 +19,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 1940
       }
     },
+    bestFor: ['跨地区旅行', '轻松旅游'],
     duration: [2],
     validityPeriod: {
       startDate: '',
@@ -31,15 +32,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['特急电车', '急行电车', '普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -47,8 +39,7 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: ['跨地区旅行', '轻松旅游']
+    popularity: 3
   },
 
   {
@@ -68,6 +59,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 1350
       }
     },
+    bestFor: [],
     duration: [2],
     validityPeriod: {
       startDate: '',
@@ -80,15 +72,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['特急电车', '急行电车', '普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -96,8 +79,7 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: []
+    popularity: 3
   },
 
   {
@@ -117,6 +99,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 1360
       }
     },
+    bestFor: [],
     duration: [2],
     validityPeriod: {
       startDate: '',
@@ -129,15 +112,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['特急电车', '急行电车', '普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -145,8 +119,7 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: []
+    popularity: 3
   },
 
   {
@@ -166,6 +139,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 1350
       }
     },
+    bestFor: [],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -178,15 +152,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['特急电车', '急行电车', '普通电车', 'BRT'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -194,8 +159,7 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: []
+    popularity: 3
   },
 
   {
@@ -215,6 +179,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 1250
       }
     },
+    bestFor: [],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -227,15 +192,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['特急电车', '急行电车', '普通电车', 'BRT'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -243,8 +199,7 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: []
+    popularity: 3
   },
 
   {
@@ -264,6 +219,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 1260
       }
     },
+    bestFor: [],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -276,15 +232,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['特急电车', '急行电车', '普通电车', 'BRT'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -292,8 +239,7 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: []
+    popularity: 3
   },
 
   {
@@ -313,6 +259,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 500
       }
     },
+    bestFor: [],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -325,15 +272,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -341,8 +279,7 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: []
+    popularity: 3
   },
 
   {
@@ -363,6 +300,7 @@ export const tohokuPasses: JRPass[] = [
       },
       under18: 1530
     },
+    bestFor: [],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -375,15 +313,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -391,8 +320,7 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: []
+    popularity: 3
   },
 
   {
@@ -414,6 +342,7 @@ export const tohokuPasses: JRPass[] = [
         advance: 1200
       }
     },
+    bestFor: [],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -426,15 +355,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -442,8 +362,7 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: []
+    popularity: 3
   },
 
   {
@@ -463,6 +382,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 1750
       }
     },
+    bestFor: [],
     duration: [2],
     validityPeriod: {
       startDate: '',
@@ -475,15 +395,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -491,8 +402,7 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: []
+    popularity: 3
   },
 
   {
@@ -512,6 +422,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 750
       }
     },
+    bestFor: [],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -524,15 +435,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -540,8 +442,7 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: []
+    popularity: 3
   },
 
   {
@@ -561,6 +462,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 1000
       }
     },
+    bestFor: ['包含玩具美術館入館料'],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -573,15 +475,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -589,8 +482,7 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: ['包含玩具美術館入館料']
+    popularity: 3
   },
 
   {
@@ -610,6 +502,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 500
       }
     },
+    bestFor: [],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -622,15 +515,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -638,8 +522,7 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: []
+    popularity: 3
   },
 
   {
@@ -659,6 +542,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 1500
       }
     },
+    bestFor: [],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -671,15 +555,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -687,8 +562,7 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: []
+    popularity: 3
   },
 
   {
@@ -708,6 +582,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 3050
       }
     },
+    bestFor: [],
     duration: [2],
     validityPeriod: {
       startDate: '',
@@ -720,15 +595,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -736,8 +602,7 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: []
+    popularity: 3
   },
 
   {
@@ -757,6 +622,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 750
       }
     },
+    bestFor: [],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -769,15 +635,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -785,8 +642,7 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: []
+    popularity: 3
   },
 
   {
@@ -806,6 +662,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 1200
       }
     },
+    bestFor: [],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -818,15 +675,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -834,8 +682,7 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: []
+    popularity: 3
   },
 
   {
@@ -855,6 +702,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 1300
       }
     },
+    bestFor: [],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -867,15 +715,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -883,8 +722,7 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: []
+    popularity: 3
   },
 
   {
@@ -904,6 +742,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 0
       }
     },
+    bestFor: [],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -916,15 +755,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -932,8 +762,7 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: []
+    popularity: 3
   },
 
   {
@@ -953,6 +782,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 0
       }
     },
+    bestFor: [],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -965,15 +795,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -981,8 +802,7 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: []
+    popularity: 3
   },
 
   {
@@ -1004,6 +824,7 @@ export const tohokuPasses: JRPass[] = [
         advance: 310
       }
     },
+    bestFor: [],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -1016,15 +837,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -1032,8 +844,7 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: []
+    popularity: 3
   },
 
   {
@@ -1053,6 +864,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 460
       }
     },
+    bestFor: [],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -1065,15 +877,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -1081,8 +884,7 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: []
+    popularity: 3
   },
 
   {
@@ -1102,6 +904,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 750
       }
     },
+    bestFor: [],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -1114,15 +917,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -1130,8 +924,7 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: []
+    popularity: 3
   },
 
   {
@@ -1151,6 +944,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 300
       }
     },
+    bestFor: [],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -1163,15 +957,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -1179,8 +964,7 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: []
+    popularity: 3
   },
 
   {
@@ -1200,6 +984,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 450
       }
     },
+    bestFor: [],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -1212,15 +997,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -1228,8 +1004,7 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: []
+    popularity: 3
   },
 
   {
@@ -1249,6 +1024,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 0
       }
     },
+    bestFor: [],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -1261,15 +1037,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -1277,8 +1044,7 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: []
+    popularity: 3
   },
 
   {
@@ -1298,6 +1064,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 500
       }
     },
+    bestFor: [],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -1310,15 +1077,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -1326,8 +1084,7 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: []
+    popularity: 3
   },
 
   {
@@ -1347,6 +1104,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 0
       }
     },
+    bestFor: [],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -1359,15 +1117,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -1375,8 +1124,7 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: []
+    popularity: 3
   },
 
   {
@@ -1396,6 +1144,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 2610
       }
     },
+    bestFor: [],
     duration: [2],
     validityPeriod: {
       startDate: '',
@@ -1408,15 +1157,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -1424,8 +1164,7 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: []
+    popularity: 3
   },
 
   {
@@ -1445,6 +1184,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 2130
       }
     },
+    bestFor: [],
     duration: [2],
     validityPeriod: {
       startDate: '',
@@ -1457,15 +1197,6 @@ export const tohokuPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -1473,7 +1204,6 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: []
+    popularity: 3
   }
 ];

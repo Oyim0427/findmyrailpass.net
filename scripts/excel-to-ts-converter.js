@@ -67,7 +67,6 @@ function convertExcelToTs(excelFilePath, outputTsFilePath) {
 
 // 处理Excel行数据
 function processExcelRow(row) {
-  const note = row.note ? String(row.note).trim() : '';
   const pass = {
     sortOrder: parseInt(row.sortOrder) || 0,
     id: row.id || '',
@@ -91,6 +90,11 @@ function processExcelRow(row) {
       under25: row.price_under25 ? parseInt(row.price_under25) : undefined,
       under18: row.price_under18 ? parseInt(row.price_under18) : undefined
     },
+    bestFor: row.bestFor 
+      ? (typeof row.bestFor === 'string' 
+        ? row.bestFor.split(/[,，]/).map(b => b.trim()).filter(b => b)
+        : [row.bestFor])
+      : [],
     duration: row.duration ? (typeof row.duration === 'string' ? row.duration.split(',').map(d => parseInt(d.trim())) : [parseInt(row.duration)]) : [1],
     validityPeriod: {
       startDate: row.validityPeriod_startDate || row.startDate || '',
@@ -115,36 +119,12 @@ function processExcelRow(row) {
         ? row.trainTypes.split(/[;；]/).map(t => t.trim()).filter(t => t)
         : [row.trainTypes])
       : ['普通电车'],
-    advantages: row.advantages 
-      ? (typeof row.advantages === 'string' 
-        ? row.advantages.split('|').map(a => a.trim()).filter(a => a)
-        : [row.advantages])
-      : [],
-    disadvantages: row.disadvantages 
-      ? (typeof row.disadvantages === 'string' 
-        ? row.disadvantages.split('|').map(d => d.trim()).filter(d => d)
-        : [row.disadvantages])
-      : [],
-    tips: row.tips 
-      ? (typeof row.tips === 'string' 
-        ? row.tips.split('|').map(t => t.trim()).filter(t => t)
-        : [row.tips])
-      : [],
     officialLinks: row.officialLinks ? parseLinks(row.officialLinks) : [],
     purchaseLinks: row.purchaseLinks ? parseLinks(row.purchaseLinks) : [],
     category: row.category || 'regional',
     popularity: parseInt(row.popularity) || 3,
-    bestFor: row.bestFor 
-      ? (typeof row.bestFor === 'string' 
-        ? row.bestFor.split(/[,，]/).map(b => b.trim()).filter(b => b)
-        : [row.bestFor])
-      : [],
     isLimitedPeriod: row.isLimitedPeriod === true || row.isLimitedPeriod === 'TRUE' || row.isLimitedPeriod === 'true' || row.isLimitedPeriod === '1'
   };
-
-  if (note) {
-    pass.note = note;
-  }
 
   return pass;
 }
@@ -181,7 +161,12 @@ function generateTsContent(passes, excelFilePath) {
     'hokuriku': '北陆',
     'kinki': '近畿',
     'tokyo': '东京',
-    'kyushu': '九州'
+    'kyushu': '九州',
+    'kanto': '关东',
+    'toukai': '东海',
+    'hokushinetsu': '北信越',
+    'chukoku': '中国',
+    'shikoku': '四国'
   };
   const regionName = regionMap[fileName] || fileName;
   
@@ -213,6 +198,7 @@ export const ${constName}: JRPass[] = [
         regular: ${pass.price.child.regular}${pass.price.child.advance ? `,\n        advance: ${pass.price.child.advance}` : ''}${pass.price.child.phone ? `,\n        phone: ${pass.price.child.phone}` : ''}
       }${pass.price.under25 ? `,\n      under25: ${pass.price.under25}` : ''}${pass.price.under18 ? `,\n      under18: ${pass.price.under18}` : ''}
     },
+    bestFor: [${pass.bestFor.map(b => `'${String(b || '').replace(/'/g, "\\'")}'`).join(', ')}],
     duration: [${pass.duration.join(', ')}],
     validityPeriod: {
       startDate: '${String(pass.validityPeriod.startDate || '').replace(/'/g, "\\'")}',
@@ -225,15 +211,6 @@ export const ${constName}: JRPass[] = [
     },
     targetAudience: [${pass.targetAudience.map(a => `'${String(a || '').replace(/'/g, "\\'")}'`).join(', ')}],
     trainTypes: [${pass.trainTypes.map(t => `'${String(t || '').replace(/'/g, "\\'")}'`).join(', ')}],
-    advantages: [
-      ${pass.advantages.length > 0 ? pass.advantages.map(a => `'${String(a || '').replace(/'/g, "\\'")}'`).join(',\n      ') : ''}
-    ],
-    disadvantages: [
-      ${pass.disadvantages.length > 0 ? pass.disadvantages.map(d => `'${String(d || '').replace(/'/g, "\\'")}'`).join(',\n      ') : ''}
-    ],
-    tips: [
-      ${pass.tips.length > 0 ? pass.tips.map(t => `'${String(t || '').replace(/'/g, "\\'")}'`).join(',\n      ') : ''}
-    ],
     officialLinks: [
       ${pass.officialLinks.length > 0 ? pass.officialLinks.map(link => `{ name: '${String(link.name || '').replace(/'/g, "\\'")}', url: '${String(link.url || '').replace(/'/g, "\\'")}' }`).join(',\n      ') : ''}
     ],
@@ -241,8 +218,7 @@ export const ${constName}: JRPass[] = [
       ${pass.purchaseLinks.length > 0 ? pass.purchaseLinks.map(link => `{ name: '${String(link.name || '').replace(/'/g, "\\'")}', url: '${String(link.url || '').replace(/'/g, "\\'")}', type: '${link.type || 'official'}' }`).join(',\n      ') : ''}
     ],
     category: '${pass.category}',
-    popularity: ${pass.popularity},
-    bestFor: [${pass.bestFor.map(b => `'${String(b || '').replace(/'/g, "\\'")}'`).join(', ')}]${pass.isLimitedPeriod ? ',\n    isLimitedPeriod: true' : ''}${pass.note ? `,\n    note: '${String(pass.note || '').replace(/'/g, "\\'")}'` : ''}
+    popularity: ${pass.popularity}${pass.isLimitedPeriod ? ',\n    isLimitedPeriod: true' : ''}
   }`;
   }).join(',\n\n');
 
@@ -274,7 +250,7 @@ function convertAllExcelFiles(excelDir, outputDir) {
 
 // 主函数
 async function main() {
-  const excelDir = path.join(__dirname, '../data/excel');
+  const excelDir = path.join(__dirname, '../src/excel-data');
   const outputDir = path.join(__dirname, '../src/ts-data');
   
   // 确保输出目录存在

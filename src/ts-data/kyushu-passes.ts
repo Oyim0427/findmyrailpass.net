@@ -19,6 +19,7 @@ export const kyushuPasses: JRPass[] = [
         regular: 0
       }
     },
+    bestFor: ['九州全岛', '新干线体验', '3日旅行'],
     duration: [3],
     validityPeriod: {
       startDate: '',
@@ -31,24 +32,6 @@ export const kyushuPasses: JRPass[] = [
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
     trainTypes: ['新干线', '特急电车', '急行电车', '普通电车'],
-    advantages: [
-      '覆盖九州全岛',
-      '包含新干线',
-      '3日连续使用',
-      '可游览熊本、鹿儿岛、博多',
-      '九州最全面的周游券'
-    ],
-    disadvantages: [
-      '仅限九州地区',
-      '价格较高',
-      '部分特急电车需额外费用'
-    ],
-    tips: [
-      '适合九州全岛旅行',
-      '可游览熊本、鹿儿岛、博多',
-      '建议提前规划路线',
-      '注意各线路的运行时间'
-    ],
     officialLinks: [
       { name: 'JR九州', url: 'https://www.jrkyushu.co.jp/' }
     ],
@@ -59,8 +42,7 @@ export const kyushuPasses: JRPass[] = [
       { name: 'Voyagin购买', url: 'https://www.voyagin.com/zh-cn/activities/kyushu-rail-pass', type: 'official' }
     ],
     category: 'regional',
-    popularity: 5,
-    bestFor: ['九州全岛', '新干线体验', '3日旅行']
+    popularity: 5
   },
 
   {
@@ -80,6 +62,7 @@ export const kyushuPasses: JRPass[] = [
         regular: 0
       }
     },
+    bestFor: ['九州全岛', '新干线体验', '5日旅行'],
     duration: [5],
     validityPeriod: {
       startDate: '',
@@ -92,24 +75,6 @@ export const kyushuPasses: JRPass[] = [
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
     trainTypes: ['新干线', '特急电车', '急行电车', '普通电车'],
-    advantages: [
-      '覆盖九州全岛',
-      '包含新干线',
-      '5日连续使用',
-      '可游览熊本、鹿儿岛、博多',
-      '九州最全面的周游券'
-    ],
-    disadvantages: [
-      '仅限九州地区',
-      '价格较高',
-      '部分特急电车需额外费用'
-    ],
-    tips: [
-      '适合九州全岛旅行',
-      '可游览熊本、鹿儿岛、博多',
-      '建议提前规划路线',
-      '注意各线路的运行时间'
-    ],
     officialLinks: [
       { name: 'JR九州', url: 'https://www.jrkyushu.co.jp/' }
     ],
@@ -120,8 +85,7 @@ export const kyushuPasses: JRPass[] = [
       { name: 'Voyagin购买', url: 'https://www.voyagin.com/zh-cn/activities/kyushu-rail-pass', type: 'official' }
     ],
     category: 'regional',
-    popularity: 5,
-    bestFor: ['九州全岛', '新干线体验', '5日旅行']
+    popularity: 5
   },
 
   {
@@ -141,6 +105,7 @@ export const kyushuPasses: JRPass[] = [
         regular: 0
       }
     },
+    bestFor: ['九州全岛', '新干线体验', '7日旅行'],
     duration: [7],
     validityPeriod: {
       startDate: '',
@@ -153,24 +118,6 @@ export const kyushuPasses: JRPass[] = [
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
     trainTypes: ['新干线', '特急电车', '急行电车', '普通电车'],
-    advantages: [
-      '覆盖九州全岛',
-      '包含新干线',
-      '7日连续使用',
-      '可游览熊本、鹿儿岛、博多',
-      '九州最全面的周游券'
-    ],
-    disadvantages: [
-      '仅限九州地区',
-      '价格较高',
-      '部分特急电车需额外费用'
-    ],
-    tips: [
-      '适合九州全岛旅行',
-      '可游览熊本、鹿儿岛、博多',
-      '建议提前规划路线',
-      '注意各线路的运行时间'
-    ],
     officialLinks: [
       { name: 'JR九州', url: 'https://www.jrkyushu.co.jp/' }
     ],
@@ -181,8 +128,7 @@ export const kyushuPasses: JRPass[] = [
       { name: 'Voyagin购买', url: 'https://www.voyagin.com/zh-cn/activities/kyushu-rail-pass', type: 'official' }
     ],
     category: 'regional',
-    popularity: 5,
-    bestFor: ['九州全岛', '新干线体验', '7日旅行']
+    popularity: 5
   },
 
   {
@@ -202,6 +148,7 @@ export const kyushuPasses: JRPass[] = [
         regular: 0
       }
     },
+    bestFor: ['北九州地区', '博多长崎', '3日旅行'],
     duration: [3],
     validityPeriod: {
       startDate: '',
@@ -214,24 +161,6 @@ export const kyushuPasses: JRPass[] = [
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
     trainTypes: ['特急电车', '急行电车', '普通电车'],
-    advantages: [
-      '覆盖北九州地区',
-      '3日有效',
-      '适合北九州地区旅行',
-      '价格合理',
-      '北部专用'
-    ],
-    disadvantages: [
-      '仅限北九州地区',
-      '不包含新干线',
-      '部分特急电车需额外费用'
-    ],
-    tips: [
-      '适合北九州地区旅行',
-      '可游览博多、长崎',
-      '建议提前规划路线',
-      '注意各线路的运行时间'
-    ],
     officialLinks: [
       { name: 'JR九州', url: 'https://www.jrkyushu.co.jp/' }
     ],
@@ -242,8 +171,7 @@ export const kyushuPasses: JRPass[] = [
       { name: 'Voyagin购买', url: 'https://www.voyagin.com/zh-cn/activities/northern-kyushu-pass', type: 'official' }
     ],
     category: 'regional',
-    popularity: 4,
-    bestFor: ['北九州地区', '博多长崎', '3日旅行']
+    popularity: 4
   },
 
   {
@@ -263,6 +191,7 @@ export const kyushuPasses: JRPass[] = [
         regular: 0
       }
     },
+    bestFor: ['南九州地区', '鹿儿岛宫崎', '热带风光'],
     duration: [3],
     validityPeriod: {
       startDate: '',
@@ -275,24 +204,6 @@ export const kyushuPasses: JRPass[] = [
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
     trainTypes: ['特急电车', '急行电车', '普通电车'],
-    advantages: [
-      '覆盖鹿儿岛、宫崎',
-      '热带南部风光',
-      '3日连续使用',
-      '适合南九州地区旅行',
-      '价格合理'
-    ],
-    disadvantages: [
-      '仅限南九州地区',
-      '不包含新干线',
-      '部分特急电车需额外费用'
-    ],
-    tips: [
-      '适合南九州地区旅行',
-      '可游览鹿儿岛、宫崎',
-      '建议提前规划路线',
-      '注意各线路的运行时间'
-    ],
     officialLinks: [
       { name: 'JR九州', url: 'https://www.jrkyushu.co.jp/' }
     ],
@@ -303,7 +214,6 @@ export const kyushuPasses: JRPass[] = [
       { name: 'Voyagin购买', url: 'https://www.voyagin.com/zh-cn/activities/southern-kyushu-pass', type: 'official' }
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: ['南九州地区', '鹿儿岛宫崎', '热带风光']
+    popularity: 3
   }
 ];

@@ -3,7 +3,7 @@ import { JRPass } from '@/types/pass';
 // 北海道地区周游券
 export const hokkaidoPasses: JRPass[] = [
   {
-    sortOrder: 7,
+    sortOrder: 1,
     id: 'sapporo-subway-1day',
     name: {
       en: '札幌市营地铁全线一日券',
@@ -19,6 +19,7 @@ export const hokkaidoPasses: JRPass[] = [
         regular: 420
       }
     },
+    bestFor: ['现金支付; 购票机可购买'],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -31,15 +32,6 @@ export const hokkaidoPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['地铁'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -47,12 +39,11 @@ export const hokkaidoPasses: JRPass[] = [
       
     ],
     category: 'city',
-    popularity: 3,
-    bestFor: ['现金支付; 购票机可购买']
+    popularity: 3
   },
 
   {
-    sortOrder: 8,
+    sortOrder: 2,
     id: 'hakodate-travel-passport',
     name: {
       en: '函馆旅行一日券',
@@ -68,6 +59,7 @@ export const hokkaidoPasses: JRPass[] = [
         regular: 1500
       }
     },
+    bestFor: ['函馆深度游; 电子票有优惠; 市内交通'],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -80,15 +72,6 @@ export const hokkaidoPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['巴士', '观光电车', '普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -96,12 +79,11 @@ export const hokkaidoPasses: JRPass[] = [
       
     ],
     category: 'city',
-    popularity: 3,
-    bestFor: ['函馆深度游; 电子票有优惠; 市内交通']
+    popularity: 3
   },
 
   {
-    sortOrder: 10,
+    sortOrder: 3,
     id: 'one-day-stroll-pass',
     name: {
       en: '一日散步券',
@@ -117,6 +99,7 @@ export const hokkaidoPasses: JRPass[] = [
         regular: 1500
       }
     },
+    bestFor: ['主要观光地区; 价格合理'],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -129,15 +112,6 @@ export const hokkaidoPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['特急电车', '急行电车', '普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -145,12 +119,11 @@ export const hokkaidoPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: ['主要观光地区; 价格合理']
+    popularity: 3
   },
 
   {
-    sortOrder: 15,
+    sortOrder: 4,
     id: 'sapporo-streetcar-1day',
     name: {
       en: '札幌市电一日券',
@@ -166,6 +139,7 @@ export const hokkaidoPasses: JRPass[] = [
         regular: 250
       }
     },
+    bestFor: ['现金支付; 市电随便坐; 购票机可购买'],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -178,15 +152,6 @@ export const hokkaidoPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['路面电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -194,12 +159,11 @@ export const hokkaidoPasses: JRPass[] = [
       
     ],
     category: 'city',
-    popularity: 3,
-    bestFor: ['现金支付; 市电随便坐; 购票机可购买']
+    popularity: 3
   },
 
   {
-    sortOrder: 16,
+    sortOrder: 5,
     id: 'sapporo-streetcar-24hour',
     name: {
       en: '札幌市电24小时券',
@@ -215,6 +179,7 @@ export const hokkaidoPasses: JRPass[] = [
         regular: 300
       }
     },
+    bestFor: ['24小时券; 现金支付; 市电随便坐; 购票机可购买'],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -227,15 +192,6 @@ export const hokkaidoPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['路面电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -243,12 +199,11 @@ export const hokkaidoPasses: JRPass[] = [
       
     ],
     category: 'city',
-    popularity: 3,
-    bestFor: ['24小时券; 现金支付; 市电随便坐; 购票机可购买']
+    popularity: 3
   },
 
   {
-    sortOrder: 17,
+    sortOrder: 6,
     id: 'dosanko-pass-1day',
     name: {
       en: '道产子一日券',
@@ -264,6 +219,7 @@ export const hokkaidoPasses: JRPass[] = [
         regular: 500
       }
     },
+    bestFor: ['现金支付； 地铁市电随便坐； 购票机可购买'],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -276,15 +232,6 @@ export const hokkaidoPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['地铁', '路面电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -292,12 +239,11 @@ export const hokkaidoPasses: JRPass[] = [
       
     ],
     category: 'city',
-    popularity: 3,
-    bestFor: ['现金支付； 地铁市电随便坐； 购票机可购买']
+    popularity: 3
   },
 
   {
-    sortOrder: 18,
+    sortOrder: 7,
     id: 'hakodate-streetcar-1day',
     name: {
       en: '函馆市电一日券',
@@ -313,6 +259,7 @@ export const hokkaidoPasses: JRPass[] = [
         regular: 300
       }
     },
+    bestFor: ['现金支付； 市电随便坐； 购票机可购买'],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -325,15 +272,6 @@ export const hokkaidoPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['路面电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -341,12 +279,11 @@ export const hokkaidoPasses: JRPass[] = [
       
     ],
     category: 'city',
-    popularity: 3,
-    bestFor: ['现金支付； 市电随便坐； 购票机可购买']
+    popularity: 3
   },
 
   {
-    sortOrder: 19,
+    sortOrder: 8,
     id: 'hakodate-smartphone-streetcar-24hour',
     name: {
       en: '函馆市电24小时券',
@@ -362,6 +299,7 @@ export const hokkaidoPasses: JRPass[] = [
         regular: 350
       }
     },
+    bestFor: ['24小时券； 智能手机购买； 市电随便坐； 价格合理'],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -374,15 +312,6 @@ export const hokkaidoPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['路面电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -390,12 +319,11 @@ export const hokkaidoPasses: JRPass[] = [
       
     ],
     category: 'city',
-    popularity: 3,
-    bestFor: ['24小时券； 智能手机购买； 市电随便坐； 价格合理']
+    popularity: 3
   },
 
   {
-    sortOrder: 20,
+    sortOrder: 9,
     id: 'hakodate-smartphone-streetcar-bus-1day',
     name: {
       en: '函馆市电・函馆巴士共通一日券',
@@ -411,6 +339,7 @@ export const hokkaidoPasses: JRPass[] = [
         regular: 400
       }
     },
+    bestFor: ['智能手机购买； 市电巴士随便坐； 价格合理'],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -423,15 +352,6 @@ export const hokkaidoPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['路面电车', '巴士'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -439,12 +359,11 @@ export const hokkaidoPasses: JRPass[] = [
       
     ],
     category: 'city',
-    popularity: 3,
-    bestFor: ['智能手机购买； 市电巴士随便坐； 价格合理']
+    popularity: 3
   },
 
   {
-    sortOrder: 21,
+    sortOrder: 10,
     id: 'hakodate-smartphone-streetcar-bus-2day',
     name: {
       en: '函馆市电・函馆巴士共通二日券',
@@ -460,6 +379,7 @@ export const hokkaidoPasses: JRPass[] = [
         regular: 600
       }
     },
+    bestFor: ['智能手机购买； 市电巴士随便坐； 价格合理'],
     duration: [2],
     validityPeriod: {
       startDate: '',
@@ -472,15 +392,6 @@ export const hokkaidoPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['路面电车', '巴士'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -488,12 +399,11 @@ export const hokkaidoPasses: JRPass[] = [
       
     ],
     category: 'city',
-    popularity: 3,
-    bestFor: ['智能手机购买； 市电巴士随便坐； 价格合理']
+    popularity: 3
   },
 
   {
-    sortOrder: 22,
+    sortOrder: 11,
     id: 'isarihi-1day-ticket',
     name: {
       en: '渔火一日券',
@@ -509,6 +419,7 @@ export const hokkaidoPasses: JRPass[] = [
         regular: 400
       }
     },
+    bestFor: ['现金支付；', 'いさりび鉄道随便坐；购票机可购买'],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -521,15 +432,6 @@ export const hokkaidoPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -537,12 +439,11 @@ export const hokkaidoPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: ['现金支付；', 'いさりび鉄道随便坐；购票机可购买']
+    popularity: 3
   },
 
   {
-    sortOrder: 23,
+    sortOrder: 12,
     id: 'isarihi-1day-campus',
     name: {
       en: '渔火一日区域券',
@@ -558,6 +459,7 @@ export const hokkaidoPasses: JRPass[] = [
         regular: 300
       }
     },
+    bestFor: ['学生优惠； いさりび鉄道随便坐；购票机可购买'],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -570,15 +472,6 @@ export const hokkaidoPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -586,12 +479,11 @@ export const hokkaidoPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: ['学生优惠； いさりび鉄道随便坐；购票机可购买']
+    popularity: 3
   },
 
   {
-    sortOrder: 24,
+    sortOrder: 13,
     id: 'toei-subway-2day',
     name: {
       en: '休息日限定地铁全线一日券',
@@ -607,6 +499,7 @@ export const hokkaidoPasses: JRPass[] = [
         regular: 260
       }
     },
+    bestFor: ['现金支付', '购票机可购买'],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -619,15 +512,6 @@ export const hokkaidoPasses: JRPass[] = [
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['地铁'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -636,62 +520,11 @@ export const hokkaidoPasses: JRPass[] = [
     ],
     category: 'city',
     popularity: 5,
-    bestFor: ['现金支付', '购票机可购买'],
     isLimitedPeriod: true
   },
 
   {
-    sortOrder: 30,
-    id: 'hakodate-night-tram-ticket',
-    name: {
-      en: '函馆夜间电车券',
-      jp: '函馆夜间电车券',
-      cn: '函馆夜间电车券'
-    },
-    description: '函馆夜间电车券，适合17点以后夜间游览函馆，包含函馆市电夜间使用。',
-    price: {
-      adult: {
-        regular: 500
-      },
-      child: {
-        regular: 250
-      }
-    },
-    duration: [1],
-    validityPeriod: {
-      startDate: '',
-      endDate: '',
-      description: '【期间限定】'
-    },
-    coverage: {
-      regions: ['北海道'],
-      map: '/images/coverage/hakodate-night-tram-ticket.png'
-    },
-    targetAudience: ['不问国籍所有游客皆可购买'],
-    trainTypes: ['路面电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
-    officialLinks: [
-      
-    ],
-    purchaseLinks: [
-      
-    ],
-    category: 'city',
-    popularity: 3,
-    bestFor: ['夜间函馆游；现金支付； 市电随便坐； 购票机可购买'],
-    isLimitedPeriod: true
-  },
-
-  {
-    sortOrder: 1,
+    sortOrder: 14,
     id: 'jr-east-south-hokkaido-rail-pass-6day',
     name: {
       en: 'JR东日本・南北海道铁路周游券6日券',
@@ -707,6 +540,7 @@ export const hokkaidoPasses: JRPass[] = [
         regular: 17680
       }
     },
+    bestFor: ['跨地区旅行; 中途旅游'],
     duration: [6],
     validityPeriod: {
       startDate: '',
@@ -719,15 +553,6 @@ export const hokkaidoPasses: JRPass[] = [
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
     trainTypes: ['新干线', '特急电车', '急行电车', '普通电车', 'JR巴士'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -735,12 +560,11 @@ export const hokkaidoPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 4,
-    bestFor: ['跨地区旅行; 中途旅游']
+    popularity: 4
   },
 
   {
-    sortOrder: 2,
+    sortOrder: 15,
     id: 'hokkaido-rail-pass-5day',
     name: {
       en: '北海道铁路周游券5日券',
@@ -758,6 +582,7 @@ export const hokkaidoPasses: JRPass[] = [
         phone: 11000
       }
     },
+    bestFor: ['北海道全域; 预购有1000円优惠'],
     duration: [5],
     validityPeriod: {
       startDate: '',
@@ -770,15 +595,6 @@ export const hokkaidoPasses: JRPass[] = [
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
     trainTypes: ['特急电车', '急行电车', '普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -786,12 +602,11 @@ export const hokkaidoPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 4,
-    bestFor: ['北海道全域; 预购有1000円优惠']
+    popularity: 4
   },
 
   {
-    sortOrder: 3,
+    sortOrder: 16,
     id: 'hokkaido-rail-pass-7day',
     name: {
       en: '北海道铁路周游券7日券',
@@ -809,6 +624,7 @@ export const hokkaidoPasses: JRPass[] = [
         phone: 14000
       }
     },
+    bestFor: ['北海道全域; 预购有1000円优惠'],
     duration: [7],
     validityPeriod: {
       startDate: '',
@@ -821,15 +637,6 @@ export const hokkaidoPasses: JRPass[] = [
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
     trainTypes: ['特急电车', '急行电车', '普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -837,12 +644,11 @@ export const hokkaidoPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 4,
-    bestFor: ['北海道全域; 预购有1000円优惠']
+    popularity: 4
   },
 
   {
-    sortOrder: 4,
+    sortOrder: 17,
     id: 'hokkaido-rail-pass-10day',
     name: {
       en: '北海道铁路周游券10日券',
@@ -860,6 +666,7 @@ export const hokkaidoPasses: JRPass[] = [
         phone: 18500
       }
     },
+    bestFor: ['北海道全域; 预购有1000円优惠'],
     duration: [10],
     validityPeriod: {
       startDate: '',
@@ -872,15 +679,6 @@ export const hokkaidoPasses: JRPass[] = [
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
     trainTypes: ['特急电车', '急行电车', '普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -888,12 +686,11 @@ export const hokkaidoPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 4,
-    bestFor: ['北海道全域; 预购有1000円优惠']
+    popularity: 4
   },
 
   {
-    sortOrder: 5,
+    sortOrder: 18,
     id: 'sapporo-furano-area-pass',
     name: {
       en: '札幌・富良野地区周游券',
@@ -909,6 +706,7 @@ export const hokkaidoPasses: JRPass[] = [
         regular: 6000
       }
     },
+    bestFor: ['札幌・富良野・美瑛观光; 预购有1000円优惠'],
     duration: [4],
     validityPeriod: {
       startDate: '',
@@ -921,15 +719,6 @@ export const hokkaidoPasses: JRPass[] = [
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
     trainTypes: ['特急电车', '急行电车', '普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -937,12 +726,11 @@ export const hokkaidoPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 4,
-    bestFor: ['札幌・富良野・美瑛观光; 预购有1000円优惠']
+    popularity: 4
   },
 
   {
-    sortOrder: 6,
+    sortOrder: 19,
     id: 'sapporo-noboribetsu-pass',
     name: {
       en: '札幌・登别周游券',
@@ -958,6 +746,7 @@ export const hokkaidoPasses: JRPass[] = [
         regular: 5500
       }
     },
+    bestFor: ['札幌・登别观光; 预购有1000円优惠'],
     duration: [4],
     validityPeriod: {
       startDate: '',
@@ -970,15 +759,6 @@ export const hokkaidoPasses: JRPass[] = [
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
     trainTypes: ['特急电车', '急行电车', '普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -986,12 +766,11 @@ export const hokkaidoPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: ['札幌・登别观光; 预购有1000円优惠']
+    popularity: 3
   },
 
   {
-    sortOrder: 9,
+    sortOrder: 20,
     id: 'hokkaido-free-pass',
     name: {
       en: '北海道周游券',
@@ -1007,6 +786,7 @@ export const hokkaidoPasses: JRPass[] = [
         regular: 11500
       }
     },
+    bestFor: ['北海道全域; 经典周游券; 预购有优惠'],
     duration: [5],
     validityPeriod: {
       startDate: '',
@@ -1019,15 +799,6 @@ export const hokkaidoPasses: JRPass[] = [
     },
     targetAudience: ['持有旅游签证的外国护照游客'],
     trainTypes: ['特急电车', '急行电车', '普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -1035,12 +806,11 @@ export const hokkaidoPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 4,
-    bestFor: ['北海道全域; 经典周游券; 预购有优惠']
+    popularity: 4
   },
 
   {
-    sortOrder: 11,
+    sortOrder: 21,
     id: 'peach-higashi-hokkaido-free-pass',
     name: {
       en: 'Peach东北海道周游券',
@@ -1056,6 +826,7 @@ export const hokkaidoPasses: JRPass[] = [
         regular: 6000
       }
     },
+    bestFor: ['Peach航空乘客; 东北海道; 知床观光'],
     duration: [3],
     validityPeriod: {
       startDate: '',
@@ -1068,15 +839,6 @@ export const hokkaidoPasses: JRPass[] = [
     },
     targetAudience: ['Peach航空乘客'],
     trainTypes: ['特急电车', '急行电车', '普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -1084,12 +846,11 @@ export const hokkaidoPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: ['Peach航空乘客; 东北海道; 知床观光']
+    popularity: 3
   },
 
   {
-    sortOrder: 13,
+    sortOrder: 22,
     id: 'peach-kita-hokkaido-free-pass',
     name: {
       en: 'Peach北北海道周游券',
@@ -1105,6 +866,7 @@ export const hokkaidoPasses: JRPass[] = [
         regular: 6000
       }
     },
+    bestFor: ['Peach航空乘客; 北北海道'],
     duration: [3],
     validityPeriod: {
       startDate: '',
@@ -1117,15 +879,6 @@ export const hokkaidoPasses: JRPass[] = [
     },
     targetAudience: ['Peach航空乘客'],
     trainTypes: ['特急电车', '急行电车', '普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -1133,12 +886,11 @@ export const hokkaidoPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: ['Peach航空乘客; 北北海道']
+    popularity: 3
   },
 
   {
-    sortOrder: 12,
+    sortOrder: 23,
     id: 'fda-higashi-hokkaido-free-pass',
     name: {
       en: 'FDA东北海道周游券',
@@ -1154,6 +906,7 @@ export const hokkaidoPasses: JRPass[] = [
         regular: 6000
       }
     },
+    bestFor: ['FDA航空乘客; 东北海道; 知床观光'],
     duration: [3],
     validityPeriod: {
       startDate: '',
@@ -1166,15 +919,6 @@ export const hokkaidoPasses: JRPass[] = [
     },
     targetAudience: ['FDA航空乘客'],
     trainTypes: ['特急电车', '急行电车', '普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -1182,12 +926,11 @@ export const hokkaidoPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3,
-    bestFor: ['FDA航空乘客; 东北海道; 知床观光']
+    popularity: 3
   },
 
   {
-    sortOrder: 14,
+    sortOrder: 24,
     id: 'fda-kita-hokkaido-free-pass',
     name: {
       en: 'FDA北北海道周游券',
@@ -1203,6 +946,7 @@ export const hokkaidoPasses: JRPass[] = [
         regular: 6000
       }
     },
+    bestFor: ['FDA航空乘客; 北北海道'],
     duration: [3],
     validityPeriod: {
       startDate: '',
@@ -1215,15 +959,6 @@ export const hokkaidoPasses: JRPass[] = [
     },
     targetAudience: ['FDA航空乘客'],
     trainTypes: ['特急电车', '急行电车', '普通电车'],
-    advantages: [
-      
-    ],
-    disadvantages: [
-      
-    ],
-    tips: [
-      
-    ],
     officialLinks: [
       
     ],
@@ -1231,7 +966,47 @@ export const hokkaidoPasses: JRPass[] = [
       
     ],
     category: 'regional',
+    popularity: 3
+  },
+
+  {
+    sortOrder: 25,
+    id: 'hakodate-night-tram-ticket',
+    name: {
+      en: '函馆夜间电车券',
+      jp: '函馆夜间电车券',
+      cn: '函馆夜间电车券'
+    },
+    description: '函馆夜间电车券，适合17点以后夜间游览函馆，包含函馆市电夜间使用。',
+    price: {
+      adult: {
+        regular: 500
+      },
+      child: {
+        regular: 250
+      }
+    },
+    bestFor: ['夜间函馆游；现金支付； 市电随便坐； 购票机可购买'],
+    duration: [1],
+    validityPeriod: {
+      startDate: '',
+      endDate: '',
+      description: '【期间限定】'
+    },
+    coverage: {
+      regions: ['北海道'],
+      map: '/images/coverage/hakodate-night-tram-ticket.png'
+    },
+    targetAudience: ['不问国籍所有游客皆可购买'],
+    trainTypes: ['路面电车'],
+    officialLinks: [
+      
+    ],
+    purchaseLinks: [
+      
+    ],
+    category: 'city',
     popularity: 3,
-    bestFor: ['FDA航空乘客; 北北海道']
+    isLimitedPeriod: true
   }
 ];

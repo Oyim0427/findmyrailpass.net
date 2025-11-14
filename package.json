@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "convert-excel-to-ts": "node scripts/excel-to-ts-converter.js",
-    "convert-excel": "node scripts/ts-to-excel-converter.js"
+    "convert-ts-to-excel": "node scripts/ts-to-excel-converter.js",
+    "normalize-ts-data": "node scripts/normalize-ts-data.js"
   },
   "dependencies": {
     "@next/font": "^14.2.15",
