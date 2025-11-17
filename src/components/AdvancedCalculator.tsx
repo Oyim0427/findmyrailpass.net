@@ -74,8 +74,11 @@ export default function AdvancedCalculator() {
         );
       });
       
-      // 第二步：对精准匹配的通票进行综合评分
+      // 第二步：对精准匹配的通票进行综合评分（只处理有成人价格的通票）
       regionFilteredPasses.forEach(pass => {
+        if (!pass.price?.adult?.regular || pass.price.adult.regular <= 0) {
+          return;
+        }
         let score = 0;
         let reason = '';
         let savings = 0;
@@ -209,8 +212,11 @@ export default function AdvancedCalculator() {
           );
         });
         
-        // 对备选通票进行评分（降低门槛）
+        // 对备选通票进行评分（降低门槛，只处理有成人价格的通票）
         fallbackPasses.forEach(pass => {
+          if (!pass.price?.adult?.regular || pass.price.adult.regular <= 0) {
+            return;
+          }
           let score = 0;
           let reason = '';
           let savings = 0;
@@ -587,18 +593,28 @@ export default function AdvancedCalculator() {
                 </div>
                 
                 <div className="text-right sm:ml-6 -mt-8 sm:mt-0">
-                  <div className="text-3xl sm:text-3xl font-bold text-red-600 mb-1">
-                    ¥{rec.pass.price.adult.regular.toLocaleString()}
-                  </div>
-                  <div className="text-sm text-gray-500 mb-1">
-                    成人票价格
-                  </div>
-                  <div className="text-lg text-gray-400">
-                    ¥{rec.pass.price.child.regular.toLocaleString()}
-                  </div>
-                  <div className="text-xs text-gray-400">
-                    儿童票价格
-                  </div>
+                  {typeof rec.pass.price.adult?.regular === 'number' &&
+                    rec.pass.price.adult.regular > 0 && (
+                      <>
+                        <div className="text-3xl sm:text-3xl font-bold text-red-600 mb-1">
+                          ¥{rec.pass.price.adult.regular.toLocaleString()}
+                        </div>
+                        <div className="text-sm text-gray-500 mb-1">
+                          成人票价格
+                        </div>
+                      </>
+                    )}
+                  {typeof rec.pass.price.child?.regular === 'number' &&
+                    rec.pass.price.child.regular > 0 && (
+                      <>
+                        <div className="text-lg text-gray-400">
+                          ¥{rec.pass.price.child.regular.toLocaleString()}
+                        </div>
+                        <div className="text-xs text-gray-400">
+                          儿童票价格
+                        </div>
+                      </>
+                    )}
                 </div>
               </div>
 

@@ -335,11 +335,11 @@ export const tohokuPasses: JRPass[] = [
     price: {
       adult: {
         regular: 2500,
-        advance: 2400
+        phone: 2400
       },
       child: {
         regular: 1250,
-        advance: 1200
+        phone: 1200
       }
     },
     bestFor: [],
@@ -817,11 +817,11 @@ export const tohokuPasses: JRPass[] = [
     price: {
       adult: {
         regular: 840,
-        advance: 620
+        phone: 620
       },
       child: {
         regular: 420,
-        advance: 310
+        phone: 310
       }
     },
     bestFor: [],

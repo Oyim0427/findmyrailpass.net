@@ -58,8 +58,11 @@ npm run convert
 - `price_child_regular`: 儿童普通价格 (数字)
 
 ### 可选字段
-- `price_adult_advance`: 成人预购价格 (数字)
-- `price_child_advance`: 儿童预购价格 (数字)
+- `price_over65`: 65岁以上价格 (数字)
+- `price_under25`: 25岁以下价格 (数字)
+- `price_under18`: 18岁以下价格 (数字)
+- `price_under15`: 15岁以下价格 (数字)
+- `price_free`: 票价自由入力字段（字符串，可用于填写“价格需官网确认”等说明）
 - `duration`: 使用天数，多个用逗号分隔 (如: 5,7,10)
 - `startDate`: 开始日期 (YYYY-MM-DD格式)
 - `endDate`: 结束日期 (YYYY-MM-DD格式)

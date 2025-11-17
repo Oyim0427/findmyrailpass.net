@@ -8,18 +8,21 @@ export interface JRPass {
   };
   description: string; // 周游券介绍
   price: {
+    // 成人价格
     adult: {
       regular: number; // 成人常规价格
-      advance?: number; // 成人预购价格（可选）
       phone?: number; // 成人电话购买价格（可选）
     };
+    // 儿童/优惠价格（以下字段互斥地用于不同年龄/优惠分组）
     child: {
       regular: number; // 儿童常规价格
-      advance?: number; // 儿童预购价格（可选）
       phone?: number; // 儿童电话购买价格（可选）
     };
+    over65?: number; // 65岁以上价格（可选）
     under25?: number; // 25岁以下价格（可选）
     under18?: number; // 18岁以下价格（可选）
+    under15?: number; // 15岁以下价格（可选）
+    freeText?: string; // 自由入力的票价说明（如“请在官网确认价格”等）
   };
   duration: number[]; // 适用天数列表，如[3,5,7]
   coverage: {

@@ -8,6 +8,64 @@ interface PassCardProps {
   onClick?: () => void;
 }
 
+function PriceLabel({ price }: { price: JRPass['price'] }) {
+  // 按优先级选择一个要展示的优惠/儿童价格
+  const labelOrder: { key: keyof JRPass['price']; label: string }[] = [
+    { key: 'over65', label: '65岁以上价格' },
+    { key: 'under25', label: '25岁以下价格' },
+    { key: 'under18', label: '18岁以下价格' },
+    { key: 'under15', label: '15岁以下价格' }
+  ];
+
+  if (price.freeText) {
+    return (
+      <>
+        <div className="text-sm text-gray-700 font-semibold">
+          {price.freeText}
+        </div>
+        <div className="text-xs text-gray-400">票价说明</div>
+      </>
+    );
+  }
+
+  const found = labelOrder.find(
+    (item) =>
+      typeof price[item.key] === 'number' &&
+      typeof price[item.key] === 'number' &&
+      (price[item.key] as number) > 0
+  );
+
+  if (found && typeof price[found.key] === 'number') {
+    const value = price[found.key] as number;
+    return (
+      <>
+        <div className="text-lg text-gray-400">
+          ¥{value.toLocaleString()}
+        </div>
+        <div className="text-xs text-gray-400">
+          {found.label}
+        </div>
+      </>
+    );
+  }
+
+  // 默认 fallback：如果有儿童普通价格则显示，否则不显示
+  if (typeof price.child?.regular === 'number' && price.child.regular > 0) {
+    return (
+      <>
+        <div className="text-lg text-gray-400">
+          ¥{price.child.regular.toLocaleString()}
+        </div>
+        <div className="text-xs text-gray-400">
+          儿童价格
+        </div>
+      </>
+    );
+  }
+
+  return null;
+}
+
 export default function PassCard({ pass, onClick }: PassCardProps) {
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (
@@ -19,6 +77,17 @@ export default function PassCard({ pass, onClick }: PassCardProps) {
       />
     ));
   };
+
+  const hasAnyPriceInfo =
+    (typeof pass.price.adult?.regular === 'number' && pass.price.adult.regular > 0) ||
+    (typeof pass.price.adult?.phone === 'number' && pass.price.adult.phone > 0) ||
+    (typeof pass.price.child?.regular === 'number' && pass.price.child.regular > 0) ||
+    (typeof pass.price.child?.phone === 'number' && pass.price.child.phone > 0) ||
+    (typeof pass.price.over65 === 'number' && pass.price.over65 > 0) ||
+    (typeof pass.price.under25 === 'number' && pass.price.under25 > 0) ||
+    (typeof pass.price.under18 === 'number' && pass.price.under18 > 0) ||
+    (typeof pass.price.under15 === 'number' && pass.price.under15 > 0) ||
+    !!pass.price.freeText;
 
   return (
     <div 
@@ -66,20 +135,22 @@ export default function PassCard({ pass, onClick }: PassCardProps) {
               </span>
             </div>
           </div>
-          <div className="text-right flex-shrink-0">
-            <div className="text-2xl font-bold text-red-600">
-              ¥{pass.price.adult.regular.toLocaleString()}
+          {hasAnyPriceInfo && (
+            <div className="text-right flex-shrink-0">
+              {typeof pass.price.adult?.regular === 'number' &&
+                pass.price.adult.regular > 0 && (
+                  <>
+                    <div className="text-2xl font-bold text-red-600">
+                      ¥{pass.price.adult.regular.toLocaleString()}
+                    </div>
+                    <div className="text-sm text-gray-500 mb-1">
+                      成人价格
+                    </div>
+                  </>
+                )}
+              <PriceLabel price={pass.price} />
             </div>
-            <div className="text-sm text-gray-500 mb-1">
-              成人价格
-            </div>
-            <div className="text-lg text-gray-400">
-              ¥{pass.price.child.regular.toLocaleString()}
-            </div>
-            <div className="text-xs text-gray-400">
-              儿童价格
-            </div>
-          </div>
+          )}
         </div>
 
         {/* Best For Tags */}

@@ -79,16 +79,17 @@ function processExcelRow(row) {
     price: {
       adult: {
         regular: parseInt(row.price_adult_regular) || 0,
-        advance: row.price_adult_advance ? parseInt(row.price_adult_advance) : undefined,
         phone: row.price_adult_phone ? parseInt(row.price_adult_phone) : undefined
       },
       child: {
         regular: parseInt(row.price_child_regular) || 0,
-        advance: row.price_child_advance ? parseInt(row.price_child_advance) : undefined,
         phone: row.price_child_phone ? parseInt(row.price_child_phone) : undefined
       },
+      over65: row.price_over65 ? parseInt(row.price_over65) : undefined,
       under25: row.price_under25 ? parseInt(row.price_under25) : undefined,
-      under18: row.price_under18 ? parseInt(row.price_under18) : undefined
+      under18: row.price_under18 ? parseInt(row.price_under18) : undefined,
+      under15: row.price_under15 ? parseInt(row.price_under15) : undefined,
+      freeText: row.price_free ? String(row.price_free) : undefined
     },
     bestFor: row.bestFor 
       ? (typeof row.bestFor === 'string' 
@@ -192,11 +193,11 @@ export const ${constName}: JRPass[] = [
     description: '${String(pass.description || '').replace(/'/g, "\\'")}',
     price: {
       adult: {
-        regular: ${pass.price.adult.regular}${pass.price.adult.advance ? `,\n        advance: ${pass.price.adult.advance}` : ''}${pass.price.adult.phone ? `,\n        phone: ${pass.price.adult.phone}` : ''}
+        regular: ${pass.price.adult.regular}${pass.price.adult.phone ? `,\n        phone: ${pass.price.adult.phone}` : ''}
       },
       child: {
-        regular: ${pass.price.child.regular}${pass.price.child.advance ? `,\n        advance: ${pass.price.child.advance}` : ''}${pass.price.child.phone ? `,\n        phone: ${pass.price.child.phone}` : ''}
-      }${pass.price.under25 ? `,\n      under25: ${pass.price.under25}` : ''}${pass.price.under18 ? `,\n      under18: ${pass.price.under18}` : ''}
+        regular: ${pass.price.child.regular}${pass.price.child.phone ? `,\n        phone: ${pass.price.child.phone}` : ''}
+      }${pass.price.over65 ? `,\n      over65: ${pass.price.over65}` : ''}${pass.price.under25 ? `,\n      under25: ${pass.price.under25}` : ''}${pass.price.under18 ? `,\n      under18: ${pass.price.under18}` : ''}${pass.price.under15 ? `,\n      under15: ${pass.price.under15}` : ''}${pass.price.freeText ? `,\n      freeText: '${String(pass.price.freeText || '').replace(/'/g, "\\'")}'` : ''}
     },
     bestFor: [${pass.bestFor.map(b => `'${String(b || '').replace(/'/g, "\\'")}'`).join(', ')}],
     duration: [${pass.duration.join(', ')}],
