@@ -78,6 +78,18 @@ export default function PassCard({ pass, onClick }: PassCardProps) {
     ));
   };
 
+  // 支持在数据中用 ";" 分割 bestFor 字段来生成多个标签
+  const bestForTags =
+    Array.isArray(pass.bestFor)
+      ? pass.bestFor.flatMap((tag) =>
+          String(tag)
+            // 同时支持半角 ";" 和全角 "；" 作为分隔符
+            .split(/[;；]/)
+            .map((t) => t.trim())
+            .filter(Boolean)
+        )
+      : [];
+
   const hasAnyPriceInfo =
     (typeof pass.price.adult?.regular === 'number' && pass.price.adult.regular > 0) ||
     (typeof pass.price.adult?.phone === 'number' && pass.price.adult.phone > 0) ||
@@ -154,16 +166,18 @@ export default function PassCard({ pass, onClick }: PassCardProps) {
         </div>
 
         {/* Best For Tags */}
-        <div className="flex flex-wrap gap-2 mb-4">
-          {pass.bestFor.map((tag) => (
-            <span
-              key={tag}
-              className="bg-red-50 text-red-700 px-3 py-1 rounded-full text-xs font-medium"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
+        {bestForTags.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-4">
+            {bestForTags.map((tag) => (
+              <span
+                key={tag}
+                className="bg-red-50 text-red-700 px-3 py-1 rounded-full text-xs font-medium"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
 
         <div className="mb-4 rounded-xl border border-gray-100">
           <table className="w-full text-sm text-gray-700">
