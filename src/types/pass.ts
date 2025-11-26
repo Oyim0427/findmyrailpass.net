@@ -50,6 +50,7 @@ export interface JRPass {
     endDate: string; // 有效截止日期，格式 YYYY-MM-DD
     description?: string; // 有效期间描述（如2024年度）
   };
+  ticket_note?: string; // 备考说明文字（可选）
 }
 
 // Route 接口用于描述行程路线的结构

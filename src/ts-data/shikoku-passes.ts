@@ -900,10 +900,10 @@ export const shikokuPasses: JRPass[] = [
       child: {
         regular: 0
       },
-      freeText: `フリー区間	タイプ	大人	小人
+      freeText: 'フリー区間	タイプ	大人	小人
 中村・宿毛線(全線)	普通列車	2,080円	1,040円
 中村線(窪川～中村)	特急自由席
-普通列車	2,600円	1,300円`
+普通列車	2,600円	1,300円'
     },
     bestFor: ['现金支付; 购票机可购买'],
     duration: [1],

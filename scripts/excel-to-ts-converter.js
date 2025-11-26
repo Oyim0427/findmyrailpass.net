@@ -124,7 +124,8 @@ function processExcelRow(row) {
     purchaseLinks: row.purchaseLinks ? parseLinks(row.purchaseLinks) : [],
     category: row.category || 'regional',
     popularity: parseInt(row.popularity) || 3,
-    isLimitedPeriod: row.isLimitedPeriod === true || row.isLimitedPeriod === 'TRUE' || row.isLimitedPeriod === 'true' || row.isLimitedPeriod === '1'
+    isLimitedPeriod: row.isLimitedPeriod === true || row.isLimitedPeriod === 'TRUE' || row.isLimitedPeriod === 'true' || row.isLimitedPeriod === '1',
+    ticket_note: row.ticket_note ? String(row.ticket_note) : undefined
   };
 
   return pass;
@@ -219,7 +220,7 @@ export const ${constName}: JRPass[] = [
       ${pass.purchaseLinks.length > 0 ? pass.purchaseLinks.map(link => `{ name: '${String(link.name || '').replace(/'/g, "\\'")}', url: '${String(link.url || '').replace(/'/g, "\\'")}', type: '${link.type || 'official'}' }`).join(',\n      ') : ''}
     ],
     category: '${pass.category}',
-    popularity: ${pass.popularity}${pass.isLimitedPeriod ? ',\n    isLimitedPeriod: true' : ''}
+    popularity: ${pass.popularity}${pass.isLimitedPeriod ? ',\n    isLimitedPeriod: true' : ''}${pass.ticket_note ? `,\n    ticket_note: \`${String(pass.ticket_note || '').replace(/\\/g, '\\\\').replace(/`/g, '\\`').replace(/\${/g, '\\${')}\`` : ''}
   }`;
   }).join(',\n\n');
 

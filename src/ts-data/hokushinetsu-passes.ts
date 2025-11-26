@@ -1660,8 +1660,8 @@ export const hokushinetsuPasses: JRPass[] = [
       child: {
         regular: 0
       },
-      freeText: `大人2名＋小人2名：1,200円
-大人1名＋小人2名：800円`
+      freeText: '大人2名＋小人2名：1,200円
+大人1名＋小人2名：800円'
     },
     bestFor: [],
     duration: [1],

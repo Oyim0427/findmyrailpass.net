@@ -274,6 +274,14 @@ export default function PassCard({ pass, onClick }: PassCardProps) {
             </button>
           )}
         </div>
+
+        {/* Ticket Note */}
+        {pass.ticket_note && (
+          <div className="mt-4 p-3 bg-gray-50 border border-gray-200 rounded-lg">
+            <div className="text-xs font-semibold text-gray-500 mb-1">备考</div>
+            <div className="text-sm text-gray-700 whitespace-pre-line">{pass.ticket_note}</div>
+          </div>
+        )}
       </div>
     </div>
   );

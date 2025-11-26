@@ -95,7 +95,7 @@ function convertToRows(passes) {
     'validityPeriod_startDate', 'validityPeriod_endDate', 'validityPeriod_description',
     'coverage_regions', 'coverage_map',
     'targetAudience', 'trainTypes',
-    'officialLinks', 'purchaseLinks', 'category', 'popularity', 'isLimitedPeriod'
+    'officialLinks', 'purchaseLinks', 'category', 'popularity', 'isLimitedPeriod', 'ticket_note'
   ];
   
   const rows = [headers];
@@ -174,6 +174,9 @@ function convertToRows(passes) {
           break;
         case 'isLimitedPeriod':
           value = pass.isLimitedPeriod ? 'TRUE' : '';
+          break;
+        case 'ticket_note':
+          value = pass.ticket_note || '';
           break;
         default:
           value = pass[header] || '';
