@@ -41,7 +41,8 @@ export const hokkaidoPasses: JRPass[] = [
     ],
     category: 'regional',
     popularity: 4,
-    ticket_note: `使用不可：4月27日～5月6日、8月10日～19日、12月28日～1月6日`
+    ticket_note: `※使用不可：4月27日～5月6日、8月10日～19日、12月28日～1月6日
+※坐快车需加钱`
   },
 
   {

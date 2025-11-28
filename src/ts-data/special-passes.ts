@@ -240,5 +240,47 @@ export const specialPasses: JRPass[] = [
     ],
     category: 'regional',
     popularity: 3
+  },
+
+  {
+    sortOrder: 0,
+    id: 'aizu-gurutto-card',
+    name: {
+      en: '会津环游卡',
+      jp: '会津环游卡',
+      cn: '会津环游卡'
+    },
+    description: '',
+    price: {
+      adult: {
+        regular: 2720
+      },
+      child: {
+        regular: 1360
+      }
+    },
+    bestFor: ['现金购票; 电子购票； 各旅行事物所购票'],
+    duration: [2],
+    validityPeriod: {
+      startDate: '',
+      endDate: '',
+      description: '～2026年3月30日'
+    },
+    coverage: {
+      regions: ['福岛', '会津', '东北'],
+      map: '/images/coverage/aizu-gurutto-card.png'
+    },
+    targetAudience: ['不问国籍所有游客皆可购买'],
+    trainTypes: ['特急电车', '急行电车', '普通电车'],
+    officialLinks: [
+      
+    ],
+    purchaseLinks: [
+      
+    ],
+    category: 'regional',
+    popularity: 3,
+    isLimitedPeriod: true,
+    ticket_note: `坐普通电车以外需另外加钱`
   }
 ];

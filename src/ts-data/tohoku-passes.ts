@@ -19,7 +19,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 1940
       }
     },
-    bestFor: ['跨地区旅行', '轻松旅游'],
+    bestFor: ['现金购票; 购票机购票'],
     duration: [2],
     validityPeriod: {
       startDate: '',
@@ -27,7 +27,7 @@ export const tohokuPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['青森县, 秋田县'],
+      regions: ['青森', '秋田', '东北'],
       map: '/images/coverage/gonosen-free-pass.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -39,7 +39,8 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3
+    popularity: 3,
+    ticket_note: `坐普通电车以外需另外加钱`
   },
 
   {
@@ -59,7 +60,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 1350
       }
     },
-    bestFor: [],
+    bestFor: ['现金购票; 购票机购票'],
     duration: [2],
     validityPeriod: {
       startDate: '',
@@ -67,7 +68,7 @@ export const tohokuPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['宫城县', '仙台'],
+      regions: ['宫城', '仙台', '东北'],
       map: '/images/coverage/sendai-marugoto-pass.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -79,47 +80,8 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3
-  },
-
-  {
-    sortOrder: 3,
-    id: 'aizu-gurutto-card',
-    name: {
-      en: '会津环游卡',
-      jp: '会津环游卡',
-      cn: '会津环游卡'
-    },
-    description: '',
-    price: {
-      adult: {
-        regular: 2720
-      },
-      child: {
-        regular: 1360
-      }
-    },
-    bestFor: [],
-    duration: [2],
-    validityPeriod: {
-      startDate: '',
-      endDate: '',
-      description: '全年可用'
-    },
-    coverage: {
-      regions: ['福岛县', '会津'],
-      map: '/images/coverage/aizu-gurutto-card.png'
-    },
-    targetAudience: ['不问国籍所有游客皆可购买'],
-    trainTypes: ['特急电车', '急行电车', '普通电车'],
-    officialLinks: [
-      
-    ],
-    purchaseLinks: [
-      
-    ],
-    category: 'regional',
-    popularity: 3
+    popularity: 3,
+    ticket_note: `坐普通电车以外需另外加钱`
   },
 
   {
@@ -139,15 +101,15 @@ export const tohokuPasses: JRPass[] = [
         regular: 1350
       }
     },
-    bestFor: [],
+    bestFor: ['现金购票; 购票机购票'],
     duration: [1],
     validityPeriod: {
       startDate: '',
       endDate: '',
-      description: '全年可用'
+      description: '周六、周日、节假日'
     },
     coverage: {
-      regions: ['福岛县'],
+      regions: ['福岛', '仙台', '东北'],
       map: '/images/coverage/chiisana-tabi-holiday-pass.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -159,7 +121,10 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3
+    popularity: 3,
+    isLimitedPeriod: true,
+    ticket_note: `【利用期間】周末以及4月29日～5月5日,7月20日～8月31日,12月23日～1月7日の毎日
+坐普通电车以外需另外加钱`
   },
 
   {
@@ -179,15 +144,15 @@ export const tohokuPasses: JRPass[] = [
         regular: 1250
       }
     },
-    bestFor: [],
+    bestFor: ['现金购票; 电子购票；购票机购票'],
     duration: [1],
     validityPeriod: {
       startDate: '',
       endDate: '',
-      description: '全年可用'
+      description: '周六、周日、节假日'
     },
     coverage: {
-      regions: ['岩手县'],
+      regions: ['岩手', '盛岡', '东北'],
       map: '/images/coverage/iwate-holiday-pass.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -199,7 +164,10 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3
+    popularity: 3,
+    isLimitedPeriod: true,
+    ticket_note: `【利用期間】周末以及4月29日～5月5日,7月20日～8月31日,12月23日～1月7日の毎日
+坐普通电车以外需另外加钱`
   },
 
   {
@@ -219,7 +187,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 1260
       }
     },
-    bestFor: [],
+    bestFor: ['现金购票; 电子购票；购票机购票'],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -227,7 +195,7 @@ export const tohokuPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['青森县'],
+      regions: ['青森', '东北'],
       map: '/images/coverage/aomori-holiday-pass.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -239,7 +207,10 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3
+    popularity: 3,
+    isLimitedPeriod: true,
+    ticket_note: `【利用期間】周末以及4月29日～5月5日,7月20日～8月31日,12月23日～1月7日の毎日
+坐普通电车以外需另外加钱`
   },
 
   {
@@ -259,7 +230,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 500
       }
     },
-    bestFor: [],
+    bestFor: ['现金购票; 电子购票；购票机购票'],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -267,8 +238,8 @@ export const tohokuPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['青森县'],
-      map: '/images/coverage/tsutetsu-95th-1day-free-pass.png'
+      regions: ['青森', '弘前', '东北'],
+      map: '/images/coverage/daikokuten-free-pass.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
@@ -286,9 +257,9 @@ export const tohokuPasses: JRPass[] = [
     sortOrder: 16,
     id: 'aoimori-1day-pass',
     name: {
-      en: '青森一天任意乘车券',
-      jp: '青森一天任意乘车券',
-      cn: '青森一天任意乘车券'
+      en: '青森一天乘车券',
+      jp: '青森一天乘车券',
+      cn: '青森一天乘车券'
     },
     description: '',
     price: {
@@ -300,16 +271,16 @@ export const tohokuPasses: JRPass[] = [
       },
       under18: 1530
     },
-    bestFor: [],
+    bestFor: ['现金购票; 便利店购票；购票机购票'],
     duration: [1],
     validityPeriod: {
       startDate: '',
       endDate: '',
-      description: '全年可用'
+      description: '周六、周日、节假日'
     },
     coverage: {
-      regions: ['青森县'],
-      map: '/images/coverage/aomori-nonai-1coin-pass.png'
+      regions: ['青森', '八户', '东北'],
+      map: '/images/coverage/aoimori-1day-pass.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
@@ -320,16 +291,20 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3
+    popularity: 3,
+    isLimitedPeriod: true,
+    ticket_note: `【利用期間】周末以及4月29日～5月5日
+7月20日～7月31日,8月8日～8月31日
+12月23日～1月7日の毎日`
   },
 
   {
     sortOrder: 19,
     id: 'akita-nairikku-1day-pass',
     name: {
-      en: '秋田内陆一天任意乘车券',
-      jp: '秋田内陆一天任意乘车券',
-      cn: '秋田内陆一天任意乘车券'
+      en: '秋田内陆一天乘车券',
+      jp: '秋田内陆一天乘车券',
+      cn: '秋田内陆一天乘车券'
     },
     description: '',
     price: {
@@ -342,7 +317,7 @@ export const tohokuPasses: JRPass[] = [
         phone: 1200
       }
     },
-    bestFor: [],
+    bestFor: ['现金购票; 电子购票；购票机购票; 可坐急行'],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -350,11 +325,11 @@ export const tohokuPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['秋田县'],
-      map: '/images/coverage/morimori-free-pass.png'
+      regions: ['秋田', '东北'],
+      map: '/images/coverage/akita-nairikku-1day-pass.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
-    trainTypes: ['普通电车'],
+    trainTypes: ['急行电车', '普通电车'],
     officialLinks: [
       
     ],
@@ -362,16 +337,19 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3
+    popularity: 3,
+    ticket_note: `全線タイプ　大人：2,500円／小人：1,250円
+Ａタイプ　　大人：1,500円／小人： 750円
+Ｂタイプ　　大人：1,500円／小人： 750円`
   },
 
   {
     sortOrder: 20,
     id: 'akita-nairikku-2day-pass',
     name: {
-      en: '秋田内陆两天任意乘车券',
-      jp: '秋田内陆两天任意乘车券',
-      cn: '秋田内陆两天任意乘车券'
+      en: '秋田内陆两天乘车券',
+      jp: '秋田内陆两天乘车券',
+      cn: '秋田内陆两天乘车券'
     },
     description: '',
     price: {
@@ -382,7 +360,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 1750
       }
     },
-    bestFor: [],
+    bestFor: ['现金购票; 购票机购票; 可坐急行'],
     duration: [2],
     validityPeriod: {
       startDate: '',
@@ -390,11 +368,11 @@ export const tohokuPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['秋田县'],
-      map: '/images/coverage/akita-nairikku-1day-pass.png'
+      regions: ['秋田', '东北'],
+      map: '/images/coverage/akita-nairikku-2day-pass.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
-    trainTypes: ['普通电车'],
+    trainTypes: ['急行电车', '普通电车'],
     officialLinks: [
       
     ],
@@ -402,16 +380,17 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3
+    popularity: 3,
+    ticket_note: `这些站可购买【鷹巣駅、合川駅、米内沢駅、阿仁前田温泉駅、阿仁合駅、角館駅】`
   },
 
   {
     sortOrder: 21,
     id: 'birthday-1day-free-pass',
     name: {
-      en: '生日当天一日任意乘车券',
-      jp: '生日当天一日任意乘车券',
-      cn: '生日当天一日任意乘车券'
+      en: '生日一日乘车券',
+      jp: '生日一日乘车券',
+      cn: '生日一日乘车券'
     },
     description: '',
     price: {
@@ -422,7 +401,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 750
       }
     },
-    bestFor: [],
+    bestFor: ['现金购票; 购票机购票'],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -430,8 +409,8 @@ export const tohokuPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['秋田县'],
-      map: '/images/coverage/akita-nairikku-2day-pass.png'
+      regions: ['秋田', '东北'],
+      map: '/images/coverage/birthday-1day-free-pass.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
@@ -442,7 +421,11 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3
+    popularity: 3,
+    ticket_note: `※申请人的生日以及前后三天中的一天（实际上是七天）
+※此优惠包括本人最多可供三位宾客使用。
+※需提供出生证明。
+※这些站可购买【鷹巣駅、合川駅、米内沢駅、阿仁前田温泉駅、阿仁合駅、角館駅】`
   },
 
   {
@@ -456,13 +439,13 @@ export const tohokuPasses: JRPass[] = [
     description: '',
     price: {
       adult: {
-        regular: 1700
+        regular: 1480
       },
       child: {
-        regular: 1000
+        regular: 900
       }
     },
-    bestFor: ['包含玩具美術館入館料'],
+    bestFor: ['现金购票; 购票机购票'],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -470,47 +453,7 @@ export const tohokuPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['秋田县'],
-      map: '/images/coverage/colopl-free-pass.png'
-    },
-    targetAudience: ['不问国籍所有游客皆可购买'],
-    trainTypes: ['普通电车'],
-    officialLinks: [
-      
-    ],
-    purchaseLinks: [
-      
-    ],
-    category: 'regional',
-    popularity: 3
-  },
-
-  {
-    sortOrder: 24,
-    id: 'rakuraku-yuyu-pass',
-    name: {
-      en: '快乐漫游乘车券',
-      jp: '快乐漫游乘车券',
-      cn: '快乐漫游乘车券'
-    },
-    description: '包含玩具美術館入館料　',
-    price: {
-      adult: {
-        regular: 1100
-      },
-      child: {
-        regular: 500
-      }
-    },
-    bestFor: [],
-    duration: [1],
-    validityPeriod: {
-      startDate: '',
-      endDate: '',
-      description: '土日祝日'
-    },
-    coverage: {
-      regions: ['秋田县'],
+      regions: ['秋田', '东北'],
       map: '/images/coverage/ensen-mankitsu-toy-pass.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -522,7 +465,50 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3
+    popularity: 3,
+    ticket_note: `※包含玩具美術館入館料`
+  },
+
+  {
+    sortOrder: 24,
+    id: 'rakuraku-yuyu-pass',
+    name: {
+      en: '乐乐游游乘车券',
+      jp: '乐乐游游乘车券',
+      cn: '乐乐游游乘车券'
+    },
+    description: '',
+    price: {
+      adult: {
+        regular: 1100
+      },
+      child: {
+        regular: 500
+      }
+    },
+    bestFor: ['现金购票; 购票机购票'],
+    duration: [1],
+    validityPeriod: {
+      startDate: '',
+      endDate: '',
+      description: '周六、周日、节假日'
+    },
+    coverage: {
+      regions: ['秋田', '东北'],
+      map: '/images/coverage/rakuraku-yuyu-pass.png'
+    },
+    targetAudience: ['不问国籍所有游客皆可购买'],
+    trainTypes: ['普通电车'],
+    officialLinks: [
+      
+    ],
+    purchaseLinks: [
+      
+    ],
+    category: 'regional',
+    popularity: 3,
+    isLimitedPeriod: true,
+    ticket_note: `【利用期間】周末以及4月28日～5月6日,8月12日～8月18日,12月29日～1月3日`
   },
 
   {
@@ -547,11 +533,11 @@ export const tohokuPasses: JRPass[] = [
     validityPeriod: {
       startDate: '',
       endDate: '',
-      description: '全年可用'
+      description: '周六、周日、节假日'
     },
     coverage: {
-      regions: ['岩手县'],
-      map: '/images/coverage/rakuraku-yuyu-pass.png'
+      regions: ['秋田', '东北'],
+      map: '/images/coverage/igr-holiday-free-pass.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
@@ -562,16 +548,18 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3
+    popularity: 3,
+    isLimitedPeriod: true,
+    ticket_note: `【利用期間】周末以及8月1日～4日,12月30日～1月3日`
   },
 
   {
     sortOrder: 29,
     id: 'rias-line-total-free-pass',
     name: {
-      en: '全线任意乘车券（Rias线）',
-      jp: '全线任意乘车券（Rias线）',
-      cn: '全线任意乘车券（Rias线）'
+      en: '三陆铁道全线乘车券',
+      jp: '三陆铁道全线乘车券',
+      cn: '三陆铁道全线乘车券'
     },
     description: '',
     price: {
@@ -582,7 +570,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 3050
       }
     },
-    bestFor: [],
+    bestFor: ['现金购票; 电子购票；购票机购票'],
     duration: [2],
     validityPeriod: {
       startDate: '',
@@ -590,7 +578,7 @@ export const tohokuPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['岩手县'],
+      regions: ['岩手', '东北'],
       map: '/images/coverage/rias-line-total-free-pass.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -609,9 +597,9 @@ export const tohokuPasses: JRPass[] = [
     sortOrder: 30,
     id: '1day-free-pass-sakari-kamaishi',
     name: {
-      en: '一日任意乘车券（盛~釜石区间）',
-      jp: '一日任意乘车券（盛~釜石区间）',
-      cn: '一日任意乘车券（盛~釜石区间）'
+      en: '三陆铁道一日乘车券（盛~釜石区间）',
+      jp: '三陆铁道一日乘车券（盛~釜石区间）',
+      cn: '三陆铁道一日乘车券（盛~釜石区间）'
     },
     description: '',
     price: {
@@ -622,15 +610,15 @@ export const tohokuPasses: JRPass[] = [
         regular: 750
       }
     },
-    bestFor: [],
+    bestFor: ['现金购票; 电子购票；购票机购票'],
     duration: [1],
     validityPeriod: {
       startDate: '',
       endDate: '',
-      description: '土休日'
+      description: '周六、周日、节假日'
     },
     coverage: {
-      regions: ['岩手县'],
+      regions: ['岩手', '东北'],
       map: '/images/coverage/1day-free-pass-sakari-kamaishi.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -642,16 +630,17 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3
+    popularity: 3,
+    isLimitedPeriod: true
   },
 
   {
     sortOrder: 31,
     id: '1day-free-pass-kamaishi-miyako',
     name: {
-      en: '一日任意乘车券（釜石~宫古区间）',
-      jp: '一日任意乘车券（釜石~宫古区间）',
-      cn: '一日任意乘车券（釜石~宫古区间）'
+      en: '三陆铁道一日乘车券（釜石~宫古区间）',
+      jp: '三陆铁道一日乘车券（釜石~宫古区间）',
+      cn: '三陆铁道一日乘车券（釜石~宫古区间）'
     },
     description: '',
     price: {
@@ -662,15 +651,15 @@ export const tohokuPasses: JRPass[] = [
         regular: 1200
       }
     },
-    bestFor: [],
+    bestFor: ['现金购票; 电子购票；购票机购票'],
     duration: [1],
     validityPeriod: {
       startDate: '',
       endDate: '',
-      description: '土休日'
+      description: '周六、周日、节假日'
     },
     coverage: {
-      regions: ['岩手县'],
+      regions: ['岩手', '东北'],
       map: '/images/coverage/1day-free-pass-kamaishi-miyako.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -682,16 +671,17 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3
+    popularity: 3,
+    isLimitedPeriod: true
   },
 
   {
     sortOrder: 32,
     id: '1day-free-pass-miyako-kuji',
     name: {
-      en: '一日任意乘车券（宫古~久慈区间）',
-      jp: '一日任意乘车券（宫古~久慈区间）',
-      cn: '一日任意乘车券（宫古~久慈区间）'
+      en: '三陆铁道一日乘车券（宫古~久慈区间）',
+      jp: '三陆铁道一日乘车券（宫古~久慈区间）',
+      cn: '三陆铁道一日乘车券（宫古~久慈区间）'
     },
     description: '',
     price: {
@@ -702,15 +692,15 @@ export const tohokuPasses: JRPass[] = [
         regular: 1300
       }
     },
-    bestFor: [],
+    bestFor: ['现金购票; 电子购票；购票机购票'],
     duration: [1],
     validityPeriod: {
       startDate: '',
       endDate: '',
-      description: '土休日'
+      description: '周六、周日、节假日'
     },
     coverage: {
-      regions: ['岩手县'],
+      regions: ['岩手', '东北'],
       map: '/images/coverage/1day-free-pass-miyako-kuji.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -722,16 +712,17 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3
+    popularity: 3,
+    isLimitedPeriod: true
   },
 
   {
     sortOrder: 35,
     id: 'mocchi-parent-child-grandchild-pass',
     name: {
-      en: '亲子孙三代任意乘车券',
-      jp: '亲子孙三代任意乘车券',
-      cn: '亲子孙三代任意乘车券'
+      en: '山形亲子孙三代乘车券',
+      jp: '山形亲子孙三代乘车券',
+      cn: '山形亲子孙三代乘车券'
     },
     description: '',
     price: {
@@ -742,7 +733,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 0
       }
     },
-    bestFor: [],
+    bestFor: ['现金购票; 电子购票；购票机购票'],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -750,7 +741,7 @@ export const tohokuPasses: JRPass[] = [
       description: '平日'
     },
     coverage: {
-      regions: ['青森县'],
+      regions: ['山形', '东北'],
       map: '/images/coverage/mocchi-parent-child-grandchild-pass.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -762,16 +753,18 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3
+    popularity: 3,
+    isLimitedPeriod: true,
+    ticket_note: `※最多1名成人可携带2名儿童（不允许成人单独使用）`
   },
 
   {
     sortOrder: 36,
     id: 'weekend-holiday-free-pass',
     name: {
-      en: '土休日自由乘车券',
-      jp: '土休日自由乘车券',
-      cn: '土休日自由乘车券'
+      en: '山形土休日自由乘车券',
+      jp: '山形土休日自由乘车券',
+      cn: '山形土休日自由乘车券'
     },
     description: '',
     price: {
@@ -782,16 +775,58 @@ export const tohokuPasses: JRPass[] = [
         regular: 0
       }
     },
-    bestFor: [],
+    bestFor: ['现金购票; 电子购票；购票机购票'],
     duration: [1],
     validityPeriod: {
       startDate: '',
       endDate: '',
-      description: '土休日'
+      description: '周六、周日、节假日'
     },
     coverage: {
-      regions: ['青森县'],
+      regions: ['山形', '东北'],
       map: '/images/coverage/weekend-holiday-free-pass.png'
+    },
+    targetAudience: ['不问国籍所有游客皆可购买'],
+    trainTypes: ['普通电车'],
+    officialLinks: [
+      
+    ],
+    purchaseLinks: [
+      
+    ],
+    category: 'regional',
+    popularity: 3,
+    isLimitedPeriod: true,
+    ticket_note: `※最多1名成人可携带2名儿童（允许成人单独使用）`
+  },
+
+  {
+    sortOrder: 37,
+    id: 'subway-1day-pass',
+    name: {
+      en: '仙台地铁一日乘车券（平日）',
+      jp: '仙台地铁一日乘车券（平日）',
+      cn: '仙台地铁一日乘车券（平日）'
+    },
+    description: '',
+    price: {
+      adult: {
+        regular: 840
+      },
+      child: {
+        regular: 420
+      }
+    },
+    bestFor: ['现金购票; 购票机购票；地铁车站事务所购票'],
+    duration: [1],
+    validityPeriod: {
+      startDate: '',
+      endDate: '',
+      description: '平日'
+    },
+    coverage: {
+      regions: ['宫城', '仙台', '东北'],
+      map: '/images/coverage/subway-1day-pass.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
     trainTypes: ['普通电车'],
@@ -809,30 +844,28 @@ export const tohokuPasses: JRPass[] = [
     sortOrder: 37,
     id: 'subway-1day-pass',
     name: {
-      en: '地铁一日乘车券',
-      jp: '地铁一日乘车券',
-      cn: '地铁一日乘车券'
+      en: '仙台地铁一日乘车券（周末）',
+      jp: '仙台地铁一日乘车券（周末）',
+      cn: '仙台地铁一日乘车券（周末）'
     },
     description: '',
     price: {
       adult: {
-        regular: 840,
-        phone: 620
+        regular: 620
       },
       child: {
-        regular: 420,
-        phone: 310
+        regular: 310
       }
     },
-    bestFor: [],
+    bestFor: ['现金购票; 购票机购票；地铁车站事务所购票'],
     duration: [1],
     validityPeriod: {
       startDate: '',
       endDate: '',
-      description: '全年可用'
+      description: '周六、周日、节假日'
     },
     coverage: {
-      regions: ['宫城县', '仙台'],
+      regions: ['宫城', '仙台', '东北'],
       map: '/images/coverage/subway-1day-pass.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -851,9 +884,9 @@ export const tohokuPasses: JRPass[] = [
     sortOrder: 38,
     id: 'loople-sendai-subway-1day-pass',
     name: {
-      en: '仙台环游巴士- 地铁通用一日券',
-      jp: '仙台环游巴士- 地铁通用一日券',
-      cn: '仙台环游巴士- 地铁通用一日券'
+      en: '仙台环游巴士+地铁通用一日券',
+      jp: '仙台环游巴士+地铁通用一日券',
+      cn: '仙台环游巴士+地铁通用一日券'
     },
     description: '',
     price: {
@@ -864,15 +897,15 @@ export const tohokuPasses: JRPass[] = [
         regular: 460
       }
     },
-    bestFor: [],
+    bestFor: ['现金购票; 电子购票；购票机购票；地铁车站事务所购票'],
     duration: [1],
     validityPeriod: {
       startDate: '',
       endDate: '',
-      description: '土休日'
+      description: '周六、周日、节假日'
     },
     coverage: {
-      regions: ['宫城县', '仙台'],
+      regions: ['宫城', '仙台', '东北'],
       map: '/images/coverage/loople-sendai-subway-1day-pass.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -884,7 +917,8 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3
+    popularity: 4,
+    isLimitedPeriod: true
   },
 
   {
@@ -895,7 +929,7 @@ export const tohokuPasses: JRPass[] = [
       jp: '饭坂温泉一日游乘车券',
       cn: '饭坂温泉一日游乘车券'
     },
-    description: '飯坂温泉入浴券付き',
+    description: '',
     price: {
       adult: {
         regular: 1500
@@ -904,7 +938,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 750
       }
     },
-    bestFor: [],
+    bestFor: ['现金购票; 乘车券贩卖所购票；温泉券'],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -912,7 +946,7 @@ export const tohokuPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['福岛县'],
+      regions: ['福岛', '东北'],
       map: '/images/coverage/iizaka-onsen-higaeri-pass.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -924,7 +958,8 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3
+    popularity: 3,
+    ticket_note: `※包含饭坂温泉入浴券`
   },
 
   {
@@ -944,7 +979,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 300
       }
     },
-    bestFor: [],
+    bestFor: ['现金购票; 乘车券贩卖所购票；车内购票'],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -952,7 +987,7 @@ export const tohokuPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['福岛县'],
+      regions: ['福岛', '东北'],
       map: '/images/coverage/abukyu-no-hi-free-pass.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -964,7 +999,9 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3
+    popularity: 3,
+    isLimitedPeriod: true,
+    ticket_note: `【利用期間】毎月第一周日と10月14日，1月1日`
   },
 
   {
@@ -975,7 +1012,7 @@ export const tohokuPasses: JRPass[] = [
       jp: '阿武急特惠乘车券',
       cn: '阿武急特惠乘车券'
     },
-    description: '毎月９のつく日',
+    description: '',
     price: {
       adult: {
         regular: 900
@@ -984,15 +1021,15 @@ export const tohokuPasses: JRPass[] = [
         regular: 450
       }
     },
-    bestFor: [],
+    bestFor: ['现金购票; 乘车券贩卖所购票；'],
     duration: [1],
     validityPeriod: {
       startDate: '',
       endDate: '',
-      description: '全年毎月９のつく日'
+      description: '全年毎月9日，19日，29日'
     },
     coverage: {
-      regions: ['福岛县'],
+      regions: ['福岛', '东北'],
       map: '/images/coverage/abukyu-tokudane-pass.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -1004,16 +1041,18 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3
+    popularity: 3,
+    isLimitedPeriod: true,
+    ticket_note: `【利用期間】毎月的9日，19日，29日`
   },
 
   {
     sortOrder: 45,
     id: 'ii-den-1day-free-pass',
     name: {
-      en: '好电一天任意乘车券',
-      jp: '好电一天任意乘车券',
-      cn: '好电一天任意乘车券'
+      en: '福岛好电一天乘车券',
+      jp: '福岛好电一天乘车券',
+      cn: '福岛好电一天乘车券'
     },
     description: '',
     price: {
@@ -1024,7 +1063,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 0
       }
     },
-    bestFor: [],
+    bestFor: ['现金购票; 乘车券贩卖所购票；温泉券'],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -1032,7 +1071,7 @@ export const tohokuPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['福岛县'],
+      regions: ['福岛', '东北'],
       map: '/images/coverage/ii-den-1day-free-pass.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -1044,7 +1083,9 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3
+    popularity: 3,
+    ticket_note: `※包含温泉入浴券
+鯖湖湯/天王子寺穴原温泉/仙気の湯/八幡の湯/大門の湯/十網の湯/波来湯/導専の湯`
   },
 
   {
@@ -1055,16 +1096,16 @@ export const tohokuPasses: JRPass[] = [
       jp: '饭坂温泉悠闲票',
       cn: '饭坂温泉悠闲票'
     },
-    description: '飯坂温泉日帰り入湯券',
+    description: '',
     price: {
       adult: {
-        regular: 1000
+        regular: 1300
       },
       child: {
-        regular: 500
+        regular: 650
       }
     },
-    bestFor: [],
+    bestFor: ['现金购票; 乘车券贩卖所购票；温泉券'],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -1072,7 +1113,7 @@ export const tohokuPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['福岛县'],
+      regions: ['福岛', '东北'],
       map: '/images/coverage/iizaka-onsen-yuttari-pass.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -1084,7 +1125,8 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3
+    popularity: 3,
+    ticket_note: `※包含饭坂温泉入浴券`
   },
 
   {
@@ -1104,7 +1146,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 0
       }
     },
-    bestFor: [],
+    bestFor: ['现金购票; 乘车券贩卖所购票；温泉券'],
     duration: [1],
     validityPeriod: {
       startDate: '',
@@ -1112,7 +1154,7 @@ export const tohokuPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['福岛县'],
+      regions: ['福岛', '东北'],
       map: '/images/coverage/hanamomo-free-pass.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -1124,7 +1166,8 @@ export const tohokuPasses: JRPass[] = [
       
     ],
     category: 'regional',
-    popularity: 3
+    popularity: 3,
+    ticket_note: `※包含花桃汤入館券`
   },
 
   {
@@ -1144,7 +1187,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 2610
       }
     },
-    bestFor: [],
+    bestFor: ['现金购票; 乘车券贩卖所购票；车内购票'],
     duration: [2],
     validityPeriod: {
       startDate: '',
@@ -1152,7 +1195,7 @@ export const tohokuPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['福岛县', '会津'],
+      regions: ['福岛', '会津', '东北'],
       map: '/images/coverage/aizu-nikko-free-pass-wakamatsu.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
@@ -1184,7 +1227,7 @@ export const tohokuPasses: JRPass[] = [
         regular: 2130
       }
     },
-    bestFor: [],
+    bestFor: ['现金购票; 乘车券贩卖所购票；车内购票'],
     duration: [2],
     validityPeriod: {
       startDate: '',
@@ -1192,7 +1235,7 @@ export const tohokuPasses: JRPass[] = [
       description: '全年可用'
     },
     coverage: {
-      regions: ['福岛县', '会津'],
+      regions: ['福岛', '会津', '东北'],
       map: '/images/coverage/aizu-nikko-free-pass-minamiaizu.png'
     },
     targetAudience: ['不问国籍所有游客皆可购买'],
