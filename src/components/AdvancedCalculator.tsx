@@ -3,8 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { MapPin, Calendar, Users, Calculator, TrendingUp, Star, CheckCircle, AlertCircle, ArrowRight, ExternalLink, Route, Clock } from 'lucide-react';
-import { Route as RouteType, PassRecommendation } from '@/types/pass';
-import { unifiedPasses } from '@/ts-data/all-passes';
+import { Route as RouteType, PassRecommendation, JRPass } from '@/types/pass';
 
 interface RouteSegment {
   from: string;
@@ -14,7 +13,11 @@ interface RouteSegment {
   trainType: string;
 }
 
-export default function AdvancedCalculator() {
+interface AdvancedCalculatorProps {
+  passes: JRPass[];
+}
+
+export default function AdvancedCalculator({ passes }: AdvancedCalculatorProps) {
   const router = useRouter();
   const [route, setRoute] = useState<RouteType>({
     from: '',
@@ -58,7 +61,7 @@ export default function AdvancedCalculator() {
       const individualCost = segments.reduce((total, segment) => total + segment.cost, 0) * travelers;
       
       // 第一步：精准地区匹配筛选
-      const regionFilteredPasses = unifiedPasses.filter(pass => {
+      const regionFilteredPasses = passes.filter(pass => {
         return pass.coverage.regions.some(region => 
           region === route.to || 
           (route.to === '全国' && region === '全国') ||
@@ -201,7 +204,7 @@ export default function AdvancedCalculator() {
       // 第三步：如果精准匹配没有结果，尝试同地区备选推荐
       if (results.length === 0) {
         // 获取同地区的所有通票作为备选
-        const fallbackPasses = unifiedPasses.filter(pass => {
+        const fallbackPasses = passes.filter(pass => {
           return pass.coverage.regions.some(region => 
             region === route.to || 
             (route.to === '全国' && region === '全国') ||

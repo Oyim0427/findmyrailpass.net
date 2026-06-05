@@ -3,10 +3,13 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { MapPin, Calendar, Calculator, TrendingUp, Star, CheckCircle, AlertCircle, ArrowRight, ExternalLink } from 'lucide-react';
-import { Route, PassRecommendation } from '@/types/pass';
-import { unifiedPasses } from '@/ts-data/all-passes';
+import { Route, PassRecommendation, JRPass } from '@/types/pass';
 
-export default function PassCalculator() {
+interface PassCalculatorProps {
+  passes: JRPass[];
+}
+
+export default function PassCalculator({ passes }: PassCalculatorProps) {
   const router = useRouter();
   const [route, setRoute] = useState<Route>({
     from: '',
@@ -27,7 +30,7 @@ export default function PassCalculator() {
       const results: PassRecommendation[] = [];
       
       // 快速精准筛选：首先按地区精准匹配
-      const regionFilteredPasses = unifiedPasses.filter(pass => {
+      const regionFilteredPasses = passes.filter(pass => {
         return pass.coverage.regions.some(region => 
           region === route.to || 
           (route.to === '全国' && region === '全国') ||

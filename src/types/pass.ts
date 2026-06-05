@@ -6,31 +6,26 @@ export interface JRPass {
     jp: string; // 日文名称
     cn: string; // 中文名称
   };
-  description: string; // 周游券介绍
+  description: string; // 周游券介绍（可来自“详情全文”或“限制事项”）
   price: {
-    // 成人价格
     adult: {
-      regular: number; // 成人常规价格
-      phone?: number; // 成人电话购买价格（可选）
+      regular: number; // 从文本中尝试解析出的成人数字价格，用于排序/过滤
+      phone?: number;
     };
-    // 儿童/优惠价格（以下字段互斥地用于不同年龄/优惠分组）
     child: {
-      regular: number; // 儿童常规价格
-      phone?: number; // 儿童电话购买价格（可选）
+      regular: number;
+      phone?: number;
     };
-    over65?: number; // 65岁以上价格（可选）
-    under25?: number; // 25岁以下价格（可选）
-    under18?: number; // 18岁以下价格（可选）
-    under15?: number; // 15岁以下价格（可选）
-    freeText?: string; // 自由入力的票价说明（如“请在官网确认价格”等）
+    freeText?: string; // 自由入力的票价说明（对应 CSV 中的“价格”）
   };
-  duration: number[]; // 适用天数列表，如[3,5,7]
+  duration: number[]; // 适用天数列表，如[3,5,7]，从“有效期间”解析
   coverage: {
-    regions: string[]; // 覆盖地区名称数组
-    map: string; // 地图图片路径
+    regions: string[]; // 覆盖地区名称数组（对应“地区”）
+    map: string; // 地图图片路径（对应“详情页图片链接”）
+    description?: string; // 自由乘车区间文本
   };
   targetAudience: string[]; // 目标适用人群说明
-  trainTypes: string[]; // 覆盖的列车/交通工具类型
+  trainTypes: string[]; // 覆盖的列车/交通工具类型（对应“可利用设备”）
   officialLinks: {
     name: string; // 官方链接显示名称
     url: string;  // 官方链接地址
@@ -38,19 +33,20 @@ export interface JRPass {
   purchaseLinks?: {
     name: string; // 购票链接显示名称
     url: string; // 购票链接地址
-    type?: 'official'; // 链接类型（如官方，可选）
+    type?: 'official'; // 链接类型
   }[];
   category: 'national' | 'regional' | 'local' | 'city' | 'bus' | 'private' | 'special'; // 分类
-  popularity: number; // 人气等级 1-5星，用于排序与推荐
+  popularity: number; // 人气等级 1-5星，默认5
   bestFor: string[]; // 最适合的出行/使用场景描述
-  sortOrder?: number; // 地区内手动设定的排序权重（可选）
-  isLimitedPeriod?: boolean; // 是否为期间限定券（可选）
+  sortOrder?: number; 
+  isLimitedPeriod?: boolean; // 是否为期间限定券
   validityPeriod?: {
-    startDate: string; // 有效起始日期，格式 YYYY-MM-DD
-    endDate: string; // 有效截止日期，格式 YYYY-MM-DD
-    description?: string; // 有效期间描述（如2024年度）
+    startDate: string; 
+    endDate: string; 
+    description?: string; // 有效期间描述（对应“利用期间”）
   };
-  ticket_note?: string; // 备考说明文字（可选）
+  ticket_note?: string; // 备考说明文字（如发售处、相关信息等）
+  company?: string; // 公司名称
 }
 
 // Route 接口用于描述行程路线的结构

@@ -3,13 +3,16 @@
 import NavigationSection from "@/components/sections/NavigationSection";
 import FooterSection from "@/components/sections/FooterSection";
 import PassCard from "@/components/PassCard";
-import { unifiedPasses } from "@/ts-data/all-passes";
 import { JRPass } from "@/types/pass";
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect } from 'react';
 import { Search, Filter, X } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
 
-function PassListContent() {
+interface PassListClientProps {
+  passes: JRPass[];
+}
+
+export default function PassListClient({ passes }: PassListClientProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedRegion, setSelectedRegion] = useState<string>('all');
@@ -22,8 +25,8 @@ function PassListContent() {
   const [itemsPerPage] = useState(12);
   const searchParams = useSearchParams();
 
-  // 使用统一数据
-  const allPasses = unifiedPasses;
+  // 使用传入的数据
+  const allPasses = passes;
 
   // 从URL参数获取地区筛选
   useEffect(() => {
@@ -564,13 +567,5 @@ function PassListContent() {
 
       <FooterSection />
     </div>
-  );
-}
-
-export default function AllPassesPage() {
-  return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
-      <PassListContent />
-    </Suspense>
   );
 }

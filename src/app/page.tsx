@@ -1,34 +1,29 @@
 'use client';
 
-import NavigationSection from "@/components/sections/NavigationSection";
-import HeroSection from "@/components/sections/HeroSection";
-import CalculatorSection from "@/components/sections/CalculatorSection";
-import OmikujiSection from "@/components/sections/OmikujiSection";
-import MapSection from "@/components/sections/MapSection";
-import FeaturesSection from "@/components/sections/FeaturesSection";
-import PassesSection from "@/components/sections/PassesSection";
-import CTASection from "@/components/sections/CTASection";
-import FooterSection from "@/components/sections/FooterSection";
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
-export default function Page() {
+export default function RootPage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    // 简单的客户端语言检测
+    const lang = navigator.language.toLowerCase();
+    if (lang.includes('ja')) {
+      router.replace('/ja');
+    } else if (lang.includes('en')) {
+      router.replace('/en');
+    } else {
+      router.replace('/zh');
+    }
+  }, [router]);
+
   return (
-    <div className="min-h-screen cyber-grid relative">
-      {/* 赛博朋克背景效果 */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-cyan-500/5 via-transparent to-yellow-500/5"></div>
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+    <div className="min-h-screen flex items-center justify-center bg-slate-50">
+      <div className="animate-pulse flex flex-col items-center">
+        <div className="w-12 h-12 border-4 border-teal-500 border-t-transparent rounded-full animate-spin mb-4"></div>
+        <p className="text-teal-600 font-medium">Redirecting...</p>
       </div>
-      
-      <NavigationSection />
-      <HeroSection />
-      <CalculatorSection />
-      <OmikujiSection />
-      <MapSection />
-      <FeaturesSection />
-      <PassesSection />
-      <CTASection />
-      <FooterSection />
     </div>
   );
 }

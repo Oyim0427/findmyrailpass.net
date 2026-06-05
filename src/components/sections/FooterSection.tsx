@@ -1,78 +1,71 @@
 'use client';
 
 import Link from "next/link";
+import { Train } from "lucide-react";
 
-export default function FooterSection() {
+export default function FooterSection({ dict, lang }: { dict?: any, lang?: string }) {
   return (
-    <footer className="bg-black/90 backdrop-blur-md border-t border-cyan-400/30 py-16 relative">
-      {/* 赛博朋克装饰背景 */}
-      <div className="absolute inset-0 bg-gradient-to-t from-cyan-500/5 to-transparent"></div>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid md:grid-cols-4 gap-8">
-          <div>
-            <div className="text-2xl font-bold cyber-text text-cyan-400 mb-4 flex items-center space-x-2">
-              <span className="text-2xl">🚄</span>
-              <span className="cyber-glow-text">Find&apos;MyJR-Pass</span>
-            </div>
-            <p className="text-gray-400 font-mono text-sm tracking-wider">
-              您的日本铁路通票专家，帮您找到最经济实惠的旅行方案
+    <footer className="bg-gray-50 border-t border-gray-200 pt-16 pb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid md:grid-cols-4 gap-8 mb-12">
+          <div className="md:col-span-1">
+            <Link href={`/${lang || 'zh'}`} className="text-2xl font-bold text-teal-600 mb-4 flex items-center space-x-2">
+              <Train className="w-6 h-6" />
+              <span>FindMyJRPass</span>
+            </Link>
+            <p className="text-gray-500 text-sm leading-relaxed mb-6">
+              {dict?.heroSubtitle || '您的日本铁路通票专家，智能AI助您省钱又省心地畅游全日本。'}
             </p>
-            <div className="mt-4 flex space-x-2">
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-              <span className="text-green-400 text-xs font-mono">SYSTEM ONLINE</span>
+            <div className="flex space-x-4">
+              <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 hover:bg-teal-100 hover:text-teal-600 transition-colors cursor-pointer">
+                in
+              </div>
+              <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 hover:bg-teal-100 hover:text-teal-600 transition-colors cursor-pointer">
+                tw
+              </div>
             </div>
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-4 cyber-text text-cyan-400">[PRODUCTS]</h3>
-            <ul className="space-y-2 text-gray-400">
-              <li><Link href="/passes" className="hover:text-cyan-400 transition-colors font-mono text-sm tracking-wider">周游券查询</Link></li>
-              <li><Link href="/blog" className="hover:text-cyan-400 transition-colors font-mono text-sm tracking-wider">赛博抽签</Link></li>
-              <li><a href="#map" className="hover:text-cyan-400 transition-colors font-mono text-sm tracking-wider">周游券地图</a></li>
-              <li><Link href="/blog" className="hover:text-cyan-400 transition-colors font-mono text-sm tracking-wider">热门周游券推荐</Link></li>
+            <h3 className="text-sm font-bold text-gray-900 mb-4 uppercase tracking-wider">Features</h3>
+            <ul className="space-y-3 text-gray-500 text-sm">
+              <li><Link href={`/${lang || 'zh'}#calculator`} className="hover:text-teal-600 transition-colors">{dict?.calcTitle || '周游券计算器'}</Link></li>
+              <li><Link href={`/${lang || 'zh'}/passlist`} className="hover:text-teal-600 transition-colors">{dict?.viewAllPasses || '全部周游券'}</Link></li>
+              <li><a href={`/${lang || 'zh'}#map`} className="hover:text-teal-600 transition-colors">{dict?.mapTitle || '地图查询'}</a></li>
+              <li><a href={`/${lang || 'zh'}#passes`} className="hover:text-teal-600 transition-colors">{dict?.popularPasses || '热门推荐'}</a></li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-4 cyber-text text-cyan-400">[SUPPORT]</h3>
-            <ul className="space-y-2 text-gray-400">
-              <li><a href="#" className="hover:text-cyan-400 transition-colors font-mono text-sm tracking-wider">使用指南</a></li>
-              <li><a href="#" className="hover:text-cyan-400 transition-colors font-mono text-sm tracking-wider">常见问题</a></li>
-              <li><a href="#" className="hover:text-cyan-400 transition-colors font-mono text-sm tracking-wider">联系我们</a></li>
-              <li><a href="#" className="hover:text-cyan-400 transition-colors font-mono text-sm tracking-wider">意见反馈</a></li>
+            <h3 className="text-sm font-bold text-gray-900 mb-4 uppercase tracking-wider">Support</h3>
+            <ul className="space-y-3 text-gray-500 text-sm">
+              <li><a href="#" className="hover:text-teal-600 transition-colors">How to Use</a></li>
+              <li><a href="#" className="hover:text-teal-600 transition-colors">FAQ</a></li>
+              <li><a href="#" className="hover:text-teal-600 transition-colors">Contact</a></li>
+              <li><a href="#" className="hover:text-teal-600 transition-colors">Terms of Service</a></li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-4 cyber-text text-cyan-400">[SOCIAL]</h3>
-            <ul className="space-y-2 text-gray-400">
-              <li><a href="#" className="hover:text-cyan-400 transition-colors font-mono text-sm tracking-wider">微信公众号</a></li>
-              <li><a href="#" className="hover:text-cyan-400 transition-colors font-mono text-sm tracking-wider">微博</a></li>
-              <li><a href="#" className="hover:text-cyan-400 transition-colors font-mono text-sm tracking-wider">小红书</a></li>
-              <li><a href="#" className="hover:text-cyan-400 transition-colors font-mono text-sm tracking-wider">抖音</a></li>
+            <h3 className="text-sm font-bold text-gray-900 mb-4 uppercase tracking-wider">Language</h3>
+            <ul className="space-y-3 text-gray-500 text-sm">
+              <li><Link href="/zh" className="hover:text-teal-600 transition-colors flex items-center"><span className={lang === 'zh' ? 'text-teal-600 font-semibold' : ''}>中文 (Chinese)</span></Link></li>
+              <li><Link href="/en" className="hover:text-teal-600 transition-colors flex items-center"><span className={lang === 'en' ? 'text-teal-600 font-semibold' : ''}>English</span></Link></li>
+              <li><Link href="/ja" className="hover:text-teal-600 transition-colors flex items-center"><span className={lang === 'ja' ? 'text-teal-600 font-semibold' : ''}>日本語 (Japanese)</span></Link></li>
             </ul>
           </div>
         </div>
         
-        <div className="border-t border-cyan-400/30 mt-12 pt-8 text-center">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-gray-400 font-mono text-sm tracking-wider">
-              &copy;Find&apos;MyJR-Pass.2025 All rights reserved.
-            </p>
-            <div className="flex space-x-6 text-xs text-gray-500 font-mono tracking-wider">
-              <span>VERSION 2.0.1</span>
-              <span>|</span>
-              <span>BUILD 2025.10</span>
-              <span>|</span>
-              <span className="text-green-400">STATUS: ACTIVE</span>
-            </div>
+        <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-gray-400 text-sm">
+            &copy; {new Date().getFullYear()} FindMyJRPass. All rights reserved.
+          </p>
+          <div className="flex space-x-6 text-sm text-gray-400">
+            <a href="#" className="hover:text-gray-900 transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-gray-900 transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>
-      
-      {/* 底部装饰线 */}
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
     </footer>
   );
 }

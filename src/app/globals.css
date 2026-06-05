@@ -1,43 +1,12 @@
 @import "tailwindcss";
 
-.p-6 {
-  padding: calc(var(--spacing) * 6);
-  background: #ffffff;
-  border: 1px solid var(--cyber-border);
-  border-radius: 8px;
-  position: relative;
-  overflow: hidden;
-}
-
-.p-6::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--cyber-primary), var(--cyber-secondary), var(--cyber-accent));
-  opacity: 0.6;
-}
-
-:root {
-  --cyber-bg: #0a0a0a;
-  --cyber-bg-secondary: #111111;
-  --cyber-bg-tertiary: #1a1a1a;
-  --cyber-primary: #00ffff;
-  --cyber-secondary: #ff8c42;
-  --cyber-accent: #ffff00;
-  --cyber-text: #ffffff;
-  --cyber-text-secondary: #cccccc;
-  --cyber-border: #333333;
-  --cyber-glow: rgba(0, 255, 255, 0.3);
-}
-
 @theme inline {
-  --color-background: var(--cyber-bg);
-  --color-foreground: var(--cyber-text);
-  --font-sans: var(--font-rajdhani);
-  --font-mono: var(--font-orbitron);
+  --color-background: #f8fafc;
+  --color-foreground: #0f172a;
+  --color-primary: #00bfa5;
+  --color-primary-light: #1de9b6;
+  --color-primary-dark: #00897b;
+  --font-sans: var(--font-inter), var(--font-outfit), system-ui, sans-serif;
 }
 
 * {
@@ -45,370 +14,71 @@
 }
 
 body {
-  background: var(--cyber-bg);
-  color: var(--cyber-text);
-  font-family: var(--font-rajdhani), sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
   font-weight: 400;
   line-height: 1.6;
   overflow-x: hidden;
 }
 
-/* 赛博朋克动画效果 */
-@keyframes cyber-glow {
-  0%, 100% { 
-    box-shadow: 0 0 5px var(--cyber-primary), 0 0 10px var(--cyber-primary), 0 0 15px var(--cyber-primary);
-  }
-  50% { 
-    box-shadow: 0 0 10px var(--cyber-primary), 0 0 20px var(--cyber-primary), 0 0 30px var(--cyber-primary);
-  }
+/* Modern Gradient Text */
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(90deg, var(--color-primary-dark), var(--color-primary-light));
 }
 
-@keyframes cyber-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
+/* Modern Button */
+.btn-primary {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px 0 rgba(0, 191, 165, 0.39);
+  transition: all 0.2s ease-in-out;
 }
 
-@keyframes matrix-rain {
-  0% { transform: translateY(-100vh); }
-  100% { transform: translateY(100vh); }
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 191, 165, 0.23);
+  background: linear-gradient(90deg, var(--color-primary-light), var(--color-primary));
 }
 
-@keyframes neon-flicker {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
+/* Glass Card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
 }
 
-/* 赛博朋克按钮样式 */
-.cyber-button {
-  background: linear-gradient(45deg, #ffb347, #ffa726, #ffb347);
-  border: 2px solid #ffb347;
-  color: #000;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 20px rgba(255, 179, 71, 0.3), 0 0 40px rgba(255, 179, 71, 0.1);
-}
-
-.cyber-button:hover {
-  background: linear-gradient(45deg, #ffc266, #ffb74d, #ffc266);
-  box-shadow: 0 0 30px rgba(255, 179, 71, 0.5), 0 0 60px rgba(255, 179, 71, 0.3);
-  transform: translateY(-2px);
-}
-
-.cyber-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s;
-}
-
-.cyber-button:hover::before {
-  left: 100%;
-}
-
-/* 赛博朋克卡片样式 */
-.cyber-card {
-  background: var(--cyber-bg-secondary);
-  border: 1px solid var(--cyber-border);
-  border-radius: 8px;
-  position: relative;
-  overflow: hidden;
-}
-
-.cyber-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--cyber-primary), var(--cyber-secondary), var(--cyber-accent));
-}
-
-/* 赛博朋克输入框样式 */
-.cyber-input {
-  background: var(--cyber-bg-tertiary);
-  border: 1px solid var(--cyber-border);
-  color: var(--cyber-text);
-  font-family: var(--font-orbitron), monospace;
-  transition: all 0.3s ease;
-}
-
-.cyber-input:focus {
-  border-color: var(--cyber-primary);
-  box-shadow: 0 0 10px var(--cyber-glow);
-  outline: none;
-}
-
-/* 赛博朋克文字效果 */
-.cyber-text {
-  font-family: var(--font-orbitron), monospace;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-/* 背景网格效果 */
-.cyber-grid {
-  background-image: 
-    linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
-  background-size: 50px 50px;
-}
-
-/* 滚动条样式 */
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--cyber-bg-secondary);
+  background: #f1f5f9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--cyber-primary);
+  background: #cbd5e1;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--cyber-secondary);
+  background: #94a3b8;
 }
 
-/* 纯白背景计算器 */
-.glass-calculator {
-  background: #ffffff;
-  border: 3px solid transparent;
-  background-clip: padding-box;
-  position: relative;
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.1),
-    0 0 0 1px rgba(255, 255, 255, 0.2);
-}
-
-.glass-calculator::before {
-  content: '';
-  position: absolute;
-  top: -3px;
-  left: -3px;
-  right: -3px;
-  bottom: -3px;
-  background: linear-gradient(45deg, 
-    #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, 
-    #feca57, #ff9ff3, #54a0ff, #5f27cd);
-  background-size: 400% 400%;
-  border-radius: inherit;
-  z-index: -1;
-  animation: gradientShift 3s ease infinite;
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.glass-calculator-card {
-  background: #ffffff;
-  border: 2px solid transparent;
-  background-clip: padding-box;
-  position: relative;
-}
-
-.glass-calculator-card::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: inherit;
-  z-index: -1;
-}
-
-.glass-calculator-light {
-  background: #ffffff;
-  border: 2px solid transparent;
-  background-clip: padding-box;
-  position: relative;
-}
-
-.glass-calculator-light::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  border-radius: inherit;
-  z-index: -1;
-}
-
-/* 签倒出动画 */
-@keyframes stick-fall {
-  0% {
-    transform: translateY(-20px) rotate(0deg);
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(10px) rotate(180deg);
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateY(40px) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-@keyframes stick-bounce {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  25% {
-    transform: translateY(-10px) rotate(90deg);
-  }
-  50% {
-    transform: translateY(-5px) rotate(180deg);
-  }
-  75% {
-    transform: translateY(-8px) rotate(270deg);
-  }
-}
-
-.stick-fall {
-  animation: stick-fall 1.5s ease-in-out forwards;
-}
-
-.stick-bounce {
-  animation: stick-bounce 0.8s ease-in-out infinite;
-}
-
-/* 竹筒摇晃动画 */
-@keyframes bamboo-shake {
-  0%, 100% {
-    transform: translateX(0) rotate(0deg);
-  }
-  25% {
-    transform: translateX(-2px) rotate(-1deg);
-  }
-  75% {
-    transform: translateX(2px) rotate(1deg);
-  }
-}
-
-.bamboo-shake {
-  animation: bamboo-shake 0.3s ease-in-out infinite;
-}
-
-/* 竹筒旋转动画 */
-@keyframes bamboo-spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.bamboo-spin {
-  animation: bamboo-spin 2s ease-in-out;
-}
-
-/* 签露出动画 */
-@keyframes stick-reveal {
-  0% {
-    transform: translateY(0) scale(0);
-    opacity: 0;
-  }
-  50% {
-    transform: translateY(-10px) scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-10px) scale(1);
-    opacity: 1;
-  }
-}
-
-.stick-reveal {
-  animation: stick-reveal 0.5s ease-out forwards;
-}
-
-/* 竹筒旋转动画 - 保持正常朝上 */
-@keyframes bamboo-rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.bamboo-rotate {
-  animation: bamboo-rotate 2s ease-in-out;
-}
-
-/* 签从竹筒内部伸出动画 */
-@keyframes stick-emerge {
-  0% {
-    transform: translateY(20px) scale(0);
-    opacity: 0;
-  }
-  50% {
-    transform: translateY(0px) scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-10px) scale(1);
-    opacity: 1;
-  }
-}
-
-.stick-emerge {
-  animation: stick-emerge 1s ease-out forwards;
-}
-
-/* 循环动画 - 竹筒旋转后伸出签 */
-@keyframes bamboo-cycle {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(360deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.bamboo-cycle {
-  animation: bamboo-cycle 4s ease-in-out infinite;
-}
-
-/* 签循环伸出动画 */
-@keyframes stick-cycle {
-  0%, 50% {
-    transform: translateY(20px) scale(0);
-    opacity: 0;
-  }
-  60% {
-    transform: translateY(-5px) scale(1);
-    opacity: 1;
-  }
-  70%, 100% {
-    transform: translateY(-15px) scale(1);
-    opacity: 1;
-  }
-}
-
-.stick-cycle {
-  animation: stick-cycle 4s ease-in-out infinite;
+/* Animated backgrounds */
+.bg-mesh {
+  background-color: #f8fafc;
+  background-image: 
+    radial-gradient(at 40% 20%, hsla(167, 100%, 80%, 0.3) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, hsla(189, 100%, 86%, 0.3) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 0.3) 0px, transparent 50%);
 }

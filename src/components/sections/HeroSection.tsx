@@ -1,73 +1,90 @@
-'use client';
-
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Calculator, Map, Sparkles } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function HeroSection() {
+export default function HeroSection({ dict }: { dict: any }) {
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative">
-      {/* 装饰人物图片（在文字后面） */}
-      <div className="absolute bottom-2 right-2 w-32 h-32 sm:w-40 sm:h-40 md:inset-0 md:w-auto md:h-auto z-0 pointer-events-none select-none">
-        <Image
-          src="/images/homepage/character.png"
-          alt="Character decoration"
-          fill
-          priority
-          sizes="(max-width: 768px) 100vw, 100vw"
-          className="object-contain md:object-[85%_100%] object-right-bottom"
-        />
-      </div>
-      {/* 赛博朋克装饰元素 */}
-      <div className="absolute top-10 left-10 w-20 h-20 border-2 border-cyan-400 rotate-45 opacity-30 animate-pulse"></div>
-      <div className="absolute top-20 right-20 w-16 h-16 border-2 border-yellow-400 rotate-12 opacity-30 animate-pulse" style={{animationDelay: '0.5s'}}></div>
-      <div className="absolute bottom-20 left-1/4 w-12 h-12 border-2 border-yellow-400 rotate-45 opacity-30 animate-pulse" style={{animationDelay: '1s'}}></div>
-      
-      <div className="text-center relative z-10">
-        <div className="mb-4">
-          <span className="inline-block px-4 py-2 bg-cyan-500/20 border border-cyan-400 text-cyan-400 text-sm font-mono tracking-wider">
-            [JAPAN RAIL PASS]
-          </span>
-        </div>
-        
-        <h1 className="text-5xl md:text-6xl font-bold mb-6">
-          <span className="text-white">发现最适合您的</span>
-          <br />
-          <span className="cyber-text cyber-glow-text text-cyan-400">
-            日本周游券
-          </span>
-        </h1>
-        
-        <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto font-light">
-        智能推荐系统为您精选最经济实惠的周游券，助力您轻松规划日本行程。<br />
-        让旅行更加便捷高效，同时最大限度地节省花费，开启智能旅行新体验！
-        </p>
-        
-        <div className="flex flex-col sm:flex-row gap-6 justify-center">
-          <a href="#calculator" className="cyber-button px-8 py-4 text-lg font-bold flex items-center justify-center group">
-            <span className="relative z-10">开始查询</span>
-            <ArrowRight className="ml-2 w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
-          </a>
+    <section className="bg-mesh pt-28 pb-20 lg:pt-36 lg:pb-28 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
           
-          <Link href="/passlist" className="px-8 py-4 text-lg font-semibold border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300 text-center font-mono tracking-wider group">
-            <span className="group-hover:text-white transition-colors">查看所有周游券</span>
-          </Link>
-        </div>
-        
-        {/* 数据流效果 */}
-        <div className="mt-12 flex justify-center space-x-8 text-sm text-gray-400 font-mono">
-          <div className="flex items-center space-x-2">
-            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-            <span>系统运行正常</span>
+          {/* Left Text Content */}
+          <div className="flex-1 text-center lg:text-left">
+            <div className="inline-flex items-center space-x-2 bg-teal-50 text-teal-600 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <Sparkles className="w-4 h-4" />
+              <span>Japan Rail Pass Assistant</span>
+            </div>
+            
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-6 leading-tight">
+              {dict?.heroTitle || '三国语言的日本交通券 AI 助手'}
+            </h1>
+            
+            <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0 font-light">
+              {dict?.heroSubtitle || '让用户一眼知道怎么用: 先算，再看，再买'}
+            </p>
+            
+            <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
+              <a 
+                href="#calculator" 
+                className="btn-primary w-full sm:w-auto px-8 py-4 flex items-center justify-center text-lg"
+              >
+                <span>{dict?.calcTitle || '免费周游券计算器'}</span>
+                <Calculator className="ml-2 w-5 h-5" />
+              </a>
+              
+              <Link 
+                href="/passlist" 
+                className="w-full sm:w-auto px-8 py-4 rounded-full border-2 border-teal-500 text-teal-600 hover:bg-teal-50 font-semibold transition-colors flex items-center justify-center text-lg"
+              >
+                <span>{dict?.viewAllPasses || '查看所有周游券'}</span>
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
+            </div>
+            
+            <div className="mt-10 flex items-center justify-center lg:justify-start gap-6 text-sm text-gray-500">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-teal-400"></div>
+                <span>Data Updated</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-teal-400"></div>
+                <span>AI Ready</span>
+              </div>
+            </div>
           </div>
-          <div className="flex items-center space-x-2">
-            <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
-            <span>数据同步中</span>
+          
+          {/* Right Floating Elements / Image Replacement */}
+          <div className="flex-1 w-full max-w-lg lg:max-w-none relative">
+            <div className="glass-card p-8 relative z-10 transform rotate-1 hover:rotate-0 transition-transform duration-500">
+              <div className="flex justify-between items-start mb-6">
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">Route Optimizer</h3>
+                  <p className="text-teal-600 text-sm font-medium">高级计算器专业版</p>
+                </div>
+                <div className="bg-teal-100 text-teal-600 p-2 rounded-lg">
+                  <Map className="w-6 h-6" />
+                </div>
+              </div>
+              
+              <div className="space-y-4">
+                <div className="h-2 bg-gray-100 rounded-full w-3/4"></div>
+                <div className="h-2 bg-gray-100 rounded-full w-full"></div>
+                <div className="h-2 bg-gray-100 rounded-full w-5/6"></div>
+              </div>
+              
+              <div className="mt-8 pt-6 border-t border-gray-100 flex justify-between items-center">
+                <div className="text-sm text-gray-500">Premium Feature</div>
+                <button className="text-teal-600 font-semibold text-sm flex items-center">
+                  Learn More <ArrowRight className="w-4 h-4 ml-1" />
+                </button>
+              </div>
+            </div>
+            
+            {/* Decorative background blobs */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-teal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob"></div>
+            <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-cyan-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
           </div>
-          <div className="flex items-center space-x-2">
-            <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
-            <span>AI分析就绪</span>
-          </div>
+          
         </div>
       </div>
     </section>

@@ -1,58 +1,38 @@
 'use client';
 
-import { useState } from 'react';
-import PassCalculator from "@/components/PassCalculator";
+import { Calculator } from "lucide-react";
 import AdvancedCalculator from "@/components/AdvancedCalculator";
+import { JRPass } from '@/types/pass';
 
-export default function CalculatorSection() {
-  const [calculatorType, setCalculatorType] = useState<'basic' | 'advanced'>('basic');
+interface CalculatorSectionProps {
+  passes: JRPass[];
+  dict?: any;
+}
 
+export default function CalculatorSection({ passes, dict }: CalculatorSectionProps) {
   return (
-    <section id="calculator" className="py-20 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* 赛博朋克装饰背景 */}
-        <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 to-yellow-500/5"></div>
-        
-        {/* 计算器类型选择 */}
-        <div className="text-center mb-12 relative z-10">
-          <div className="mb-6">
-            <span className="inline-block px-4 py-2 bg-yellow-500/20 border border-yellow-400 text-yellow-400 text-sm font-mono tracking-wider">
-            [JR PASS CALCULATOR]
-            </span>
+    <section id="calculator" className="py-24 bg-teal-50 relative overflow-hidden">
+      {/* Decorative background */}
+      <div className="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-teal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
+      <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-cyan-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center justify-center p-3 bg-teal-100 rounded-2xl mb-6 shadow-sm">
+            <Calculator className="w-8 h-8 text-teal-600" />
           </div>
-          <h2 className="text-4xl font-bold cyber-text text-cyan-400 mb-4">
-            周游券计算器
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">
+            {dict?.calcTitle || '免费周游券计算器'}
           </h2>
-          <p className="text-gray-400 font-mono text-sm tracking-wider mb-4">
-            输入您的旅行计划，AI为您推荐最合适的周游券并计算节省费用
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
+            {dict?.calcDesc || '输入您的行程，智能系统将为您推荐最省钱的日本铁路周游券组合。'}
           </p>
-          <div className="inline-flex bg-black/50 border border-cyan-400/30 rounded-lg p-1 backdrop-blur-sm">
-            <button
-              onClick={() => setCalculatorType('basic')}
-              className={`px-8 py-3 rounded-md font-medium transition-all duration-300 font-mono tracking-wider ${
-                calculatorType === 'basic'
-                  ? 'bg-cyan-400 text-black shadow-lg shadow-cyan-400/25'
-                  : 'text-gray-400 hover:text-cyan-400 hover:bg-cyan-400/10'
-              }`}
-            >
-              [BASIC MODE]
-            </button>
-            <button
-              onClick={() => setCalculatorType('advanced')}
-              className={`px-8 py-3 rounded-md font-medium transition-all duration-300 font-mono tracking-wider ${
-                calculatorType === 'advanced'
-                  ? 'bg-cyan-400 text-black shadow-lg shadow-cyan-400/25'
-                  : 'text-gray-400 hover:text-cyan-400 hover:bg-cyan-400/10'
-              }`}
-            >
-              [ADVANCED AI]
-            </button>
-          </div>
         </div>
 
-        {/* 渲染对应的计算器 */}
-        <div className="relative z-10">
-          {calculatorType === 'basic' ? <PassCalculator /> : <AdvancedCalculator />}
+        <div className="max-w-4xl mx-auto">
+          <div className="glass-card p-6 border-0 shadow-lg bg-white/60">
+            <AdvancedCalculator passes={passes} />
+          </div>
         </div>
       </div>
     </section>

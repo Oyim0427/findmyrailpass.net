@@ -6,13 +6,11 @@
     "dev": "BROWSER=1 next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint",
-    "convert-excel-to-ts": "node scripts/excel-to-ts-converter.js",
-    "convert-ts-to-excel": "node scripts/ts-to-excel-converter.js",
-    "normalize-ts-data": "node scripts/normalize-ts-data.js"
+    "lint": "eslint"
   },
   "dependencies": {
     "@next/font": "^14.2.15",
+    "csv-parse": "^6.2.1",
     "csv-parser": "^3.2.0",
     "framer-motion": "^12.23.22",
     "lucide-react": "^0.545.0",
