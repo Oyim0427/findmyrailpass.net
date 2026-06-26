@@ -17,6 +17,19 @@ interface AdvancedCalculatorProps {
   passes: JRPass[];
 }
 
+const PREFECTURE_TO_REGION: Record<string, string> = {
+  "北海道": "北海道",
+  "青森县": "東北", "岩手县": "東北", "宫城县": "東北", "秋田县": "東北", "山形县": "東北", "福岛县": "東北",
+  "茨城县": "関東", "栃木县": "関東", "群马县": "関東", "埼玉县": "関東", "千叶县": "関東", "东京都": "関東", "神奈川县": "関東",
+  "新泻县": "北信越", "富山县": "北信越", "石川县": "北信越", "福井县": "北信越", "山梨县": "北信越", "长野县": "北信越",
+  "岐阜县": "東海", "静冈县": "東海", "爱知县": "東海", "三重县": "東海",
+  "滋贺县": "近畿", "京都府": "近畿", "大阪府": "近畿", "兵库县": "近畿", "奈良县": "近畿", "和歌山县": "近畿",
+  "鸟取县": "中国", "岛根县": "中国", "冈山县": "中国", "广岛县": "中国", "山口县": "中国",
+  "德岛县": "四国", "香川县": "四国", "爱媛县": "四国", "高知县": "四国",
+  "福冈县": "九州", "佐贺县": "九州", "长崎县": "九州", "熊本县": "九州", "大分县": "九州", "宫崎县": "九州", "鹿儿岛县": "九州",
+  "冲绳县": "九州"
+};
+
 export default function AdvancedCalculator({ passes }: AdvancedCalculatorProps) {
   const router = useRouter();
   const [route, setRoute] = useState<RouteType>({
@@ -57,23 +70,37 @@ export default function AdvancedCalculator({ passes }: AdvancedCalculatorProps) 
       const routeKey = `${route.from}-${route.to}`;
       const segments = routeData[routeKey] || [];
       
+      const fromRegion = PREFECTURE_TO_REGION[route.from];
+      const toRegion = route.to;
+      
       // 计算单独购票总费用（精确计算）
-      const individualCost = segments.reduce((total, segment) => total + segment.cost, 0) * travelers;
+      let individualCost = segments.reduce((total, segment) => total + segment.cost, 0) * travelers;
+      
+      // 如果没有精确的单次票价数据，按经验估算
+      if (individualCost === 0) {
+        let dailyEstimate = 5000; 
+        if (toRegion === '全国') dailyEstimate = 12000;
+        else if (fromRegion && fromRegion !== toRegion) dailyEstimate = 10000;
+        else dailyEstimate = 6000; 
+        individualCost = dailyEstimate * route.duration * travelers;
+      }
       
       // 第一步：精准地区匹配筛选
       const regionFilteredPasses = passes.filter(pass => {
-        return pass.coverage.regions.some(region => 
-          region === route.to || 
-          (route.to === '全国' && region === '全国') ||
-          (route.to === '北海道' && region === '北海道') ||
-          (route.to === '東北' && (region === '東北' || region === '東北')) ||
-          (route.to === '関東' && (region === '関東' || region === '関東')) ||
-          (route.to === '東海' && (region === '東海' || region === '東海')) ||
-          (route.to === '北信越' && region === '北信越') ||
-          (route.to === '近畿' && (region === '近畿' || region === '近畿')) ||
-          (route.to === '中国' && (region === '中国' || region === '中国')) ||
-          (route.to === '四国' && (region === '四国' || region === '四国')) ||
-          (route.to === '九州' && (region === '九州' || region === '九州'))
+        const passRegions = pass.coverage?.regions || [];
+        const isNational = pass.category === 'national' || passRegions.includes('全国') || passRegions.includes('全日本');
+        
+        if (isNational) return true;
+        if (toRegion === '全国') return isNational;
+        
+        if (fromRegion && fromRegion !== toRegion && toRegion !== '全国') {
+            return passRegions.includes(toRegion);
+        }
+        
+        return passRegions.some(region => 
+          region === toRegion || 
+          region.includes(toRegion) || 
+          toRegion.includes(region)
         );
       });
       
@@ -88,8 +115,24 @@ export default function AdvancedCalculator({ passes }: AdvancedCalculatorProps) 
         let isPerfectMatch = true;
         
         // 地区精准匹配（必须条件，基础分）
-        score += 60;
-        reason += '🎯 精准地区匹配 ';
+        if (toRegion === '全国') {
+            score += 60;
+            reason += '🎯 完美覆盖全国旅行 ';
+        } else if (fromRegion && fromRegion !== toRegion) {
+            if (passRegions.includes(fromRegion) && passRegions.includes(toRegion)) {
+                score += 60;
+                reason += '🎯 精准覆盖跨区行程 ';
+            } else if (isNational) {
+                score += 50;
+                reason += '🗾 全国券可覆盖此行程 ';
+            } else if (passRegions.includes(toRegion)) {
+                score += 50;
+                reason += '🎯 覆盖核心区域 ';
+            }
+        } else {
+            score += 60;
+            reason += '🎯 精准地区匹配 ';
+        }
         
         // 天数匹配：严格优先完美匹配
         const validDurations = pass.duration.filter(duration => duration <= route.duration);
@@ -205,13 +248,11 @@ export default function AdvancedCalculator({ passes }: AdvancedCalculatorProps) 
       if (results.length === 0) {
         // 获取同地区的所有通票作为备选
         const fallbackPasses = passes.filter(pass => {
-          return pass.coverage.regions.some(region => 
-            region === route.to || 
-            (route.to === '全国' && region === '全国') ||
-            (route.to === '関東' && region === '関東') ||
-            (route.to === '近畿' && region === '近畿') ||
-            (route.to === '東北' && region === '東北') ||
-            (route.to === '九州' && region === '九州')
+          const passRegions = pass.coverage?.regions || [];
+          return passRegions.some(region => 
+            region === toRegion || 
+            region.includes(toRegion) || 
+            toRegion.includes(region)
           );
         });
         
@@ -285,42 +326,7 @@ export default function AdvancedCalculator({ passes }: AdvancedCalculatorProps) 
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl p-8 max-w-4xl mx-auto">
-      <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold text-black mb-4">
-           智能周游券高级计算器
-        </h2>
-        <div className="flex justify-center mb-4 flex-wrap gap-2">
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800 border border-red-200">
-            <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-            </svg>
-            精准地区匹配
-          </span>
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800 border border-red-200">
-            <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-            </svg>
-            精准天数匹配
-          </span>
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800 border border-red-200">
-            <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-            </svg>
-            精确节省费用计算
-          </span>
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800 border border-red-200">
-            <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-            </svg>
-            综合最佳推荐
-          </span>
-        </div>
-        <p className="text-gray-800">
-        智能精准检索：地区必须精准匹配，天数严格优先完美匹配，精确计算节省费用，综合评分选出最佳方案。如无完美匹配，则推荐同地区最优备选方案。
-        </p>
-      </div>
-
+    <div className="glass-calculator rounded-2xl shadow-xl p-6 sm:p-10 max-w-4xl mx-auto border border-white/40 bg-gradient-to-br from-white/80 to-white/60 backdrop-blur-md">
       <div className="w-full">
         {/* 输入区域 */}
         <div className="w-full space-y-6">
@@ -457,7 +463,7 @@ export default function AdvancedCalculator({ passes }: AdvancedCalculatorProps) 
             <button
               onClick={calculateAdvancedRecommendations}
               disabled={isCalculating || !route.from || !route.to}
-              className="cyber-button px-8 py-4 text-lg font-semibold flex items-center justify-center group mx-auto disabled:opacity-50 disabled:cursor-not-allowed"
+              className="btn-primary px-8 py-4 text-lg font-bold flex items-center justify-center group mx-auto rounded-xl shadow-md hover:shadow-lg transition-all w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isCalculating ? (
                 <>

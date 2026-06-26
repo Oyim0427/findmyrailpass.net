@@ -19,7 +19,7 @@ export function getAllPasses(): JRPass[] {
   for (const file of files) {
     const filePath = path.join(dataDir, file);
     const content = fs.readFileSync(filePath, 'utf-8');
-    const records: Record<string, string>[] = parse(content, { columns: true, skip_empty_lines: true });
+    const records: Record<string, string>[] = parse(content, { columns: true, skip_empty_lines: true, bom: true });
     
     for (const row of records) {
       if (!row['车票名称']) continue;

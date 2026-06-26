@@ -115,6 +115,14 @@ const omikujiResults: OmikujiResult[] = [
   }
 ];
 
+const omikujiStyles = [
+  { color: 'from-rose-400 to-red-500', icon: <Sparkles className="w-8 h-8" /> },
+  { color: 'from-orange-400 to-amber-500', icon: <Star className="w-8 h-8" /> },
+  { color: 'from-teal-400 to-emerald-500', icon: <Heart className="w-8 h-8" /> },
+  { color: 'from-blue-400 to-indigo-500', icon: <Zap className="w-6 h-6" /> },
+  { color: 'from-slate-400 to-gray-500', icon: <AlertTriangle className="w-6 h-6" /> }
+];
+
 export default function OmikujiSection({ dict }: OmikujiSectionProps) {
   const [isDrawing, setIsDrawing] = useState(false);
   const [result, setResult] = useState<OmikujiResult | null>(null);
@@ -139,9 +147,16 @@ export default function OmikujiSection({ dict }: OmikujiSectionProps) {
         setIsDrawing(false);
         setAnimationPhase('revealing');
         
-        const randomIndex = Math.floor(Math.random() * omikujiResults.length);
-        const drawnResult = omikujiResults[randomIndex];
-        setResult(drawnResult);
+        const dataArray = dict?.omikujiResultsData || omikujiResults;
+        const randomIndex = Math.floor(Math.random() * dataArray.length);
+        const drawnData = dataArray[randomIndex];
+        const drawnStyle = omikujiStyles[randomIndex % omikujiStyles.length];
+        
+        setResult({
+          ...drawnData,
+          color: drawnStyle.color,
+          icon: drawnStyle.icon
+        });
         setShowResult(true);
       }, 2000);
     }, 1000);
@@ -149,26 +164,39 @@ export default function OmikujiSection({ dict }: OmikujiSectionProps) {
 
   return (
     <section className="py-24 relative overflow-hidden bg-white">
-      <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-red-50 rounded-full mix-blend-multiply filter blur-3xl opacity-70"></div>
-      <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 bg-rose-50 rounded-full mix-blend-multiply filter blur-3xl opacity-70"></div>
+      <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-teal-50 rounded-full mix-blend-multiply filter blur-3xl opacity-70"></div>
+      <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 bg-cyan-50 rounded-full mix-blend-multiply filter blur-3xl opacity-70"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center p-3 bg-rose-50 rounded-2xl mb-6 shadow-sm">
-            <Sparkles className="w-8 h-8 text-rose-500" />
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            {dict?.omikujiTitle || '行前抽签'}
-          </h2>
-          <p className="text-lg text-gray-500 max-w-2xl mx-auto font-light">
-            {dict?.omikujiDesc || '让AI为您预测日本之旅的运势，抽一支数字签文，看看旅途的兆头如何。'}
-          </p>
-        </div>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="bg-white/90 backdrop-blur-md border border-teal-100 shadow-2xl rounded-[2.5rem] overflow-hidden mb-12">
+          <div className="grid md:grid-cols-5">
+            {/* 左侧文字区 */}
+            <div className="md:col-span-2 p-8 md:p-10 lg:p-12 flex flex-col justify-center">
+              <div className="inline-flex items-center justify-center p-3 bg-teal-100 rounded-2xl mb-6 shadow-sm self-start">
+                <Sparkles className="w-8 h-8 text-teal-600" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+                {dict?.omikujiTitle || '行前抽签'}
+              </h2>
+              <p className="text-lg text-gray-500 font-light mb-8 leading-relaxed">
+                {dict?.omikujiDesc || '让AI为您预测日本之旅的运势，抽一支数字签文，看看旅途的兆头如何。出发前抽上一签，为您的旅程增添一份神秘与期待吧！'}
+              </p>
+              <div className="hidden md:block">
+                <div className="flex items-center gap-4 text-sm text-gray-400 bg-gray-50 px-4 py-2 rounded-full self-start inline-flex">
+                  <span className="flex items-center"><Star className="w-4 h-4 mr-1 text-amber-400" /> {dict?.omikujiLegend?.[0] || '大吉'}</span>
+                  <span className="flex items-center"><Star className="w-4 h-4 mr-1 text-orange-400" /> {dict?.omikujiLegend?.[1] || '中吉'}</span>
+                  <span className="flex items-center"><Star className="w-4 h-4 mr-1 text-teal-400" /> {dict?.omikujiLegend?.[2] || '小吉'}</span>
+                </div>
+              </div>
+            </div>
 
-        <div className="max-w-xl mx-auto">
-          <div className="relative mb-8">
-            <div className="glass-card p-10 text-center">
-              <div className="mb-8">
+            {/* 右侧抽签框 */}
+            <div className="md:col-span-3 bg-gradient-to-br from-teal-50/80 to-cyan-50/80 p-10 md:p-12 lg:p-16 border-t md:border-t-0 md:border-l border-teal-100/60 flex flex-col items-center justify-center relative">
+              {/* 装饰元素 */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/40 rounded-full blur-2xl transform translate-x-1/2 -translate-y-1/2"></div>
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-teal-200/20 rounded-full blur-2xl transform -translate-x-1/2 translate-y-1/2"></div>
+              
+              <div className="mb-8 relative z-10 w-full flex flex-col items-center">
                 <div className="relative mx-auto w-24 h-40 mb-6">
                   <div className={`absolute top-5 left-1/2 transform -translate-x-1/2 w-16 h-24 bg-gradient-to-b from-amber-600 to-amber-700 rounded-t-xl shadow-inner z-10 transition-transform duration-1000 ${
                     animationPhase === 'rotating' && isDrawing ? 'animate-spin' : ''
@@ -178,7 +206,7 @@ export default function OmikujiSection({ dict }: OmikujiSectionProps) {
                     <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-amber-800/30 rounded-full"></div>
                   </div>
                   
-                  <div className={`absolute top-15 left-1/2 transform -translate-x-1/2 w-1.5 h-16 bg-red-400 rounded-full shadow-sm z-0 transition-all duration-500 ${
+                  <div className={`absolute top-15 left-1/2 transform -translate-x-1/2 w-1.5 h-16 bg-red-500 rounded-full shadow-sm z-0 transition-all duration-500 ${
                     showSticks && animationPhase === 'revealing' 
                       ? 'translate-y-12 opacity-100' 
                       : showSticks && animationPhase === 'retracting'
@@ -189,35 +217,38 @@ export default function OmikujiSection({ dict }: OmikujiSectionProps) {
                   <div className="absolute top-28 left-1/2 transform -translate-x-1/2 w-20 h-4 bg-black/5 rounded-full blur-sm"></div>
                 </div>
                 
-                <p className="text-gray-600 mb-8">
-                  点击下方按钮，抽取属于您的旅途运势
+                <p className="text-gray-600 mb-8 font-medium">
+                  {dict?.omikujiInstruction || '点击下方按钮，抽取属于您的旅途运势'}
                 </p>
               </div>
               <button
                 onClick={drawOmikuji}
                 disabled={isDrawing}
-                className={`px-8 py-4 font-semibold text-lg rounded-full transition-all duration-300 w-full sm:w-auto ${
+                className={`w-full sm:w-auto px-10 py-4 font-bold text-lg rounded-xl transition-all duration-300 shadow-md relative z-10 ${
                   isDrawing
                     ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                    : 'bg-rose-500 hover:bg-rose-600 text-white shadow-lg hover:shadow-rose-500/30 hover:-translate-y-1'
+                    : 'btn-primary text-white hover:shadow-lg hover:-translate-y-0.5'
                 }`}
               >
                 {isDrawing ? (
                   <div className="flex items-center justify-center">
                     <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-current mr-3"></div>
-                    占卜中...
+                    {dict?.omikujiDrawing || '占卜中...'}
                   </div>
                 ) : (
-                  '开始抽签'
+                  dict?.omikujiDraw || '开始抽签'
                 )}
               </button>
             </div>
           </div>
+        </div>
 
+        {/* 底部显示结果 */}
+        <div className="max-w-4xl mx-auto">
           {showResult && result && (
             <div className="animate-fadeIn mt-8">
-              <div className="bg-white rounded-3xl p-8 border border-rose-100 shadow-xl relative overflow-hidden">
-                <div className="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-rose-400 to-red-500"></div>
+              <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-xl relative overflow-hidden">
+                <div className={`absolute top-0 inset-x-0 h-2 bg-gradient-to-r ${result.color}`}></div>
                 
                 <div className="text-center pt-4">
                   <div className="mb-6">
@@ -232,35 +263,35 @@ export default function OmikujiSection({ dict }: OmikujiSectionProps) {
                   
                   <div className="w-16 h-1 bg-gray-100 mx-auto rounded-full mb-8"></div>
                   
-                  <div className="bg-rose-50 rounded-2xl p-6 mb-8 text-rose-800 font-medium text-lg border border-rose-100">
-                    {result.advice}
+                  <div className={`bg-gray-50 rounded-2xl p-6 mb-8 font-medium text-lg border border-gray-100`}>
+                    <span className={`bg-gradient-to-r ${result.color} bg-clip-text text-transparent`}>{result.advice}</span>
                   </div>
                   
-                  <div className="grid sm:grid-cols-2 gap-6 text-left">
-                    <div>
+                  <div className="grid sm:grid-cols-2 gap-8 text-left">
+                    <div className="bg-emerald-50/50 p-6 rounded-2xl border border-emerald-100/50">
                       <h5 className="font-bold text-gray-900 mb-4 flex items-center text-lg">
-                        <span className="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mr-3 text-sm">吉</span>
-                        建议事项
+                        <span className="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mr-3 text-sm">{dict?.omikujiGood || '吉'}</span>
+                        {dict?.omikujiSuggestions || '建议事项'}
                       </h5>
                       <ul className="space-y-3">
                         {result.suggestions.map((suggestion, index) => (
-                          <li key={index} className="flex items-start text-gray-600">
-                            <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-2 mr-3 shrink-0"></div>
+                          <li key={index} className="flex items-start text-gray-700">
+                            <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2.5 mr-3 shrink-0"></div>
                             <span className="leading-relaxed">{suggestion}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                     
-                    <div>
+                    <div className="bg-orange-50/50 p-6 rounded-2xl border border-orange-100/50">
                       <h5 className="font-bold text-gray-900 mb-4 flex items-center text-lg">
-                        <span className="w-8 h-8 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center mr-3 text-sm">忌</span>
-                        避免事项
+                        <span className="w-8 h-8 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center mr-3 text-sm">{dict?.omikujiBad || '忌'}</span>
+                        {dict?.omikujiAvoid || '避免事项'}
                       </h5>
                       <ul className="space-y-3">
                         {result.avoid.map((item, index) => (
-                          <li key={index} className="flex items-start text-gray-600">
-                            <div className="w-1.5 h-1.5 rounded-full bg-orange-400 mt-2 mr-3 shrink-0"></div>
+                          <li key={index} className="flex items-start text-gray-700">
+                            <div className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2.5 mr-3 shrink-0"></div>
                             <span className="leading-relaxed">{item}</span>
                           </li>
                         ))}

@@ -6,6 +6,7 @@ import MapSection from "@/components/sections/MapSection";
 import FeaturesSection from "@/components/sections/FeaturesSection";
 import PassesSection from "@/components/sections/PassesSection";
 import CTASection from "@/components/sections/CTASection";
+import FAQSection from "@/components/sections/FAQSection";
 import FooterSection from "@/components/sections/FooterSection";
 import { getAllPasses, getPopularPasses } from "@/lib/passData";
 import { getDictionary, Locale } from "@/i18n/dictionaries";
@@ -31,6 +32,7 @@ export default async function Page({
       <FeaturesSection dict={dict} />
       <PassesSection popularPasses={popularPasses} dict={dict} />
       <CTASection dict={dict} lang={lang} />
+      <FAQSection dict={dict} />
       <FooterSection dict={dict} lang={lang} />
     </div>
   );

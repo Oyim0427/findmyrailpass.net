@@ -3,33 +3,48 @@
 import { MapPin, Clock, Users, Shield, Sparkles } from "lucide-react";
 
 export default function FeaturesSection({ dict }: { dict?: any }) {
-  const features = [
+  const defaultFeatures = [
     {
-      icon: <Sparkles className="w-6 h-6 text-teal-600" />,
+      icon: <Sparkles className="w-6 h-6 text-green-600" />,
       title: "智能推荐计算",
       desc: "根据出发地、目的地及天数，AI极速为您推荐最佳行程与最省钱的周游券组合。",
-      color: "bg-teal-50"
+      color: "bg-green-50"
     },
     {
-      icon: <Clock className="w-6 h-6 text-blue-600" />,
+      icon: <Clock className="w-6 h-6 text-green-600" />,
       title: "实时价格对比",
       desc: "同步多平台售价，一眼看清各个周游券的优惠力度，不再为比价发愁。",
-      color: "bg-blue-50"
+      color: "bg-green-50"
     },
     {
-      icon: <Users className="w-6 h-6 text-rose-600" />,
+      icon: <Users className="w-6 h-6 text-green-600" />,
       title: "真实经验分享",
       desc: "汇集真实用户的行程心得与点评，避坑指南让您的日本之旅更顺畅。",
-      color: "bg-rose-50"
+      color: "bg-green-50"
     }
   ];
+
+  const icons = [
+    <Sparkles key="1" className="w-6 h-6 text-green-600" />,
+    <Clock key="2" className="w-6 h-6 text-green-600" />,
+    <Users key="3" className="w-6 h-6 text-green-600" />
+  ];
+
+  const features = dict?.featuresList && dict.featuresList.length === 3
+    ? dict.featuresList.map((item: any, index: number) => ({
+        icon: icons[index],
+        title: item.title,
+        desc: item.desc,
+        color: "bg-green-50"
+      }))
+    : defaultFeatures;
 
   return (
     <section className="py-24 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <div className="mb-4">
-            <span className="inline-block px-4 py-2 bg-gray-50 text-gray-600 rounded-full text-sm font-medium border border-gray-200">
+                        <span className="inline-block px-4 py-2 bg-teal-50 text-teal-600 rounded-full text-sm font-medium">
               Why Choose Us
             </span>
           </div>

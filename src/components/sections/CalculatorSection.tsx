@@ -1,6 +1,6 @@
 'use client';
 
-import { Calculator } from "lucide-react";
+import { Calculator, CheckCircle2 } from "lucide-react";
 import AdvancedCalculator from "@/components/AdvancedCalculator";
 import { JRPass } from '@/types/pass';
 
@@ -21,18 +21,32 @@ export default function CalculatorSection({ passes, dict }: CalculatorSectionPro
           <div className="inline-flex items-center justify-center p-3 bg-teal-100 rounded-2xl mb-6 shadow-sm">
             <Calculator className="w-8 h-8 text-teal-600" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">
-            {dict?.calcTitle || '免费周游券计算器'}
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 tracking-tight">
+            {dict?.calcTitle || '大师周游券计算器'}
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
-            {dict?.calcDesc || '输入您的行程，智能系统将为您推荐最省钱的日本铁路周游券组合。'}
+          
+          <div className="flex flex-wrap justify-center items-center gap-3 mb-6">
+            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-orange-50 text-orange-700 text-sm font-bold border border-orange-200">
+              <CheckCircle2 className="w-4 h-4 text-orange-600" strokeWidth={3} />
+              快速周游券推荐
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-orange-50 text-orange-700 text-sm font-bold border border-orange-200">
+              <CheckCircle2 className="w-4 h-4 text-orange-600" strokeWidth={3} />
+              快速了解节省金额
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-orange-50 text-orange-700 text-sm font-bold border border-orange-200">
+              <CheckCircle2 className="w-4 h-4 text-orange-600" strokeWidth={3} />
+              快速获取购买链接
+            </span>
+          </div>
+
+          <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+            输入您的旅行计划，AI为您推荐最合适的周游券并大致计算节省费用
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="glass-card p-6 border-0 shadow-lg bg-white/60">
-            <AdvancedCalculator passes={passes} />
-          </div>
+        <div className="max-w-4xl mx-auto relative z-20">
+          <AdvancedCalculator passes={passes} />
         </div>
       </div>
     </section>

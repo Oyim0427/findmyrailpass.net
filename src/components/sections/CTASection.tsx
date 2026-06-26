@@ -1,15 +1,25 @@
 'use client';
 
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, Train, Map, Ticket } from 'lucide-react';
 import Link from 'next/link';
 
 export default function CTASection({ dict, lang }: { dict?: any, lang?: string }) {
   return (
-    <section className="py-24 relative overflow-hidden bg-teal-600">
+    <section className="py-24 relative overflow-hidden bg-teal-800">
       {/* Decorative background */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-teal-500 rounded-full mix-blend-multiply filter blur-3xl opacity-50 translate-x-1/3 -translate-y-1/3"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-teal-500 rounded-full mix-blend-multiply filter blur-3xl opacity-50 -translate-x-1/3 translate-y-1/3"></div>
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-br from-teal-800 via-teal-700 to-slate-800"></div>
+        
+        {/* Soft glowing orbs */}
+        <div className="absolute top-0 right-0 w-full h-full max-w-2xl bg-teal-500 rounded-full mix-blend-screen filter blur-[100px] opacity-20 translate-x-1/3 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-full h-full max-w-2xl bg-emerald-600 rounded-full mix-blend-screen filter blur-[100px] opacity-20 -translate-x-1/3 translate-y-1/3"></div>
+        
+        {/* Decorative thematic patterns */}
+        <Train className="absolute top-10 left-10 w-64 h-64 text-white opacity-[0.04] -rotate-12 transform -translate-x-1/4" strokeWidth={1} />
+        <Map className="absolute bottom-10 right-10 w-80 h-80 text-white opacity-[0.04] rotate-12 transform translate-x-1/4" strokeWidth={1} />
+        <Ticket className="absolute top-1/3 left-2/3 w-48 h-48 text-white opacity-[0.03] rotate-45" strokeWidth={1} />
+        
+        {/* Texture */}
         <div className="absolute inset-0 bg-[url('/images/noise.png')] opacity-10 mix-blend-overlay"></div>
       </div>
       
@@ -32,7 +42,7 @@ export default function CTASection({ dict, lang }: { dict?: any, lang?: string }
             {dict?.calcTitle ? '开始免费计算' : '开始免费计算'}
             <ArrowRight className="ml-2 w-5 h-5" />
           </Link>
-          <Link href={`/${lang || 'zh'}/passlist`} className="bg-teal-700/50 text-white border border-teal-500 px-8 py-4 rounded-full text-lg font-semibold inline-flex items-center justify-center hover:bg-teal-700 transition-colors backdrop-blur-sm">
+          <Link href={`/${lang || 'zh'}/passlist`} className="bg-white/20 text-white border border-white/40 px-8 py-4 rounded-full text-lg font-semibold inline-flex items-center justify-center hover:bg-white/30 transition-colors backdrop-blur-md shadow-lg shadow-teal-900/10">
             {dict?.viewAllPasses || '浏览所有周游券'}
           </Link>
         </div>
