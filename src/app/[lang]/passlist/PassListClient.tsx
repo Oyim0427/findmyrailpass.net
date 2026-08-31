@@ -101,96 +101,96 @@ export default function PassListClient({ passes }: PassListClientProps) {
   // 筛选周游券
   const filteredPasses = allPasses.filter(pass => {
     // 搜索匹配
-    const matchesSearch = searchTerm === '' || 
-                         pass.name.en.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         pass.name.jp.includes(searchTerm) ||
-                         pass.coverage.regions.some(region => region.includes(searchTerm));
-    
+    const matchesSearch = searchTerm === '' ||
+      pass.name.en.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      pass.name.jp.includes(searchTerm) ||
+      pass.coverage.regions.some(region => region.includes(searchTerm));
+
     // 分类匹配
-    const matchesCategory = selectedCategory === 'all' || 
-                           (selectedCategory === 'national' && pass.category === 'national') ||
-                           (selectedCategory === 'regional' && pass.category === 'regional') ||
-                           (selectedCategory === 'city' && pass.category === 'city');
-    
+    const matchesCategory = selectedCategory === 'all' ||
+      (selectedCategory === 'national' && pass.category === 'national') ||
+      (selectedCategory === 'regional' && pass.category === 'regional') ||
+      (selectedCategory === 'city' && pass.category === 'city');
+
     // 地区匹配 - 使用智能匹配逻辑
-    const matchesRegion = selectedRegion === 'all' || 
-                         (() => {
-                           if (selectedRegion === '全国') {
-                             // 全国版只显示来自 national-passes.ts 的周游券（category === 'national'）
-                             return pass.category === 'national' && pass.coverage.regions.includes('全国');
-                           }
-                           
-                           // 地区关键词映射
-                           const regionKeywords = {
-                             '北海道': ['北海道', '札幌', '富良野', '美瑛', '登别', '小樽', '旭川', '新千岁机场', '函館'],
-                             '東北': ['东北', '東北', '青森', '仙台', '秋田', '山形', '福岛'],
-                             '関東': ['关东', '関東', '东京', '東京', '富士山', '日光', '轻井泽', '軽井沢', '伊豆'],
-                             '東海': ['东海', '東海', '名古屋', '静冈', '静岡', '伊势', '伊勢', '熊野', '和歌山'],
-                             '北信越': ['北信越', '金泽', '金沢', '飞驒高山', '飛騨高山', '白川鄉', '白川郷', '合掌村', '长野', '新潟'],
-                             '近畿': ['近畿', '关西', '関西', '大阪', '京都', '奈良', '神户', '神戸', '仓敷', '倉敷', '冈山', '岡山', '丹後地区'],
-                             '中国': ['中国', '广岛', '広島', '山口', '山阳', '山陽', '山阴', '山陰'],
-                             '四国': ['四国'],
-                             '九州': ['九州', '福冈', '福岡', '博多', '熊本', '鹿儿岛', '鹿児島', '长崎', '長崎', '宫崎', '宮崎']
-                           };
-                           
-                           const keywords = regionKeywords[selectedRegion as keyof typeof regionKeywords];
-                           if (keywords) {
-                             // 处理 regions 数组，支持单个字符串包含多个地区（用逗号分隔）的情况
-                             return pass.coverage.regions.some(region => {
-                               // 如果 region 是包含逗号的字符串（如 '東北, 北海道'），先分割再匹配
-                               const regionParts = typeof region === 'string' 
-                                 ? region.split(',').map(r => r.trim())
-                                 : [region];
-                               
-                               return regionParts.some(part => 
-                                 keywords.some(keyword => part.includes(keyword))
-                               );
-                             });
-                           }
-                           
-                           return false;
-                         })();
-    
+    const matchesRegion = selectedRegion === 'all' ||
+      (() => {
+        if (selectedRegion === '全国') {
+          // 全国版只显示来自 national-passes.ts 的周游券（category === 'national'）
+          return pass.category === 'national' && pass.coverage.regions.includes('全国');
+        }
+
+        // 地区关键词映射
+        const regionKeywords = {
+          '北海道': ['北海道', '札幌', '富良野', '美瑛', '登别', '小樽', '旭川', '新千岁机场', '函館'],
+          '東北': ['东北', '東北', '青森', '仙台', '秋田', '山形', '福岛'],
+          '関東': ['关东', '関東', '东京', '東京', '富士山', '日光', '轻井泽', '軽井沢', '伊豆'],
+          '東海': ['东海', '東海', '名古屋', '静冈', '静岡', '伊势', '伊勢', '熊野', '和歌山'],
+          '北信越': ['北信越', '金泽', '金沢', '飞驒高山', '飛騨高山', '白川鄉', '白川郷', '合掌村', '长野', '新潟'],
+          '近畿': ['近畿', '关西', '関西', '大阪', '京都', '奈良', '神户', '神戸', '仓敷', '倉敷', '冈山', '岡山', '丹後地区'],
+          '中国': ['中国', '广岛', '広島', '山口', '山阳', '山陽', '山阴', '山陰'],
+          '四国': ['四国'],
+          '九州': ['九州', '福冈', '福岡', '博多', '熊本', '鹿儿岛', '鹿児島', '长崎', '長崎', '宫崎', '宮崎']
+        };
+
+        const keywords = regionKeywords[selectedRegion as keyof typeof regionKeywords];
+        if (keywords) {
+          // 处理 regions 数组，支持单个字符串包含多个地区（用逗号分隔）的情况
+          return pass.coverage.regions.some(region => {
+            // 如果 region 是包含逗号的字符串（如 '東北, 北海道'），先分割再匹配
+            const regionParts = typeof region === 'string'
+              ? region.split(',').map(r => r.trim())
+              : [region];
+
+            return regionParts.some(part =>
+              keywords.some(keyword => part.includes(keyword))
+            );
+          });
+        }
+
+        return false;
+      })();
+
     // 时长匹配
-    const matchesDuration = selectedDuration === 'all' || 
-                           (selectedDuration === '1-7' && pass.duration.some(d => d >= 1 && d <= 7)) ||
-                           (selectedDuration === '8-14' && pass.duration.some(d => d >= 8 && d <= 14)) ||
-                           (selectedDuration === '15-21' && pass.duration.some(d => d >= 15 && d <= 21)) ||
-                           (selectedDuration === '22+' && pass.duration.some(d => d >= 22));
-    
+    const matchesDuration = selectedDuration === 'all' ||
+      (selectedDuration === '1-7' && pass.duration.some(d => d >= 1 && d <= 7)) ||
+      (selectedDuration === '8-14' && pass.duration.some(d => d >= 8 && d <= 14)) ||
+      (selectedDuration === '15-21' && pass.duration.some(d => d >= 15 && d <= 21)) ||
+      (selectedDuration === '22+' && pass.duration.some(d => d >= 22));
+
     // 价格匹配
-    const matchesPrice = selectedPriceRange === 'all' || 
-                        (selectedPriceRange === '0-5000' && pass.price.adult.regular <= 5000) ||
-                        (selectedPriceRange === '5001-10000' && pass.price.adult.regular > 5000 && pass.price.adult.regular <= 10000) ||
-                        (selectedPriceRange === '10001-20000' && pass.price.adult.regular > 10000 && pass.price.adult.regular <= 20000) ||
-                        (selectedPriceRange === '20001-30000' && pass.price.adult.regular > 20000 && pass.price.adult.regular <= 30000) ||
-                        (selectedPriceRange === '30001-40000' && pass.price.adult.regular > 30000 && pass.price.adult.regular <= 40000) ||
-                        (selectedPriceRange === '40001+' && pass.price.adult.regular > 40000);
-    
+    const matchesPrice = selectedPriceRange === 'all' ||
+      (selectedPriceRange === '0-5000' && pass.price.adult.regular <= 5000) ||
+      (selectedPriceRange === '5001-10000' && pass.price.adult.regular > 5000 && pass.price.adult.regular <= 10000) ||
+      (selectedPriceRange === '10001-20000' && pass.price.adult.regular > 10000 && pass.price.adult.regular <= 20000) ||
+      (selectedPriceRange === '20001-30000' && pass.price.adult.regular > 20000 && pass.price.adult.regular <= 30000) ||
+      (selectedPriceRange === '30001-40000' && pass.price.adult.regular > 30000 && pass.price.adult.regular <= 40000) ||
+      (selectedPriceRange === '40001+' && pass.price.adult.regular > 40000);
+
     // 评分匹配
-    const matchesRating = selectedRating === 'all' || 
-                         (selectedRating === '4+' && pass.popularity >= 4) ||
-                         (selectedRating === '3+' && pass.popularity >= 3) ||
-                         (selectedRating === '2+' && pass.popularity >= 2);
-    
+    const matchesRating = selectedRating === 'all' ||
+      (selectedRating === '4+' && pass.popularity >= 4) ||
+      (selectedRating === '3+' && pass.popularity >= 3) ||
+      (selectedRating === '2+' && pass.popularity >= 2);
+
     // 列车类型匹配
-    const matchesTrainType = selectedTrainType === 'all' || 
-                            pass.trainTypes.includes(selectedTrainType);
-    
+    const matchesTrainType = selectedTrainType === 'all' ||
+      pass.trainTypes.includes(selectedTrainType);
+
     // URL参数地区匹配（保持向后兼容）
     const urlRegion = searchParams.get('region');
     const matchesUrlRegion = !urlRegion || pass.coverage.regions.includes(urlRegion);
-    
-    return matchesSearch && matchesCategory && matchesRegion && matchesDuration && 
-           matchesPrice && matchesRating && matchesTrainType && matchesUrlRegion;
+
+    return matchesSearch && matchesCategory && matchesRegion && matchesDuration &&
+      matchesPrice && matchesRating && matchesTrainType && matchesUrlRegion;
   }).sort((a, b) => {
     // 首先按地区排序：全国版优先
     const aIsNational = a.coverage.regions.includes('全国');
     const bIsNational = b.coverage.regions.includes('全国');
-    
+
     if (aIsNational && !bIsNational) return -1; // a是全国版，b不是，a排在前面
     if (!aIsNational && bIsNational) return 1;  // b是全国版，a不是，b排在前面
-    
+
     // 如果都是全国版，则按sortOrder排序
     if (aIsNational && bIsNational) {
       if (a.sortOrder !== undefined && b.sortOrder !== undefined) {
@@ -204,10 +204,10 @@ export default function PassListClient({ passes }: PassListClientProps) {
       }
       return b.popularity - a.popularity; // 都没有sortOrder，按人气排序
     }
-    
+
     // 如果都不是全国版，则按地区列表顺序排列
-    const regionOrder = ['北海道','東北', '関東', '東海', '北信越', '近畿','中国', '四国', '九州'];
-    
+    const regionOrder = ['北海道', '東北', '関東', '東海', '北信越', '近畿', '中国', '四国', '九州'];
+
     // 获取周游券的主要地区
     const getMainRegion = (pass: JRPass) => {
       // 检查每个地区关键词
@@ -222,9 +222,9 @@ export default function PassListClient({ passes }: PassListClientProps) {
         '四国': ['四国'],
         '九州': ['九州', '福冈', '福岡', '博多', '熊本', '鹿儿岛', '鹿児島', '长崎', '長崎', '宫崎', '宮崎']
       };
-      
+
       for (const [region, keywords] of Object.entries(regionKeywords)) {
-        if (pass.coverage.regions.some((r: string) => 
+        if (pass.coverage.regions.some((r: string) =>
           keywords.some(keyword => r.includes(keyword))
         )) {
           return region;
@@ -232,18 +232,18 @@ export default function PassListClient({ passes }: PassListClientProps) {
       }
       return '其他'; // 如果不在列表中，归为其他
     };
-    
+
     const aRegion = getMainRegion(a);
     const bRegion = getMainRegion(b);
-    
+
     // 按地区列表顺序排序
     const aRegionIndex = regionOrder.indexOf(aRegion);
     const bRegionIndex = regionOrder.indexOf(bRegion);
-    
+
     if (aRegionIndex !== bRegionIndex) {
       return aRegionIndex - bRegionIndex;
     }
-    
+
     // 如果地区相同，则按sortOrder排序，如果没有sortOrder则按人气排序
     if (a.sortOrder !== undefined && b.sortOrder !== undefined) {
       return a.sortOrder - b.sortOrder;
@@ -272,15 +272,15 @@ export default function PassListClient({ passes }: PassListClientProps) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-50 to-white">
       <NavigationSection />
-      
+
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* 页面标题 */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-             全部周游券
+            全部周游券
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            {searchParams.get('region') 
+            {searchParams.get('region')
               ? `浏览${searchParams.get('region')}地区的JR周游券，找到最适合您日本之旅的通行证`
               : '浏览所有JR周游券，找到最适合您日本之旅的通行证'
             }
@@ -304,7 +304,7 @@ export default function PassListClient({ passes }: PassListClientProps) {
                   />
                 </div>
               </div>
-              
+
               {/* 筛选按钮 */}
               <button
                 onClick={() => setShowFilters(!showFilters)}
@@ -322,11 +322,10 @@ export default function PassListClient({ passes }: PassListClientProps) {
                 <button
                   key={category.id}
                   onClick={() => setSelectedCategory(category.id)}
-                  className={`px-4 py-2 transition-colors ${
-                    selectedCategory === category.id
+                  className={`px-4 py-2 transition-colors ${selectedCategory === category.id
                       ? 'bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg shadow-red-400/25 font-bold'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200 font-normal'
-                  }`}
+                    }`}
                 >
                   {category.name} ({category.count})
                 </button>
@@ -344,11 +343,10 @@ export default function PassListClient({ passes }: PassListClientProps) {
                       <button
                         key={region.id}
                         onClick={() => setSelectedRegion(region.id)}
-                        className={`px-3 py-2 text-sm transition-colors ${
-                          selectedRegion === region.id
+                        className={`px-3 py-2 text-sm transition-colors ${selectedRegion === region.id
                             ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-lg font-bold'
                             : 'bg-gray-100 text-gray-700 hover:bg-gray-200 font-normal'
-                        }`}
+                          }`}
                       >
                         {region.name}
                       </button>
@@ -364,11 +362,10 @@ export default function PassListClient({ passes }: PassListClientProps) {
                       <button
                         key={duration.id}
                         onClick={() => setSelectedDuration(duration.id)}
-                        className={`px-3 py-2 text-sm transition-colors ${
-                          selectedDuration === duration.id
+                        className={`px-3 py-2 text-sm transition-colors ${selectedDuration === duration.id
                             ? 'bg-gradient-to-r from-yellow-500 to-yellow-600 text-white shadow-lg font-bold'
                             : 'bg-gray-100 text-gray-700 hover:bg-gray-200 font-normal'
-                        }`}
+                          }`}
                       >
                         {duration.name}
                       </button>
@@ -384,11 +381,10 @@ export default function PassListClient({ passes }: PassListClientProps) {
                       <button
                         key={price.id}
                         onClick={() => setSelectedPriceRange(price.id)}
-                        className={`px-3 py-2 text-sm transition-colors ${
-                          selectedPriceRange === price.id
+                        className={`px-3 py-2 text-sm transition-colors ${selectedPriceRange === price.id
                             ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg font-bold'
                             : 'bg-gray-100 text-gray-700 hover:bg-gray-200 font-normal'
-                        }`}
+                          }`}
                       >
                         {price.name}
                       </button>
@@ -404,11 +400,10 @@ export default function PassListClient({ passes }: PassListClientProps) {
                       <button
                         key={rating.id}
                         onClick={() => setSelectedRating(rating.id)}
-                        className={`px-3 py-2 text-sm transition-colors ${
-                          selectedRating === rating.id
+                        className={`px-3 py-2 text-sm transition-colors ${selectedRating === rating.id
                             ? 'bg-gradient-to-r from-cyan-500 to-cyan-600 text-white shadow-lg font-bold'
                             : 'bg-gray-100 text-gray-700 hover:bg-gray-200 font-normal'
-                        }`}
+                          }`}
                       >
                         {rating.name}
                       </button>
@@ -424,11 +419,10 @@ export default function PassListClient({ passes }: PassListClientProps) {
                       <button
                         key={trainType.id}
                         onClick={() => setSelectedTrainType(trainType.id)}
-                        className={`px-3 py-2 text-sm transition-colors ${
-                          selectedTrainType === trainType.id
+                        className={`px-3 py-2 text-sm transition-colors ${selectedTrainType === trainType.id
                             ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg font-bold'
                             : 'bg-gray-100 text-gray-700 hover:bg-gray-200 font-normal'
-                        }`}
+                          }`}
                       >
                         {trainType.name}
                       </button>
@@ -465,21 +459,21 @@ export default function PassListClient({ passes }: PassListClientProps) {
                 (第 {currentPage} 页，共 {totalPages} 页)
               </span>
             )}
-            {(selectedCategory !== 'all' || selectedRegion !== 'all' || selectedDuration !== 'all' || 
+            {(selectedCategory !== 'all' || selectedRegion !== 'all' || selectedDuration !== 'all' ||
               selectedPriceRange !== 'all' || selectedRating !== 'all' || selectedTrainType !== 'all') && (
-              <span className="ml-2 text-sm text-gray-500">
-                (筛选条件: {
-                  [
-                    selectedCategory !== 'all' && categories.find(c => c.id === selectedCategory)?.name,
-                    selectedRegion !== 'all' && regions.find(r => r.id === selectedRegion)?.name,
-                    selectedDuration !== 'all' && durationRanges.find(d => d.id === selectedDuration)?.name,
-                    selectedPriceRange !== 'all' && priceRanges.find(p => p.id === selectedPriceRange)?.name,
-                    selectedRating !== 'all' && ratingRanges.find(r => r.id === selectedRating)?.name,
-                    selectedTrainType !== 'all' && trainTypes.find(t => t.id === selectedTrainType)?.name
-                  ].filter(Boolean).join(', ')
-                })
-              </span>
-            )}
+                <span className="ml-2 text-sm text-gray-500">
+                  (筛选条件: {
+                    [
+                      selectedCategory !== 'all' && categories.find(c => c.id === selectedCategory)?.name,
+                      selectedRegion !== 'all' && regions.find(r => r.id === selectedRegion)?.name,
+                      selectedDuration !== 'all' && durationRanges.find(d => d.id === selectedDuration)?.name,
+                      selectedPriceRange !== 'all' && priceRanges.find(p => p.id === selectedPriceRange)?.name,
+                      selectedRating !== 'all' && ratingRanges.find(r => r.id === selectedRating)?.name,
+                      selectedTrainType !== 'all' && trainTypes.find(t => t.id === selectedTrainType)?.name
+                    ].filter(Boolean).join(', ')
+                  })
+                </span>
+              )}
           </p>
         </div>
 
@@ -500,11 +494,10 @@ export default function PassListClient({ passes }: PassListClientProps) {
               <button
                 onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
                 disabled={currentPage === 1}
-                className={`px-4 py-2 font-medium transition-all duration-300 ${
-                  currentPage === 1
+                className={`px-4 py-2 font-medium transition-all duration-300 ${currentPage === 1
                     ? 'bg-gray-200 text-gray-400 cursor-not-allowed border border-gray-300'
                     : 'bg-white text-yellow-600 border border-yellow-400 hover:bg-yellow-400 hover:text-black hover:shadow-lg hover:shadow-yellow-400/50 active:scale-95'
-                }`}
+                  }`}
               >
                 上一页
               </button>
@@ -527,11 +520,10 @@ export default function PassListClient({ passes }: PassListClientProps) {
                     <button
                       key={pageNum}
                       onClick={() => setCurrentPage(pageNum)}
-                      className={`px-4 py-2 font-medium transition-all duration-300 ${
-                        currentPage === pageNum
+                      className={`px-4 py-2 font-medium transition-all duration-300 ${currentPage === pageNum
                           ? 'bg-yellow-400 text-black border border-yellow-400 shadow-lg shadow-yellow-400/50'
                           : 'bg-white text-yellow-600 border border-yellow-400 hover:bg-yellow-400 hover:text-black hover:shadow-lg hover:shadow-yellow-400/50 active:scale-95'
-                      }`}
+                        }`}
                     >
                       {pageNum}
                     </button>
@@ -543,11 +535,10 @@ export default function PassListClient({ passes }: PassListClientProps) {
               <button
                 onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
                 disabled={currentPage === totalPages}
-                className={`px-4 py-2 font-medium transition-all duration-300 ${
-                  currentPage === totalPages
+                className={`px-4 py-2 font-medium transition-all duration-300 ${currentPage === totalPages
                     ? 'bg-gray-200 text-gray-400 cursor-not-allowed border border-gray-300'
                     : 'bg-white text-yellow-600 border border-yellow-400 hover:bg-yellow-400 hover:text-black hover:shadow-lg hover:shadow-yellow-400/50 active:scale-95'
-                }`}
+                  }`}
               >
                 下一页
               </button>

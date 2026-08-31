@@ -11,6 +11,8 @@ import FooterSection from "@/components/sections/FooterSection";
 import { getAllPasses, getPopularPasses } from "@/lib/passData";
 import { getDictionary, Locale } from "@/i18n/dictionaries";
 
+export { generateStaticParams } from './layout';
+
 export default async function Page({
   params,
 }: {
@@ -27,12 +29,12 @@ export default async function Page({
       <NavigationSection dict={dict} lang={lang} />
       <HeroSection dict={dict} />
       <CalculatorSection passes={passes} dict={dict} />
-      <OmikujiSection dict={dict} />
+      <PassesSection popularPasses={popularPasses} dict={dict} />
       <MapSection dict={dict} />
       <FeaturesSection dict={dict} />
-      <PassesSection popularPasses={popularPasses} dict={dict} />
       <CTASection dict={dict} lang={lang} />
       <FAQSection dict={dict} />
+      <OmikujiSection dict={dict} />
       <FooterSection dict={dict} lang={lang} />
     </div>
   );

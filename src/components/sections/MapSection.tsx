@@ -22,65 +22,40 @@ export default function MapSection({ dict }: { dict?: any }) {
         </div>
 
         {/* Map Area */}
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           {/* Map Visualization */}
-          <div className="relative glass-card p-8">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-              <Link href="/passlist?region=北海道" className="h-16 bg-orange-50 rounded-xl flex items-center justify-center hover:bg-orange-100 hover:shadow-md transition-all duration-300 cursor-pointer group border border-orange-100">
-                <div className="text-center">
-                  <MapPin className="w-5 h-5 text-orange-500 mx-auto mb-1 group-hover:-translate-y-1 transition-transform" />
-                  <div className="text-sm font-bold text-orange-700">北海道</div>
-                </div>
-              </Link>
-              
-              <Link href="/passlist?region=东北" className="h-16 bg-purple-50 rounded-xl flex items-center justify-center hover:bg-purple-100 hover:shadow-md transition-all duration-300 cursor-pointer group border border-purple-100">
-                <div className="text-center">
-                  <MapPin className="w-5 h-5 text-purple-500 mx-auto mb-1 group-hover:-translate-y-1 transition-transform" />
-                  <div className="text-sm font-bold text-purple-700">东北</div>
-                </div>
-              </Link>
-              
-              <Link href="/passlist?region=关东" className="h-16 bg-blue-50 rounded-xl flex items-center justify-center hover:bg-blue-100 hover:shadow-md transition-all duration-300 cursor-pointer group border border-blue-100">
-                <div className="text-center">
-                  <MapPin className="w-5 h-5 text-blue-500 mx-auto mb-1 group-hover:-translate-y-1 transition-transform" />
-                  <div className="text-sm font-bold text-blue-700">关东</div>
-                </div>
-              </Link>
-              
-              <Link href="/passlist?region=中部" className="h-16 bg-gray-50 rounded-xl flex items-center justify-center hover:bg-gray-100 hover:shadow-md transition-all duration-300 cursor-pointer group border border-gray-200">
-                <div className="text-center">
-                  <MapPin className="w-5 h-5 text-gray-500 mx-auto mb-1 group-hover:-translate-y-1 transition-transform" />
-                  <div className="text-sm font-bold text-gray-700">中部</div>
-                </div>
-              </Link>
-              
-              <Link href="/passlist?region=关西" className="h-16 bg-teal-50 rounded-xl flex items-center justify-center hover:bg-teal-100 hover:shadow-md transition-all duration-300 cursor-pointer group border border-teal-100">
-                <div className="text-center">
-                  <MapPin className="w-5 h-5 text-teal-500 mx-auto mb-1 group-hover:-translate-y-1 transition-transform" />
-                  <div className="text-sm font-bold text-teal-700">关西</div>
-                </div>
-              </Link>
-
-              <Link href="/passlist?region=中国" className="h-16 bg-amber-50 rounded-xl flex items-center justify-center hover:bg-amber-100 hover:shadow-md transition-all duration-300 cursor-pointer group border border-amber-100">
-                <div className="text-center">
-                  <MapPin className="w-5 h-5 text-amber-500 mx-auto mb-1 group-hover:-translate-y-1 transition-transform" />
-                  <div className="text-sm font-bold text-amber-700">中国</div>
-                </div>
-              </Link>
-              
-              <Link href="/passlist?region=四国" className="h-16 bg-indigo-50 rounded-xl flex items-center justify-center hover:bg-indigo-100 hover:shadow-md transition-all duration-300 cursor-pointer group border border-indigo-100">
-                <div className="text-center">
-                  <MapPin className="w-5 h-5 text-indigo-500 mx-auto mb-1 group-hover:-translate-y-1 transition-transform" />
-                  <div className="text-sm font-bold text-indigo-700">四国</div>
-                </div>
-              </Link>
-              
-              <Link href="/passlist?region=九州" className="h-16 bg-yellow-50 rounded-xl flex items-center justify-center hover:bg-yellow-100 hover:shadow-md transition-all duration-300 cursor-pointer group border border-yellow-100">
-                <div className="text-center">
-                  <MapPin className="w-5 h-5 text-yellow-500 mx-auto mb-1 group-hover:-translate-y-1 transition-transform" />
-                  <div className="text-sm font-bold text-yellow-700">九州</div>
-                </div>
-              </Link>
+          <div className="relative glass-card p-6 sm:p-8">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
+              {[
+                { id: '北海道', name: '北海道', img: 'https://images.unsplash.com/photo-1580495612201-64e03b0d463d?q=80&w=600&auto=format&fit=crop' },
+                { id: '东北', name: '东北', img: 'https://images.unsplash.com/photo-1542640244-7e672d6cb466?q=80&w=600&auto=format&fit=crop' },
+                { id: '关东', name: '关东', img: 'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=600&auto=format&fit=crop' },
+                { id: '中部', name: '中部', img: 'https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?q=80&w=600&auto=format&fit=crop' },
+                { id: '关西', name: '关西', img: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600&auto=format&fit=crop' },
+                { id: '中国', name: '中国', img: 'https://images.unsplash.com/photo-1524413840845-3802865d45ef?q=80&w=600&auto=format&fit=crop' },
+                { id: '四国', name: '四国', img: 'https://images.unsplash.com/photo-1504109586057-7a2ae83d1338?q=80&w=600&auto=format&fit=crop' },
+                { id: '九州', name: '九州', img: 'https://images.unsplash.com/photo-1534433139360-6b6070650c82?q=80&w=600&auto=format&fit=crop' }
+              ].map((region) => (
+                <Link 
+                  key={region.id} 
+                  href={`/passlist?region=${region.name}`}
+                  className="group relative h-36 sm:h-44 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                >
+                  {/* Background Image */}
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                    style={{ backgroundImage: `url(${region.img})` }}
+                  />
+                  {/* Gradient Overlay for Text Readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/10 transition-opacity duration-300 group-hover:opacity-90" />
+                  
+                  {/* Content */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-end pb-5">
+                    <MapPin className="w-6 h-6 text-white mb-2 opacity-90 group-hover:-translate-y-1 transition-transform duration-300 drop-shadow-md" />
+                    <div className="text-lg sm:text-xl font-bold text-white tracking-widest drop-shadow-md">{region.name}</div>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         </div>

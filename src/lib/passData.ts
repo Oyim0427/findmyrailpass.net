@@ -3,6 +3,36 @@ import path from 'path';
 import { parse } from 'csv-parse/sync';
 import { JRPass } from '@/types/pass';
 
+function determineCategory(row: Record<string, string>): 'nationwide' | 'regional' | 'city' | 'bus' | 'private_railway' | 'special' {
+  const name = row['车票名称'] || '';
+  const company = row['公司名'] || '';
+  const region = row['地区'] || '';
+
+  if (name.includes('巴士') || name.includes('バス') || name.toLowerCase().includes('bus') || company.includes('バス') || company.includes('巴士')) {
+    return 'bus';
+  }
+
+  if (region.includes('全国') || name.includes('JAPAN RAIL PASS') || name.includes('青春18')) {
+    return 'nationwide';
+  }
+
+  if (name.includes('套票') || name.includes('组合') || name.toLowerCase().includes('package') || name.toLowerCase().includes('set')) {
+    return 'special';
+  }
+
+  const isJR = company.toUpperCase().includes('JR') || company.includes('ＪＲ') || company.includes('旅客铁道') || company.includes('旅客鉄道');
+
+  if (!isJR && /(一日|1日|2日|24小时|48小时|地下铁|地铁|地下鉄|市营|市営|Metro|Subway|乘车券|乗車券)/i.test(name)) {
+    return 'city';
+  }
+
+  if (!isJR) {
+    return 'private_railway';
+  }
+
+  return 'regional';
+}
+
 export function getAllPasses(): JRPass[] {
   const dataDir = path.join(process.cwd(), 'save_data/excel-data_sitedata');
   let files: string[] = [];
@@ -12,7 +42,7 @@ export function getAllPasses(): JRPass[] {
     console.error("Could not read data directory", e);
     return [];
   }
-  
+
   const allPasses: JRPass[] = [];
   let idCounter = 1;
 
@@ -20,7 +50,7 @@ export function getAllPasses(): JRPass[] {
     const filePath = path.join(dataDir, file);
     const content = fs.readFileSync(filePath, 'utf-8');
     const records: Record<string, string>[] = parse(content, { columns: true, skip_empty_lines: true, bom: true });
-    
+
     for (const row of records) {
       if (!row['车票名称']) continue;
 
@@ -84,7 +114,7 @@ export function getAllPasses(): JRPass[] {
         trainTypes: row['可利用设备'] ? row['可利用设备'].split(/[,，|]/).map(s => s.trim()).filter(Boolean) : [],
         officialLinks,
         purchaseLinks: [], // Can map if needed
-        category: 'regional', // default
+        category: determineCategory(row),
         popularity: 5,
         isLimitedPeriod: !!row['详情发售期间'] && row['详情发售期间'] !== '通年',
         ticket_note: [row['发售处'], row['相关信息'], row['限制事项']].filter(Boolean).join('\n'),
@@ -94,7 +124,7 @@ export function getAllPasses(): JRPass[] {
       allPasses.push(pass);
     }
   }
-  
+
   return allPasses.sort((a, b) => (a.sortOrder || 0) - (b.sortOrder || 0));
 }
 
@@ -103,4 +133,8 @@ export function getPopularPasses(limit: number = 6): JRPass[] {
     .filter(pass => pass.popularity >= 4)
     .sort((a, b) => b.popularity - a.popularity)
     .slice(0, limit);
+}
+
+export function getPassById(id: string): JRPass | undefined {
+  return getAllPasses().find(pass => pass.id === id);
 }

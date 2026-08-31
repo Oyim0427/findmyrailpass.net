@@ -57,7 +57,7 @@ export default function FeaturesSection({ dict }: { dict?: any }) {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {features.map((feature, i) => (
+          {features.map((feature: { icon: React.ReactNode; title: string; desc: string; color: string }, i: number) => (
             <div key={i} className="glass-card p-8 group hover:-translate-y-2 transition-transform duration-300">
               <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${feature.color} group-hover:scale-110 transition-transform`}>
                 {feature.icon}

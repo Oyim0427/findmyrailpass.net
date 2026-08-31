@@ -302,7 +302,7 @@ export default function PassCalculator({ passes }: PassCalculatorProps) {
         <button
           onClick={calculateRecommendations}
           disabled={isCalculating || !route.from || !route.to}
-          className="cyber-button px-10 py-4 text-xl font-bold flex items-center justify-center group mx-auto disabled:opacity-50 disabled:cursor-not-allowed w-full md:w-auto shadow-lg hover:shadow-red-500/30 transition-all rounded-full bg-gradient-to-r from-red-600 to-red-500 text-white"
+          className="cyber-button px-10 py-4 text-xl font-bold flex items-center justify-center group mx-auto disabled:opacity-50 disabled:cursor-not-allowed w-full md:w-auto shadow-lg hover:shadow-red-500/30 transition-all rounded-xl bg-gradient-to-r from-red-600 to-red-500 text-white"
         >
           {isCalculating ? (
             <>

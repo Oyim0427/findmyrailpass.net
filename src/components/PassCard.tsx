@@ -14,9 +14,8 @@ export default function PassCard({ pass, onClick, dict }: PassCardProps) {
     return Array.from({ length: 5 }, (_, i) => (
       <Star
         key={i}
-        className={`w-4 h-4 ${
-          i < rating ? 'text-yellow-400 fill-current' : 'text-gray-200'
-        }`}
+        className={`w-4 h-4 ${i < rating ? 'text-yellow-400 fill-current' : 'text-gray-200'
+          }`}
       />
     ));
   };
@@ -29,14 +28,14 @@ export default function PassCard({ pass, onClick, dict }: PassCardProps) {
   const priceText = pass.price?.freeText || '';
 
   return (
-    <div 
+    <div
       className="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-teal-100 transition-all duration-300 cursor-pointer transform hover:-translate-y-1 h-full flex flex-col overflow-hidden"
       onClick={onClick}
     >
       {/* Image Header */}
       <div className="relative h-48 w-full bg-gray-100">
-        <img 
-          src={pass.coverage?.map || '/images/default-pass.jpg'} 
+        <img
+          src={pass.coverage?.map || '/images/default-pass.jpg'}
           alt={pass.name?.cn}
           className="w-full h-full object-cover"
           onError={(e) => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=2070&auto=format&fit=crop'; }}
@@ -67,7 +66,7 @@ export default function PassCard({ pass, onClick, dict }: PassCardProps) {
               {renderStars(pass.popularity || 5)}
             </div>
           </div>
-          
+
           <div className="text-right flex-shrink-0">
             {displayPrice > 0 ? (
               <>
@@ -108,7 +107,7 @@ export default function PassCard({ pass, onClick, dict }: PassCardProps) {
               <div className="text-sm text-gray-900 font-medium">{pass.duration?.join(' / ') || 1} Days</div>
             </div>
           </div>
-          
+
           {pass.validityPeriod?.description && (
             <div className="flex items-start gap-3">
               <Calendar className="w-4 h-4 text-gray-400 mt-0.5 shrink-0" />
@@ -130,7 +129,7 @@ export default function PassCard({ pass, onClick, dict }: PassCardProps) {
 
         <div className="flex gap-3 mt-auto pt-4 border-t border-gray-100">
           {pass.officialLinks && pass.officialLinks.length > 0 ? (
-            <a 
+            <a
               href={pass.officialLinks[0].url}
               target="_blank"
               rel="noopener noreferrer"
@@ -144,7 +143,7 @@ export default function PassCard({ pass, onClick, dict }: PassCardProps) {
               {dict?.details || '查看详情'}
             </button>
           )}
-          
+
           <button className="flex-1 btn-primary text-white px-4 py-2.5 rounded-xl text-sm font-semibold flex items-center justify-center gap-2" onClick={(e) => e.stopPropagation()}>
             {dict?.buyNow || '官方购买'}
             <ExternalLink className="w-4 h-4" />

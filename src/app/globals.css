@@ -35,8 +35,7 @@ body {
   background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
   color: #ffffff;
   font-weight: 600;
-  border-radius: 9999px;
-  box-shadow: 0 4px 14px 0 rgba(0, 191, 165, 0.39);
+  border-radius: 0.75rem;
   transition: all 0.2s ease-in-out;
 }
 
@@ -77,7 +76,7 @@ body {
 /* Animated backgrounds */
 .bg-mesh {
   background-color: #f8fafc;
-  background-image: 
+  background-image:
     radial-gradient(at 40% 20%, hsla(167, 100%, 80%, 0.3) 0px, transparent 50%),
     radial-gradient(at 80% 0%, hsla(189, 100%, 86%, 0.3) 0px, transparent 50%),
     radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 0.3) 0px, transparent 50%);

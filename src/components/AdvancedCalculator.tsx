@@ -109,6 +109,9 @@ export default function AdvancedCalculator({ passes }: AdvancedCalculatorProps) 
         if (!pass.price?.adult?.regular || pass.price.adult.regular <= 0) {
           return;
         }
+        const passRegions = pass.coverage?.regions || [];
+        const isNational = pass.category === 'national' || passRegions.includes('全国') || passRegions.includes('全日本');
+        
         let score = 0;
         let reason = '';
         let savings = 0;
@@ -463,7 +466,7 @@ export default function AdvancedCalculator({ passes }: AdvancedCalculatorProps) 
             <button
               onClick={calculateAdvancedRecommendations}
               disabled={isCalculating || !route.from || !route.to}
-              className="btn-primary px-8 py-4 text-lg font-bold flex items-center justify-center group mx-auto rounded-xl shadow-md hover:shadow-lg transition-all w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
+              className="cyber-button px-8 py-4 text-lg font-bold flex items-center justify-center mx-auto disabled:opacity-50 disabled:cursor-not-allowed w-full md:w-auto shadow-xl hover:shadow-teal-500/30 transition-all rounded-xl bg-gradient-to-r from-teal-500 to-emerald-500 text-white"
             >
               {isCalculating ? (
                 <>
