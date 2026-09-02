@@ -2,8 +2,9 @@
 
 import { ArrowRight, Sparkles, Train, Map, Ticket } from 'lucide-react';
 import Link from 'next/link';
+import type { Dictionary } from '@/i18n/dictionaries';
 
-export default function CTASection({ dict, lang }: { dict?: any, lang?: string }) {
+export default function CTASection({ dict, lang }: { dict?: Dictionary, lang?: string }) {
   return (
     <section className="py-12 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -21,8 +22,6 @@ export default function CTASection({ dict, lang }: { dict?: any, lang?: string }
             <Map className="absolute bottom-10 right-10 w-80 h-80 text-white opacity-[0.04] rotate-12 transform translate-x-1/4" strokeWidth={1} />
             <Ticket className="absolute top-1/3 left-2/3 w-48 h-48 text-white opacity-[0.03] rotate-45" strokeWidth={1} />
             
-            {/* Texture */}
-            <div className="absolute inset-0 bg-[url('/images/noise.png')] opacity-10 mix-blend-overlay"></div>
           </div>
           
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -36,7 +35,7 @@ export default function CTASection({ dict, lang }: { dict?: any, lang?: string }
         </h2>
         
         <p className="text-xl text-teal-100 mb-10 font-light max-w-2xl mx-auto">
-          {dict?.ctaDesc || '立即使用我们的智能推荐系统，找到最适合您的周游券。一次计算，全盘掌握！'}
+          {dict?.ctaDesc || '先用透明规则估算，再到运营方官网确认价格与购买条件。'}
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

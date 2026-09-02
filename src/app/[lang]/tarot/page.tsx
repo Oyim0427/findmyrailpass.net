@@ -1,10 +1,14 @@
 'use client';
 
 import { useState } from 'react';
+import { useParams } from 'next/navigation';
+import Link from 'next/link';
 import NavigationSection from "@/components/sections/NavigationSection";
 import FooterSection from "@/components/sections/FooterSection";
 
 export default function TarotPage() {
+  const params = useParams<{ lang: string }>();
+  const lang = params?.lang || 'zh';
   const [selectedCard, setSelectedCard] = useState<number | null>(null);
   const [isRevealed, setIsRevealed] = useState(false);
 
@@ -15,7 +19,7 @@ export default function TarotPage() {
       emoji: "🎭",
       description: "新的开始，充满冒险精神",
       route: "东京 → 大阪 → 京都",
-      meaning: "您适合选择关西周游券，开启您的日本关西之旅！"
+      meaning: "把它当作路线灵感；东京到关西跨越多个运营区域，请先比较普通票与全国券。"
     },
     {
       id: 2,
@@ -23,7 +27,7 @@ export default function TarotPage() {
       emoji: "🎪",
       description: "创造力与行动力",
       route: "札幌 → 函馆 → 小樽",
-      meaning: "北海道周游券将为您带来神奇的冬季体验！"
+      meaning: "把它当作路线灵感；是否买北海道铁路券取决于实际车次、天数和普通票合计。"
     },
     {
       id: 3,
@@ -31,7 +35,7 @@ export default function TarotPage() {
       emoji: "🌙",
       description: "直觉与智慧",
       route: "福冈 → 熊本 → 鹿儿岛",
-      meaning: "九州周游券将带您探索神秘的南国风情！"
+      meaning: "把它当作路线灵感；请根据北部、南部或全九州的实际覆盖范围比较。"
     },
     {
       id: 4,
@@ -39,7 +43,7 @@ export default function TarotPage() {
       emoji: "👑",
       description: "权威与稳定",
       route: "全国JR网络",
-      meaning: "JR Pass全国版是您征服日本的最佳选择！"
+      meaning: "跨区路线可以比较全国券，但并不代表一定划算；应先查普通票总价。"
     },
     {
       id: 5,
@@ -47,7 +51,7 @@ export default function TarotPage() {
       emoji: "💕",
       description: "爱情与选择",
       route: "高松 → 松山 → 高知",
-      meaning: "四国周游券将为您带来浪漫的海岛之旅！"
+      meaning: "把它当作路线灵感；四国票券范围可能调整，出发前请看 JR 四国官网。"
     },
     {
       id: 6,
@@ -55,7 +59,7 @@ export default function TarotPage() {
       emoji: "🏎️",
       description: "胜利与决心",
       route: "东京 → 箱根 → 河口湖",
-      meaning: "东京广域周游券助您征服关东地区！"
+      meaning: "把它当作路线灵感；私铁、巴士与 JR 线路的覆盖并不相同，请逐段核对。"
     }
   ];
 
@@ -71,11 +75,11 @@ export default function TarotPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50">
-      <NavigationSection />
+      <NavigationSection lang={lang} />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">路线塔罗占卜</h1>
-          <p className="text-xl text-gray-600">让塔罗牌为您指引最适合的日本铁路之旅</p>
+          <p className="text-xl text-gray-600">只生成旅行灵感，不生成购票建议</p>
         </div>
 
         {!isRevealed ? (
@@ -132,9 +136,7 @@ export default function TarotPage() {
                   >
                     重新占卜
                   </button>
-                  <button className="bg-gradient-to-r from-amber-400 to-orange-500 text-white px-6 py-3 rounded-lg hover:from-amber-500 hover:to-orange-600 transition-all duration-200 shadow-lg shadow-amber-400/25">
-                    查看周游券详情
-                  </button>
+                  <Link href={`/${lang}#calculator`} className="bg-gradient-to-r from-amber-400 to-orange-500 text-white px-6 py-3 rounded-lg hover:from-amber-500 hover:to-orange-600 transition-all duration-200 shadow-lg shadow-amber-400/25">用官方数据比较</Link>
                 </div>
               </div>
             )}
@@ -145,13 +147,12 @@ export default function TarotPage() {
           <div className="bg-white rounded-lg shadow-lg p-6 max-w-2xl mx-auto">
             <h3 className="text-xl font-bold text-gray-900 mb-4">占卜说明</h3>
             <p className="text-gray-700">
-              塔罗占卜仅供参考，实际选择周游券时请根据您的具体行程、预算和时间安排来决定。
-              我们建议您使用我们的周游券计算器来获得更准确的建议。
+              此互动仅供娱乐，不影响计算器排序，也不是购票或财务建议。实际选择请根据行程、预算和运营方最新规则决定。
             </p>
           </div>
         </div>
       </main>
-      <FooterSection />
+      <FooterSection lang={lang} />
     </div>
   );
 }

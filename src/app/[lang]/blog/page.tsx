@@ -1,125 +1,40 @@
-'use client';
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { ArrowLeft, ArrowUpRight, BookOpenCheck } from 'lucide-react';
+import AdSlot from '@/components/AdSlot';
 
-import NavigationSection from "@/components/sections/NavigationSection";
-import FooterSection from "@/components/sections/FooterSection";
-import { ArrowRight } from 'lucide-react';
+const guides = [
+  { tag: 'Decision guide', title: '全国 JR Pass 什么时候才值得比较？', summary: '用旅行范围和长途移动天数先筛选，避免把单次东京—关西往返误判为必须购买全国券。', href: 'https://japanrailpass.net/en/about_jrp.html', source: 'JR Group' },
+  { tag: 'Coverage guide', title: '大阪、京都到广岛：区域券应检查什么？', summary: '确认山阳新干线有效区间、指定席、宫岛渡轮与不能使用的东海道新干线区间。', href: 'https://www.westjr.co.jp/travel-information/en/tickets-passes/jrwest-rail-pass/kansai_hiroshima/', source: 'JR West' },
+  { tag: 'Booking guide', title: '北海道铁路券：购买、领取与指定席', summary: '比较预购和站内价格，确认北海道新干线、地铁不在覆盖范围，并提前处理全车指定席列车。', href: 'https://www.jrhokkaido.co.jp/global/english/ticket/railpass/', source: 'JR Hokkaido' },
+  { tag: 'Eligibility guide', title: '买券前为什么一定要看“适用资格”？', summary: '不同运营公司的外国旅客票券对护照、居住地和短期停留身份可能有不同要求。', href: 'https://www.jreast.co.jp/en/multi/pass/purchase.html', source: 'JR East' },
+  { tag: 'Regional guide', title: '九州铁路券：北九州、南九州还是全九州？', summary: '按主要住宿城市和跨区次数选择覆盖范围，并注意官网预订与其他销售渠道可能价格不同。', href: 'https://www.jrkyushu.co.jp/english/railpass/', source: 'JR Kyushu' },
+  { tag: 'Data guide', title: '本站如何核验票价与规则', summary: '了解为什么运营方页面优先、何时显示核验日期，以及哪些来源不会用于生成生产数据。', internal: true, href: 'data-sources', source: 'FindMyRailPass' }
+];
 
-export default function BlogPage() {
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-red-50 to-white">
-      <NavigationSection />
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">用户故事</h1>
-          <p className="text-xl text-gray-600">分享您的日本铁路之旅体验</p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* 故事1 */}
-          <article className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-            <div className="mb-4">
-              <div className="text-4xl mb-2">🌸</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">樱花季的关西之旅</h3>
-              <p className="text-gray-600 text-sm mb-4">by 张小明 • 2024年3月</p>
-            </div>
-            <p className="text-gray-700 mb-4">
-              使用关西周游券3日券，完美覆盖了大阪、京都、奈良的樱花景点。新干线到京都只需要15分钟，非常方便！
-            </p>
-            <div className="flex items-center justify-between">
-              <span className="text-sm text-gray-500">阅读时间: 3分钟</span>
-              <button className="text-red-600 hover:text-red-700 font-medium">阅读全文 →</button>
-            </div>
-          </article>
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params;
+  return {
+    title: lang === 'en' ? 'Japan Rail Pass Guides | FindMyRailPass' : lang === 'ja' ? '日本の鉄道パスガイド | FindMyRailPass' : '日本铁路周游券攻略｜FindMyRailPass',
+    description: '以铁路运营方一手资料为依据的日本铁路周游券决策、覆盖范围和购买攻略。',
+    alternates: { canonical: '/zh/blog' },
+    robots: { index: lang === 'zh', follow: true },
+  };
+}
 
-          {/* 故事2 */}
-          <article className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-            <div className="mb-4">
-              <div className="text-4xl mb-2">🏔️</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">北海道冬季探险</h3>
-              <p className="text-gray-600 text-sm mb-4">by 李美丽 • 2024年1月</p>
-            </div>
-            <p className="text-gray-700 mb-4">
-              北海道周游券5日券让我们轻松游览了札幌、小樽、函馆。JR特急列车温暖舒适，窗外雪景美不胜收。
-            </p>
-            <div className="flex items-center justify-between">
-              <span className="text-sm text-gray-500">阅读时间: 5分钟</span>
-              <button className="text-red-600 hover:text-red-700 font-medium">阅读全文 →</button>
-            </div>
-          </article>
+export default async function GuidesPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
+  return <main className="min-h-screen bg-[#f7f6f2] px-4 py-16 text-slate-800">
+    <div className="mx-auto max-w-6xl">
+      <Link href={`/${lang}`} className="inline-flex items-center gap-2 text-sm font-bold text-emerald-800"><ArrowLeft className="h-4 w-4" />返回首页</Link>
+      <header className="mt-10 max-w-3xl"><p className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-emerald-800"><BookOpenCheck className="h-5 w-5" />Official-source guides</p><h1 className="mt-4 text-5xl font-bold tracking-tight text-slate-950">铁路券攻略，不把销售话术当答案</h1><p className="mt-6 text-xl leading-8 text-slate-600">每篇内容从运营方规则出发，明确哪些信息是事实、哪些只是行程判断。最终购买条件以跳转后的官方页面为准。</p></header>
 
-          {/* 故事3 */}
-          <article className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-            <div className="mb-4">
-              <div className="text-4xl mb-2">🏯</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">九州温泉之旅</h3>
-              <p className="text-gray-600 text-sm mb-4">by 王强 • 2024年2月</p>
-            </div>
-            <p className="text-gray-700 mb-4">
-              九州周游券3日券带我们体验了别府温泉、熊本城、鹿儿岛。JR九州特色列车&ldquo;由布院之森&rdquo;特别推荐！
-            </p>
-            <div className="flex items-center justify-between">
-              <span className="text-sm text-gray-500">阅读时间: 4分钟</span>
-              <button className="text-red-600 hover:text-red-700 font-medium">阅读全文 →</button>
-            </div>
-          </article>
+      <AdSlot slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_GUIDES} label={lang === 'zh' ? '广告' : lang === 'ja' ? '広告' : 'Advertisement'} />
 
-          {/* 故事4 */}
-          <article className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-            <div className="mb-4">
-              <div className="text-4xl mb-2">🌊</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">四国环岛记</h3>
-              <p className="text-gray-600 text-sm mb-4">by 陈小华 • 2023年11月</p>
-            </div>
-            <p className="text-gray-700 mb-4">
-              四国周游券4日券让我们深度游览了香川、爱媛、高知、德岛。濑户内海的美景让人难忘。
-            </p>
-            <div className="flex items-center justify-between">
-              <span className="text-sm text-gray-500">阅读时间: 6分钟</span>
-              <button className="text-red-600 hover:text-red-700 font-medium">阅读全文 →</button>
-            </div>
-          </article>
-
-          {/* 故事5 */}
-          <article className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-            <div className="mb-4">
-              <div className="text-4xl mb-2">🗼</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">东京周边一日游</h3>
-              <p className="text-gray-600 text-sm mb-4">by 刘芳 • 2024年4月</p>
-            </div>
-            <p className="text-gray-700 mb-4">
-              东京广域周游券3日券性价比超高！去了箱根、河口湖、日光，每个地方都有独特的魅力。
-            </p>
-            <div className="flex items-center justify-between">
-              <span className="text-sm text-gray-500">阅读时间: 3分钟</span>
-              <button className="text-red-600 hover:text-red-700 font-medium">阅读全文 →</button>
-            </div>
-          </article>
-
-          {/* 故事6 */}
-          <article className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-            <div className="mb-4">
-              <div className="text-4xl mb-2">🚄</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">全国JR Pass深度游</h3>
-              <p className="text-gray-600 text-sm mb-4">by 赵大伟 • 2023年10月</p>
-            </div>
-            <p className="text-gray-700 mb-4">
-              21日全国JR Pass让我们从北海道到九州，深度体验了日本各地的风土人情。新干线网络太发达了！
-            </p>
-            <div className="flex items-center justify-between">
-              <span className="text-sm text-gray-500">阅读时间: 8分钟</span>
-              <button className="text-red-600 hover:text-red-700 font-medium">阅读全文 →</button>
-            </div>
-          </article>
-        </div>
-
-        <div className="text-center mt-12">
-          <button className="cyber-button px-8 py-4 text-lg font-semibold inline-flex items-center">
-            分享您的故事
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </button>
-        </div>
-      </main>
-      <FooterSection />
+      <section className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{guides.map(guide => {
+        const href = guide.internal ? `/${lang}/${guide.href}` : guide.href;
+        return <article key={guide.title} className="flex min-h-72 flex-col rounded-3xl border border-slate-200 bg-white p-7 shadow-sm"><p className="text-xs font-bold uppercase tracking-[0.16em] text-[#c2410c]">{guide.tag}</p><h2 className="mt-4 text-2xl font-bold leading-tight text-slate-950">{guide.title}</h2><p className="mt-4 text-sm leading-6 text-slate-600">{guide.summary}</p><div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-5"><span className="text-xs font-semibold text-slate-400">Source: {guide.source}</span><a href={href} target={guide.internal ? undefined : '_blank'} rel={guide.internal ? undefined : 'noopener noreferrer'} className="inline-flex items-center gap-1 text-sm font-bold text-emerald-800">阅读<ArrowUpRight className="h-4 w-4" /></a></div></article>;
+      })}</section>
     </div>
-  );
+  </main>;
 }

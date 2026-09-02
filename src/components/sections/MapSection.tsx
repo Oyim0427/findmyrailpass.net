@@ -2,8 +2,9 @@
 
 import { MapPin, Map as MapIcon } from "lucide-react";
 import Link from "next/link";
+import type { Dictionary } from '@/i18n/dictionaries';
 
-export default function MapSection({ dict }: { dict?: any }) {
+export default function MapSection({ dict, lang = 'zh' }: { dict?: Dictionary, lang?: string }) {
 
 
   return (
@@ -27,25 +28,22 @@ export default function MapSection({ dict }: { dict?: any }) {
           <div className="relative glass-card p-6 sm:p-8">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
               {[
-                { id: '北海道', name: '北海道', img: 'https://images.unsplash.com/photo-1580495612201-64e03b0d463d?q=80&w=600&auto=format&fit=crop' },
-                { id: '东北', name: '东北', img: 'https://images.unsplash.com/photo-1542640244-7e672d6cb466?q=80&w=600&auto=format&fit=crop' },
-                { id: '关东', name: '关东', img: 'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=600&auto=format&fit=crop' },
-                { id: '中部', name: '中部', img: 'https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?q=80&w=600&auto=format&fit=crop' },
-                { id: '关西', name: '关西', img: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600&auto=format&fit=crop' },
-                { id: '中国', name: '中国', img: 'https://images.unsplash.com/photo-1524413840845-3802865d45ef?q=80&w=600&auto=format&fit=crop' },
-                { id: '四国', name: '四国', img: 'https://images.unsplash.com/photo-1504109586057-7a2ae83d1338?q=80&w=600&auto=format&fit=crop' },
-                { id: '九州', name: '九州', img: 'https://images.unsplash.com/photo-1534433139360-6b6070650c82?q=80&w=600&auto=format&fit=crop' }
+                { id: '北海道', name: '北海道', tone: 'from-sky-700 to-blue-950' },
+                { id: '東北', name: lang === 'zh' ? '东北' : '東北', tone: 'from-indigo-700 to-slate-950' },
+                { id: '関東', name: lang === 'zh' ? '关东' : '関東', tone: 'from-emerald-700 to-slate-950' },
+                { id: '北信越', name: '北信越', tone: 'from-teal-700 to-cyan-950' },
+                { id: '近畿', name: lang === 'zh' ? '关西' : '関西', tone: 'from-orange-700 to-red-950' },
+                { id: '中国', name: '中国', tone: 'from-amber-700 to-stone-950' },
+                { id: '四国', name: '四国', tone: 'from-lime-700 to-emerald-950' },
+                { id: '九州', name: '九州', tone: 'from-rose-700 to-red-950' }
               ].map((region) => (
                 <Link 
                   key={region.id} 
-                  href={`/passlist?region=${region.name}`}
+                  href={`/${lang}/passlist?region=${region.id}`}
                   className="group relative h-36 sm:h-44 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                 >
                   {/* Background Image */}
-                  <div 
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                    style={{ backgroundImage: `url(${region.img})` }}
-                  />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${region.tone} transition-transform duration-700 group-hover:scale-110`} />
                   {/* Gradient Overlay for Text Readability */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/10 transition-opacity duration-300 group-hover:opacity-90" />
                   

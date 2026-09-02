@@ -1,155 +1,74 @@
 'use client';
 
 import { JRPass } from '@/types/pass';
-import { Star, MapPin, Calendar, Train, ExternalLink, Users, Clock } from 'lucide-react';
+import { CalendarDays, ExternalLink, MapPin, ShieldCheck, Ticket, TrainFront } from 'lucide-react';
+import { event } from '@/lib/analytics';
+import type { Dictionary } from '@/i18n/dictionaries';
 
 interface PassCardProps {
   pass: JRPass;
   onClick?: () => void;
-  dict?: any;
+  dict?: Dictionary;
+  lang?: string;
 }
 
-export default function PassCard({ pass, onClick, dict }: PassCardProps) {
-  const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }, (_, i) => (
-      <Star
-        key={i}
-        className={`w-4 h-4 ${i < rating ? 'text-yellow-400 fill-current' : 'text-gray-200'
-          }`}
-      />
-    ));
+const tones: Record<string, string> = {
+  national: 'from-[#172554] via-[#1e3a8a] to-[#2563eb]',
+  regional: 'from-[#064e3b] via-[#047857] to-[#0f766e]',
+  city: 'from-[#7c2d12] via-[#c2410c] to-[#ea580c]',
+};
+
+export default function PassCard({ pass, onClick, dict, lang = 'zh' }: PassCardProps) {
+  const name = lang === 'en' ? pass.name.en : lang === 'ja' ? pass.name.jp : pass.name.cn;
+  const purchase = pass.purchaseLinks?.[0];
+  const official = pass.officialLinks?.[0];
+  const detailHref = official?.url;
+  const description = lang === 'en'
+    ? `An official ${pass.company} rail pass for ${pass.coverage.regions.join(', ')}. Check the operator page for current coverage, eligibility and purchase conditions.`
+    : lang === 'ja'
+      ? `${pass.company} が提供する ${pass.coverage.regions.join('・')} エリアの公式鉄道パスです。最新の範囲・利用資格・購入条件は運行会社ページでご確認ください。`
+      : pass.description;
+  const tags = lang === 'zh' ? pass.bestFor.slice(0, 2) : [];
+
+  const trackOutbound = (kind: 'official_detail' | 'purchase', url: string) => {
+    event({ action: 'outbound_click', category: kind, label: `${pass.id}:${url}` });
   };
 
-  const bestForTags = Array.isArray(pass.bestFor)
-    ? pass.bestFor.flatMap((tag) => String(tag).split(/[;；]/).map((t) => t.trim()).filter(Boolean))
-    : [];
-
-  const displayPrice = pass.price?.adult?.regular || 0;
-  const priceText = pass.price?.freeText || '';
-
   return (
-    <div
-      className="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-teal-100 transition-all duration-300 cursor-pointer transform hover:-translate-y-1 h-full flex flex-col overflow-hidden"
-      onClick={onClick}
-    >
-      {/* Image Header */}
-      <div className="relative h-48 w-full bg-gray-100">
-        <img
-          src={pass.coverage?.map || '/images/default-pass.jpg'}
-          alt={pass.name?.cn}
-          className="w-full h-full object-cover"
-          onError={(e) => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=2070&auto=format&fit=crop'; }}
-        />
-        {pass.isLimitedPeriod && (
-          <div className="absolute top-4 left-4">
-            <div className="bg-rose-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
-              Limited Period
-            </div>
-          </div>
-        )}
-        <div className="absolute top-4 right-4">
-          <div className="bg-white/90 backdrop-blur-md px-3 py-1 rounded-full shadow-sm">
-            <span className="text-xs font-semibold text-teal-700">
-              {pass.category === 'national' ? 'National' : 'Regional'}
-            </span>
-          </div>
+    <article className="group h-full overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white shadow-[0_12px_35px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(15,23,42,0.12)]" onClick={onClick}>
+      <div className={`relative min-h-40 overflow-hidden bg-gradient-to-br ${tones[pass.category] || tones.regional} p-6 text-white`}>
+        <div className="absolute -right-8 -top-10 h-40 w-40 rounded-full border-[24px] border-white/10" />
+        <TrainFront className="absolute -bottom-7 -right-2 h-32 w-32 rotate-[-8deg] text-white/10" strokeWidth={1.2} />
+        <div className="relative flex items-center justify-between gap-3">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold backdrop-blur"><ShieldCheck className="h-3.5 w-3.5" />{lang === 'en' ? 'Operator source' : lang === 'ja' ? '運行会社公式情報' : '运营方一手来源'}</span>
+          <span className="text-xs text-white/75">{pass.company}</span>
         </div>
+        <h3 className="relative mt-8 max-w-[85%] text-2xl font-bold leading-tight">{name}</h3>
       </div>
 
-      <div className="p-6 flex flex-col flex-1">
-        <div className="flex justify-between items-start mb-4">
-          <div className="flex-1 pr-4">
-            <h3 className="text-xl font-bold text-gray-900 mb-2 leading-tight">
-              {pass.name?.cn || 'Unknown Pass'}
-            </h3>
-            <div className="flex items-center space-x-1">
-              {renderStars(pass.popularity || 5)}
-            </div>
+      <div className="flex min-h-[27rem] flex-col p-6">
+        <div className="flex items-end justify-between gap-4 border-b border-slate-100 pb-5">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">{dict?.priceAdult || '成人价格起'}</p>
+            <p className="mt-1 text-3xl font-bold tracking-tight text-slate-950">¥{pass.price.adult.regular.toLocaleString()}</p>
           </div>
-
-          <div className="text-right flex-shrink-0">
-            {displayPrice > 0 ? (
-              <>
-                <div className="text-2xl font-bold text-teal-600">
-                  ¥{displayPrice.toLocaleString()}
-                </div>
-                <div className="text-xs text-gray-500 font-medium">
-                  {dict?.priceAdult || '成人价格'}
-                </div>
-              </>
-            ) : priceText ? (
-              <div className="text-sm font-bold text-teal-600 max-w-[120px] text-right break-words">
-                {priceText.substring(0, 30)}{priceText.length > 30 ? '...' : ''}
-              </div>
-            ) : null}
-          </div>
+          <div className="text-right text-sm text-slate-500"><CalendarDays className="mb-1 ml-auto h-4 w-4 text-emerald-700" />{pass.duration.join(' / ')} {lang === 'en' ? 'days' : '日'}</div>
         </div>
 
-        <p className="text-gray-600 text-sm mb-6 line-clamp-3">
-          {pass.description || 'No description available.'}
-        </p>
-
-        {bestForTags.length > 0 && (
-          <div className="flex flex-wrap gap-2 mb-6">
-            {bestForTags.map((tag) => (
-              <span key={tag} className="bg-teal-50 text-teal-700 px-2.5 py-1 rounded-md text-xs font-medium border border-teal-100">
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
-
-        <div className="mb-6 space-y-3 mt-auto">
-          <div className="flex items-start gap-3">
-            <Clock className="w-4 h-4 text-gray-400 mt-0.5 shrink-0" />
-            <div>
-              <div className="text-xs text-gray-500 mb-0.5">{dict?.duration || '使用天数'}</div>
-              <div className="text-sm text-gray-900 font-medium">{pass.duration?.join(' / ') || 1} Days</div>
-            </div>
-          </div>
-
-          {pass.validityPeriod?.description && (
-            <div className="flex items-start gap-3">
-              <Calendar className="w-4 h-4 text-gray-400 mt-0.5 shrink-0" />
-              <div>
-                <div className="text-xs text-gray-500 mb-0.5">{dict?.validity || '使用期限'}</div>
-                <div className="text-sm text-gray-900 font-medium">{pass.validityPeriod.description}</div>
-              </div>
-            </div>
-          )}
-
-          <div className="flex items-start gap-3">
-            <MapPin className="w-4 h-4 text-gray-400 mt-0.5 shrink-0" />
-            <div>
-              <div className="text-xs text-gray-500 mb-0.5">{dict?.coverage || '覆盖范围'}</div>
-              <div className="text-sm text-gray-900 font-medium line-clamp-2">{pass.coverage?.regions?.join('、') || 'N/A'}</div>
-            </div>
-          </div>
+        <p className="mt-5 line-clamp-3 text-sm leading-6 text-slate-600">{description}</p>
+        <div className="mt-5 flex flex-wrap gap-2">
+          {tags.map((tag) => <span key={tag} className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-800">{tag}</span>)}
+        </div>
+        <div className="mt-5 space-y-2 text-xs text-slate-500">
+          <p className="flex items-center gap-2"><MapPin className="h-3.5 w-3.5 text-slate-400" />{pass.coverage.regions.join(' · ')}</p>
+          <p className="flex items-center gap-2"><ShieldCheck className="h-3.5 w-3.5 text-emerald-700" />{lang === 'en' ? `Verified ${pass.lastVerifiedAt}` : lang === 'ja' ? `${pass.lastVerifiedAt} 確認` : `${pass.lastVerifiedAt} 官方核验`}</p>
         </div>
 
-        <div className="flex gap-3 mt-auto pt-4 border-t border-gray-100">
-          {pass.officialLinks && pass.officialLinks.length > 0 ? (
-            <a
-              href={pass.officialLinks[0].url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 bg-white border-2 border-teal-500 text-teal-600 hover:bg-teal-50 px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors flex items-center justify-center gap-2"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {dict?.details || '查看详情'}
-            </a>
-          ) : (
-            <button className="flex-1 bg-gray-50 border-2 border-gray-200 text-gray-400 px-4 py-2.5 rounded-xl text-sm font-semibold cursor-not-allowed">
-              {dict?.details || '查看详情'}
-            </button>
-          )}
-
-          <button className="flex-1 btn-primary text-white px-4 py-2.5 rounded-xl text-sm font-semibold flex items-center justify-center gap-2" onClick={(e) => e.stopPropagation()}>
-            {dict?.buyNow || '官方购买'}
-            <ExternalLink className="w-4 h-4" />
-          </button>
+        <div className="mt-auto grid grid-cols-2 gap-3 pt-6">
+          {detailHref && <a href={detailHref} target="_blank" rel="noopener noreferrer" onClick={(e) => { e.stopPropagation(); trackOutbound('official_detail', detailHref); }} className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-3 py-3 text-sm font-semibold text-slate-700 transition hover:border-emerald-700 hover:text-emerald-800">{dict?.details || '官方详情'}<ExternalLink className="h-4 w-4" /></a>}
+          {purchase && <a href={purchase.url} target="_blank" rel={purchase.type === 'affiliate' ? 'sponsored noopener noreferrer' : 'noopener noreferrer'} onClick={(e) => { e.stopPropagation(); trackOutbound('purchase', purchase.url); }} className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#c2410c] px-3 py-3 text-sm font-bold text-white transition hover:bg-[#9a3412]"><Ticket className="h-4 w-4" />{purchase.type === 'official' ? (dict?.buyNow || '官方购买') : (lang === 'en' ? 'Check price' : '查看售价')}</a>}
         </div>
       </div>
-    </div>
+    </article>
   );
 }

@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { MapPin, Calendar, Calculator, TrendingUp, Star, CheckCircle, AlertCircle, ArrowRight, ExternalLink, Users, Train } from 'lucide-react';
-import { Route, PassRecommendation, JRPass } from '@/types/pass';
+import { PassRecommendation, JRPass } from '@/types/pass';
 
 interface PassCalculatorProps {
   passes: JRPass[];

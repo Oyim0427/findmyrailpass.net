@@ -91,6 +91,7 @@ export const exportToJSON = (data: unknown, filename: string) => {
 };
 
 export const shareResults = async (recommendations: PassRecommendation[], _route: RouteInfo) => {
+  void _route;
   const shareData = {
     title: '周游券推荐结果',
     text: `我在FindMyJR-Pass找到了最适合的周游券！推荐: ${recommendations[0]?.pass.name.en}，节省¥${recommendations[0]?.savings.toLocaleString()}`,

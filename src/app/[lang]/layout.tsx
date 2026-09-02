@@ -1,27 +1,31 @@
 import type { Metadata } from "next";
-import { Inter, Outfit } from "next/font/google";
-import "@/app/globals.css";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
-import { GA_MEASUREMENT_ID } from "@/lib/analytics";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const outfit = Outfit({
-  variable: "--font-outfit",
-  subsets: ["latin"],
-});
+import { asLocale, SITE_URL } from '@/lib/seo';
 
 export async function generateStaticParams() {
   return [{ lang: 'zh' }, { lang: 'en' }, { lang: 'ja' }];
 }
 
-export const metadata: Metadata = {
-  title: "FindMyJRPass - 日本交通券AI助手",
-  description: "Trilingual Japan Rail Pass AI Assistant. 让用户一眼知道怎么用: 先算，再看，再买。",
-};
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params;
+  const locale = asLocale(lang);
+  const titles: Record<string, string> = {
+    zh: 'FindMyRailPass｜日本铁路周游券比较与官方购买入口',
+    en: 'FindMyRailPass | Compare Japan Rail Passes with Official Sources',
+    ja: 'FindMyRailPass｜鉄道パス比較・公式購入案内'
+  };
+  const descriptions: Record<string, string> = {
+    zh: '比较日本全国及地区铁路周游券，查看运营方一手价格、覆盖范围、核验日期与官方购买入口。',
+    en: 'Compare nationwide and regional Japan rail passes using operator-sourced prices, coverage, verification dates and official booking links.',
+    ja: '運行会社の一次情報をもとに、日本全国・地域の鉄道パス料金、利用範囲、確認日と公式購入先を比較。'
+  };
+  return {
+    metadataBase: new URL(SITE_URL),
+    title: titles[locale],
+    description: descriptions[locale],
+    robots: { index: locale === 'zh', follow: true },
+    other: { 'content-language': locale === 'zh' ? 'zh-CN' : locale },
+  };
+}
 
 export default async function RootLayout({
   children,
@@ -31,13 +35,6 @@ export default async function RootLayout({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
-
-  return (
-    <html lang={lang}>
-      <body className={`${inter.variable} ${outfit.variable} antialiased bg-white text-gray-900`}>
-        {GA_MEASUREMENT_ID && <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />}
-        {children}
-      </body>
-    </html>
-  );
+  const locale = asLocale(lang);
+  return <><script dangerouslySetInnerHTML={{ __html: `document.documentElement.lang=${JSON.stringify(locale === 'zh' ? 'zh-CN' : locale)}` }} />{children}</>;
 }

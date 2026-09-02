@@ -3,13 +3,15 @@
 import { Calculator, CheckCircle2 } from "lucide-react";
 import AdvancedCalculator from "@/components/AdvancedCalculator";
 import { JRPass } from '@/types/pass';
+import type { Dictionary } from '@/i18n/dictionaries';
 
 interface CalculatorSectionProps {
   passes: JRPass[];
-  dict?: any;
+  dict?: Dictionary;
+  lang?: string;
 }
 
-export default function CalculatorSection({ passes, dict }: CalculatorSectionProps) {
+export default function CalculatorSection({ passes, dict, lang }: CalculatorSectionProps) {
   return (
     <section id="calculator" className="py-24 bg-teal-50 relative overflow-hidden">
       {/* Decorative background */}
@@ -41,12 +43,12 @@ export default function CalculatorSection({ passes, dict }: CalculatorSectionPro
           </div>
 
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-            输入您的旅行计划，AI为您推荐最合适的周游券并大致计算节省费用
+            输入旅行计划，用规则估算比较周游券与单独购票；实际价格请在官方页面确认
           </p>
         </div>
 
         <div className="max-w-4xl mx-auto relative z-20">
-          <AdvancedCalculator passes={passes} />
+          <AdvancedCalculator passes={passes} lang={lang} />
         </div>
       </div>
     </section>

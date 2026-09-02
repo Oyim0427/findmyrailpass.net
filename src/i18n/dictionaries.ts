@@ -1,7 +1,7 @@
 const dictionaries = {
   zh: {
     heroTitle: '发现最适合您的\n日本周游券',
-    heroSubtitle: '智能挑选省钱日本周游券，助您轻松无忧规划行程。',
+    heroSubtitle: '用运营方一手信息比较票价、范围与条件，再前往对应官网购买。',
     calcTitle: '大师周游券计算器',
     calcDesc: '先回答“我该不该买券”',
     mapTitle: ' 周游券地图',
@@ -11,15 +11,15 @@ const dictionaries = {
     featuresList: [
       {
         title: '智能推荐计算',
-        desc: '根据出发地、目的地及天数，AI极速为您推荐最佳行程与最省钱的周游券组合。'
+        desc: '根据出发地、目的地及天数，用透明规则估算值得购买的周游券组合。'
       },
       {
-        title: '实时价格对比',
-        desc: '同步多平台售价，一眼看清各个周游券的优惠力度，不再为比价发愁。'
+        title: '官方价格核验',
+        desc: '价格与适用条件追溯到运营公司官网，并公开最后核验日期。'
       },
       {
-        title: '真实经验分享',
-        desc: '汇集真实用户的行程心得与点评，避坑指南让您的日本之旅更顺畅。'
+        title: '清楚的购买路径',
+        desc: '优先跳转运营方官方页面，Affiliate 链接与广告会明确披露。'
       }
     ],
     omikujiTitle: '行前抽签',
@@ -137,8 +137,8 @@ const dictionaries = {
     }
   },
   en: {
-    heroTitle: 'Trilingual Japan Rail Pass AI Assistant',
-    heroSubtitle: 'Calculate, Compare, and Buy with confidence',
+    heroTitle: 'Compare Japan Rail Passes\nwith official sources',
+    heroSubtitle: 'Check operator-sourced prices, coverage and eligibility before you book.',
     calcTitle: 'Free Rail Pass Calculator',
     calcDesc: 'Find out if a pass is worth it for you',
     mapTitle: 'Map Query: Connect Destinations with Passes',
@@ -148,15 +148,15 @@ const dictionaries = {
     featuresList: [
       {
         title: 'Smart Recommendation & Calculation',
-        desc: 'Based on your starting point, destination, and travel days, AI quickly recommends the best itinerary and most cost-effective pass combination.'
+        desc: 'Transparent rules estimate which pass combinations may fit your route and travel days.'
       },
       {
-        title: 'Real-time Price Comparison',
-        desc: 'Sync prices from multiple platforms to see at a glance the discount levels of various passes. No more worries about comparing prices.'
+        title: 'Operator-verified prices',
+        desc: 'Prices and conditions link back to operator websites and show the last verification date.'
       },
       {
-        title: 'Real Experience Sharing',
-        desc: 'Gather travel insights and reviews from real users. Our tips and guides ensure a smoother journey in Japan.'
+        title: 'Clear booking paths',
+        desc: 'Official links come first; affiliate links and advertising are always disclosed.'
       }
     ],
     omikujiTitle: 'Omikuji: Fortune Telling',
@@ -274,8 +274,8 @@ const dictionaries = {
     }
   },
   ja: {
-    heroTitle: '3ヶ国語対応 JRパス AIアシスタント',
-    heroSubtitle: '計算して、比べて、お得に購入',
+    heroTitle: '公式情報で比べる\n日本の鉄道パス',
+    heroSubtitle: '運行会社の料金・範囲・利用条件を確認してから購入先へ。',
     calcTitle: 'マスター周遊券計算機',
     calcDesc: '「パスを買うべきか」にお答えします',
     mapTitle: 'マップ検索：目的地とパスを繋ぐ',
@@ -285,15 +285,15 @@ const dictionaries = {
     featuresList: [
       {
         title: 'スマート推薦・計算',
-        desc: '出発地、目的地、旅行日数に基づき、AIが最適な行程と最もお得な周遊券の組み合わせを素早くおすすめします。'
+        desc: '出発地・目的地・日数をもとに、透明なルールで鉄道パスの候補を概算します。'
       },
       {
-        title: 'リアルタイム価格比較',
-        desc: '複数プラットフォームの価格を同期し、各パスの割引率を一目で確認できるため、価格比較に悩む必要はありません。'
+        title: '公式料金の確認',
+        desc: '料金と条件は運行会社サイトに紐づけ、最終確認日を表示します。'
       },
       {
-        title: 'リアルな体験談の共有',
-        desc: '実際のユーザーの旅行記やレビューを収集。トラブル回避のヒントで、日本旅行をよりスムーズに。'
+        title: '明確な購入導線',
+        desc: '公式ページを優先し、提携リンクと広告は明確に表示します。'
       }
     ],
     omikujiTitle: '旅行前のおみくじ',
@@ -413,5 +413,14 @@ const dictionaries = {
 };
 
 export type Locale = keyof typeof dictionaries;
+
+export type Dictionary = (typeof dictionaries)[Locale] & {
+  home?: string;
+  faqTitle?: string;
+  faqDesc?: string;
+  faqs?: Array<{ question: string; answer: string }>;
+  ctaTitle?: string;
+  ctaDesc?: string;
+};
 
 export const getDictionary = (locale: Locale) => dictionaries[locale] ?? dictionaries['en'];

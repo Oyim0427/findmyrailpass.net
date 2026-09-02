@@ -4,8 +4,9 @@ import Link from "next/link";
 import MobileNav from "@/components/MobileNav";
 import { Train, Globe } from "lucide-react";
 import { usePathname } from "next/navigation";
+import type { Dictionary } from '@/i18n/dictionaries';
 
-export default function NavigationSection({ dict, lang }: { dict?: any, lang?: string }) {
+export default function NavigationSection({ dict, lang }: { dict?: Dictionary, lang?: string }) {
   const pathname = usePathname();
 
   const switchLanguage = (newLang: string) => {
@@ -22,7 +23,7 @@ export default function NavigationSection({ dict, lang }: { dict?: any, lang?: s
           <div className="flex items-center">
             <Link href={`/${lang || 'zh'}`} className="text-2xl font-bold text-teal-600 flex items-center space-x-2 hover:opacity-80 transition-opacity">
               <Train className="w-8 h-8" />
-              <span className="tracking-tight">FindMyJRPass</span>
+              <span className="tracking-tight">FindMyRailPass</span>
             </Link>
           </div>
           
@@ -53,7 +54,7 @@ export default function NavigationSection({ dict, lang }: { dict?: any, lang?: s
           </div>
           
           <div className="flex items-center md:hidden">
-            <MobileNav />
+            <MobileNav lang={lang || 'zh'} />
           </div>
         </div>
       </div>

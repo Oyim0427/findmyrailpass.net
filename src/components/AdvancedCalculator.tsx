@@ -1,694 +1,181 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { MapPin, Calendar, Users, Calculator, TrendingUp, Star, CheckCircle, AlertCircle, ArrowRight, ExternalLink, Route, Clock } from 'lucide-react';
-import { Route as RouteType, PassRecommendation, JRPass } from '@/types/pass';
-
-interface RouteSegment {
-  from: string;
-  to: string;
-  cost: number;
-  duration: number;
-  trainType: string;
-}
+import { AlertTriangle, ArrowRight, CalendarDays, ExternalLink, MapPin, ReceiptJapaneseYen, ShieldCheck, Sparkles, Users } from 'lucide-react';
+import { JRPass } from '@/types/pass';
+import { event } from '@/lib/analytics';
 
 interface AdvancedCalculatorProps {
   passes: JRPass[];
+  lang?: string;
 }
 
-const PREFECTURE_TO_REGION: Record<string, string> = {
-  "北海道": "北海道",
-  "青森县": "東北", "岩手县": "東北", "宫城县": "東北", "秋田县": "東北", "山形县": "東北", "福岛县": "東北",
-  "茨城县": "関東", "栃木县": "関東", "群马县": "関東", "埼玉县": "関東", "千叶县": "関東", "东京都": "関東", "神奈川县": "関東",
-  "新泻县": "北信越", "富山县": "北信越", "石川县": "北信越", "福井县": "北信越", "山梨县": "北信越", "长野县": "北信越",
-  "岐阜县": "東海", "静冈县": "東海", "爱知县": "東海", "三重县": "東海",
-  "滋贺县": "近畿", "京都府": "近畿", "大阪府": "近畿", "兵库县": "近畿", "奈良县": "近畿", "和歌山县": "近畿",
-  "鸟取县": "中国", "岛根县": "中国", "冈山县": "中国", "广岛县": "中国", "山口县": "中国",
-  "德岛县": "四国", "香川县": "四国", "爱媛县": "四国", "高知县": "四国",
-  "福冈县": "九州", "佐贺县": "九州", "长崎县": "九州", "熊本县": "九州", "大分县": "九州", "宫崎县": "九州", "鹿儿岛县": "九州",
-  "冲绳县": "九州"
+interface FitResult {
+  pass: JRPass;
+  score: number;
+  reasons: string[];
+  totalPassCost: number;
+  difference?: number;
+}
+
+const regions = ['全国', '北海道', '東北', '関東', '東海', '北信越', '近畿', '中国', '四国', '九州'];
+
+const copy = {
+  zh: {
+    origin: '主要出发地区', destination: '主要旅行地区', days: '旅行天数', travelers: '成人旅客人数', rideDays: '长途/跨城乘车天数', budget: '普通票总预算（可选）', budgetHint: '填入从官方购票网站查到的所有成人普通票合计；留空则只比较适配度。', compare: '比较适合的周游券', comparing: '正在按官方票券规则比较…', select: '请选择出发地区和旅行地区', results: '适配度比较结果', resultDesc: '依据官方覆盖范围、有效天数与乘车强度排序。不是实时票价或库存查询。', verified: '官方来源已核验', passTotal: '通票合计', budgetDiffSave: '比输入预算低', budgetDiffMore: '比输入预算高', fitStrong: '较高适配', fitPossible: '可作为候选', fitLow: '需谨慎比较', official: '官方详情', buy: '官方购买', disclaimer: '结果仅用于缩小候选范围。线路例外、资格、指定席、追加费用及最终价格请以运营方购买页为准。', noResults: '当前官方精选库中没有覆盖该组合的票券。可考虑普通票，或调整旅行地区。', nationwide: '全国旅行', sameRegion: '覆盖主要旅行地区', originCovered: '同时覆盖出发地区', nationalCoverage: '全国券可跨区使用', daysFit: '有效天数适合行程', daysShort: '通票有效期短于整个行程，请集中使用', daysLong: '通票天数长于行程，可能浪费', intensityFit: '长途乘车频率较高', budgetBetter: '票券总价低于您输入的普通票预算', budgetWorse: '票券总价高于您输入的普通票预算', person: '人', day: '天'
+  },
+  en: {
+    origin: 'Primary origin region', destination: 'Primary travel region', days: 'Trip length', travelers: 'Adult travellers', rideDays: 'Intercity travel days', budget: 'Total regular-ticket budget (optional)', budgetHint: 'Enter the adult-ticket total you found on official booking sites. Leave blank for fit-only ranking.', compare: 'Compare suitable passes', comparing: 'Checking official pass rules…', select: 'Select an origin and travel region', results: 'Pass fit comparison', resultDesc: 'Ranked by official coverage, validity and travel intensity—not live fares or inventory.', verified: 'Official source verified', passTotal: 'Pass total', budgetDiffSave: 'below your budget', budgetDiffMore: 'above your budget', fitStrong: 'Strong fit', fitPossible: 'Possible fit', fitLow: 'Compare carefully', official: 'Official details', buy: 'Official booking', disclaimer: 'Use this to narrow your shortlist. Check operator pages for route exceptions, eligibility, reservations, surcharges and final prices.', noResults: 'No pass in the verified shortlist covers this combination. Consider regular tickets or change the travel region.', nationwide: 'Nationwide travel', sameRegion: 'Covers the main travel region', originCovered: 'Also covers the origin region', nationalCoverage: 'Nationwide coverage supports cross-region travel', daysFit: 'Validity fits the trip', daysShort: 'Validity is shorter than the trip; concentrate travel days', daysLong: 'Validity is longer than the trip and may be wasted', intensityFit: 'Higher intercity travel intensity', budgetBetter: 'Pass total is below your entered ticket budget', budgetWorse: 'Pass total is above your entered ticket budget', person: 'traveller(s)', day: 'day(s)'
+  },
+  ja: {
+    origin: '主な出発エリア', destination: '主な旅行エリア', days: '旅行日数', travelers: '大人人数', rideDays: '長距離・都市間の乗車日数', budget: '通常きっぷ合計予算（任意）', budgetHint: '公式予約サイトで調べた大人通常きっぷの合計を入力。空欄なら適合度のみ比較します。', compare: '適したパスを比較', comparing: '公式ルールで比較中…', select: '出発エリアと旅行エリアを選択', results: 'パス適合度の比較', resultDesc: '公式の利用範囲・有効日数・乗車頻度で並べ替えます。リアルタイム運賃・在庫ではありません。', verified: '公式情報を確認済み', passTotal: 'パス合計', budgetDiffSave: '入力予算より安い', budgetDiffMore: '入力予算より高い', fitStrong: '適合度が高い', fitPossible: '候補', fitLow: '要比較', official: '公式詳細', buy: '公式購入', disclaimer: '候補を絞るための結果です。例外区間、利用資格、指定席、追加料金、最終価格は運行会社の購入ページで確認してください。', noResults: '確認済みリストにこの組み合わせをカバーするパスはありません。通常きっぷまたは旅行エリアの変更をご検討ください。', nationwide: '全国旅行', sameRegion: '主な旅行エリアをカバー', originCovered: '出発エリアもカバー', nationalCoverage: '全国パスで地域をまたぐ移動が可能', daysFit: '有効日数が旅程に合う', daysShort: '有効期間が旅行全体より短いため集中利用が必要', daysLong: '有効日数が旅行より長く余る可能性', intensityFit: '都市間移動の頻度が高い', budgetBetter: '入力した通常きっぷ予算よりパス合計が安い', budgetWorse: '入力した通常きっぷ予算よりパス合計が高い', person: '人', day: '日'
+  }
 };
 
-export default function AdvancedCalculator({ passes }: AdvancedCalculatorProps) {
-  const router = useRouter();
-  const [route, setRoute] = useState<RouteType>({
-    from: '',
-    to: '',
-    duration: 7,
-    regions: []
-  });
-  const [travelers, setTravelers] = useState(1);
-  const [routeSegments, setRouteSegments] = useState<RouteSegment[]>([]);
+export default function AdvancedCalculator({ passes, lang = 'zh' }: AdvancedCalculatorProps) {
+  const t = copy[lang as keyof typeof copy] || copy.zh;
+  const [origin, setOrigin] = useState('');
+  const [destination, setDestination] = useState('');
+  const [tripDays, setTripDays] = useState(7);
+  const [travellers, setTravellers] = useState(1);
+  const [rideDays, setRideDays] = useState(3);
+  const [ticketBudget, setTicketBudget] = useState('');
+  const [results, setResults] = useState<FitResult[] | null>(null);
   const [isCalculating, setIsCalculating] = useState(false);
-  const [recommendations, setRecommendations] = useState<PassRecommendation[]>([]);
-  const [showResults, setShowResults] = useState(false);
 
-  // 模拟路线数据
-  const routeData: { [key: string]: RouteSegment[] } = {
-    '东京-大阪': [
-      { from: '东京', to: '大阪', cost: 13820, duration: 150, trainType: '东海道新干线' },
-      { from: '大阪', to: '京都', cost: 560, duration: 15, trainType: 'JR京都线' },
-      { from: '京都', to: '奈良', cost: 710, duration: 45, trainType: '奈良线' }
-    ],
-    '东京-福冈': [
-      { from: '东京', to: '博多', cost: 22320, duration: 300, trainType: '山阳新干线' },
-      { from: '博多', to: '熊本', cost: 4560, duration: 60, trainType: '九州新干线' }
-    ],
-    '大阪-札幌': [
-      { from: '大阪', to: '东京', cost: 13820, duration: 150, trainType: '东海道新干线' },
-      { from: '东京', to: '札幌', cost: 26420, duration: 360, trainType: '东北新干线+北海道新干线' }
-    ]
-  };
-
-  const calculateAdvancedRecommendations = () => {
+  const comparePasses = () => {
+    if (!origin || !destination) return;
     setIsCalculating(true);
-    setShowResults(false);
-    
-    setTimeout(() => {
-      const results: PassRecommendation[] = [];
-      const routeKey = `${route.from}-${route.to}`;
-      const segments = routeData[routeKey] || [];
-      
-      const fromRegion = PREFECTURE_TO_REGION[route.from];
-      const toRegion = route.to;
-      
-      // 计算单独购票总费用（精确计算）
-      let individualCost = segments.reduce((total, segment) => total + segment.cost, 0) * travelers;
-      
-      // 如果没有精确的单次票价数据，按经验估算
-      if (individualCost === 0) {
-        let dailyEstimate = 5000; 
-        if (toRegion === '全国') dailyEstimate = 12000;
-        else if (fromRegion && fromRegion !== toRegion) dailyEstimate = 10000;
-        else dailyEstimate = 6000; 
-        individualCost = dailyEstimate * route.duration * travelers;
+    const budget = Number(ticketBudget) > 0 ? Number(ticketBudget) : undefined;
+
+    const ranked = passes.flatMap((pass): FitResult[] => {
+      const passRegions = pass.coverage.regions;
+      const isNational = pass.category === 'national' || passRegions.includes('全国');
+      const destinationCovered = destination === '全国' ? isNational : isNational || passRegions.includes(destination);
+      if (!destinationCovered) return [];
+
+      let score = 0;
+      const reasons: string[] = [];
+      if (destination === '全国' && isNational) {
+        score += 45;
+        reasons.push(t.nationwide);
+      } else if (passRegions.includes(destination)) {
+        score += 45;
+        reasons.push(t.sameRegion);
+      } else if (isNational) {
+        score += origin !== destination ? 30 : 18;
+        reasons.push(t.nationalCoverage);
       }
-      
-      // 第一步：精准地区匹配筛选
-      const regionFilteredPasses = passes.filter(pass => {
-        const passRegions = pass.coverage?.regions || [];
-        const isNational = pass.category === 'national' || passRegions.includes('全国') || passRegions.includes('全日本');
-        
-        if (isNational) return true;
-        if (toRegion === '全国') return isNational;
-        
-        if (fromRegion && fromRegion !== toRegion && toRegion !== '全国') {
-            return passRegions.includes(toRegion);
-        }
-        
-        return passRegions.some(region => 
-          region === toRegion || 
-          region.includes(toRegion) || 
-          toRegion.includes(region)
-        );
-      });
-      
-      // 第二步：对精准匹配的通票进行综合评分（只处理有成人价格的通票）
-      regionFilteredPasses.forEach(pass => {
-        if (!pass.price?.adult?.regular || pass.price.adult.regular <= 0) {
-          return;
-        }
-        const passRegions = pass.coverage?.regions || [];
-        const isNational = pass.category === 'national' || passRegions.includes('全国') || passRegions.includes('全日本');
-        
-        let score = 0;
-        let reason = '';
-        let savings = 0;
-        let isPerfectMatch = true;
-        
-        // 地区精准匹配（必须条件，基础分）
-        if (toRegion === '全国') {
-            score += 60;
-            reason += '🎯 完美覆盖全国旅行 ';
-        } else if (fromRegion && fromRegion !== toRegion) {
-            if (passRegions.includes(fromRegion) && passRegions.includes(toRegion)) {
-                score += 60;
-                reason += '🎯 精准覆盖跨区行程 ';
-            } else if (isNational) {
-                score += 50;
-                reason += '🗾 全国券可覆盖此行程 ';
-            } else if (passRegions.includes(toRegion)) {
-                score += 50;
-                reason += '🎯 覆盖核心区域 ';
-            }
-        } else {
-            score += 60;
-            reason += '🎯 精准地区匹配 ';
-        }
-        
-        // 天数匹配：严格优先完美匹配
-        const validDurations = pass.duration.filter(duration => duration <= route.duration);
-        const exactDurationMatch = pass.duration.includes(route.duration);
-        
-        if (exactDurationMatch) {
-          // 完美天数匹配，最高分
-          score += 40;
-          reason += '✅ 天数完美匹配 ';
-        } else if (validDurations.length > 0) {
-          // 有合适的天数选项，但非完美匹配
-          const bestDuration = Math.max(...validDurations);
-          score += 25;
-          reason += `✅ 天数匹配(${bestDuration}天) `;
-          isPerfectMatch = false;
-        } else {
-          // 天数不匹配，大幅扣分
-          const minDuration = Math.min(...pass.duration);
-          const maxDuration = Math.max(...pass.duration);
-          
-          if (minDuration > route.duration) {
-            score += 5;
-            reason += `⚠️ 天数较长(${minDuration}天) `;
-          } else {
-            score += 5;
-            reason += `⚠️ 天数较短(${maxDuration}天) `;
-          }
-          isPerfectMatch = false;
-        }
-        
-        // 精确节省费用计算（核心评分项）
-        const passCost = pass.price.adult.regular * travelers;
-        savings = individualCost - passCost;
-        
-        if (savings > 0) {
-          // 根据节省金额给予不同分数
-          if (savings >= 10000) {
-            score += 35;
-            reason += `💰 大幅节省¥${savings.toLocaleString()} `;
-          } else if (savings >= 5000) {
-            score += 30;
-            reason += `💰 显著节省¥${savings.toLocaleString()} `;
-          } else {
-            score += 20;
-            reason += `💰 节省¥${savings.toLocaleString()} `;
-          }
-        } else {
-          // 不划算，大幅扣分
-          score -= 25;
-          reason += `💸 不划算(多花¥${Math.abs(savings).toLocaleString()}) `;
-          isPerfectMatch = false;
-        }
-        
-        // 路线覆盖度评分
-        const coveredSegments = segments.filter(segment => {
-          return pass.trainTypes.some(trainType => 
-            segment.trainType.includes(trainType) || 
-            trainType === '新干线' && segment.trainType.includes('新干线')
-          );
-        });
-        
-        const coverageRatio = segments.length > 0 ? coveredSegments.length / segments.length : 1;
-        if (coverageRatio >= 0.9) {
+
+      if (passRegions.includes(origin)) {
+        score += 15;
+        reasons.push(t.originCovered);
+      } else if (origin !== destination && !isNational && !passRegions.includes(origin)) {
+        score -= 12;
+      }
+
+      const validity = Math.min(...pass.duration);
+      if (validity <= tripDays && validity >= Math.min(rideDays, tripDays)) {
+        score += 25;
+        reasons.push(t.daysFit);
+      } else if (validity < Math.min(rideDays, tripDays)) {
+        score += 8;
+        reasons.push(t.daysShort);
+      } else {
+        score += 5;
+        reasons.push(t.daysLong);
+      }
+
+      if (rideDays >= 3) {
+        score += Math.min(15, rideDays * 2);
+        reasons.push(t.intensityFit);
+      }
+
+      const totalPassCost = pass.price.adult.regular * travellers;
+      let difference: number | undefined;
+      if (budget !== undefined) {
+        difference = budget - totalPassCost;
+        if (difference >= 0) {
           score += 20;
-          reason += '✅ 路线全覆盖 ';
-        } else if (coverageRatio >= 0.7) {
-          score += 15;
-          reason += '✅ 路线高覆盖 ';
-        } else if (coverageRatio >= 0.5) {
-          score += 10;
-          reason += '⚠️ 路线部分覆盖 ';
+          reasons.push(t.budgetBetter);
         } else {
-          score -= 10;
-          reason += '❌ 路线覆盖度低 ';
-          isPerfectMatch = false;
+          score -= 20;
+          reasons.push(t.budgetWorse);
         }
-        
-        // 性价比评分
-        const dailyCost = pass.price.adult.regular / Math.min(...pass.duration);
-        if (dailyCost < 5000) {
-          score += 15;
-          reason += '✅ 超高性价比 ';
-        } else if (dailyCost < 10000) {
-          score += 10;
-          reason += '✅ 性价比良好 ';
-        } else {
-          score += 5;
-          reason += '⚠️ 价格适中 ';
-        }
-        
-        // 人气评分
-        score += pass.popularity * 2;
-        reason += `⭐ 人气${pass.popularity}/5星 `;
-        
-        // 完美匹配奖励分
-        if (isPerfectMatch) {
-          score += 15;
-          reason += '🏆 完美匹配 ';
-        }
-        
-        // 推荐门槛：优先推荐高分方案
-        if (score > 50) {
-          results.push({
-            pass,
-            savings,
-            reason,
-            score
-          });
-        }
-      });
-      
-      // 第三步：如果精准匹配没有结果，尝试同地区备选推荐
-      if (results.length === 0) {
-        // 获取同地区的所有通票作为备选
-        const fallbackPasses = passes.filter(pass => {
-          const passRegions = pass.coverage?.regions || [];
-          return passRegions.some(region => 
-            region === toRegion || 
-            region.includes(toRegion) || 
-            toRegion.includes(region)
-          );
-        });
-        
-        // 对备选通票进行评分（降低门槛，只处理有成人价格的通票）
-        fallbackPasses.forEach(pass => {
-          if (!pass.price?.adult?.regular || pass.price.adult.regular <= 0) {
-            return;
-          }
-          let score = 0;
-          let reason = '';
-          let savings = 0;
-          
-          // 地区匹配（基础分）
-          score += 40;
-          reason += '🎯 同地区匹配 ';
-          
-          // 天数匹配（放宽要求）
-          const validDurations = pass.duration.filter(duration => duration <= route.duration);
-          if (validDurations.length > 0) {
-            const bestDuration = Math.max(...validDurations);
-            score += 20;
-            reason += `✅ 天数匹配(${bestDuration}天) `;
-          } else {
-            score += 5;
-            reason += '⚠️ 天数不匹配 ';
-          }
-          
-          // 节省费用
-          const passCost = pass.price.adult.regular * travelers;
-          savings = individualCost - passCost;
-          
-          if (savings > 0) {
-            score += 25;
-            reason += `💰 节省¥${savings.toLocaleString()} `;
-          } else {
-            score -= 10;
-            reason += `💸 不划算(多花¥${Math.abs(savings).toLocaleString()}) `;
-          }
-          
-          // 性价比
-          const dailyCost = pass.price.adult.regular / Math.min(...pass.duration);
-          if (dailyCost < 10000) {
-            score += 10;
-            reason += '✅ 性价比良好 ';
-          }
-          
-          // 人气
-          score += pass.popularity * 2;
-          reason += `⭐ 人气${pass.popularity}/5星 `;
-          
-          // 降低推荐门槛
-          if (score > 30) {
-            results.push({
-              pass,
-              savings,
-              reason,
-              score
-            });
-          }
-        });
       }
-      
-      // 按分数排序，确保最佳推荐在第一位
-      results.sort((a, b) => b.score - a.score);
-      
-      setRecommendations(results);
-      setRouteSegments(segments);
+
+      if (pass.sourceAuthority === 'operator') score += 5;
+      return [{ pass, score: Math.max(0, Math.min(100, score)), reasons, totalPassCost, difference }];
+    }).sort((a, b) => b.score - a.score || a.totalPassCost - b.totalPassCost).slice(0, 4);
+
+    window.setTimeout(() => {
+      setResults(ranked);
       setIsCalculating(false);
-      setShowResults(true);
-    }, 2000); // 精确计算需要更多时间
+      event({ action: 'pass_fit_calculated', category: 'calculator', label: `${origin}:${destination}:${tripDays}:${rideDays}:${budget ? 'with_budget' : 'fit_only'}` });
+    }, 450);
   };
+
+  const fitLabel = (score: number) => score >= 75 ? t.fitStrong : score >= 55 ? t.fitPossible : t.fitLow;
+  const passName = (pass: JRPass) => lang === 'en' ? pass.name.en : lang === 'ja' ? pass.name.jp : pass.name.cn;
 
   return (
-    <div className="glass-calculator rounded-2xl shadow-xl p-6 sm:p-10 max-w-4xl mx-auto border border-white/40 bg-gradient-to-br from-white/80 to-white/60 backdrop-blur-md">
-      <div className="w-full">
-        {/* 输入区域 */}
-        <div className="w-full space-y-6">
-          <div className="grid md:grid-cols-2 gap-6">
-              <div>
-              <label className="block text-sm font-medium text-black mb-2">
-                  <MapPin className="inline w-4 h-4 mr-2" />
-                  出发地
-                </label>
-                <select
-                  value={route.from}
-                  onChange={(e) => setRoute({...route, from: e.target.value})}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-black bg-white"
-                >
-                  <option value="">选择出发地</option>
-            <option value="北海道">北海道</option>
-            <option value="青森县">青森县</option>
-            <option value="岩手县">岩手县</option>
-            <option value="宫城县">宫城县</option>
-            <option value="秋田县">秋田县</option>
-            <option value="山形县">山形县</option>
-            <option value="福岛县">福岛县</option>
-            <option value="茨城县">茨城县</option>
-            <option value="栃木县">栃木县</option>
-            <option value="群马县">群马县</option>
-            <option value="埼玉县">埼玉县</option>
-            <option value="千叶县">千叶县</option>
-            <option value="东京都">东京都</option>
-            <option value="神奈川县">神奈川县</option>
-            <option value="新泻县">新泻县</option>
-            <option value="富山县">富山县</option>
-            <option value="石川县">石川县</option>
-            <option value="福井县">福井县</option>
-            <option value="山梨县">山梨县</option>
-            <option value="长野县">长野县</option>
-            <option value="岐阜县">岐阜县</option>
-            <option value="静冈县">静冈县</option>
-            <option value="爱知县">爱知县</option>
-            <option value="三重县">三重县</option>
-            <option value="滋贺县">滋贺县</option>
-            <option value="京都府">京都府</option>
-            <option value="大阪府">大阪府</option>
-            <option value="兵库县">兵库县</option>
-            <option value="奈良县">奈良县</option>
-            <option value="和歌山县">和歌山县</option>
-            <option value="鸟取县">鸟取县</option>
-            <option value="岛根县">岛根县</option>
-            <option value="冈山县">冈山县</option>
-            <option value="广岛县">广岛县</option>
-            <option value="山口县">山口县</option>
-            <option value="德岛县">德岛县</option>
-            <option value="香川县">香川县</option>
-            <option value="爱媛县">爱媛县</option>
-            <option value="高知县">高知县</option>
-            <option value="福冈县">福冈县</option>
-            <option value="佐贺县">佐贺县</option>
-            <option value="长崎县">长崎县</option>
-            <option value="熊本县">熊本县</option>
-            <option value="大分县">大分县</option>
-            <option value="宫崎县">宫崎县</option>
-            <option value="鹿儿岛县">鹿儿岛县</option>
-            <option value="冲绳县">冲绳县</option>
-                </select>
-              </div>
+    <div className="mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_24px_70px_rgba(15,23,42,0.10)]">
+      <div className="grid gap-5 p-6 sm:grid-cols-2 sm:p-9 lg:grid-cols-3">
+        <Field label={t.origin} icon={<MapPin className="h-4 w-4" />}>
+          <select value={origin} onChange={(e) => { setOrigin(e.target.value); setResults(null); }} className="field-select"><option value="">{t.select}</option>{regions.filter(r => r !== '全国').map(r => <option key={r} value={r}>{r}</option>)}</select>
+        </Field>
+        <Field label={t.destination} icon={<MapPin className="h-4 w-4" />}>
+          <select value={destination} onChange={(e) => { setDestination(e.target.value); setResults(null); }} className="field-select"><option value="">{t.select}</option>{regions.map(r => <option key={r} value={r}>{r}</option>)}</select>
+        </Field>
+        <Field label={t.days} icon={<CalendarDays className="h-4 w-4" />}>
+          <select value={tripDays} onChange={(e) => setTripDays(Number(e.target.value))} className="field-select">{[2,3,4,5,6,7,8,10,14,21].map(n => <option key={n} value={n}>{n} {t.day}</option>)}</select>
+        </Field>
+        <Field label={t.travelers} icon={<Users className="h-4 w-4" />}>
+          <select value={travellers} onChange={(e) => setTravellers(Number(e.target.value))} className="field-select">{[1,2,3,4,5].map(n => <option key={n} value={n}>{n} {t.person}</option>)}</select>
+        </Field>
+        <Field label={t.rideDays} icon={<Sparkles className="h-4 w-4" />}>
+          <select value={rideDays} onChange={(e) => setRideDays(Number(e.target.value))} className="field-select">{Array.from({ length: Math.min(tripDays, 10) }, (_, i) => i + 1).map(n => <option key={n} value={n}>{n} {t.day}</option>)}</select>
+        </Field>
+        <Field label={t.budget} icon={<ReceiptJapaneseYen className="h-4 w-4" />}>
+          <div className="relative"><span className="absolute left-4 top-1/2 -translate-y-1/2 font-bold text-slate-400">¥</span><input inputMode="numeric" value={ticketBudget} onChange={(e) => setTicketBudget(e.target.value.replace(/\D/g, ''))} placeholder="50000" className="field-select pl-9" /></div>
+        </Field>
+        <p className="text-xs leading-5 text-slate-500 sm:col-span-2 lg:col-span-3">{t.budgetHint}</p>
+        <button onClick={comparePasses} disabled={!origin || !destination || isCalculating} className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-800 px-6 py-4 font-bold text-white shadow-lg transition hover:bg-emerald-900 disabled:cursor-not-allowed disabled:opacity-40 sm:col-span-2 lg:col-span-3">
+          {isCalculating ? t.comparing : t.compare}<ArrowRight className="h-5 w-5" />
+        </button>
+      </div>
 
-              <div>
-              <label className="block text-sm font-medium text-black mb-2">
-                  <MapPin className="inline w-4 h-4 mr-2" />
-                  目的地
-                </label>
-                <select
-                  value={route.to}
-                  onChange={(e) => setRoute({...route, to: e.target.value})}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-black bg-white"
-                >
-            <option value="">选择旅行地区</option>
-                  <option value="全国">全国旅行</option>
-            <option value="北海道">北海道地区</option>
-            <option value="東北">東北地区</option>
-                  <option value="関東">関東地区</option>
-            <option value="東海">東海地区</option>
-                  <option value="北信越">北信越地区</option>
-                  <option value="近畿">近畿地区</option>
-            <option value="中国">中国地区</option>
-            <option value="四国">四国地区</option>
-                  <option value="九州">九州地区</option>
-                </select>
-            </div>
-
-              <div>
-              <label className="block text-sm font-medium text-black mb-2">
-                  <Calendar className="inline w-4 h-4 mr-2" />
-                  旅行天数
-                </label>
-                <select
-                  value={route.duration}
-                  onChange={(e) => setRoute({...route, duration: parseInt(e.target.value)})}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-black bg-white"
-                >
-                  <option value={1}>1天</option>
-            <option value={2}>2天</option>  
-                  <option value={3}>3天</option>
-            <option value={4}>4天</option>
-                  <option value={5}>5天</option>
-            <option value={6}>6天</option>
-                  <option value={7}>7天</option>
-            <option value={8}>8天</option>
-            <option value={9}>9天</option>
-            <option value={10}>10天</option>
-                  <option value={14}>14天</option>
-                  <option value={21}>21天</option>
-                </select>
-              </div>
-              <div>
-              <label className="block text-sm font-medium text-black mb-2">
-                  <Users className="inline w-4 h-4 mr-2" />
-                  旅行人数
-                </label>
-                <select 
-                  value={travelers}
-                  onChange={(e) => setTravelers(parseInt(e.target.value))}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-black bg-white"
-                >
-                  <option value={1}>1人</option>
-                  <option value={2}>2人</option>
-                  <option value={3}>3人</option>
-                  <option value={4}>4人</option>
-                  <option value={5}>5人以上</option>
-                </select>
-            </div>
-          </div>
-
-          <div className="text-center">
-            <button
-              onClick={calculateAdvancedRecommendations}
-              disabled={isCalculating || !route.from || !route.to}
-              className="cyber-button px-8 py-4 text-lg font-bold flex items-center justify-center mx-auto disabled:opacity-50 disabled:cursor-not-allowed w-full md:w-auto shadow-xl hover:shadow-teal-500/30 transition-all rounded-xl bg-gradient-to-r from-teal-500 to-emerald-500 text-white"
-            >
-              {isCalculating ? (
-                <>
-                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3 relative z-10"></div>
-                  <span className="relative z-10">AI分析中...</span>
-                </>
-              ) : (
-                <>
-                  <Calculator className="w-5 h-5 mr-3 relative z-10" />
-                  <span className="relative z-10">开始高级计算</span>
-                </>
-              )}
-            </button>
-          </div>
+      {results && <div className="border-t border-slate-200 bg-[#f7f6f2] p-6 sm:p-9">
+        <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
+          <div><h3 className="text-2xl font-bold text-slate-950">{t.results}</h3><p className="mt-2 text-sm leading-6 text-slate-600">{t.resultDesc}</p></div>
+          <span className="inline-flex items-center gap-2 text-xs font-semibold text-emerald-800"><ShieldCheck className="h-4 w-4" />{t.verified}</span>
         </div>
 
-    </div>
-
-
-      {/* 路线详情 */}
-      {showResults && routeSegments.length > 0 && (
-        <div className="mt-8 bg-gray-50 rounded-lg p-6">
-          <h3 className="text-xl font-bold text-black mb-4 flex items-center">
-            <Route className="w-5 h-5 mr-2" />
-            推荐路线详情
-          </h3>
-          <div className="space-y-3">
-            {routeSegments.map((segment, index) => (
-              <div key={index} className="flex items-center justify-between bg-white rounded-lg p-4 border border-gray-200">
-                <div className="flex items-center">
-                  <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-red-600 font-bold text-sm">{index + 1}</span>
-                  </div>
-                  <div>
-                    <div className="font-medium text-black">
-                      {segment.from} → {segment.to}
-                    </div>
-                    <div className="text-sm text-gray-500">{segment.trainType}</div>
-                  </div>
-                </div>
-                <div className="text-right">
-                  <div className="font-bold text-black text-lg">¥{segment.cost.toLocaleString()}</div>
-                  <div className="text-sm text-gray-500 flex items-center">
-                    <Clock className="w-3 h-3 mr-1" />
-                    {Math.floor(segment.duration / 60)}h {segment.duration % 60}m
-                  </div>
-                </div>
+        {results.length ? <div className="mt-6 grid gap-4">{results.map((result, index) => {
+          const purchase = result.pass.purchaseLinks?.[0];
+          const official = result.pass.officialLinks?.[0];
+          return <article key={result.pass.id} className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
+            <div className="flex flex-col justify-between gap-5 md:flex-row">
+              <div className="min-w-0 flex-1">
+                <div className="flex flex-wrap items-center gap-2"><span className={`rounded-full px-3 py-1 text-xs font-bold ${result.score >= 75 ? 'bg-emerald-100 text-emerald-900' : result.score >= 55 ? 'bg-amber-100 text-amber-900' : 'bg-slate-100 text-slate-700'}`}>{fitLabel(result.score)} · {result.score}</span>{index === 0 && <span className="text-xs font-semibold text-slate-400">#1</span>}</div>
+                <h4 className="mt-3 text-xl font-bold text-slate-950">{passName(result.pass)}</h4>
+                <ul className="mt-4 flex flex-wrap gap-2">{result.reasons.map(reason => <li key={reason} className="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-700">{reason}</li>)}</ul>
               </div>
-            ))}
-            <div className="border-t pt-3 mt-3">
-              <div className="flex justify-between items-center font-bold text-lg">
-                <span>单独购票总费用:</span>
-                <span className="text-red-600 text-xl">
-                  ¥{(routeSegments.reduce((total, segment) => total + segment.cost, 0) * travelers).toLocaleString()}
-                </span>
-              </div>
+              <div className="shrink-0 md:text-right"><p className="text-xs font-bold uppercase tracking-wider text-slate-400">{t.passTotal}</p><p className="mt-1 text-2xl font-bold text-slate-950">¥{result.totalPassCost.toLocaleString()}</p>{result.difference !== undefined && <p className={`mt-1 text-sm font-semibold ${result.difference >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>¥{Math.abs(result.difference).toLocaleString()} {result.difference >= 0 ? t.budgetDiffSave : t.budgetDiffMore}</p>}</div>
             </div>
-          </div>
-        </div>
-      )}
-
-      {/* 智能推荐结果 */}
-      {showResults && recommendations.length > 0 && (
-        <div className="mt-8 space-y-6">
-          <div className="text-center">
-            <h3 className="text-2xl font-bold text-black mb-2">
-              🎯 精准推荐结果
-            </h3>
-            <p className="text-gray-800">
-              基于智能精准检索算法，综合地区匹配、天数匹配、节省费用、路线覆盖度等多维度评分，为您推荐了 {recommendations.length} 个最佳方案
-            </p>
-          </div>
-
-
-          {recommendations.map((rec, index) => (
-            <div key={rec.pass.id} className={`relative rounded-2xl p-5 sm:p-7 transition-all duration-500 overflow-hidden group hover:shadow-2xl ${
-              index === 0 
-                ? 'bg-gradient-to-br from-red-50/80 via-pink-50/60 to-rose-50/80 backdrop-blur-sm' 
-                : 'bg-white/90 backdrop-blur-sm'
-            }`}>
-              {/* 炫彩边框效果 - 只有最佳推荐有特殊效果 */}
-              <div className={`absolute inset-0 rounded-2xl p-[3px] ${
-                index === 0 
-                  ? 'bg-gradient-to-r from-red-500 via-pink-500 to-red-600 animate-pulse' 
-                  : 'bg-gradient-to-r from-gray-300 via-gray-400 to-gray-500 group-hover:from-gray-400 group-hover:via-gray-500 group-hover:to-gray-600'
-              }`}>
-                <div className="w-full h-full bg-white/95 backdrop-blur-sm rounded-xl shadow-inner"></div>
-              </div>
-              
-              {/* 装饰性光效 - 只有最佳推荐有 */}
-              {index === 0 && (
-                <>
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-yellow-200/20 to-transparent rounded-full blur-2xl"></div>
-                  <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-pink-200/20 to-transparent rounded-full blur-xl"></div>
-                </>
-              )}
-              
-              {/* 内容区域 */}
-              <div className="relative z-10">
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4">
-                <div className="flex-1 mb-4 sm:mb-0">
-                  <div className="flex flex-col sm:flex-row sm:items-center mb-2">
-                    {/* 只有第一个（最佳推荐）显示标签 */}
-                    {index === 0 && (
-                      <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 text-white px-4 py-2 rounded text-sm font-bold mb-2 sm:mb-0 sm:mr-3 shadow-xl shadow-amber-400/30 w-fit transition-all duration-300 border border-white/20">
-                        🏆 最佳推荐
-                      </span>
-                    )}
-                    <div className="flex flex-col sm:flex-row sm:items-center">
-                      <h4 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-                        {rec.pass.name.en}
-                      </h4>
-                      <span className="text-sm text-gray-500 mt-1 sm:mt-0 sm:ml-3 font-medium">
-                        {rec.pass.name.jp}
-                      </span>
-                    </div>
-                  </div>
-                  <p className="text-gray-600 mb-3 text-sm sm:text-base">{rec.pass.description}</p>
-                  
-                  <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 mb-3">
-                    <div className="flex items-center bg-gradient-to-r from-yellow-50 to-amber-50 px-3 py-2 rounded-full border border-yellow-200/50">
-                      <Star className="w-4 h-4 text-yellow-500 mr-2 animate-pulse" />
-                      <span className="text-sm font-semibold text-gray-700">
-                        推荐分数: <span className="text-yellow-600 font-bold">{rec.score}/100</span>
-                      </span>
-                    </div>
-                    {rec.savings > 0 && (
-                      <div className="flex items-center bg-gradient-to-r from-green-50 to-emerald-50 px-3 py-2 rounded-full border border-green-200/50">
-                        <TrendingUp className="w-4 h-4 mr-2 text-green-500" />
-                        <span className="text-sm font-semibold text-green-700">
-                          节省 <span className="text-green-600 font-bold">¥{rec.savings.toLocaleString()}</span>
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                </div>
-                
-                <div className="text-right sm:ml-6 -mt-8 sm:mt-0">
-                  {typeof rec.pass.price.adult?.regular === 'number' &&
-                    rec.pass.price.adult.regular > 0 && (
-                      <>
-                        <div className="text-3xl sm:text-3xl font-bold text-red-600 mb-1">
-                          ¥{rec.pass.price.adult.regular.toLocaleString()}
-                        </div>
-                        <div className="text-sm text-gray-500 mb-1">
-                          成人票价格
-                        </div>
-                      </>
-                    )}
-                  {typeof rec.pass.price.child?.regular === 'number' &&
-                    rec.pass.price.child.regular > 0 && (
-                      <>
-                        <div className="text-lg text-gray-400">
-                          ¥{rec.pass.price.child.regular.toLocaleString()}
-                        </div>
-                        <div className="text-xs text-gray-400">
-                          儿童票价格
-                        </div>
-                      </>
-                    )}
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-r from-blue-50/80 to-indigo-50/80 backdrop-blur-sm rounded-xl p-4 sm:p-5 mb-4 border border-blue-200/30 shadow-sm">
-                <h5 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base flex items-center">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
-                  推荐理由
-                </h5>
-                <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">{rec.reason}</p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-3 sm:space-y-0">
-                <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-2">
-                  <span className="text-sm font-semibold text-gray-700">覆盖地区:</span>
-                  <div className="flex flex-wrap gap-2">
-                    {rec.pass.coverage.regions.map((region, i) => (
-                      <span key={i} className="bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium border border-blue-200/50 shadow-sm">
-                        {region}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-end pt-4 border-t border-gray-100 space-y-3 sm:space-y-0">
-                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
-                   <button
-                     onClick={() => window.open(rec.pass.officialLinks?.[0]?.url || '#', '_blank')}
-                     className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 hover:from-amber-500 hover:via-orange-600 hover:to-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto shadow-lg shadow-amber-400/30 hover:shadow-xl"
-                   >
-                     官方购买
-                     <ExternalLink className="w-4 h-4" />
-                   </button>
-                  <button
-                    onClick={() => router.push(`/passes/${rec.pass.id}`)}
-                    className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2 w-full sm:w-auto"
-                  >
-                    查看详情
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
-              </div>
-              </div>
+            <div className="mt-5 flex flex-col gap-3 border-t border-slate-100 pt-5 sm:flex-row sm:justify-end">
+              {official && <a href={official.url} target="_blank" rel="noopener noreferrer" onClick={() => event({ action: 'outbound_click', category: 'calculator_official', label: result.pass.id })} className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-4 py-3 text-sm font-bold text-slate-700 hover:border-emerald-700">{t.official}<ExternalLink className="h-4 w-4" /></a>}
+              {purchase && <a href={purchase.url} target="_blank" rel={purchase.type === 'affiliate' ? 'sponsored noopener noreferrer' : 'noopener noreferrer'} onClick={() => event({ action: 'outbound_click', category: 'calculator_purchase', label: result.pass.id })} className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#c2410c] px-4 py-3 text-sm font-bold text-white hover:bg-[#9a3412]">{t.buy}<ExternalLink className="h-4 w-4" /></a>}
             </div>
-          ))}
-        </div>
-      )}
+          </article>;
+        })}</div> : <p className="mt-6 rounded-xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-900">{t.noResults}</p>}
 
-      {showResults && recommendations.length === 0 && (
-        <div className="mt-8 text-center py-8">
-          <AlertCircle className="w-16 h-16 text-yellow-500 mx-auto mb-4" />
-          <h3 className="text-xl font-bold text-black mb-2">
-            暂无推荐
-          </h3>
-          <p className="text-gray-800">
-            根据您的旅行计划，该地区暂时没有找到合适的周游券推荐。
-            <br />
-            建议您调整目的地或考虑单独购买车票。
-          </p>
-        </div>
-      )}
+        <p className="mt-6 flex gap-2 rounded-xl border border-amber-200 bg-amber-50 p-4 text-xs leading-5 text-amber-900"><AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />{t.disclaimer}</p>
+      </div>}
     </div>
   );
 }
 
+function Field({ label, icon, children }: { label: string; icon: React.ReactNode; children: React.ReactNode }) {
+  return <label className="block"><span className="mb-2 flex items-center gap-2 text-sm font-bold text-slate-700">{icon}{label}</span>{children}</label>;
+}

@@ -2,11 +2,11 @@
 
 import { Sparkles, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 import Train3DScene from "@/components/Train3DScene";
+import type { Dictionary } from '@/i18n/dictionaries';
 
 
-export default function HeroSection({ dict }: { dict: any }) {
+export default function HeroSection({ dict, lang = 'zh' }: { dict: Dictionary, lang?: string }) {
 
   return (
     <section className="bg-mesh pt-28 pb-20 lg:pt-36 lg:pb-28 relative overflow-hidden">
@@ -37,7 +37,7 @@ export default function HeroSection({ dict }: { dict: any }) {
                   dict.heroSubtitle
                 )
               ) : (
-                '智能挑选省钱日本周游券，助您轻松无忧规划行程。'
+                '用运营方一手信息比较票价、范围与条件，再前往对应官网购买。'
               )}
             </p>
             
@@ -50,7 +50,7 @@ export default function HeroSection({ dict }: { dict: any }) {
               </a>
               
               <Link 
-                href="/passlist" 
+                href={`/${lang}/passlist`}
                 className="w-full sm:w-auto px-8 py-4 rounded-xl border-2 border-teal-500 text-teal-600 hover:bg-teal-50 font-semibold transition-colors flex items-center justify-center text-lg"
               >
                 <span>{dict?.viewAllPasses || '查看所有周游券'}</span>
@@ -61,11 +61,11 @@ export default function HeroSection({ dict }: { dict: any }) {
             <div className="mt-10 flex items-center justify-center lg:justify-start gap-6 text-sm text-gray-500">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-teal-400 animate-ping"></div>
-                <span>Data Updated</span>
+                <span>{lang === 'en' ? 'Operator sources' : lang === 'ja' ? '運行会社公式情報' : '运营方一手来源'}</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-teal-400"></div>
-                <span>AI Ready</span>
+                <span>{lang === 'en' ? 'Verification dates shown' : lang === 'ja' ? '確認日を表示' : '公开核验日期'}</span>
               </div>
             </div>
           </div>

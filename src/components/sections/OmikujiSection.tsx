@@ -2,13 +2,14 @@
 
 import { useState } from 'react';
 import { Sparkles, Zap, Star, Heart, AlertTriangle } from 'lucide-react';
+import type { Dictionary } from '@/i18n/dictionaries';
 
 interface OmikujiSectionProps {
-  dict?: any;
+  dict?: Dictionary;
 }
 
 interface OmikujiResult {
-  type: '大吉' | '中吉' | '小吉' | '吉' | '凶';
+  type: string;
   message: string;
   color: string;
   icon: React.ReactNode;

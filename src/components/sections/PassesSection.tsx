@@ -4,13 +4,15 @@ import { ArrowRight } from "lucide-react";
 import PassCard from "@/components/PassCard";
 import Link from "next/link";
 import { JRPass } from '@/types/pass';
+import type { Dictionary } from '@/i18n/dictionaries';
 
 interface PassesSectionProps {
   popularPasses: JRPass[];
-  dict?: any;
+  dict?: Dictionary;
+  lang?: string;
 }
 
-export default function PassesSection({ popularPasses, dict }: PassesSectionProps) {
+export default function PassesSection({ popularPasses, dict, lang }: PassesSectionProps) {
   return (
     <section id="passes" className="py-24 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -31,13 +33,13 @@ export default function PassesSection({ popularPasses, dict }: PassesSectionProp
         <div className="mb-16">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {popularPasses.map((pass) => (
-              <PassCard key={pass.id} pass={pass} dict={dict} />
+              <PassCard key={pass.id} pass={pass} dict={dict} lang={lang} />
             ))}
           </div>
         </div>
 
         <div className="text-center">
-          <Link href="/passlist" className="btn-primary px-8 py-4 text-lg inline-flex items-center">
+          <Link href={`/${lang || 'zh'}/passlist`} className="btn-primary px-8 py-4 text-lg inline-flex items-center">
             {dict?.viewAllPasses || '查看所有周游券'}
             <ArrowRight className="ml-2 w-5 h-5" />
           </Link>

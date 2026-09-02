@@ -1,12 +1,13 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #f8fafc;
+  --color-background: #f7f6f2;
   --color-foreground: #0f172a;
-  --color-primary: #00bfa5;
-  --color-primary-light: #1de9b6;
-  --color-primary-dark: #00897b;
-  --font-sans: var(--font-inter), var(--font-outfit), system-ui, sans-serif;
+  --color-primary: #0f766e;
+  --color-primary-light: #14b8a6;
+  --color-primary-dark: #064e3b;
+  --color-accent: #c2410c;
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", "Noto Sans CJK JP", sans-serif;
 }
 
 * {
@@ -22,6 +23,22 @@ body {
   overflow-x: hidden;
 }
 
+.field-select {
+  width: 100%;
+  min-height: 3rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.75rem;
+  background: #ffffff;
+  padding: 0.75rem 1rem;
+  color: #0f172a;
+  outline: none;
+}
+
+.field-select:focus {
+  border-color: #047857;
+  box-shadow: 0 0 0 3px rgba(4, 120, 87, 0.12);
+}
+
 /* Modern Gradient Text */
 .text-gradient {
   background-clip: text;
@@ -32,7 +49,7 @@ body {
 
 /* Modern Button */
 .btn-primary {
-  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+  background: linear-gradient(90deg, var(--color-primary-dark), var(--color-primary));
   color: #ffffff;
   font-weight: 600;
   border-radius: 0.75rem;
@@ -75,9 +92,9 @@ body {
 
 /* Animated backgrounds */
 .bg-mesh {
-  background-color: #f8fafc;
+  background-color: #f7f6f2;
   background-image:
-    radial-gradient(at 40% 20%, hsla(167, 100%, 80%, 0.3) 0px, transparent 50%),
-    radial-gradient(at 80% 0%, hsla(189, 100%, 86%, 0.3) 0px, transparent 50%),
-    radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 0.3) 0px, transparent 50%);
+    radial-gradient(at 40% 20%, rgba(20, 184, 166, 0.16) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(30, 58, 138, 0.12) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(194, 65, 12, 0.10) 0px, transparent 50%);
 }

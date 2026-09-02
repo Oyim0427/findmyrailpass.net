@@ -4,8 +4,15 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 
-export default function MobileNav() {
+const labels = {
+  zh: { home: '首页', passes: '全部周游券', guides: '官方来源攻略', products: '数字产品', help: '帮助中心', start: '开始比较', open: '打开菜单', close: '关闭菜单' },
+  en: { home: 'Home', passes: 'All rail passes', guides: 'Official-source guides', products: 'Digital products', help: 'Help center', start: 'Start comparing', open: 'Open menu', close: 'Close menu' },
+  ja: { home: 'ホーム', passes: '鉄道パス一覧', guides: '公式情報ガイド', products: 'デジタル商品', help: 'ヘルプ', start: '比較を始める', open: 'メニューを開く', close: 'メニューを閉じる' },
+};
+
+export default function MobileNav({ lang = 'zh' }: { lang?: string }) {
   const [isOpen, setIsOpen] = useState(false);
+  const t = labels[lang as keyof typeof labels] || labels.zh;
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -16,7 +23,9 @@ export default function MobileNav() {
       {/* Mobile menu button */}
       <button
         onClick={toggleMenu}
-        className="p-2 rounded-lg text-cyan-400 hover:bg-cyan-400/10 transition-colors border border-cyan-400/30 hover:border-cyan-400/60 relative z-[100]"
+        aria-label={isOpen ? t.close : t.open}
+        aria-expanded={isOpen}
+        className="relative z-[100] rounded-lg border border-emerald-200 p-2 text-emerald-800 transition-colors hover:bg-emerald-50"
         style={{zIndex: 100}}
       >
         {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -24,14 +33,15 @@ export default function MobileNav() {
 
       {/* Mobile menu overlay */}
       {isOpen && (
-        <div className="fixed inset-0 z-[99999] bg-black/80 backdrop-blur-sm" onClick={toggleMenu} style={{zIndex: 99999}}>
-          <div className="fixed right-0 top-0 h-full w-80 bg-gray-900 border-l border-cyan-400/30 shadow-2xl shadow-cyan-400/20" onClick={(e) => e.stopPropagation()} style={{zIndex: 99999}}>
+        <div className="fixed inset-0 z-[99999] bg-slate-950/45 backdrop-blur-sm" onClick={toggleMenu} style={{zIndex: 99999}}>
+          <div className="fixed right-0 top-0 h-full w-80 border-l border-slate-200 bg-[#f7f6f2] shadow-2xl" onClick={(e) => e.stopPropagation()} style={{zIndex: 99999}}>
             <div className="p-6">
               {/* Close button */}
               <div className="flex justify-end mb-6">
                 <button
                   onClick={toggleMenu}
-                  className="p-2 rounded-lg text-cyan-400 hover:bg-cyan-400/10 transition-colors border border-cyan-400/30 hover:border-cyan-400/60"
+                  aria-label={t.close}
+                  className="rounded-lg border border-slate-200 bg-white p-2 text-slate-700 transition-colors hover:border-emerald-700"
                 >
                   <X className="w-6 h-6" />
                 </button>
@@ -40,47 +50,47 @@ export default function MobileNav() {
               {/* Navigation links */}
               <nav className="space-y-4">
                 <Link
-                  href="/"
-                  className="block py-3 px-4 text-lg font-medium text-white hover:bg-cyan-400/10 hover:text-cyan-400 rounded-lg transition-colors border border-transparent hover:border-cyan-400/30 font-orbitron"
+                  href={`/${lang}`}
+                  className="block rounded-xl border border-transparent px-4 py-3 text-lg font-semibold text-slate-800 transition-colors hover:border-emerald-200 hover:bg-white hover:text-emerald-800"
                   onClick={toggleMenu}
                 >
-                  首页
+                  {t.home}
                 </Link>
                 <Link
-                  href="/passlist"
-                  className="block py-3 px-4 text-lg font-medium text-white hover:bg-cyan-400/10 hover:text-cyan-400 rounded-lg transition-colors border border-transparent hover:border-cyan-400/30 font-orbitron"
+                  href={`/${lang}/passlist`}
+                  className="block rounded-xl border border-transparent px-4 py-3 text-lg font-semibold text-slate-800 transition-colors hover:border-emerald-200 hover:bg-white hover:text-emerald-800"
                   onClick={toggleMenu}
                 >
-                  全部周游券
+                  {t.passes}
                 </Link>
                 <Link
-                  href="/blog"
-                  className="block py-3 px-4 text-lg font-medium text-white hover:bg-cyan-400/10 hover:text-cyan-400 rounded-lg transition-colors border border-transparent hover:border-cyan-400/30 font-orbitron"
+                  href={`/${lang}/blog`}
+                  className="block rounded-xl border border-transparent px-4 py-3 text-lg font-semibold text-slate-800 transition-colors hover:border-emerald-200 hover:bg-white hover:text-emerald-800"
                   onClick={toggleMenu}
                 >
-                  用户故事
+                  {t.guides}
                 </Link>
                 <Link
-                  href="/tarot"
-                  className="block py-3 px-4 text-lg font-medium text-white hover:bg-cyan-400/10 hover:text-cyan-400 rounded-lg transition-colors border border-transparent hover:border-cyan-400/30 font-orbitron"
+                  href={`/${lang}/products`}
+                  className="block rounded-xl border border-transparent px-4 py-3 text-lg font-semibold text-slate-800 transition-colors hover:border-emerald-200 hover:bg-white hover:text-emerald-800"
                   onClick={toggleMenu}
                 >
-                  路线塔罗占卜
+                  {t.products}
                 </Link>
                 <Link
-                  href="/help"
-                  className="block py-3 px-4 text-lg font-medium text-white hover:bg-cyan-400/10 hover:text-cyan-400 rounded-lg transition-colors border border-transparent hover:border-cyan-400/30 font-orbitron"
+                  href={`/${lang}/help`}
+                  className="block rounded-xl border border-transparent px-4 py-3 text-lg font-semibold text-slate-800 transition-colors hover:border-emerald-200 hover:bg-white hover:text-emerald-800"
                   onClick={toggleMenu}
                 >
-                  帮助中心
+                  {t.help}
                 </Link>
               </nav>
 
               {/* CTA Button */}
-              <div className="mt-8 pt-6 border-t border-cyan-400/30">
-                <button className="w-full cyber-button py-3 px-4 rounded font-semibold transition-all duration-200">
-                  开始规划
-                </button>
+              <div className="mt-8 border-t border-slate-200 pt-6">
+                <Link href={`/${lang}#calculator`} onClick={toggleMenu} className="block w-full rounded-xl bg-[#c2410c] px-4 py-3 text-center font-bold text-white transition-colors hover:bg-[#9a3412]">
+                  {t.start}
+                </Link>
               </div>
             </div>
           </div>

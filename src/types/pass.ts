@@ -33,7 +33,7 @@ export interface JRPass {
   purchaseLinks?: {
     name: string; // 购票链接显示名称
     url: string; // 购票链接地址
-    type?: 'official'; // 链接类型
+    type?: 'official' | 'affiliate' | 'sponsored'; // 链接类型
   }[];
   category: 'national' | 'regional' | 'local' | 'city' | 'bus' | 'private' | 'special'; // 分类
   popularity: number; // 人气等级 1-5星，默认5
@@ -47,6 +47,8 @@ export interface JRPass {
   };
   ticket_note?: string; // 备考说明文字（如发售处、相关信息等）
   company?: string; // 公司名称
+  sourceAuthority?: 'operator' | 'government' | 'partner';
+  lastVerifiedAt?: string;
 }
 
 // Route 接口用于描述行程路线的结构

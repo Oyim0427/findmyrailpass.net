@@ -18,6 +18,8 @@ const eslintConfig = [
       "out/**",
       "build/**",
       "next-env.d.ts",
+      "scripts/transform-csv.js",
+      "test_calc.js",
     ],
   },
 ];

@@ -6,7 +6,9 @@
     "dev": "BROWSER=1 next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "qa": "node scripts/audit-static-export.mjs",
+    "sources:check": "node scripts/check-official-sources.mjs"
   },
   "dependencies": {
     "@next/font": "^14.2.15",

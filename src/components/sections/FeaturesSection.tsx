@@ -1,25 +1,26 @@
 'use client';
 
-import { MapPin, Clock, Users, Shield, Sparkles } from "lucide-react";
+import { Clock, Users, Sparkles } from "lucide-react";
+import type { Dictionary } from '@/i18n/dictionaries';
 
-export default function FeaturesSection({ dict }: { dict?: any }) {
+export default function FeaturesSection({ dict }: { dict?: Dictionary }) {
   const defaultFeatures = [
     {
       icon: <Sparkles className="w-6 h-6 text-green-600" />,
-      title: "智能推荐计算",
-      desc: "根据出发地、目的地及天数，AI极速为您推荐最佳行程与最省钱的周游券组合。",
+      title: "透明规则估算",
+      desc: "根据出发地、目的地及天数，估算可能合适的周游券组合。",
       color: "bg-green-50"
     },
     {
       icon: <Clock className="w-6 h-6 text-green-600" />,
-      title: "实时价格对比",
-      desc: "同步多平台售价，一眼看清各个周游券的优惠力度，不再为比价发愁。",
+      title: "官方价格核验",
+      desc: "每条票券价格都能追溯到对应运营公司，并显示核验日期。",
       color: "bg-green-50"
     },
     {
       icon: <Users className="w-6 h-6 text-green-600" />,
-      title: "真实经验分享",
-      desc: "汇集真实用户的行程心得与点评，避坑指南让您的日本之旅更顺畅。",
+      title: "清楚的购买路径",
+      desc: "官方入口优先，合作链接与广告明确披露。",
       color: "bg-green-50"
     }
   ];
@@ -31,7 +32,7 @@ export default function FeaturesSection({ dict }: { dict?: any }) {
   ];
 
   const features = dict?.featuresList && dict.featuresList.length === 3
-    ? dict.featuresList.map((item: any, index: number) => ({
+    ? dict.featuresList.map((item, index: number) => ({
         icon: icons[index],
         title: item.title,
         desc: item.desc,
@@ -52,7 +53,7 @@ export default function FeaturesSection({ dict }: { dict?: any }) {
             {dict?.contentTitle || '内容入口：按风物与行程组织'}
           </h2>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-            {dict?.contentDesc || '我们提供最全面、最准确的日本周游券信息，帮您省钱又省心'}
+            {dict?.contentDesc || '用可追溯的一手信息，帮助您做出更稳妥的购买判断'}
           </p>
         </div>
 

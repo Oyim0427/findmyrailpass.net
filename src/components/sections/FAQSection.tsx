@@ -2,13 +2,14 @@
 
 import { useState } from 'react';
 import { ChevronDown, HelpCircle } from 'lucide-react';
+import type { Dictionary } from '@/i18n/dictionaries';
 
 interface FAQ {
   question: string;
   answer: string;
 }
 
-export default function FAQSection({ dict }: { dict?: any }) {
+export default function FAQSection({ dict }: { dict?: Dictionary }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleFAQ = (index: number) => {

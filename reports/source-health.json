@@ -1,0 +1,84 @@
+{
+  "checkedAt": "2026-09-01T09:46:50.825Z",
+  "sourceCount": 11,
+  "healthy": 11,
+  "results": [
+    {
+      "url": "https://japanrailpass.net/en/purchase/price/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://japanrailpass.net/en/purchase/price/",
+      "latencyMs": 94
+    },
+    {
+      "url": "https://japanrailpass.net/en/purchase/online/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://japanrailpass.net/en/purchase/online/",
+      "latencyMs": 66
+    },
+    {
+      "url": "https://www.jreast.co.jp/multi/pass/?lng=en",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.jreast.co.jp/multi/pass/?lng=en",
+      "latencyMs": 138
+    },
+    {
+      "url": "https://www.eki-net.com/en/jreast-train-reservation/Top/Index",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.eki-net.com/en/jreast-train-reservation/Top/Index",
+      "latencyMs": 625
+    },
+    {
+      "url": "https://www.jrhokkaido.co.jp/global/english/ticket/railpass/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.jrhokkaido.co.jp/global/english/ticket/railpass/",
+      "latencyMs": 56
+    },
+    {
+      "url": "https://www.westjr.co.jp/travel-information/en/tickets-passes/jrwest-rail-pass/kansai_hiroshima/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.westjr.co.jp/travel-information/en/tickets-passes/jrwest-rail-pass/kansai_hiroshima/",
+      "latencyMs": 51
+    },
+    {
+      "url": "https://www.westjr.co.jp/travel-information/en/tickets-passes/jrwest-rail-pass/kansai_wide/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.westjr.co.jp/travel-information/en/tickets-passes/jrwest-rail-pass/kansai_wide/",
+      "latencyMs": 52
+    },
+    {
+      "url": "https://www.jrkyushu.co.jp/english/railpass/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.jrkyushu.co.jp/english/railpass/",
+      "latencyMs": 81
+    },
+    {
+      "url": "https://kyushurailpass.jrkyushu.co.jp/reserve/TopPage",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://kyushurailpass.jrkyushu.co.jp/reserve/TopPage;jsessionid=daBcXUWdmXOwiubMTFe94aR1_j4f2I_8iSXusSLyTTJYQKDioLcm!-236407364?0",
+      "latencyMs": 318
+    },
+    {
+      "url": "https://www.jr-shikoku.co.jp/global/pdf_railpass/ALL_SHIKOKU_Rail_Pass_en.pdf",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.jr-shikoku.co.jp/global/pdf_railpass/ALL_SHIKOKU_Rail_Pass_en.pdf",
+      "latencyMs": 64
+    },
+    {
+      "url": "https://www.jr-shikoku.co.jp/global/en/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.jr-shikoku.co.jp/global/en/",
+      "latencyMs": 65
+    }
+  ]
+}
