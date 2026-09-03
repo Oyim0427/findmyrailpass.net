@@ -36,11 +36,11 @@ export default function FAQSection({ dict }: { dict?: Dictionary }) {
   ];
 
   return (
-    <section className="py-24 bg-gray-50 relative">
+    <section className="py-24 bg-transparent relative">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center p-3 bg-green-100 rounded-2xl mb-6 shadow-sm">
-            <HelpCircle className="w-8 h-8 text-green-600" />
+          <div className="inline-flex items-center justify-center p-3 bg-primary/10 rounded-2xl mb-6 shadow-sm">
+            <HelpCircle className="w-8 h-8 text-primary" />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 tracking-tight">
             {dict?.faqTitle || '常见问题 (FAQ)'}
@@ -61,7 +61,7 @@ export default function FAQSection({ dict }: { dict?: Dictionary }) {
                 onClick={() => toggleFAQ(index)}
               >
                 <span className="font-bold text-lg text-gray-800 pr-8">{faq.question}</span>
-                <div className={`p-2 rounded-full flex-shrink-0 transition-colors ${openIndex === index ? 'bg-green-50' : 'bg-gray-50'}`}>
+                <div className={`p-2 rounded-full flex-shrink-0 transition-colors ${openIndex === index ? 'bg-primary/10' : 'bg-transparent'}`}>
                   <ChevronDown 
                     className={`w-5 h-5 transition-transform duration-300 ${openIndex === index ? 'rotate-180 text-green-600' : 'text-gray-400'}`} 
                   />

@@ -541,7 +541,7 @@ export default function Train3DScene() {
           WebkitBackdropFilter: 'blur(8px)',
           maskImage: 'radial-gradient(ellipse at center, transparent 50%, black 100%)',
           WebkitMaskImage: 'radial-gradient(ellipse at center, transparent 50%, black 100%)',
-          background: 'radial-gradient(ellipse at center, transparent 50%, rgba(248, 250, 252, 0.8) 100%)', /* Matches bg-slate-50 */
+          background: 'radial-gradient(ellipse at center, transparent 50%, rgba(248, 250, 252, 0.8) 100%)', /* Matches bg-primary/10 */
         }}
       />
 

@@ -2,17 +2,18 @@
 
 import { MapPin, Map as MapIcon } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import type { Dictionary } from '@/i18n/dictionaries';
 
 export default function MapSection({ dict, lang = 'zh' }: { dict?: Dictionary, lang?: string }) {
 
 
   return (
-    <section id="map" className="py-24 bg-gray-50 relative">
+    <section id="map" className="py-24 bg-transparent relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center p-3 bg-blue-50 rounded-2xl mb-6 shadow-sm">
-            <MapIcon className="w-8 h-8 text-green-500" />
+          <div className="inline-flex items-center justify-center p-3 bg-primary/10 rounded-2xl mb-6 shadow-sm">
+            <MapIcon className="w-8 h-8 text-primary" />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">
             {dict?.mapTitle || '周游券地图'}
@@ -28,14 +29,14 @@ export default function MapSection({ dict, lang = 'zh' }: { dict?: Dictionary, l
           <div className="relative glass-card p-6 sm:p-8">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
               {[
-                { id: '北海道', name: '北海道', tone: 'from-sky-700 to-blue-950' },
-                { id: '東北', name: lang === 'zh' ? '东北' : '東北', tone: 'from-indigo-700 to-slate-950' },
-                { id: '関東', name: lang === 'zh' ? '关东' : '関東', tone: 'from-emerald-700 to-slate-950' },
-                { id: '北信越', name: '北信越', tone: 'from-teal-700 to-cyan-950' },
-                { id: '近畿', name: lang === 'zh' ? '关西' : '関西', tone: 'from-orange-700 to-red-950' },
-                { id: '中国', name: '中国', tone: 'from-amber-700 to-stone-950' },
-                { id: '四国', name: '四国', tone: 'from-lime-700 to-emerald-950' },
-                { id: '九州', name: '九州', tone: 'from-rose-700 to-red-950' }
+                { id: '北海道', name: '北海道', image: '/images/regions/hokkaido.jpg' },
+                { id: '東北', name: lang === 'zh' ? '东北' : '東北', image: '/images/regions/tohoku.jpg' },
+                { id: '関東', name: lang === 'zh' ? '关东' : '関東', image: '/images/regions/kanto.jpg' },
+                { id: '北信越', name: '北信越', image: '/images/regions/hokushinetsu.jpg' },
+                { id: '近畿', name: lang === 'zh' ? '关西' : '関西', image: '/images/regions/kansai.jpg' },
+                { id: '中国', name: '中国', image: '/images/regions/chugoku.jpg' },
+                { id: '四国', name: '四国', image: '/images/regions/shikoku.jpg' },
+                { id: '九州', name: '九州', image: '/images/regions/kyushu.jpg' }
               ].map((region) => (
                 <Link 
                   key={region.id} 
@@ -43,7 +44,12 @@ export default function MapSection({ dict, lang = 'zh' }: { dict?: Dictionary, l
                   className="group relative h-36 sm:h-44 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                 >
                   {/* Background Image */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${region.tone} transition-transform duration-700 group-hover:scale-110`} />
+                  <Image 
+                    src={region.image} 
+                    alt={region.name} 
+                    fill 
+                    className="object-cover object-center transition-transform duration-700 group-hover:scale-110" 
+                  />
                   {/* Gradient Overlay for Text Readability */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/10 transition-opacity duration-300 group-hover:opacity-90" />
                   

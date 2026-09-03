@@ -186,11 +186,11 @@ export default function PassCalculator({ passes }: PassCalculatorProps) {
             <TrendingUp className="w-3 h-3 mr-1" />
             AI智能匹配算法
           </span>
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-100">
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-teal-100">
             <CheckCircle className="w-3 h-3 mr-1" />
             涵盖全国百种券票
           </span>
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-green-50 text-green-700 border border-green-100">
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-green-700 border border-green-100">
             <Star className="w-3 h-3 mr-1" />
             性价比直观对比
           </span>
@@ -222,7 +222,7 @@ export default function PassCalculator({ passes }: PassCalculatorProps) {
 
           <div>
             <label className="block text-sm font-bold text-gray-700 mb-2 flex items-center">
-              <MapPin className="w-4 h-4 mr-2 text-blue-500" />
+              <MapPin className="w-4 h-4 mr-2 text-primary" />
               主要游玩区域
             </label>
             <select
@@ -374,16 +374,16 @@ export default function PassCalculator({ passes }: PassCalculatorProps) {
                     <div className="flex flex-wrap gap-2 mb-4">
                       {tags.map((tag, i) => (
                         <span key={i} className={`px-2.5 py-1 rounded-md text-xs font-medium ${
-                          tag.includes('🎯') || tag.includes('✅') ? 'bg-green-50 text-green-700' :
+                          tag.includes('🎯') || tag.includes('✅') ? 'bg-primary/10 text-green-700' :
                           tag.includes('💰') ? 'bg-orange-50 text-orange-700' :
-                          'bg-gray-50 text-gray-600'
+                          'bg-transparent text-gray-600'
                         }`}>
                           {tag}
                         </span>
                       ))}
                     </div>
 
-                    <div className="grid grid-cols-2 gap-y-2 gap-x-4 text-sm text-gray-600 mb-4 bg-gray-50/50 p-3 rounded-xl">
+                    <div className="grid grid-cols-2 gap-y-2 gap-x-4 text-sm text-gray-600 mb-4 bg-transparent/50 p-3 rounded-xl">
                       <div className="flex items-center gap-2">
                         <MapPin className="w-4 h-4 text-gray-400" />
                         <span className="truncate" title={rec.pass.coverage?.regions?.join('、')}>

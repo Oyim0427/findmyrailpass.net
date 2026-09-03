@@ -10,9 +10,9 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     lang,
     path: 'passlist',
     titles: {
-      zh: '日本铁路周游券列表与官方价格｜FindMyRailPass',
-      en: 'Verified Japan Rail Pass List and Official Prices | FindMyRailPass',
-      ja: '日本の鉄道パス一覧・公式料金｜FindMyRailPass',
+      zh: '日本铁路周游券列表与官方价格｜FindMyJR-Pass',
+      en: 'Verified Japan Rail Pass List and Official Prices | FindMyJR-Pass',
+      ja: '日本の鉄道パス一覧・公式料金｜FindMyJR-Pass',
     },
     descriptions: {
       zh: '比较经过核验的日本全国与地区铁路周游券，查看运营方来源、适用范围、价格和官方购买入口。',
@@ -28,7 +28,7 @@ export default async function AllPassesPage({ params }: { params: Promise<{ lang
   const dict = getDictionary(lang as Locale);
 
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gray-50 text-gray-900">Loading...</div>}>
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-transparent text-gray-900">Loading...</div>}>
       <PassListClient passes={passes} lang={lang} dict={dict} />
     </Suspense>
   );

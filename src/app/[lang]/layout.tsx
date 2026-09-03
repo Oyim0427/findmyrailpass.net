@@ -9,9 +9,9 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const { lang } = await params;
   const locale = asLocale(lang);
   const titles: Record<string, string> = {
-    zh: 'FindMyRailPass｜日本铁路周游券比较与官方购买入口',
-    en: 'FindMyRailPass | Compare Japan Rail Passes with Official Sources',
-    ja: 'FindMyRailPass｜鉄道パス比較・公式購入案内'
+    zh: 'FindMyJR-Pass｜日本铁路周游券比较与官方购买入口',
+    en: 'FindMyJR-Pass | Compare Japan Rail Passes with Official Sources',
+    ja: 'FindMyJR-Pass｜鉄道パス比較・公式購入案内'
   };
   const descriptions: Record<string, string> = {
     zh: '比较日本全国及地区铁路周游券，查看运营方一手价格、覆盖范围、核验日期与官方购买入口。',

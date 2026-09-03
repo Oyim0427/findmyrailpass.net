@@ -8,7 +8,10 @@
     "start": "next start",
     "lint": "eslint",
     "qa": "node scripts/audit-static-export.mjs",
-    "sources:check": "node scripts/check-official-sources.mjs"
+    "sources:check": "node scripts/check-official-sources.mjs",
+    "directory:sync": "node scripts/sync-biglobe-directory.mjs",
+    "directory:links": "node scripts/check-directory-links.mjs",
+    "directory:categories": "node scripts/check-directory-categories.mjs"
   },
   "dependencies": {
     "@next/font": "^14.2.15",

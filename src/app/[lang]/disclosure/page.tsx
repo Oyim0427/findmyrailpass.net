@@ -3,8 +3,8 @@ import { ArrowLeft } from 'lucide-react';
 
 export default async function DisclosurePage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
-  return <main className="min-h-screen bg-[#f7f6f2] px-4 py-16 text-slate-800"><article className="mx-auto max-w-3xl rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-12">
-    <Link href={`/${lang}`} className="inline-flex items-center gap-2 text-sm font-bold text-emerald-800"><ArrowLeft className="h-4 w-4" />返回首页</Link>
+  return <main className="min-h-screen px-4 py-16 text-slate-800"><article className="mx-auto max-w-3xl rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-12">
+    <Link href={`/${lang}`} className="inline-flex items-center gap-2 text-sm font-bold text-primary"><ArrowLeft className="h-4 w-4" />返回首页</Link>
     <h1 className="mt-10 text-4xl font-bold text-slate-950">Affiliate、广告与编辑披露</h1>
     <div className="mt-8 space-y-7 leading-7 text-slate-600">
       <section><h2 className="text-xl font-bold text-slate-950">Affiliate 链接</h2><p className="mt-2">部分“查看售价”或“合作平台购买”链接可能为 Affiliate 链接。您通过这些链接完成购买时，本站可能获得佣金，通常不会增加您的支付价格。此类链接使用 sponsored 标记并在按钮附近明确说明。</p></section>

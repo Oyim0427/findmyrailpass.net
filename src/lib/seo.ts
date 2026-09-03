@@ -40,7 +40,7 @@ export function buildLocalizedMetadata({
       title: titles[locale],
       description: descriptions[locale],
       url: localizedPath(locale),
-      siteName: 'FindMyRailPass',
+      siteName: 'FindMyJR-Pass',
       type: 'website',
     },
     robots: { index: true, follow: true },

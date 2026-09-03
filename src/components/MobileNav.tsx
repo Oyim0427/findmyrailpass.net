@@ -5,9 +5,9 @@ import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 
 const labels = {
-  zh: { home: '首页', passes: '全部周游券', guides: '官方来源攻略', products: '数字产品', help: '帮助中心', start: '开始比较', open: '打开菜单', close: '关闭菜单' },
-  en: { home: 'Home', passes: 'All rail passes', guides: 'Official-source guides', products: 'Digital products', help: 'Help center', start: 'Start comparing', open: 'Open menu', close: 'Close menu' },
-  ja: { home: 'ホーム', passes: '鉄道パス一覧', guides: '公式情報ガイド', products: 'デジタル商品', help: 'ヘルプ', start: '比較を始める', open: 'メニューを開く', close: 'メニューを閉じる' },
+  zh: { home: '首页', passes: '周游券与地方券', guides: '官方来源攻略', products: '数字产品', help: '帮助中心', start: '开始比较', open: '打开菜单', close: '关闭菜单' },
+  en: { home: 'Home', passes: 'Passes & Directory', guides: 'Official-source guides', products: 'Digital products', help: 'Help center', start: 'Start comparing', open: 'Open menu', close: 'Close menu' },
+  ja: { home: 'ホーム', passes: '周遊券・地方きっぷ', guides: '公式情報ガイド', products: 'デジタル商品', help: 'ヘルプ', start: '比較を始める', open: 'メニューを開く', close: 'メニューを閉じる' },
 };
 
 export default function MobileNav({ lang = 'zh' }: { lang?: string }) {
@@ -25,7 +25,7 @@ export default function MobileNav({ lang = 'zh' }: { lang?: string }) {
         onClick={toggleMenu}
         aria-label={isOpen ? t.close : t.open}
         aria-expanded={isOpen}
-        className="relative z-[100] rounded-lg border border-emerald-200 p-2 text-emerald-800 transition-colors hover:bg-emerald-50"
+        className="relative z-[100] rounded-lg border border-emerald-200 p-2 text-primary transition-colors hover:bg-primary/10"
         style={{zIndex: 100}}
       >
         {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -41,7 +41,7 @@ export default function MobileNav({ lang = 'zh' }: { lang?: string }) {
                 <button
                   onClick={toggleMenu}
                   aria-label={t.close}
-                  className="rounded-lg border border-slate-200 bg-white p-2 text-slate-700 transition-colors hover:border-emerald-700"
+                  className="rounded-lg border border-slate-200 bg-white p-2 text-slate-700 transition-colors hover:border-primary"
                 >
                   <X className="w-6 h-6" />
                 </button>
@@ -51,35 +51,35 @@ export default function MobileNav({ lang = 'zh' }: { lang?: string }) {
               <nav className="space-y-4">
                 <Link
                   href={`/${lang}`}
-                  className="block rounded-xl border border-transparent px-4 py-3 text-lg font-semibold text-slate-800 transition-colors hover:border-emerald-200 hover:bg-white hover:text-emerald-800"
+                  className="block rounded-xl border border-transparent px-4 py-3 text-lg font-semibold text-slate-800 transition-colors hover:border-emerald-200 hover:bg-white hover:text-primary"
                   onClick={toggleMenu}
                 >
                   {t.home}
                 </Link>
                 <Link
                   href={`/${lang}/passlist`}
-                  className="block rounded-xl border border-transparent px-4 py-3 text-lg font-semibold text-slate-800 transition-colors hover:border-emerald-200 hover:bg-white hover:text-emerald-800"
+                  className="block rounded-xl border border-transparent px-4 py-3 text-lg font-semibold text-slate-800 transition-colors hover:border-emerald-200 hover:bg-white hover:text-primary"
                   onClick={toggleMenu}
                 >
                   {t.passes}
                 </Link>
                 <Link
                   href={`/${lang}/blog`}
-                  className="block rounded-xl border border-transparent px-4 py-3 text-lg font-semibold text-slate-800 transition-colors hover:border-emerald-200 hover:bg-white hover:text-emerald-800"
+                  className="block rounded-xl border border-transparent px-4 py-3 text-lg font-semibold text-slate-800 transition-colors hover:border-emerald-200 hover:bg-white hover:text-primary"
                   onClick={toggleMenu}
                 >
                   {t.guides}
                 </Link>
                 <Link
                   href={`/${lang}/products`}
-                  className="block rounded-xl border border-transparent px-4 py-3 text-lg font-semibold text-slate-800 transition-colors hover:border-emerald-200 hover:bg-white hover:text-emerald-800"
+                  className="block rounded-xl border border-transparent px-4 py-3 text-lg font-semibold text-slate-800 transition-colors hover:border-emerald-200 hover:bg-white hover:text-primary"
                   onClick={toggleMenu}
                 >
                   {t.products}
                 </Link>
                 <Link
                   href={`/${lang}/help`}
-                  className="block rounded-xl border border-transparent px-4 py-3 text-lg font-semibold text-slate-800 transition-colors hover:border-emerald-200 hover:bg-white hover:text-emerald-800"
+                  className="block rounded-xl border border-transparent px-4 py-3 text-lg font-semibold text-slate-800 transition-colors hover:border-emerald-200 hover:bg-white hover:text-primary"
                   onClick={toggleMenu}
                 >
                   {t.help}

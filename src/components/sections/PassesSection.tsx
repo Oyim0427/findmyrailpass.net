@@ -18,7 +18,7 @@ export default function PassesSection({ popularPasses, dict, lang }: PassesSecti
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <div className="mb-4">
-            <span className="inline-block px-4 py-2 bg-teal-50 text-teal-600 rounded-full text-sm font-medium">
+            <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
               Top Recommendations
             </span>
           </div>

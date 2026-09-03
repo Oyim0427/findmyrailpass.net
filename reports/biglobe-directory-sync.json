@@ -1,0 +1,85 @@
+{
+  "snapshotDate": "2026-09-03",
+  "discoverySource": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/",
+  "regionalIndexes": [
+    {
+      "region": "全国",
+      "url": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/zenkoku.htm",
+      "discovered": 12,
+      "included": 4
+    },
+    {
+      "region": "北海道",
+      "url": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/hokkaido.htm",
+      "discovered": 31,
+      "included": 24
+    },
+    {
+      "region": "東北",
+      "url": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/tohoku.htm",
+      "discovered": 68,
+      "included": 47
+    },
+    {
+      "region": "関東",
+      "url": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/kanto.htm",
+      "discovered": 197,
+      "included": 127
+    },
+    {
+      "region": "東海",
+      "url": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/tokai.htm",
+      "discovered": 118,
+      "included": 79
+    },
+    {
+      "region": "北信越",
+      "url": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/hokusinetu.htm",
+      "discovered": 111,
+      "included": 79
+    },
+    {
+      "region": "近畿",
+      "url": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/kinki.htm",
+      "discovered": 278,
+      "included": 176
+    },
+    {
+      "region": "中国",
+      "url": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/tyugoku.htm",
+      "discovered": 46,
+      "included": 38
+    },
+    {
+      "region": "四国",
+      "url": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/sikoku.htm",
+      "discovered": 43,
+      "included": 37
+    },
+    {
+      "region": "九州",
+      "url": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/kyusyu.htm",
+      "discovered": 102,
+      "included": 70
+    }
+  ],
+  "discoveredRows": 1006,
+  "excludedEnded": 325,
+  "includedBeforeDeduplication": 681,
+  "includedAfterDeduplication": 574,
+  "categoryRuleVersion": "2026-09-03-v1",
+  "categoryCounts": {
+    "national": 4,
+    "regional": 93,
+    "city": 89,
+    "bus": 32,
+    "private": 298,
+    "special": 58
+  },
+  "withRelatedUrl": 573,
+  "correctedOfficialUrls": 36,
+  "exactProductSources": 27,
+  "operatorOverviewSources": 10,
+  "needsReview": 6,
+  "detailFailures": []
+}

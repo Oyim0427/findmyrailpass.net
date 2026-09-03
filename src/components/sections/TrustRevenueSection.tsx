@@ -44,19 +44,19 @@ export default function TrustRevenueSection({ lang = 'zh' }: { lang?: string }) 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-emerald-800">{t.eyebrow}</p>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-primary">{t.eyebrow}</p>
             <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-950">{t.title}</h2>
             <p className="mt-5 max-w-xl text-lg leading-8 text-slate-600">{t.desc}</p>
-            <Link href={`/${lang}/data-sources`} className="mt-6 inline-flex items-center gap-2 font-bold text-emerald-800 hover:text-emerald-950"><Database className="h-5 w-5" />{t.source}<ArrowRight className="h-4 w-4" /></Link>
+            <Link href={`/${lang}/data-sources`} className="mt-6 inline-flex items-center gap-2 font-bold text-primary hover:text-primary-dark"><Database className="h-5 w-5" />{t.source}<ArrowRight className="h-4 w-4" /></Link>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {t.cards.map(([title, desc, action], index) => {
               const Icon = icons[index];
               return <article key={title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                <Icon className="h-6 w-6 text-[#c2410c]" />
+                <Icon className="h-6 w-6 text-[#f7b09a]" />
                 <h3 className="mt-4 text-lg font-bold text-slate-950">{title}</h3>
                 <p className="mt-2 min-h-16 text-sm leading-6 text-slate-600">{desc}</p>
-                <Link href={hrefs[index]} className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-emerald-800">{action}<ArrowRight className="h-4 w-4" /></Link>
+                <Link href={hrefs[index]} className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-primary">{action}<ArrowRight className="h-4 w-4" /></Link>
               </article>;
             })}
           </div>

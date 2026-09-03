@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
+import NavigationSection from '@/components/sections/NavigationSection';
+import { getDictionary, Locale } from '@/i18n/dictionaries';
 
 const faqs = [
   ['如何选择周游券？', '先列出会实际乘坐的跨城路线，再到官方预约网站查询普通票合计。比较覆盖范围、有效天数和资格；不要仅凭“去几个城市”判断。'],
@@ -12,12 +14,20 @@ const faqs = [
 
 export default async function HelpPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
+  const dict = getDictionary(lang as Locale);
   const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL;
-  return <main className="min-h-screen bg-[#f7f6f2] px-4 py-16"><div className="mx-auto max-w-5xl">
-    <Link href={`/${lang}`} className="inline-flex items-center gap-2 text-sm font-bold text-emerald-800"><ArrowLeft className="h-4 w-4" />返回首页</Link>
-    <header className="mt-10 max-w-3xl"><p className="text-sm font-bold uppercase tracking-[0.18em] text-emerald-800">Help center</p><h1 className="mt-3 text-5xl font-bold tracking-tight text-slate-950">先确认规则，再付款</h1><p className="mt-5 text-xl leading-8 text-slate-600">这里解释本站工具的边界。具体运输与销售合同始终由实际运营方或销售方提供。</p></header>
-    <section className="mt-12 grid gap-4 md:grid-cols-2">{faqs.map(([q, a]) => <article key={q} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"><h2 className="text-lg font-bold text-slate-950">{q}</h2><p className="mt-3 text-sm leading-6 text-slate-600">{a}</p></article>)}</section>
-    <div className="mt-10 flex flex-wrap gap-3"><Link href={`/${lang}/passlist`} className="rounded-xl bg-emerald-800 px-5 py-3 font-bold text-white">查看已核验票券</Link><Link href={`/${lang}/data-sources`} className="rounded-xl border border-slate-300 bg-white px-5 py-3 font-bold text-slate-700">数据方法</Link><a href="https://japanrailpass.net/en/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-3 font-bold text-slate-700">JR Group 官方网站<ExternalLink className="h-4 w-4" /></a></div>
-    {email && <p className="mt-10 text-sm text-slate-600">网站问题：<a className="font-bold text-emerald-800" href={`mailto:${email}`}>{email}</a>。铁路运行、退款和预约问题请联系对应运营公司或销售方。</p>}
-  </div></main>;
+  return (
+    <>
+      <NavigationSection dict={dict} lang={lang} />
+      <main className="min-h-screen px-4 py-16">
+        <div className="mx-auto max-w-5xl">
+          <Link href={`/${lang}`} className="inline-flex items-center gap-2 text-sm font-bold text-primary"><ArrowLeft className="h-4 w-4" />返回首页</Link>
+          <header className="mt-10 max-w-3xl"><p className="text-sm font-bold uppercase tracking-[0.18em] text-primary">Help center</p><h1 className="mt-3 text-5xl font-bold tracking-tight text-slate-950">先确认规则，再付款</h1><p className="mt-5 text-xl leading-8 text-slate-600">这里解释本站工具的边界。具体运输与销售合同始终由实际运营方或销售方提供。</p></header>
+          <section className="mt-12 grid gap-4 md:grid-cols-2">{faqs.map(([q, a]) => <article key={q} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"><h2 className="text-lg font-bold text-slate-950">{q}</h2><p className="mt-3 text-sm leading-6 text-slate-600">{a}</p></article>)}</section>
+          <div className="mt-10 flex flex-wrap gap-3"><Link href={`/${lang}/passlist`} className="rounded-xl bg-primary px-5 py-3 font-bold text-white">查看已核验票券</Link><Link href={`/${lang}/data-sources`} className="rounded-xl border border-slate-300 bg-white px-5 py-3 font-bold text-slate-700">数据方法</Link><a href="https://japanrailpass.net/en/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-3 font-bold text-slate-700">JR Group 官方网站<ExternalLink className="h-4 w-4" /></a></div>
+          {email && <p className="mt-10 text-sm text-slate-600">网站问题：<a className="font-bold text-primary" href={`mailto:${email}`}>{email}</a>。铁路运行、退款和预约问题请联系对应运营公司或销售方。</p>}
+        </div>
+      </main>
+    </>
+  );
 }

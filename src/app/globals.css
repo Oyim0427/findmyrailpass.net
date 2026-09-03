@@ -3,10 +3,60 @@
 @theme inline {
   --color-background: #f7f6f2;
   --color-foreground: #0f172a;
-  --color-primary: #0f766e;
-  --color-primary-light: #14b8a6;
-  --color-primary-dark: #064e3b;
-  --color-accent: #c2410c;
+  
+  --color-primary: #50c3ca;
+  --color-primary-light: #74ced5;
+  --color-primary-dark: #32a6ae;
+  --color-accent: #f7b09a;
+
+  --color-orange-50: #fdf6f4;
+  --color-orange-100: #faebe7;
+  --color-orange-200: #f5d5cc;
+  --color-orange-300: #f0bcac;
+  --color-orange-400: #f7b09a;
+  --color-orange-500: #e48f73;
+  --color-orange-600: #d17052;
+  --color-orange-700: #ae563b;
+  --color-orange-800: #8c4530;
+  --color-orange-900: #733a2a;
+  --color-orange-950: #3d1b11;
+
+  --color-amber-50: #fdf6f4;
+  --color-amber-100: #faebe7;
+  --color-amber-200: #f5d5cc;
+  --color-amber-300: #f0bcac;
+  --color-amber-400: #f7b09a;
+  --color-amber-500: #e48f73;
+  --color-amber-600: #d17052;
+  --color-amber-700: #ae563b;
+  --color-amber-800: #8c4530;
+  --color-amber-900: #733a2a;
+  --color-amber-950: #3d1b11;
+
+  --color-teal-50: #edf9fa;
+  --color-teal-100: #d1f0f2;
+  --color-teal-200: #a8e3e7;
+  --color-teal-300: #74ced5;
+  --color-teal-400: #50c3ca;
+  --color-teal-500: #32a6ae;
+  --color-teal-600: #2a868f;
+  --color-teal-700: #266c74;
+  --color-teal-800: #23585f;
+  --color-teal-900: #204a50;
+  --color-teal-950: #132f34;
+
+  --color-emerald-50: #edf9fa;
+  --color-emerald-100: #d1f0f2;
+  --color-emerald-200: #a8e3e7;
+  --color-emerald-300: #74ced5;
+  --color-emerald-400: #50c3ca;
+  --color-emerald-500: #32a6ae;
+  --color-emerald-600: #2a868f;
+  --color-emerald-700: #266c74;
+  --color-emerald-800: #23585f;
+  --color-emerald-900: #204a50;
+  --color-emerald-950: #132f34;
+
   --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", "Noto Sans CJK JP", sans-serif;
 }
 
@@ -15,7 +65,11 @@
 }
 
 body {
-  background: var(--color-background);
+  background-color: var(--color-background);
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 1) 1px, transparent 1px);
+  background-size: 60px 60px;
   color: var(--color-foreground);
   font-family: var(--font-sans);
   font-weight: 400;
@@ -35,8 +89,8 @@ body {
 }
 
 .field-select:focus {
-  border-color: #047857;
-  box-shadow: 0 0 0 3px rgba(4, 120, 87, 0.12);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(80, 195, 202, 0.2);
 }
 
 /* Modern Gradient Text */
@@ -92,7 +146,7 @@ body {
 
 /* Animated backgrounds */
 .bg-mesh {
-  background-color: #f7f6f2;
+  background-color: transparent;
   background-image:
     radial-gradient(at 40% 20%, rgba(20, 184, 166, 0.16) 0px, transparent 50%),
     radial-gradient(at 80% 0%, rgba(30, 58, 138, 0.12) 0px, transparent 50%),

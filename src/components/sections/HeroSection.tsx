@@ -15,7 +15,7 @@ export default function HeroSection({ dict, lang = 'zh' }: { dict: Dictionary, l
           
           {/* Left Text Content */}
           <div className="flex-1 text-center lg:text-left">
-            <div className="inline-flex items-center space-x-2 bg-teal-50 text-teal-600 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
               <Sparkles className="w-4 h-4" />
               <span>Japan Rail Pass Assistant</span>
             </div>
@@ -44,14 +44,14 @@ export default function HeroSection({ dict, lang = 'zh' }: { dict: Dictionary, l
             <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
               <a 
                 href="#calculator" 
-                className="btn-primary w-full sm:w-auto px-8 py-4 flex items-center justify-center text-lg shadow-lg shadow-teal-500/20 hover:shadow-xl hover:shadow-teal-500/30 transition-all duration-300"
+                className="btn-primary w-full sm:w-auto px-8 py-4 flex items-center justify-center text-lg shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300"
               >
                 <span>{dict?.calcTitle || '大师周游券计算器'}</span>
               </a>
               
               <Link 
                 href={`/${lang}/passlist`}
-                className="w-full sm:w-auto px-8 py-4 rounded-xl border-2 border-teal-500 text-teal-600 hover:bg-teal-50 font-semibold transition-colors flex items-center justify-center text-lg"
+                className="w-full sm:w-auto px-8 py-4 rounded-xl border-2 border-primary text-primary hover:bg-primary/10 font-semibold transition-colors flex items-center justify-center text-lg"
               >
                 <span>{dict?.viewAllPasses || '查看所有周游券'}</span>
                 <ArrowRight className="ml-2 w-5 h-5" />
@@ -60,11 +60,11 @@ export default function HeroSection({ dict, lang = 'zh' }: { dict: Dictionary, l
             
             <div className="mt-10 flex items-center justify-center lg:justify-start gap-6 text-sm text-gray-500">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-teal-400 animate-ping"></div>
+                <div className="w-2 h-2 rounded-full bg-primary-light animate-ping"></div>
                 <span>{lang === 'en' ? 'Operator sources' : lang === 'ja' ? '運行会社公式情報' : '运营方一手来源'}</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-teal-400"></div>
+                <div className="w-2 h-2 rounded-full bg-primary-light"></div>
                 <span>{lang === 'en' ? 'Verification dates shown' : lang === 'ja' ? '確認日を表示' : '公开核验日期'}</span>
               </div>
             </div>
