@@ -6,8 +6,14 @@ import { Train, Globe } from "lucide-react";
 import { usePathname } from "next/navigation";
 import type { Dictionary } from '@/i18n/dictionaries';
 
-export default function NavigationSection({ dict, lang }: { dict?: Dictionary, lang?: string }) {
+export default function NavigationSection({ lang }: { dict?: Dictionary, lang?: string }) {
   const pathname = usePathname();
+  const locale = lang === 'en' || lang === 'ja' ? lang : 'zh';
+  const copy = {
+    zh: { home: '首页', allPasses: '全部周游券', guides: '旅行指南', help: '帮助中心', search: '开始查询' },
+    en: { home: 'Home', allPasses: 'All Passes', guides: 'Travel Guides', help: 'Help Center', search: 'Start Search' },
+    ja: { home: 'ホーム', allPasses: 'すべてのパス', guides: '旅行ガイド', help: 'ヘルプ', search: '検索を始める' },
+  }[locale];
 
   const switchLanguage = (newLang: string) => {
     if (!pathname) return '/';
@@ -29,19 +35,19 @@ export default function NavigationSection({ dict, lang }: { dict?: Dictionary, l
           
           <div className="hidden md:flex items-center space-x-8">
             <Link href={`/${lang || 'zh'}`} className="text-gray-600 hover:text-primary transition-colors font-medium relative group">
-              {dict?.home || '首页'}
+              {copy.home}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary/100 transition-all group-hover:w-full"></span>
             </Link>
             <Link href={`/${lang || 'zh'}/passlist`} className="text-gray-600 hover:text-primary transition-colors font-medium relative group">
-              {lang === 'en' ? 'All Passes' : lang === 'ja' ? 'すべてのパス' : '全部周游券'}
+              {copy.allPasses}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary/100 transition-all group-hover:w-full"></span>
             </Link>
             <Link href={`/${lang || 'zh'}/blog`} className="text-gray-600 hover:text-primary transition-colors font-medium relative group">
-              {lang === 'en' ? 'User Stories' : lang === 'ja' ? 'ユーザーの声' : '用户故事'}
+              {copy.guides}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary/100 transition-all group-hover:w-full"></span>
             </Link>
             <Link href={`/${lang || 'zh'}/help`} className="text-gray-600 hover:text-primary transition-colors font-medium relative group">
-              {lang === 'en' ? 'Help Center' : lang === 'ja' ? 'ヘルプセンター' : '帮助中心'}
+              {copy.help}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary/100 transition-all group-hover:w-full"></span>
             </Link>
             
@@ -57,7 +63,7 @@ export default function NavigationSection({ dict, lang }: { dict?: Dictionary, l
             </div>
             
             <Link href={`/${lang || 'zh'}#calculator`} className="btn-primary px-6 py-2 text-sm">
-              {dict?.calcTitle ? '开始查询' : '开始查询'}
+              {copy.search}
             </Link>
           </div>
           

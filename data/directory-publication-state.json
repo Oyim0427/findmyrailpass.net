@@ -1,0 +1,1888 @@
+{
+  "schemaVersion": 1,
+  "initializedAt": "2026-09-09T06:24:46.442Z",
+  "approvals": {
+    "jreast04": {
+      "fingerprint": "jreast04|2026-06-20|2026-09-24|2026 / 6 / 20 / ~9 / 24",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrhokkaido88": {
+      "fingerprint": "jrhokkaido88|2026-04-01|2027-03-31|2026 / 4 / 1 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrhokkaido86": {
+      "fingerprint": "jrhokkaido86|2026-04-01|2027-03-31|2026 / 4 / 1 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrhokkaido87": {
+      "fingerprint": "jrhokkaido87|2026-04-01|2027-03-31|2026 / 4 / 1 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrhokkaido95": {
+      "fingerprint": "jrhokkaido95|2026-04-01|2027-03-31|2026 / 4 / 1 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrhokkaido93": {
+      "fingerprint": "jrhokkaido93|2026-04-01|2027-03-31|2026 / 4 / 1 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrhokkaido91": {
+      "fingerprint": "jrhokkaido91|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrhokkaido13": {
+      "fingerprint": "jrhokkaido13|2026-04-18|2026-11-08|2026 / 4 / 18 / ~11 / 8",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrhokkaido116": {
+      "fingerprint": "jrhokkaido116|2026-08-03|2026-09-29|2026 / 8 / 3 / ~9 / 29",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrhokkaido01": {
+      "fingerprint": "jrhokkaido01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrhokkaido11": {
+      "fingerprint": "jrhokkaido11|2026-04-18|2026-11-08|2026 / 4 / 18 / ~11 / 8",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrhokkaido115": {
+      "fingerprint": "jrhokkaido115|2026-08-03|2026-09-29|2026 / 8 / 3 / ~9 / 29",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "sapporo21": {
+      "fingerprint": "sapporo21|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "sapporo02": {
+      "fingerprint": "sapporo02|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "sapporo22": {
+      "fingerprint": "sapporo22|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "isaribi92": {
+      "fingerprint": "isaribi92|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "isaribi91": {
+      "fingerprint": "isaribi91|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "hakodate01": {
+      "fingerprint": "hakodate01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "igr93": {
+      "fingerprint": "igr93|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jreast36": {
+      "fingerprint": "jreast36|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jreast35": {
+      "fingerprint": "jreast35|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jreast51": {
+      "fingerprint": "jreast51|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "sendaimarugotowide": {
+      "fingerprint": "sendaimarugotowide|2027-03-30|2027-03-30|~2027 / 3 / 30",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "abukyu01": {
+      "fingerprint": "abukyu01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "abukyu101": {
+      "fingerprint": "abukyu101|2026-07-05|2026-09-15|2026 / 7 / 5 / ~9 / 15",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "abukyu102": {
+      "fingerprint": "abukyu102|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "abukyu12": {
+      "fingerprint": "abukyu12|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "aizugurutto": {
+      "fingerprint": "aizugurutto|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "konan01": {
+      "fingerprint": "konan01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "sanriku25": {
+      "fingerprint": "sanriku25|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "sanriku86": {
+      "fingerprint": "sanriku86|2026-08-21|2026-11-07|2026 / 8 / 21 / ~11 / 7",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "flower02": {
+      "fingerprint": "flower02|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "akitajukan92": {
+      "fingerprint": "akitajukan92|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "akitajukan03": {
+      "fingerprint": "akitajukan03|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "akitajukan02": {
+      "fingerprint": "akitajukan02|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "akitajukan01": {
+      "fingerprint": "akitajukan01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "akitajukan94": {
+      "fingerprint": "akitajukan94|2026-01-01|2026-12-31|2026 / 1 / 1 / ~12 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "aoimori100": {
+      "fingerprint": "aoimori100|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "aoimori03": {
+      "fingerprint": "aoimori03|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "aoimori02": {
+      "fingerprint": "aoimori02|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "sendaimarugoto": {
+      "fingerprint": "sendaimarugoto|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "sendai03": {
+      "fingerprint": "sendai03|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "sendai01": {
+      "fingerprint": "sendai01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tugaru99": {
+      "fingerprint": "tugaru99|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "fukusima03": {
+      "fingerprint": "fukusima03|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "fukusima93": {
+      "fingerprint": "fukusima93|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "fukusima02": {
+      "fingerprint": "fukusima02|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "fukusima01": {
+      "fingerprint": "fukusima01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "yurikogen02": {
+      "fingerprint": "yurikogen02|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "yurikogen01": {
+      "fingerprint": "yurikogen01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jreast071": {
+      "fingerprint": "jreast071|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jreast46": {
+      "fingerprint": "jreast46|2026-08-01|2026-10-30|2026 / 8 / 1 / ~10 / 30",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jreast12": {
+      "fingerprint": "jreast12|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jreast37": {
+      "fingerprint": "jreast37|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jreast18": {
+      "fingerprint": "jreast18|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jreast10": {
+      "fingerprint": "jreast10|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jreast17": {
+      "fingerprint": "jreast17|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "isumi06": {
+      "fingerprint": "isumi06|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "minatosen13": {
+      "fingerprint": "minatosen13|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "minatosen02": {
+      "fingerprint": "minatosen02|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "minatosen03": {
+      "fingerprint": "minatosen03|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "watarase91": {
+      "fingerprint": "watarase91|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "daiyuzan01": {
+      "fingerprint": "daiyuzan01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "mm01": {
+      "fingerprint": "mm01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tokyu05": {
+      "fingerprint": "tokyu05|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "yokohama06": {
+      "fingerprint": "yokohama06|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "yokohama07": {
+      "fingerprint": "yokohama07|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "yokohama11": {
+      "fingerprint": "yokohama11|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "kantetu01": {
+      "fingerprint": "kantetu01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "keio03": {
+      "fingerprint": "keio03|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "keio01": {
+      "fingerprint": "keio01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "keio02": {
+      "fingerprint": "keio02|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "keisei03": {
+      "fingerprint": "keisei03|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "keikyu04": {
+      "fingerprint": "keikyu04|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "keikyu01": {
+      "fingerprint": "keikyu01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "keikyu12": {
+      "fingerprint": "keikyu12|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "keikyu11": {
+      "fingerprint": "keikyu11|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "keikyu02": {
+      "fingerprint": "keikyu02|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "keikyu08": {
+      "fingerprint": "keikyu08|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "keikyu03": {
+      "fingerprint": "keikyu03|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "keikyu13": {
+      "fingerprint": "keikyu13|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "kamakura": {
+      "fingerprint": "kamakura|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "enoden01": {
+      "fingerprint": "enoden01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "enoden03": {
+      "fingerprint": "enoden03|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "odakyu11": {
+      "fingerprint": "odakyu11|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "hakone13": {
+      "fingerprint": "hakone13|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "hakone11": {
+      "fingerprint": "hakone11|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "hakone15": {
+      "fingerprint": "hakone15|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "hakone01": {
+      "fingerprint": "hakone01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "hakone14": {
+      "fingerprint": "hakone14|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "kominato02": {
+      "fingerprint": "kominato02|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "kominato03": {
+      "fingerprint": "kominato03|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "syonan02": {
+      "fingerprint": "syonan02|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jomou03": {
+      "fingerprint": "jomou03|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jomou02": {
+      "fingerprint": "jomou02|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "seibu118": {
+      "fingerprint": "seibu118|2026-07-17|2026-09-23|2026 / 7 / 17 / ~9 / 23",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "seibu11": {
+      "fingerprint": "seibu11|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "seibu13": {
+      "fingerprint": "seibu13|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "seibu122": {
+      "fingerprint": "seibu122|2026-06-27|2026-09-23|2026 / 6 / 27 / ~9 / 23",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "seibu14": {
+      "fingerprint": "seibu14|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "chiba04": {
+      "fingerprint": "chiba04|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "chiba02": {
+      "fingerprint": "chiba02|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "chiba01": {
+      "fingerprint": "chiba01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "sotetsu01": {
+      "fingerprint": "sotetsu01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tama92": {
+      "fingerprint": "tama92|2026-07-18|2026-09-30|2026 / 7 / 18 / ~9 / 30",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tama01": {
+      "fingerprint": "tama01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tama02": {
+      "fingerprint": "tama02|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "titibu03": {
+      "fingerprint": "titibu03|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tyoshi04": {
+      "fingerprint": "tyoshi04|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tyoshi05": {
+      "fingerprint": "tyoshi05|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tyoshi01": {
+      "fingerprint": "tyoshi01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tyoshi93": {
+      "fingerprint": "tyoshi93|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tokyu01": {
+      "fingerprint": "tokyu01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tokyu07": {
+      "fingerprint": "tokyu07|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tokyu82": {
+      "fingerprint": "tokyu82|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tokyu95": {
+      "fingerprint": "tokyu95|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tokyu81": {
+      "fingerprint": "tokyu81|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tokyu92": {
+      "fingerprint": "tokyu92|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tokyu02": {
+      "fingerprint": "tokyu02|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tokyu91": {
+      "fingerprint": "tokyu91|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "metro02": {
+      "fingerprint": "metro02|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tokyo01": {
+      "fingerprint": "tokyo01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "rinkai01": {
+      "fingerprint": "rinkai01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tobu96": {
+      "fingerprint": "tobu96|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tobu94": {
+      "fingerprint": "tobu94|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tobu04": {
+      "fingerprint": "tobu04|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "yagan01": {
+      "fingerprint": "yagan01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "yagan12": {
+      "fingerprint": "yagan12|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "ryutetsu": {
+      "fingerprint": "ryutetsu|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrtokai03": {
+      "fingerprint": "jrtokai03|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrtokai01": {
+      "fingerprint": "jrtokai01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrtokai87": {
+      "fingerprint": "jrtokai87|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrtokai09": {
+      "fingerprint": "jrtokai09|2026-03-15|2026-11-26|2026 / 3 / 15 / ~11 / 26",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "aikan81": {
+      "fingerprint": "aikan81|2026-04-04|2027-03-28|2026 / 4 / 4 / ~2027 / 3 / 28",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "linimo01": {
+      "fingerprint": "linimo01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "izukyu51": {
+      "fingerprint": "izukyu51|2026-04-01|2027-01-31|2026 / 4 / 1 / ~2027 / 1 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "izukyu53": {
+      "fingerprint": "izukyu53|2026-04-01|2027-03-25|2026 / 4 / 1 / ~2027 / 3 / 25",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "entetu72": {
+      "fingerprint": "entetu72|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "entetu71": {
+      "fingerprint": "entetu71|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "gakunan11": {
+      "fingerprint": "gakunan11|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "gakunan100": {
+      "fingerprint": "gakunan100|2026-02-01||2026 / 2 / 1~",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "gakunan101": {
+      "fingerprint": "gakunan101|2026-08-08||2026 / 8 / 8~",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "sangi11": {
+      "fingerprint": "sangi11|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "sangi12": {
+      "fingerprint": "sangi12|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "asunarou01": {
+      "fingerprint": "asunarou01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "shizutetsu01": {
+      "fingerprint": "shizutetsu01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "shizutetsu11": {
+      "fingerprint": "shizutetsu11|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "oigawa16": {
+      "fingerprint": "oigawa16|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "oigawa96": {
+      "fingerprint": "oigawa96|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tarumi02": {
+      "fingerprint": "tarumi02|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "nagaragawa01": {
+      "fingerprint": "nagaragawa01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tenhama101": {
+      "fingerprint": "tenhama101|2026-07-18||2026 / 7 / 18~",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tenhama02": {
+      "fingerprint": "tenhama02|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tenhama03": {
+      "fingerprint": "tenhama03|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tenhama04": {
+      "fingerprint": "tenhama04|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "fujikyu13": {
+      "fingerprint": "fujikyu13|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "fujikyu91": {
+      "fingerprint": "fujikyu91|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "fujikyu12": {
+      "fingerprint": "fujikyu12|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "fujikyu11": {
+      "fingerprint": "fujikyu11|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "fujikyu14": {
+      "fingerprint": "fujikyu14|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "toyotetu03": {
+      "fingerprint": "toyotetu03|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "toyotetu04": {
+      "fingerprint": "toyotetu04|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "toyotetu92": {
+      "fingerprint": "toyotetu92|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "guideway92": {
+      "fingerprint": "guideway92|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "nagoya88": {
+      "fingerprint": "nagoya88|2026-08-15||2026 / 8 / 15~",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "nagoya103": {
+      "fingerprint": "nagoya103|2026-07-17|2026-10-26|2026 / 7 / 17 / ~10 / 26",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "nagoya87": {
+      "fingerprint": "nagoya87|2026-04-20||2026 / 4 / 20~",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "meitetu12": {
+      "fingerprint": "meitetu12|2026-04-24|2027-02-28|2026 / 4 / 24 / ~2027 / 2 / 28",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "meitetu11": {
+      "fingerprint": "meitetu11|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "meitetu01": {
+      "fingerprint": "meitetu01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "aonami91": {
+      "fingerprint": "aonami91|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "irtoyama01": {
+      "fingerprint": "irtoyama01|2027-03-28|2027-03-28|~2027 / 3 / 28",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "ishikawa01": {
+      "fingerprint": "ishikawa01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "ishikawa03": {
+      "fingerprint": "ishikawa03|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "ishikawa99": {
+      "fingerprint": "ishikawa99|2026-08-10|2026-12-06|2026 / 8 / 10 / ~12 / 6",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "ishikawa04": {
+      "fingerprint": "ishikawa04|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrwest42": {
+      "fingerprint": "jrwest42|2026-03-01|2027-03-31|2026 / 3 / 1 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrwest40": {
+      "fingerprint": "jrwest40|2026-03-01|2027-03-31|2026 / 3 / 1 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrwest41": {
+      "fingerprint": "jrwest41|2026-03-01|2027-03-28|2026 / 3 / 1 / ~2027 / 3 / 28",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jreast60": {
+      "fingerprint": "jreast60|2027-03-27|2027-03-27|~2027 / 3 / 27",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jreast66": {
+      "fingerprint": "jreast66|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "ainokaze01": {
+      "fingerprint": "ainokaze01|2027-03-28|2027-03-28|~2027 / 3 / 28",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "echigo03": {
+      "fingerprint": "echigo03|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "toyama111": {
+      "fingerprint": "toyama111|2026-04-01|2027-03-28|2026 / 4 / 1 / ~2027 / 3 / 28",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "matuden01": {
+      "fingerprint": "matuden01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "etizen04": {
+      "fingerprint": "etizen04|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "etizen01": {
+      "fingerprint": "etizen01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "sinano32": {
+      "fingerprint": "sinano32|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "sinano33": {
+      "fingerprint": "sinano33|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "sinano11": {
+      "fingerprint": "sinano11|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "noto95": {
+      "fingerprint": "noto95|2026-08-08||2026 / 8 / 8~",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "noto01": {
+      "fingerprint": "noto01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrwest46": {
+      "fingerprint": "jrwest46|2026-03-01|2027-03-31|2026 / 3 / 1 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "hapilinefukui01": {
+      "fingerprint": "hapilinefukui01|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "hokuriku3ken": {
+      "fingerprint": "hokuriku3ken|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "nagaden06": {
+      "fingerprint": "nagaden06|2026-04-01|2026-09-30|2026 / 4 / 1 / ~9 / 30",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "nagaden05": {
+      "fingerprint": "nagaden05|2026-04-01|2026-11-29|2026 / 4 / 1 / ~11 / 29",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "nagaden07": {
+      "fingerprint": "nagaden07|2026-04-01|2026-11-30|2026 / 4 / 1 / ~11 / 30",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "titetu09": {
+      "fingerprint": "titetu09|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "titetu06": {
+      "fingerprint": "titetu06|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "titetu02": {
+      "fingerprint": "titetu02|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "titetu05": {
+      "fingerprint": "titetu05|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "titetu01": {
+      "fingerprint": "titetu01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "titetu08": {
+      "fingerprint": "titetu08|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "titetu07": {
+      "fingerprint": "titetu07|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "fukutetu90": {
+      "fingerprint": "fukutetu90|2026-08-10|2027-12-31|2026 / 8 / 10 / ~2027 / 12 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "fukutetu77": {
+      "fingerprint": "fukutetu77|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "fukui_maas01": {
+      "fingerprint": "fukui_maas01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "fukutetu04": {
+      "fingerprint": "fukutetu04|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "etizenfukui02": {
+      "fingerprint": "etizenfukui02|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "fukutetu05": {
+      "fingerprint": "fukutetu05|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "fukutetu01": {
+      "fingerprint": "fukutetu01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "fukutetu73": {
+      "fingerprint": "fukutetu73|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "hokuriku91": {
+      "fingerprint": "hokuriku91|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "hokuriku05": {
+      "fingerprint": "hokuriku05|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrwest39": {
+      "fingerprint": "jrwest39|2026-03-01|2027-03-31|2026 / 3 / 1 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "manyo03": {
+      "fingerprint": "manyo03|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrwest202": {
+      "fingerprint": "jrwest202|2025-09-05|2027-03-30|2025 / 9 / 5 / ~2027 / 3 / 30",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrwest161": {
+      "fingerprint": "jrwest161|2026-03-20|2026-09-30|2026 / 3 / 20 / ~9 / 30",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrwest204": {
+      "fingerprint": "jrwest204|2026-03-01|2027-03-31|2026 / 3 / 1 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrwest201": {
+      "fingerprint": "jrwest201|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrwest160": {
+      "fingerprint": "jrwest160|2026-03-01|2027-03-31|2026 / 3 / 1 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrwest151": {
+      "fingerprint": "jrwest151|2026-03-25|2027-03-30|2026 / 3 / 25 / ~2027 / 3 / 30",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "iga43": {
+      "fingerprint": "iga43|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "iga41": {
+      "fingerprint": "iga41|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "iga42": {
+      "fingerprint": "iga42|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "iga01": {
+      "fingerprint": "iga01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "eiden83": {
+      "fingerprint": "eiden83|2026-04-01|2027-03-31|2026 / 4 / 1 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "eiden01": {
+      "fingerprint": "eiden01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "eiden81": {
+      "fingerprint": "eiden81|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "eiden91": {
+      "fingerprint": "eiden91|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "eiden97": {
+      "fingerprint": "eiden97|2026-03-20|2026-12-06|2026 / 3 / 20 / ~12 / 6",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "eiden95": {
+      "fingerprint": "eiden95|2026-03-20|2026-12-06|2026 / 3 / 20 / ~12 / 6",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrwest159": {
+      "fingerprint": "jrwest159|2025-11-01|2027-03-31|2025 / 11 / 1 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "keihan15": {
+      "fingerprint": "keihan15|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "keihan02": {
+      "fingerprint": "keihan02|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "keihan83": {
+      "fingerprint": "keihan83|2026-03-20|2027-03-31|2026 / 3 / 20 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "keihan06": {
+      "fingerprint": "keihan06|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "keihan05": {
+      "fingerprint": "keihan05|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "keihan04": {
+      "fingerprint": "keihan04|2026-04-01|2027-03-31|2026 / 4 / 1 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "keihan14": {
+      "fingerprint": "keihan14|2026-04-01|2027-03-31|2026 / 4 / 1 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "keihan105": {
+      "fingerprint": "keihan105|2026-06-27|2027-03-31|2026 / 6 / 27 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "keihan68": {
+      "fingerprint": "keihan68|2026-05-01|2027-03-31|2026 / 5 / 1 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "eiden51": {
+      "fingerprint": "eiden51|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "keihan99": {
+      "fingerprint": "keihan99|2026-03-20|2027-03-31|2026 / 3 / 20 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "kyoto11": {
+      "fingerprint": "kyoto11|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tantetsu02": {
+      "fingerprint": "tantetsu02|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tantetsu11": {
+      "fingerprint": "tantetsu11|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tantetsu61": {
+      "fingerprint": "tantetsu61|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "kyotoaraden": {
+      "fingerprint": "kyotoaraden|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "randen04": {
+      "fingerprint": "randen04|2027-03-30|2027-03-30|~2027 / 3 / 30",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "randen01": {
+      "fingerprint": "randen01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrwest205": {
+      "fingerprint": "jrwest205|2026-08-10|2027-03-29|2026 / 8 / 10 / ~2027 / 3 / 29",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrwest154": {
+      "fingerprint": "jrwest154|2026-03-20|2027-03-30|2026 / 3 / 20 / ~2027 / 3 / 30",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "kintetu03": {
+      "fingerprint": "kintetu03|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "omi11": {
+      "fingerprint": "omi11|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "omi95": {
+      "fingerprint": "omi95|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "hankyu101": {
+      "fingerprint": "hankyu101|2026-04-04|2027-03-28|2026 / 4 / 4 / ~2027 / 3 / 28",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "hankyu89": {
+      "fingerprint": "hankyu89|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "hankai03": {
+      "fingerprint": "hankai03|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "sakai04": {
+      "fingerprint": "sakai04|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "sakai03": {
+      "fingerprint": "sakai03|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "koyasan": {
+      "fingerprint": "koyasan|2026-04-01|2026-11-30|2026 / 4 / 1 / ~11 / 30",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "hansinsanyo": {
+      "fingerprint": "hansinsanyo|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "sanyo12": {
+      "fingerprint": "sanyo12|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "sanhime": {
+      "fingerprint": "sanhime|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "sanhime5": {
+      "fingerprint": "sanhime5|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "sanyo11": {
+      "fingerprint": "sanyo11|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "surukan07": {
+      "fingerprint": "surukan07|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "sanyo98": {
+      "fingerprint": "sanyo98|2026-01-31|2026-12-06|2026 / 1 / 31 / ~12 / 6",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "naraikaruga": {
+      "fingerprint": "naraikaruga|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "taikonoyu": {
+      "fingerprint": "taikonoyu|2026-04-01|2027-03-31|2026 / 4 / 1 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "shigaraki12": {
+      "fingerprint": "shigaraki12|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "shigaraki11": {
+      "fingerprint": "shigaraki11|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "hankyuhanshin0": {
+      "fingerprint": "hankyuhanshin0|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "hanshin72": {
+      "fingerprint": "hanshin72|2026-04-01|2027-03-31|2026 / 4 / 1 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "osakamono97": {
+      "fingerprint": "osakamono97|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "osakamono98": {
+      "fingerprint": "osakamono98|2026-03-20|2027-03-31|2026 / 3 / 20 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "osakamono90": {
+      "fingerprint": "osakamono90|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "osakamono52": {
+      "fingerprint": "osakamono52|2026-03-20|2027-03-31|2026 / 3 / 20 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "osaka_maas_01": {
+      "fingerprint": "osaka_maas_01|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "osakametoro94": {
+      "fingerprint": "osakametoro94|2025-10-14|2026-09-30|2025 / 10 / 14 / ~2026 / 9 / 30",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "osakametoro95": {
+      "fingerprint": "osakametoro95|2025-10-14|2026-09-30|2025 / 10 / 14 / ~2026 / 9 / 30",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "osaka04": {
+      "fingerprint": "osaka04|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "osaka03": {
+      "fingerprint": "osaka03|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "osakametoro51": {
+      "fingerprint": "osakametoro51|2025-03-20|2027-03-31|2025 / 3 / 20 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "keihan11": {
+      "fingerprint": "keihan11|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tantetsu70": {
+      "fingerprint": "tantetsu70|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tankai11": {
+      "fingerprint": "tankai11|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "surukan10": {
+      "fingerprint": "surukan10|2026-03-25|2027-03-31|2026 / 3 / 25 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "osakamono87": {
+      "fingerprint": "osakamono87|2026-03-25|2027-03-31|2026 / 3 / 25 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "nankai100": {
+      "fingerprint": "nankai100|2026-04-25|2026-11-08|2026 / 4 / 25 / ~11 / 8",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "kitakyu92": {
+      "fingerprint": "kitakyu92|2026-03-20|2027-03-31|2026 / 3 / 20 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "wakayama01": {
+      "fingerprint": "wakayama01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "wakayama94": {
+      "fingerprint": "wakayama94|2025-02-01|2026-09-30|2025 / 2 / 1 / ~2026 / 9 / 30",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrwest140": {
+      "fingerprint": "jrwest140|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrwest49": {
+      "fingerprint": "jrwest49|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrwest166": {
+      "fingerprint": "jrwest166|2026-03-01|2027-03-31|2026 / 3 / 1 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrwest79": {
+      "fingerprint": "jrwest79|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrwest68": {
+      "fingerprint": "jrwest68|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrwest66": {
+      "fingerprint": "jrwest66|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrwest58": {
+      "fingerprint": "jrwest58|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrwest62": {
+      "fingerprint": "jrwest62|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrwest165": {
+      "fingerprint": "jrwest165|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrwest61": {
+      "fingerprint": "jrwest61|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrwest85": {
+      "fingerprint": "jrwest85|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrwest69": {
+      "fingerprint": "jrwest69|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrwest132": {
+      "fingerprint": "jrwest132|2026-04-01|2027-03-31|2026 / 4 / 1 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "ibara12": {
+      "fingerprint": "ibara12|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "itibata06": {
+      "fingerprint": "itibata06|2026-04-01|2027-03-30|2026 / 4 / 1 / ~2027 / 3 / 30",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "okaden97": {
+      "fingerprint": "okaden97|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "astrum01": {
+      "fingerprint": "astrum01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "hiroden07": {
+      "fingerprint": "hiroden07|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "hiroden02": {
+      "fingerprint": "hiroden02|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "hiroden03": {
+      "fingerprint": "hiroden03|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "hiroden04": {
+      "fingerprint": "hiroden04|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "hiroden01": {
+      "fingerprint": "hiroden01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "wakasa02": {
+      "fingerprint": "wakasa02|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "wakasa03": {
+      "fingerprint": "wakasa03|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "mizushima01": {
+      "fingerprint": "mizushima01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tizukyu11": {
+      "fingerprint": "tizukyu11|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrsikoku81": {
+      "fingerprint": "jrsikoku81|2026-06-18|2026-09-11|2026 / 6 / 18 / ~9 / 11",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrsikoku06": {
+      "fingerprint": "jrsikoku06|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrsikoku02": {
+      "fingerprint": "jrsikoku02|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrsikoku01": {
+      "fingerprint": "jrsikoku01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrsikoku16": {
+      "fingerprint": "jrsikoku16|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrsikoku03": {
+      "fingerprint": "jrsikoku03|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrsikoku13": {
+      "fingerprint": "jrsikoku13|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "iyotetu22": {
+      "fingerprint": "iyotetu22|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "iyotetu21": {
+      "fingerprint": "iyotetu21|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrsikoku08": {
+      "fingerprint": "jrsikoku08|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "kotoden05": {
+      "fingerprint": "kotoden05|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "kotoden01": {
+      "fingerprint": "kotoden01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "kotoden03": {
+      "fingerprint": "kotoden03|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "kotoden84": {
+      "fingerprint": "kotoden84|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "kotoden09": {
+      "fingerprint": "kotoden09|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "kotoden04": {
+      "fingerprint": "kotoden04|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrsikoku11": {
+      "fingerprint": "jrsikoku11|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tosakuro81": {
+      "fingerprint": "tosakuro81|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tosakuro96": {
+      "fingerprint": "tosakuro96|2027-03-29|2027-03-29|~2027 / 3 / 29",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrsikoku87": {
+      "fingerprint": "jrsikoku87|2027-03-29|2027-03-29|~2027 / 3 / 29",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tosaden05": {
+      "fingerprint": "tosaden05|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrkyusyu61": {
+      "fingerprint": "jrkyusyu61|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrkyusyu52": {
+      "fingerprint": "jrkyusyu52|2026-02-20|2026-10-31|2026 / 2 / 20 / ~10 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrkyusyu91": {
+      "fingerprint": "jrkyusyu91|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrkyusyu51": {
+      "fingerprint": "jrkyusyu51|2026-02-20|2026-10-29|2026 / 2 / 20 / ~10 / 29",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrkyusyu08": {
+      "fingerprint": "jrkyusyu08|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrkyusyu01": {
+      "fingerprint": "jrkyusyu01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "kumagawa95": {
+      "fingerprint": "kumagawa95|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "yuirail54": {
+      "fingerprint": "yuirail54|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "kumamotoshi01": {
+      "fingerprint": "kumamotoshi01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "kumamotoshi03": {
+      "fingerprint": "kumamotoshi03|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "kumamotoshi02": {
+      "fingerprint": "kumamotoshi02|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "kumamoto01": {
+      "fingerprint": "kumamoto01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "kumamoto03": {
+      "fingerprint": "kumamoto03|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "jrkyusyu122": {
+      "fingerprint": "jrkyusyu122|2025-07-23|2027-03-31|2025 / 7 / 23 / ~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "kagosima04": {
+      "fingerprint": "kagosima04|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "kagosima01": {
+      "fingerprint": "kagosima01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "matuura03": {
+      "fingerprint": "matuura03|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "matuura01": {
+      "fingerprint": "matuura01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "matuura81": {
+      "fingerprint": "matuura81|2027-03-31|2027-03-31|~2027 / 3 / 31",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "nishitetu81": {
+      "fingerprint": "nishitetu81|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "nagasaki02": {
+      "fingerprint": "nagasaki02|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "nagasaki04": {
+      "fingerprint": "nagasaki04|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "nagasaki01": {
+      "fingerprint": "nagasaki01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "simabara07": {
+      "fingerprint": "simabara07|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "simabara12": {
+      "fingerprint": "simabara12|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "minamiaso12": {
+      "fingerprint": "minamiaso12|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "minamiaso11": {
+      "fingerprint": "minamiaso11|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "orange06": {
+      "fingerprint": "orange06|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "orange02": {
+      "fingerprint": "orange02|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "fukuoka01": {
+      "fingerprint": "fukuoka01|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "fukuoka15": {
+      "fingerprint": "fukuoka15|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "fukuoka16": {
+      "fingerprint": "fukuoka16|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "fukuoka94": {
+      "fingerprint": "fukuoka94|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    },
+    "tikuho02": {
+      "fingerprint": "tikuho02|||発売中",
+      "approvedAt": "2026-09-09T06:24:46.442Z",
+      "approvedBy": "existing-catalog-baseline"
+    }
+  },
+  "updatedAt": "2026-09-09T07:31:47.896Z",
+  "lastRevocationReason": "not-eligible-under-exact-official-source-policy"
+}

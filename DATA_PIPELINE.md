@@ -1,8 +1,8 @@
 # Official-source data workflow
 
-The recommendation and calculator surfaces read only `src/data/officialPasses.ts`. The legacy CSV folders are retained as archival research inputs and must not be imported into the core comparison model.
+The calculator and pass list share `createPassCatalog` in `src/lib/passCatalog.ts`, combining `src/data/officialPasses.ts` and `src/data/domesticPassDirectory.ts` without merging their source schemas. The legacy CSV folders are retained as archival research inputs and must not be imported into the core comparison model.
 
-The separate domestic discovery directory reads `src/data/domesticPassDirectory.ts`. It is generated from the BIGLOBE regional indexes, visibly labelled as a discovery dataset, and never feeds prices or recommendations into the calculator.
+The domestic discovery directory is generated from the BIGLOBE regional indexes. Its records are searchable calculator candidates, visibly labelled as unverified directory information. Raw price and validity text remain display-only: they never produce a numeric group fare, savings claim or verified route-coverage claim. A directory region of `全国` is a broad listing, not proof of nationwide coverage. All matching records remain accessible through progressive results; there is no top-four search limit.
 
 ## Source policy
 
@@ -21,7 +21,14 @@ The separate domestic discovery directory reads `src/data/domesticPassDirectory.
 5. Run `npm run directory:links` after every refresh. Unreachable related URLs are suppressed as primary calls to action; the directory still links to the labelled discovery record.
 6. The sync assigns one browsing category to every record using versioned, mutually exclusive rules: nationwide, regional, city transit, bus-included, private/local railway, or special attraction/event bundle. The rule order is defined in `scripts/lib/classify-directory-pass.mjs`.
 7. Run `npm run directory:categories` after every refresh. This checks uniqueness, required values, allowed categories, rule consistency and non-empty category coverage, and writes `reports/directory-category-audit.json`.
-8. A directory record must be manually verified against an operator page before it can move into `officialPasses.ts` or influence calculator results.
+8. A directory record must be manually verified against an operator page before it can move into `officialPasses.ts` or participate in numerical fare comparison. Missing child fares must not be treated as free tickets. An entered budget must include the entire selected group; the displayed difference excludes uncovered routes and extra fees.
+9. Run `npm run calculator:check` after changes to either catalogue or the matching logic. This checks every record is searchable, all categories and regions, internal detail routes, and separation of directory data from numeric comparison.
+
+## Pass imagery
+
+Pass cards and detail pages use the shared region-to-image mapping in `src/lib/passImages.ts`. The image files are downloaded locally from Wikimedia Commons rather than hotlinked, and `/[lang]/image-credits` records the author, source page and licence for every asset. A region image is a representative visual only; it must not be presented as proof of a pass's exact route coverage.
+
+When replacing an image, select a file whose Commons page explicitly permits reuse, retain its attribution and licence metadata in `PASS_IMAGE_LIBRARY`, and run `npm run images:check`. That check verifies that every catalogue entry resolves to an existing local image and that all required credit fields are present.
 
 ## Operating cadence
 

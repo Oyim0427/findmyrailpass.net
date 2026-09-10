@@ -1,17 +1,12 @@
-import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
+import LocalizedArticlePage from '@/components/LocalizedArticlePage';
+import { asLocale, buildLocalizedMetadata, SupportedLocale } from '@/lib/seo';
 
-export default async function DisclosurePage({ params }: { params: Promise<{ lang: string }> }) {
-  const { lang } = await params;
-  return <main className="min-h-screen px-4 py-16 text-slate-800"><article className="mx-auto max-w-3xl rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-12">
-    <Link href={`/${lang}`} className="inline-flex items-center gap-2 text-sm font-bold text-primary"><ArrowLeft className="h-4 w-4" />返回首页</Link>
-    <h1 className="mt-10 text-4xl font-bold text-slate-950">Affiliate、广告与编辑披露</h1>
-    <div className="mt-8 space-y-7 leading-7 text-slate-600">
-      <section><h2 className="text-xl font-bold text-slate-950">Affiliate 链接</h2><p className="mt-2">部分“查看售价”或“合作平台购买”链接可能为 Affiliate 链接。您通过这些链接完成购买时，本站可能获得佣金，通常不会增加您的支付价格。此类链接使用 sponsored 标记并在按钮附近明确说明。</p></section>
-      <section><h2 className="text-xl font-bold text-slate-950">官方链接</h2><p className="mt-2">标注“官方详情”或“官方购买”的链接直接前往铁路运营公司或 JR 集团页面，本站不会从这些官方跳转中收取佣金。</p></section>
-      <section><h2 className="text-xl font-bold text-slate-950">广告</h2><p className="mt-2">未来可能在攻略与资料页展示广告。广告不会伪装成票券推荐，也不会插入计算结果的核心决策区域。</p></section>
-      <section><h2 className="text-xl font-bold text-slate-950">编辑独立性</h2><p className="mt-2">推荐顺序优先考虑覆盖范围、适用天数、估算节省额与官方规则，不因佣金高低改变“是否值得买”的结论。没有可靠一手来源的产品不会进入生产票券库。</p></section>
-    </div>
-    <p className="mt-10 text-sm text-slate-400">最后更新：2026-09-01</p>
-  </article></main>;
-}
+const copy = {
+  zh: { title: 'Affiliate、广告与编辑披露', sections: [['Affiliate 链接', '标注 Affiliate、“合作平台价格”或“前往合作平台”的链接可能为推广链接。您在合作平台完成购买时，本站可能获得佣金，通常不会增加您的支付价格。链接会使用 sponsored 标记并在按钮附近说明。'], ['购买与付款责任', '本站不销售铁路周游券或收取票款。链接后的运营方或合作平台是实际销售者，负责付款、订单、出票、取消、退款与客户支持。'], ['官方链接', '标注“官方详情”“官方网站”或“官方购买”的链接直接前往铁路运营公司或 JR 集团页面，本站不会把此类跳转标成 Affiliate。'], ['广告', '广告只会在发布商配置、合规同意管理与用户选择允许的条件同时满足时加载。广告不会伪装成票券推荐，也不会插入计算结果的核心决策区域。'], ['编辑独立性', '推荐顺序优先考虑覆盖范围、适用天数、估算金额与官方规则，不因佣金高低改变结论。没有可靠一手来源的产品不会公开显示。']], updated: '最后更新：2026-09-10' },
+  en: { title: 'Affiliate, advertising and editorial disclosure', sections: [['Affiliate links', 'Links marked Affiliate, “partner price” or “go to partner site” may be promotional links. If you complete a purchase on the partner site, we may receive a commission, normally without increasing your price. These links use a sponsored attribute and are disclosed near the button.'], ['Purchase and payment responsibility', 'We do not sell rail passes or collect fares. The linked operator or partner is the actual seller and handles payment, orders, ticket delivery, cancellation, refunds and support.'], ['Official links', 'Links labelled “official details”, “official website” or “official purchase” lead directly to a rail operator or JR Group page and are not presented as affiliate links.'], ['Advertising', 'Ads load only when publisher configuration, compliant consent management and the user’s choice all allow them. Ads do not imitate pass recommendations or appear in the calculator’s core decision area.'], ['Editorial independence', 'Ranking prioritises coverage, validity, estimated amounts and official rules. Commission size does not change the conclusion, and products without reliable primary sources are not published.']], updated: 'Last updated: 2026-09-10' },
+  ja: { title: 'アフィリエイト・広告・編集方針の表示', sections: [['アフィリエイトリンク', 'Affiliate、「提携サイトの価格」「提携サイトへ」と表示したリンクは広告リンクの場合があります。提携サイトで購入が成立すると、通常お客様の支払額を増やすことなく当サイトが報酬を受け取る場合があります。該当リンクには sponsored 属性を付け、ボタン付近で明示します。'], ['購入・決済の責任', '当サイトは鉄道パスを販売せず、代金を受領しません。リンク先の運行会社または提携販売サイトが実際の販売者として、決済、注文、発券、取消、払戻し、顧客対応を行います。'], ['公式リンク', '「公式詳細」「公式サイト」「公式購入」と表示したリンクは鉄道事業者またはJRグループへ直接移動し、アフィリエイトリンクとして表示しません。'], ['広告', '広告はパブリッシャー設定、適切な同意管理、利用者の選択がすべて許可する場合に限り読み込みます。広告をきっぷの推薦に見せかけたり、計算結果の主要な判断領域へ挿入したりしません。'], ['編集の独立性', '表示順は利用範囲、有効日数、試算額、公式規則を優先します。報酬の大小で結論を変えず、信頼できる一次情報がない商品は公開しません。']], updated: '最終更新：2026-09-10' },
+} satisfies Record<SupportedLocale, { title: string; sections: string[][]; updated: string }>;
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }) { const { lang } = await params; return buildLocalizedMetadata({ lang, path: 'disclosure', titles: { zh: 'Affiliate、广告与编辑披露｜FindMyJR-Pass', en: 'Affiliate and Editorial Disclosure | FindMyJR-Pass', ja: 'アフィリエイト・編集方針｜FindMyJR-Pass' }, descriptions: { zh: '了解本站的 Affiliate 链接、广告、官方链接与编辑独立性原则。', en: 'Learn how affiliate links, ads, official links and editorial independence work on this site.', ja: 'アフィリエイトリンク、広告、公式リンク、編集の独立性について説明します。' } }); }
+
+export default async function DisclosurePage({ params }: { params: Promise<{ lang: string }> }) { const { lang } = await params; const locale = asLocale(lang); const t = copy[locale]; return <LocalizedArticlePage lang={locale} title={t.title} prose={false}><div className="mt-8 space-y-7 leading-7 text-slate-600">{t.sections.map(([heading, body]) => <section key={heading}><h2 className="text-xl font-bold text-slate-950">{heading}</h2><p className="mt-2">{body}</p></section>)}</div><p className="mt-10 text-sm text-slate-500">{t.updated}</p></LocalizedArticlePage>; }

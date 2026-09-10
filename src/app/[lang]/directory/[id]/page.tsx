@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import {
   ArrowLeft,
@@ -28,6 +29,7 @@ import {
   type DirectoryOfficialSourceKind,
 } from '@/data/directoryOfficialSourceOverrides';
 import { getDirectoryPassCategoryLabel } from '@/lib/directoryPassCategories';
+import { getPassImage } from '@/lib/passImages';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -215,6 +217,8 @@ export default async function DirectoryPassDetailPage({ params }: { params: Prom
       <NavigationSection dict={dict} lang={lang} />
       <main>
         <section className="relative overflow-hidden border-b border-emerald-950/10 bg-gradient-to-br from-[#062f2b] via-[#0b4a43] to-[#0d6570] text-white">
+          <Image src={getPassImage(pass)} alt={pass.name} fill priority sizes="100vw" className="object-cover object-center opacity-60" />
+          <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-emerald-950/95 via-emerald-950/70 to-slate-950/30" />
           <div aria-hidden="true" className="absolute -right-20 -top-24 h-80 w-80 rounded-full bg-cyan-300/10 blur-3xl" />
           <div aria-hidden="true" className="absolute -bottom-32 left-1/4 h-72 w-72 rounded-full bg-amber-300/10 blur-3xl" />
           <div className="relative mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
@@ -329,15 +333,27 @@ export default async function DirectoryPassDetailPage({ params }: { params: Prom
                   <Link
                     key={item.id}
                     href={`/${lang}/directory/${item.id}`}
-                    className="group rounded-2xl border border-slate-200 bg-[#f8faf8] p-5 transition hover:-translate-y-0.5 hover:border-emerald-300 hover:shadow-md"
+                    className="group overflow-hidden rounded-2xl border border-slate-200 bg-[#f8faf8] transition hover:-translate-y-0.5 hover:border-emerald-300 hover:shadow-md"
                   >
-                    <p className="text-xs font-bold text-primary">
-                      {getDirectoryPassCategoryLabel(item.category, locale)} · {item.region} · {item.company}
-                    </p>
-                    <h3 className="mt-3 font-black leading-6 text-slate-950">{item.name}</h3>
-                    <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-slate-600 group-hover:text-primary">
-                      {t.relatedCta}<ArrowRight className="h-4 w-4" />
-                    </span>
+                    <div className="relative h-32 overflow-hidden bg-slate-200">
+                      <Image
+                        src={getPassImage(item)}
+                        alt={item.name}
+                        fill
+                        sizes="(min-width: 768px) 33vw, 100vw"
+                        className="object-cover transition duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/35 to-transparent" aria-hidden="true" />
+                    </div>
+                    <div className="p-5">
+                      <p className="text-xs font-bold text-primary">
+                        {getDirectoryPassCategoryLabel(item.category, locale)} · {item.region} · {item.company}
+                      </p>
+                      <h3 className="mt-3 font-black leading-6 text-slate-950">{item.name}</h3>
+                      <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-slate-600 group-hover:text-primary">
+                        {t.relatedCta}<ArrowRight className="h-4 w-4" />
+                      </span>
+                    </div>
                   </Link>
                 ))}
               </div>

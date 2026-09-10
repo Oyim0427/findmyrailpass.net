@@ -5,6 +5,16 @@ import {
   DIRECTORY_PASS_CATEGORY_RULE_VERSION,
   classifyDirectoryPass,
 } from './lib/classify-directory-pass.mjs';
+import {
+  DIRECTORY_CANDIDATES_FILE,
+  PUBLICATION_HISTORY_FILE,
+  PUBLICATION_REVIEW_FILE,
+  publicationFingerprint,
+  readGeneratedDirectory,
+  readPublicationState,
+  readSourceResearch,
+  writePublicationState,
+} from './lib/directory-publication.mjs';
 
 const BASE_URL = 'https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/';
 const SNAPSHOT_DATE = process.env.DIRECTORY_SNAPSHOT_DATE || new Date().toISOString().slice(0, 10);
@@ -33,6 +43,9 @@ function readOfficialSourceOverrides() {
 }
 
 const officialSourceOverrides = readOfficialSourceOverrides();
+const previouslyPublishedPasses = readGeneratedDirectory();
+const publicationState = readPublicationState();
+const sourceResearch = readSourceResearch();
 
 function decodeEntities(value) {
   const entities = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ' };
@@ -178,33 +191,154 @@ const passes = await mapWithConcurrency(deduplicated, 8, async ticket => {
 
 const regionOrder = new Map(REGION_PAGES.map(([region], index) => [region, index]));
 passes.sort((a, b) => (regionOrder.get(a.region) ?? 99) - (regionOrder.get(b.region) ?? 99) || a.company.localeCompare(b.company, 'ja') || a.name.localeCompare(b.name, 'ja'));
-const publicPasses = passes.map(ticket => {
+const candidatePasses = passes.map(ticket => {
   const { include: _include, ...publicTicket } = ticket;
   const override = publicTicket.relatedUrl ? officialSourceOverrides[publicTicket.relatedUrl] : undefined;
+  const researched = sourceResearch.passes[publicTicket.id];
   void _include;
-  const sourcedTicket = override ? {
+  const overriddenTicket = override ? {
     ...publicTicket,
     relatedUrl: override.url,
     officialSourceKind: override.kind,
     relatedUrlCorrected: override.url !== publicTicket.relatedUrl,
   } : publicTicket;
+  const sourcedTicket = researched?.status === 'verified'
+    && researched.url
+    && ['exact-product', 'operator-overview'].includes(researched.kind)
+    ? {
+        ...overriddenTicket,
+        relatedUrl: researched.url,
+        officialSourceKind: researched.kind,
+        relatedUrlCorrected: researched.url !== publicTicket.relatedUrl,
+      }
+    : overriddenTicket;
   return {
     ...sourcedTicket,
     category: classifyDirectoryPass(sourcedTicket),
   };
 });
 
+const officialEndedIds = new Set(candidatePasses
+  .filter(pass => sourceResearch.passes[pass.id]?.status === 'ended')
+  .map(pass => pass.id));
+const visibilityIssues = candidatePasses.map(pass => {
+  const issues = [];
+  const research = sourceResearch.passes[pass.id];
+  if (officialEndedIds.has(pass.id)) issues.push('official-source-ended');
+  if (pass.status === 'needs-review') issues.push('sales-date-needs-review');
+  if (pass.officialSourceKind !== 'exact-product') issues.push(pass.officialSourceKind === 'operator-overview' ? 'operator-overview-only' : 'official-source-unconfirmed');
+  if (!research || research.status === 'unresolved') issues.push('source-research-unresolved');
+  if (research?.status === 'broken') issues.push('source-link-broken');
+  return { pass, issues: [...new Set(issues)] };
+});
+const hiddenByQuality = visibilityIssues
+  .filter(item => item.issues.length)
+  .map(({ pass, issues }) => ({
+    id: pass.id,
+    name: pass.name,
+    company: pass.company,
+    region: pass.region,
+    status: pass.status,
+    salesPeriod: pass.salesPeriod,
+    endDate: sourceResearch.passes[pass.id]?.endDate || pass.endDate,
+    relatedUrl: pass.relatedUrl,
+    officialSourceKind: pass.officialSourceKind,
+    issues,
+  }));
+const hiddenIds = new Set(hiddenByQuality.map(pass => pass.id));
+const eligibleCandidatePasses = candidatePasses.filter(pass => !hiddenIds.has(pass.id));
+const eligibleIds = new Set(eligibleCandidatePasses.map(pass => pass.id));
+const revokedApprovals = [];
+for (const id of Object.keys(publicationState.approvals)) {
+  if (eligibleIds.has(id)) continue;
+  revokedApprovals.push(id);
+  delete publicationState.approvals[id];
+}
+if (revokedApprovals.length) {
+  publicationState.updatedAt = new Date().toISOString();
+  publicationState.lastRevocationReason = 'not-eligible-under-exact-official-source-policy';
+  writePublicationState(publicationState);
+}
+
+const approvedIds = new Set(eligibleCandidatePasses
+  .filter(pass => publicationState.approvals[pass.id]?.fingerprint === publicationFingerprint(pass))
+  .map(pass => pass.id));
+const approvedPasses = eligibleCandidatePasses.filter(pass => approvedIds.has(pass.id));
+const pendingNew = eligibleCandidatePasses
+  .filter(pass => !approvedIds.has(pass.id))
+  .map(pass => ({
+    ...pass,
+    approvalFingerprint: publicationFingerprint(pass),
+    reviewReason: publicationState.approvals[pass.id] ? 'changed-sales-period' : 'new-pass',
+  }));
+const candidateById = new Map(eligibleCandidatePasses.map(pass => [pass.id, pass]));
+const discoveredById = new Map(discovered.map(pass => [pass.id, pass]));
+const pendingById = new Map(pendingNew.map(pass => [pass.id, pass]));
+const autoOffline = previouslyPublishedPasses
+  .filter(pass => !approvedIds.has(pass.id))
+  .map(pass => {
+    const discoveredPass = discoveredById.get(pass.id);
+    let reason = 'not-in-current-active-source';
+    const quality = hiddenByQuality.find(item => item.id === pass.id);
+    if (quality) reason = `quality-hidden:${quality.issues.join(',')}`;
+    else if (pendingById.has(pass.id)) reason = 'changed-sales-period-awaiting-approval';
+    else if (discoveredPass && !discoveredPass.include) reason = discoveredPass.status;
+    else if (candidateById.has(pass.id)) reason = 'approval-missing';
+    return {
+      id: pass.id,
+      name: pass.name,
+      company: pass.company,
+      region: pass.region,
+      salesPeriod: pass.salesPeriod,
+      endDate: sourceResearch.passes[pass.id]?.endDate || pass.endDate,
+      relatedUrl: pass.relatedUrl,
+      reason,
+    };
+  });
+
 const categoryCounts = Object.fromEntries(DIRECTORY_PASS_CATEGORIES.map(category => [
   category,
-  publicPasses.filter(ticket => ticket.category === category).length,
+  approvedPasses.filter(ticket => ticket.category === category).length,
 ]));
 
 const header = `// Generated by scripts/sync-biglobe-directory.mjs on ${SNAPSHOT_DATE}.\n// BIGLOBE is a discovery source; visitor-facing records use on-site detail pages.\n\n`;
-const output = `${header}export type DomesticPassCategory = 'national' | 'regional' | 'city' | 'bus' | 'private' | 'special';\n\nexport type DomesticDirectoryPass = {\n  id: string;\n  name: string;\n  company: string;\n  region: string;\n  category: DomesticPassCategory;\n  salesPeriod: string;\n  status: 'on-sale' | 'scheduled' | 'needs-review';\n  sourceDetailUrl: string;\n  relatedUrl?: string;\n  officialSourceKind?: 'exact-product' | 'operator-overview';\n  relatedUrlCorrected?: boolean;\n  priceText?: string;\n  validityText?: string;\n  usePeriodText?: string;\n  salesLocationText?: string;\n  startDate?: string;\n  endDate?: string;\n};\n\nexport const DOMESTIC_DIRECTORY_SNAPSHOT_DATE = ${JSON.stringify(SNAPSHOT_DATE)};\nexport const DOMESTIC_DIRECTORY_CATEGORY_RULE_VERSION = ${JSON.stringify(DIRECTORY_PASS_CATEGORY_RULE_VERSION)};\nexport const DOMESTIC_DIRECTORY_PASSES: DomesticDirectoryPass[] = ${JSON.stringify(publicPasses, null, 2)};\n`;
+const output = `${header}export type DomesticPassCategory = 'national' | 'regional' | 'city' | 'bus' | 'private' | 'special';\n\nexport type DomesticDirectoryPass = {\n  id: string;\n  name: string;\n  company: string;\n  region: string;\n  category: DomesticPassCategory;\n  salesPeriod: string;\n  status: 'on-sale' | 'scheduled' | 'needs-review';\n  sourceDetailUrl: string;\n  relatedUrl?: string;\n  officialSourceKind?: 'exact-product' | 'operator-overview';\n  relatedUrlCorrected?: boolean;\n  priceText?: string;\n  validityText?: string;\n  usePeriodText?: string;\n  salesLocationText?: string;\n  startDate?: string;\n  endDate?: string;\n};\n\nexport const DOMESTIC_DIRECTORY_SNAPSHOT_DATE = ${JSON.stringify(SNAPSHOT_DATE)};\nexport const DOMESTIC_DIRECTORY_CATEGORY_RULE_VERSION = ${JSON.stringify(DIRECTORY_PASS_CATEGORY_RULE_VERSION)};\nexport const DOMESTIC_DIRECTORY_PASSES: DomesticDirectoryPass[] = ${JSON.stringify(approvedPasses, null, 2)};\n`;
 
 fs.mkdirSync(path.dirname(OUTPUT_FILE), { recursive: true });
 fs.mkdirSync(path.dirname(REPORT_FILE), { recursive: true });
 fs.writeFileSync(OUTPUT_FILE, output);
+fs.writeFileSync(DIRECTORY_CANDIDATES_FILE, `${JSON.stringify({
+  generatedAt: new Date().toISOString(),
+  snapshotDate: SNAPSHOT_DATE,
+  candidates: candidatePasses.map(pass => ({
+    ...pass,
+    approvalFingerprint: publicationFingerprint(pass),
+  })),
+}, null, 2)}\n`);
+fs.writeFileSync(PUBLICATION_REVIEW_FILE, `${JSON.stringify({
+  generatedAt: new Date().toISOString(),
+  snapshotDate: SNAPSHOT_DATE,
+  counts: {
+    activeCandidates: eligibleCandidatePasses.length,
+    published: approvedPasses.length,
+    pendingApproval: pendingNew.length,
+    autoOffline: autoOffline.length,
+    hiddenByQuality: hiddenByQuality.length,
+    revokedApprovals: revokedApprovals.length,
+  },
+  pendingApproval: pendingNew,
+  hiddenByQuality,
+  autoOffline,
+}, null, 2)}\n`);
+const priorHistory = fs.existsSync(PUBLICATION_HISTORY_FILE)
+  ? JSON.parse(fs.readFileSync(PUBLICATION_HISTORY_FILE, 'utf8'))
+  : { schemaVersion: 1, events: [] };
+const newEvents = autoOffline.map(pass => ({ ...pass, detectedAt: new Date().toISOString(), snapshotDate: SNAPSHOT_DATE }));
+const eventMap = new Map([...priorHistory.events, ...newEvents].map(event => [
+  [event.id, event.reason, event.endDate || '', event.salesPeriod || ''].join('|'),
+  event,
+]));
+fs.writeFileSync(PUBLICATION_HISTORY_FILE, `${JSON.stringify({ schemaVersion: 1, events: [...eventMap.values()] }, null, 2)}\n`);
 const report = {
   snapshotDate: SNAPSHOT_DATE,
   discoverySource: BASE_URL,
@@ -212,18 +346,28 @@ const report = {
   discoveredRows: discovered.length,
   excludedEnded: discovered.filter(ticket => !ticket.include).length,
   includedBeforeDeduplication: activeCandidates.length,
-  includedAfterDeduplication: publicPasses.length,
+  includedAfterDeduplication: candidatePasses.length,
+  excludedByOfficialSource: officialEndedIds.size,
+  eligibleAfterOfficialCheck: eligibleCandidatePasses.length,
+  publishedAfterApproval: approvedPasses.length,
+  pendingApproval: pendingNew.length,
+  autoOffline: autoOffline.length,
+  hiddenByQuality: hiddenByQuality.length,
+  revokedApprovals: revokedApprovals.length,
   categoryRuleVersion: DIRECTORY_PASS_CATEGORY_RULE_VERSION,
   categoryCounts,
-  withRelatedUrl: publicPasses.filter(ticket => ticket.relatedUrl).length,
-  correctedOfficialUrls: publicPasses.filter(ticket => ticket.relatedUrlCorrected).length,
-  exactProductSources: publicPasses.filter(ticket => ticket.officialSourceKind === 'exact-product').length,
-  operatorOverviewSources: publicPasses.filter(ticket => ticket.officialSourceKind === 'operator-overview').length,
-  needsReview: publicPasses.filter(ticket => ticket.status === 'needs-review').length,
+  withRelatedUrl: approvedPasses.filter(ticket => ticket.relatedUrl).length,
+  correctedOfficialUrls: approvedPasses.filter(ticket => ticket.relatedUrlCorrected).length,
+  exactProductSources: approvedPasses.filter(ticket => ticket.officialSourceKind === 'exact-product').length,
+  operatorOverviewSources: approvedPasses.filter(ticket => ticket.officialSourceKind === 'operator-overview').length,
+  needsReview: approvedPasses.filter(ticket => ticket.status === 'needs-review').length,
   detailFailures,
 };
 fs.writeFileSync(REPORT_FILE, `${JSON.stringify(report, null, 2)}\n`);
-console.log(`BIGLOBE directory: ${report.discoveredRows} rows, ${report.excludedEnded} ended/expired excluded, ${report.includedAfterDeduplication} current or scheduled passes kept.`);
+console.log(`BIGLOBE directory: ${report.discoveredRows} rows, ${report.excludedEnded} ended/expired excluded, ${report.includedAfterDeduplication} discovery candidates found.`);
+console.log(`${report.excludedByOfficialSource} additional pass(es) excluded because the official source shows the product ended.`);
+console.log(`${report.publishedAfterApproval} approved passes published; ${report.pendingApproval} await approval; ${report.autoOffline} removed automatically.`);
+console.log(`${report.hiddenByQuality} passes hidden by the exact-official-source policy; ${report.revokedApprovals} stale approvals revoked.`);
 console.log(`${report.withRelatedUrl} entries include a related operator/issuer URL; ${report.needsReview} require date review.`);
 console.log(`${report.correctedOfficialUrls} entries use repaired official-source URLs (${report.exactProductSources} exact product, ${report.operatorOverviewSources} operator overview).`);
 console.log(`Data: ${path.relative(process.cwd(), OUTPUT_FILE)} | Report: ${path.relative(process.cwd(), REPORT_FILE)}`);

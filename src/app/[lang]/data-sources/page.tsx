@@ -1,31 +1,28 @@
 import Link from 'next/link';
-import { ArrowLeft, ExternalLink, ShieldCheck } from 'lucide-react';
+import { ExternalLink, ShieldCheck } from 'lucide-react';
+import LocalizedArticlePage from '@/components/LocalizedArticlePage';
+import { asLocale, buildLocalizedMetadata, SupportedLocale } from '@/lib/seo';
+
+const operators = [
+  ['JR Group / JAPAN RAIL PASS', 'https://japanrailpass.net/en/'], ['JR Hokkaido', 'https://www.jrhokkaido.co.jp/global/english/'], ['JR East', 'https://www.jreast.co.jp/multi/en/'], ['JR Central Tourist Pass', 'https://touristpass.jp/en/'], ['JR West', 'https://www.westjr.co.jp/travel-information/en/'], ['JR Shikoku', 'https://www.jr-shikoku.co.jp/global/en/'], ['JR Kyushu', 'https://www.jrkyushu.co.jp/english/'], ['Public Transportation Open Data Center', 'https://developer.odpt.org/'],
+];
+
+const copy = {
+  zh: { eyebrow: '数据溯源', title: '数据来源与更新方法', intro: '本站公开票券库仅接受运营公司、JR 集团及公共机构的一手信息。价格、有效期、适用资格和覆盖范围必须能追溯到对应官方页面。', rulesTitle: '核验规则', rules: ['公开目录只保留能确认到运营方官网精确产品页、销售日期明确且链接正常的票券。', '只有运营方总览、来源不明、日期待确认或链接异常的记录会从网页隐藏。', '聚合站、博客和销售平台不能作为票价与规则的唯一来源；官方信息冲突时，以运营公司日文页面和购买页为准。', '隐藏记录修复后仍须人工批准，才会重新进入网页和计算器。'], discoveryTitle: 'BIGLOBE 发现目录如何使用', discovery: '本站使用 BIGLOBE《各地的自由乘车券》地区索引发现可能存在的地方票券，但不把该站作为最终事实来源。同步后逐条核对运营方的精确产品页，并排除终了、过期、来源不足、日期不明和链接异常的记录。', open: '打开已核验目录', discoveryLink: '查看发现来源', updateTitle: '更新节奏', update: '每天自动检查销售期限、官网来源和链接状态。到期或出现质量问题时自动下线；新券、销售期变化或已修复记录必须经本机审核页确认后才能上线。', sourcesTitle: '主要一手来源', warning: '付款前请始终在跳转后的官方或合作平台页面再次确认价格、资格、退款条件和列车覆盖范围。' },
+  en: { eyebrow: 'Data provenance', title: 'Data sources and update method', intro: 'The public pass catalogue accepts primary information from operators, the JR Group and public bodies. Prices, validity, eligibility and coverage must be traceable to a corresponding official page.', rulesTitle: 'Verification rules', rules: ['The public directory keeps only passes with an exact operator product page, clear sales dates and a working link.', 'Records with only an operator overview, an unconfirmed source, unknown sales dates or a broken link are hidden.', 'Aggregators, blogs and sales platforms cannot be the sole source for fares or rules. If official pages conflict, the operator’s Japanese page and purchase page take priority.', 'A repaired hidden record still requires manual approval before it returns to the site and calculator.'], discoveryTitle: 'How the BIGLOBE discovery directory is used', discovery: 'We use BIGLOBE’s regional free-ticket index to discover possible local passes, but never treat it as the final source of truth. Each item is checked against an exact operator product page; ended, expired, weak-source, unclear-date and broken-link records are excluded.', open: 'Open verified directory', discoveryLink: 'View discovery source', updateTitle: 'Update schedule', update: 'Sales periods, official sources and link status are checked daily. Expired or low-quality records go offline automatically; new, changed or repaired records require approval in the local review screen before publication.', sourcesTitle: 'Primary sources', warning: 'Before paying, always reconfirm price, eligibility, refund terms and train coverage on the linked official or partner page.' },
+  ja: { eyebrow: 'データの来歴', title: '情報源と更新方法', intro: '公開するきっぷデータは、運行会社、JRグループ、公的機関の一次情報に限定しています。価格、有効期間、利用資格、利用範囲は対応する公式ページまで追跡できる必要があります。', rulesTitle: '確認ルール', rules: ['運行会社の正確な商品ページ、明確な発売日、正常なリンクを確認できるきっぷだけを公開します。', '運行会社の総合案内のみ、出典未確認、発売日未確認、リンク異常の記録はサイトから非表示にします。', 'まとめサイト、ブログ、販売サイトだけを運賃や規則の根拠にはしません。公式情報が食い違う場合は運行会社の日本語ページと購入ページを優先します。', '非表示記録を修正しても、サイトと計算機へ戻す前に手動承認が必要です。'], discoveryTitle: 'BIGLOBEの発見用目録の使い方', discovery: 'BIGLOBE「各地のフリーきっぷ」の地域索引を地方きっぷの候補発見に使いますが、最終的な根拠にはしません。各項目を運行会社の正確な商品ページと照合し、終了、期限切れ、根拠不足、日付不明、リンク異常の記録を除外します。', open: '確認済み一覧を開く', discoveryLink: '発見元を見る', updateTitle: '更新頻度', update: '発売期間、公式情報、リンク状態を毎日自動確認します。期限切れや品質問題は自動で非公開にし、新規・変更・修復済み記録はローカル管理画面で承認後に公開します。', sourcesTitle: '主な一次情報源', warning: '支払い前に、リンク先の公式または提携サイトで価格、利用資格、払い戻し条件、利用できる列車を必ず再確認してください。' },
+} satisfies Record<SupportedLocale, { eyebrow: string; title: string; intro: string; rulesTitle: string; rules: string[]; discoveryTitle: string; discovery: string; open: string; discoveryLink: string; updateTitle: string; update: string; sourcesTitle: string; warning: string }>;
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }) { const { lang } = await params; return buildLocalizedMetadata({ lang, path: 'data-sources', titles: { zh: '数据来源与更新方法｜FindMyJR-Pass', en: 'Data Sources and Updates | FindMyJR-Pass', ja: '情報源と更新方法｜FindMyJR-Pass' }, descriptions: { zh: '了解本站如何从运营方官网核验周游券并每日检查上下线状态。', en: 'How FindMyJR-Pass verifies passes with operator sources and checks publication status daily.', ja: '運行会社の公式情報による確認方法と、毎日の公開状態チェックについて説明します。' } }); }
 
 export default async function DataSourcesPage({ params }: { params: Promise<{ lang: string }> }) {
-  const { lang } = await params;
-  const operators = [
-    ['JR Group / JAPAN RAIL PASS', 'https://japanrailpass.net/en/'],
-    ['JR Hokkaido', 'https://www.jrhokkaido.co.jp/global/english/'],
-    ['JR East', 'https://www.jreast.co.jp/multi/en/'],
-    ['JR Central Tourist Pass', 'https://touristpass.jp/en/'],
-    ['JR West', 'https://www.westjr.co.jp/travel-information/en/'],
-    ['JR Shikoku', 'https://www.jr-shikoku.co.jp/global/en/'],
-    ['JR Kyushu', 'https://www.jrkyushu.co.jp/english/'],
-    ['Public Transportation Open Data Center', 'https://developer.odpt.org/']
-  ];
-  return <main className="min-h-screen px-4 py-16 text-slate-800">
-    <article className="mx-auto max-w-3xl rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-12">
-      <Link href={`/${lang}`} className="inline-flex items-center gap-2 text-sm font-bold text-primary"><ArrowLeft className="h-4 w-4" />返回首页</Link>
-      <p className="mt-10 text-sm font-bold uppercase tracking-[0.18em] text-primary">Data provenance</p>
-      <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-950">数据来源与更新方法</h1>
-      <p className="mt-6 text-lg leading-8 text-slate-600">本站的生产票券库仅接受运营公司、JR 集团及公共机构的一手信息。价格、有效期、适用资格和覆盖范围必须能追溯到对应官方页面。</p>
-      <div className="mt-10 space-y-7">
-        <section><h2 className="text-xl font-bold text-slate-950">核验规则</h2><ul className="mt-3 list-disc space-y-2 pl-5 leading-7 text-slate-600"><li>每条票券记录保存运营方、官方详情页和最后核验日期。</li><li>聚合站、博客和销售平台不能作为票价与规则的唯一来源。</li><li>官方信息冲突时，以运营公司日文页面和购买页为准。</li><li>计算器结果是基于已核验票价的估算，不代表实时库存或最终结算价。</li></ul></section>
-        <section><h2 className="text-xl font-bold text-slate-950">BIGLOBE 扩展目录如何使用</h2><p className="mt-3 leading-7 text-slate-600">本站另设“日本国内自由乘车券目录”，使用 BIGLOBE《各地的自由乘车券》地区索引发现地方铁路、地铁和路面电车票券。同步时排除明确标记终了及已过截止日的记录，并检查关联发行方链接。该目录不会进入计算器，也不会自动获得“官方已核验”标记。</p><div className="mt-4 flex flex-wrap gap-3"><Link href={`/${lang}/directory`} className="rounded-xl bg-primary px-4 py-3 text-sm font-bold text-white">打开扩展目录</Link><a href="https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/" target="_blank" rel="noopener noreferrer nofollow" className="inline-flex items-center gap-2 rounded-xl border border-slate-300 px-4 py-3 text-sm font-bold text-slate-700">查看发现来源<ExternalLink className="h-4 w-4" /></a></div></section>
-        <section><h2 className="text-xl font-bold text-slate-950">更新节奏</h2><p className="mt-3 leading-7 text-slate-600">高流量票券每周自动检查页面变化、每月人工复核；季节限定票在销售期前复核。发现价格或条件变更时先标记待核验，再更新推荐结果。</p></section>
-        <section><h2 className="text-xl font-bold text-slate-950">主要一手来源</h2><div className="mt-4 grid gap-3 sm:grid-cols-2">{operators.map(([name, url]) => <a key={url} href={url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold hover:border-primary"><span className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-primary" />{name}</span><ExternalLink className="h-4 w-4 text-slate-400" /></a>)}</div></section>
-      </div>
-      <p className="mt-10 rounded-xl bg-amber-50 p-4 text-sm leading-6 text-amber-900">付款前请始终在跳转后的官方或合作平台页面再次确认价格、资格、退款条件和列车覆盖范围。</p>
-    </article>
-  </main>;
+  const { lang } = await params; const locale = asLocale(lang); const t = copy[locale];
+  return <LocalizedArticlePage lang={locale} title={t.title} eyebrow={t.eyebrow} prose={false}>
+    <p className="mt-6 text-lg leading-8 text-slate-600">{t.intro}</p><div className="mt-10 space-y-7">
+      <section><h2 className="text-xl font-bold text-slate-950">{t.rulesTitle}</h2><ul className="mt-3 list-disc space-y-2 pl-5 leading-7 text-slate-600">{t.rules.map(rule => <li key={rule}>{rule}</li>)}</ul></section>
+      <section><h2 className="text-xl font-bold text-slate-950">{t.discoveryTitle}</h2><p className="mt-3 leading-7 text-slate-600">{t.discovery}</p><div className="mt-4 flex flex-wrap gap-3"><Link href={`/${locale}/directory`} className="rounded-xl bg-primary px-4 py-3 text-sm font-bold text-white">{t.open}</Link><a href="https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/" target="_blank" rel="noopener noreferrer nofollow" className="inline-flex items-center gap-2 rounded-xl border border-slate-300 px-4 py-3 text-sm font-bold text-slate-700">{t.discoveryLink}<ExternalLink className="h-4 w-4" /></a></div></section>
+      <section><h2 className="text-xl font-bold text-slate-950">{t.updateTitle}</h2><p className="mt-3 leading-7 text-slate-600">{t.update}</p></section>
+      <section><h2 className="text-xl font-bold text-slate-950">{t.sourcesTitle}</h2><div className="mt-4 grid gap-3 sm:grid-cols-2">{operators.map(([name, url]) => <a key={url} href={url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold hover:border-primary"><span className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-primary" />{name}</span><ExternalLink className="h-4 w-4 text-slate-400" /></a>)}</div></section>
+    </div><p className="mt-10 rounded-xl bg-amber-50 p-4 text-sm leading-6 text-amber-900">{t.warning}</p>
+  </LocalizedArticlePage>;
 }

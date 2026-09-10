@@ -52,10 +52,10 @@ export default async function Page({
       <CalculatorSection passes={passes} dict={dict} lang={lang} />
       <PassesSection popularPasses={popularPasses} dict={dict} lang={lang} />
       <MapSection dict={dict} lang={lang} />
-      <FeaturesSection dict={dict} />
+      <FeaturesSection dict={dict} lang={lang} />
       <CTASection dict={dict} lang={lang} />
-      <FAQSection dict={dict} />
-      <OmikujiSection dict={dict} />
+      <FAQSection dict={dict} lang={lang} />
+      <OmikujiSection dict={dict} lang={lang} />
       <FooterSection dict={dict} lang={lang} />
     </div>
   );

@@ -6,6 +6,7 @@ import type { Dictionary } from '@/i18n/dictionaries';
 
 interface OmikujiSectionProps {
   dict?: Dictionary;
+  lang?: string;
 }
 
 interface OmikujiResult {
@@ -83,7 +84,7 @@ const omikujiStyles = [
   { color: 'from-slate-400 to-gray-500', icon: <AlertTriangle className="w-6 h-6" /> }
 ];
 
-export default function OmikujiSection({ dict }: OmikujiSectionProps) {
+export default function OmikujiSection({ dict, lang = 'zh' }: OmikujiSectionProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [hasAutoOpened, setHasAutoOpened] = useState(false);
   const [isDrawing, setIsDrawing] = useState(false);
@@ -91,6 +92,12 @@ export default function OmikujiSection({ dict }: OmikujiSectionProps) {
   const [showResult, setShowResult] = useState(false);
   const [showSticks, setShowSticks] = useState(false);
   const [animationPhase, setAnimationPhase] = useState<'idle' | 'rotating' | 'revealing' | 'retracting'>('idle');
+  const locale = lang === 'en' || lang === 'ja' ? lang : 'zh';
+  const controls = {
+    zh: { close: '关闭', again: '再抽一次', done: '完成' },
+    en: { close: 'Close', again: 'Draw again', done: 'Done' },
+    ja: { close: '閉じる', again: 'もう一度引く', done: '完了' },
+  }[locale];
 
   // 当用户滚动到周游券地图 (#map) 时自动弹出
   useEffect(() => {
@@ -178,7 +185,7 @@ export default function OmikujiSection({ dict }: OmikujiSectionProps) {
             <button
               onClick={() => setIsOpen(false)}
               className="absolute top-4 right-4 z-30 w-9 h-9 flex items-center justify-center rounded-full bg-slate-100/80 hover:bg-slate-200 text-slate-500 hover:text-slate-800 transition"
-              aria-label="Close"
+              aria-label={controls.close}
             >
               <X className="w-5 h-5" />
             </button>
@@ -311,13 +318,13 @@ export default function OmikujiSection({ dict }: OmikujiSectionProps) {
                         className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl border border-slate-200 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition"
                       >
                         <RotateCcw className="w-4 h-4" />
-                        再抽一次
+                        {controls.again}
                       </button>
                       <button
                         onClick={() => setIsOpen(false)}
                         className="px-6 py-2.5 rounded-xl btn-primary text-sm font-semibold text-white transition shadow"
                       >
-                        完成
+                        {controls.done}
                       </button>
                     </div>
                   </div>
@@ -330,4 +337,3 @@ export default function OmikujiSection({ dict }: OmikujiSectionProps) {
     </>
   );
 }
-

@@ -3,7 +3,8 @@
 import { Clock, Users, Sparkles } from "lucide-react";
 import type { Dictionary } from '@/i18n/dictionaries';
 
-export default function FeaturesSection({ dict }: { dict?: Dictionary }) {
+export default function FeaturesSection({ dict, lang = 'zh' }: { dict?: Dictionary; lang?: string }) {
+  const eyebrow = lang === 'en' ? 'Why choose us' : lang === 'ja' ? '選ばれる理由' : '为什么选择我们';
   const defaultFeatures = [
     {
       icon: <Sparkles className="w-6 h-6 text-primary" />,
@@ -46,7 +47,7 @@ export default function FeaturesSection({ dict }: { dict?: Dictionary }) {
         <div className="text-center mb-16">
           <div className="mb-4">
                         <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
-              Why Choose Us
+              {eyebrow}
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">

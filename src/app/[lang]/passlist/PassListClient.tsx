@@ -2,21 +2,15 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
-import { useSearchParams, useRouter, usePathname } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import {
-  Filter,
   Search,
-  ShieldCheck,
-  X,
-  Database,
-  CalendarClock,
   ArrowRight,
-  ExternalLink,
-  ShieldQuestion
 } from 'lucide-react';
 import NavigationSection from '@/components/sections/NavigationSection';
 import FooterSection from '@/components/sections/FooterSection';
 import PassCard from '@/components/PassCard';
+import { createPassCatalog, getCatalogKey } from '@/lib/passCatalog';
 import AffiliateOffer from '@/components/AffiliateOffer';
 import AdSlot from '@/components/AdSlot';
 import { JRPass } from '@/types/pass';
@@ -27,11 +21,11 @@ import {
   type DomesticDirectoryPass,
   type DomesticPassCategory,
 } from '@/data/domesticPassDirectory';
-import { resolveDirectoryOfficialSource } from '@/data/directoryOfficialSourceOverrides';
 import {
   DIRECTORY_PASS_CATEGORY_ORDER,
   getDirectoryPassCategoryLabel,
 } from '@/lib/directoryPassCategories';
+import { getRegionLabel } from '@/lib/regionLabels';
 
 interface PassListClientProps {
   passes: JRPass[];
@@ -39,7 +33,6 @@ interface PassListClientProps {
   dict: Dictionary;
 }
 
-const verifiedRegions = ['北海道', '東北', '関東', '東海', '北信越', '近畿', '中国', '四国', '九州'];
 const directoryRegions = ['全国', '北海道', '東北', '関東', '東海', '北信越', '近畿', '中国', '四国', '九州'];
 const DIRECTORY_PAGE_SIZE = 9;
 
@@ -49,7 +42,7 @@ const copy = {
     tabVerified: '已核验周游券',
     tabVerifiedSub: 'JR 及主要区域通票',
     tabDirectory: '地方券与一日券目录',
-    tabDirectorySub: '全日本地方铁路 500+ 张',
+    tabDirectorySub: '仅显示官网精确产品页',
 
     // Verified Tab
     title: '已核验的日本铁路周游券',
@@ -67,8 +60,8 @@ const copy = {
 
     // Directory Tab
     dirEyebrow: '日本国内自由乘车券扩展目录',
-    dirTitle: '不只 JR Pass，还有 {count} 张地方铁路券',
-    dirDesc: '从公开目录发现地方铁路券，排除明确终了及已过截止日的记录。点击卡片或右侧按钮查看本站详情，左侧按钮可前往运营方官网确认。',
+    dirTitle: '不只 JR Pass，还有 {count} 张已核验地方铁路券',
+    dirDesc: '仅显示可追溯到运营方官网精确产品页、销售日期明确且链接正常的地方券。点击卡片或右侧按钮查看本站详情，左侧按钮前往官网。',
     dirSource: '查看本站数据说明',
     dirSearch: '搜索券名、运营公司、价格或地区',
     dirCategoryTitle: '按交通类型查找',
@@ -90,16 +83,17 @@ const copy = {
     load: '显示更多地方券',
     shown: '已显示',
     of: '共',
-    qualityTitle: '为什么与“官方已核验票券”分开？',
-    qualityBody: '地方券信息先在本站统一整理，再用运营方页面做来源校正。详情页会标明来源级别；只有价格、资格与覆盖范围完成运营方复核后，才会进入上方的核心比较器。',
+    qualityTitle: '地方券的显示标准',
+    qualityBody: '只有官网精确产品页、来源核验通过、销售日期明确且链接正常的地方券才会显示。其他记录会在管理端隐藏，修复并经人工确认后才能重新上线。',
     switchTabPrompt: '想查找更多地方铁路、地下铁、一日券？',
-    switchTabBtn: '切换至 500+ 地方券目录',
+    switchTabBtn: '浏览已核验地方券目录',
+    snapshot: '数据快照',
   },
   en: {
     tabVerified: 'Verified Passes',
     tabVerifiedSub: 'JR & Major Regional Passes',
     tabDirectory: 'Local Pass Directory',
-    tabDirectorySub: '500+ Regional & Day Passes',
+    tabDirectorySub: 'Exact official product pages only',
 
     title: 'Verified Japan Rail Passes',
     desc: 'Only passes traceable to JR Group or operator pages. Prices and rules can change; always confirm before payment.',
@@ -115,8 +109,8 @@ const copy = {
     verified: 'Operator sources · Verification dates shown',
 
     dirEyebrow: 'Japan domestic free-pass directory',
-    dirTitle: '{count} local passes beyond the major JR passes',
-    dirDesc: 'Local passes are discovered from public indexes, excluding entries marked ended or past their dated end. Open the on-site detail from the card or right button, or use the left button to confirm on the operator website.',
+    dirTitle: '{count} verified local passes beyond the major JR passes',
+    dirDesc: 'Only local passes with an exact operator product page, verified source, clear sales dates and a working link are shown. Open the on-site detail from the card or right button; the left button opens the operator site.',
     dirSource: 'Read our data notes',
     dirSearch: 'Search pass, operator, price or region',
     dirCategoryTitle: 'Browse by transport type',
@@ -138,16 +132,17 @@ const copy = {
     load: 'Show more passes',
     shown: 'Showing',
     of: 'of',
-    qualityTitle: 'Why is this separate from verified passes?',
-    qualityBody: 'Local-pass records are normalized here and checked against operator pages. Each detail page shows its source level; a pass enters the core comparison tool only after price, eligibility and coverage have been verified.',
+    qualityTitle: 'Local-pass publication standard',
+    qualityBody: 'A local pass is displayed only when its exact official product page, source, sales dates and link have been verified. Other records stay hidden until corrected and manually approved.',
     switchTabPrompt: 'Looking for regional railways, subways or 1-day passes?',
-    switchTabBtn: 'Browse 500+ Local Passes Directory',
+    switchTabBtn: 'Browse Verified Local Passes',
+    snapshot: 'Data snapshot',
   },
   ja: {
     tabVerified: '確認済み周遊パス',
     tabVerifiedSub: 'JR・主要フリーパス',
     tabDirectory: '地方きっぷ一覧',
-    tabDirectorySub: '全国 500件以上のフリーきっぷ',
+    tabDirectorySub: '公式の商品ページ確認済みのみ',
 
     title: '確認済みの日本の鉄道パス',
     desc: 'JR グループまたは運行会社の一次ページに遡れるパスのみ掲載。料金・条件は変わるため購入前に再確認してください。',
@@ -163,8 +158,8 @@ const copy = {
     verified: '運行会社情報 · 確認日を表示',
 
     dirEyebrow: '国内フリーきっぷ一覧',
-    dirTitle: '主要な JR パス以外の地方きっぷ {count} 件',
-    dirDesc: '公開一覧から地方きっぷを抽出し、「終了」表記または期日超過のものを除外しました。カードまたは右ボタンでサイト内詳細、左ボタンで事業者公式サイトを確認できます。',
+    dirTitle: '主要な JR パス以外の確認済み地方きっぷ {count} 件',
+    dirDesc: '事業者公式の商品ページ、出典、発売日、リンクを確認できた地方きっぷだけを掲載します。カードまたは右ボタンでサイト内詳細、左ボタンで公式サイトを確認できます。',
     dirSource: 'データ方針を見る',
     dirSearch: 'きっぷ名・事業者・料金・地域を検索',
     dirCategoryTitle: '交通タイプから探す',
@@ -186,32 +181,23 @@ const copy = {
     load: 'さらに表示',
     shown: '表示中',
     of: '/',
-    qualityTitle: '確認済みパスと分けている理由',
-    qualityBody: '地方きっぷ情報を当サイトで統一し、事業者ページで出典を補正します。詳細ページには出典レベルを表示し、料金・利用資格・範囲を確認できたものだけを主要比較ツールに掲載します。',
+    qualityTitle: '地方きっぷの掲載基準',
+    qualityBody: '公式の商品ページ、出典、発売日、リンクを確認できた地方きっぷだけを表示します。その他は管理側で非表示にし、修正と承認後に掲載します。',
     switchTabPrompt: '地方私鉄や地下鉄の一日乗車券をお探しですか？',
-    switchTabBtn: '地方きっぷ 500件一覧を見る',
+    switchTabBtn: '確認済み地方きっぷを見る',
+    snapshot: 'データ更新日',
   },
 };
 
 type StatusFilter = 'all' | DomesticDirectoryPass['status'];
 type DirectoryCategoryFilter = 'all' | DomesticPassCategory;
 
-const DIRECTORY_CATEGORY_COUNTS = DOMESTIC_DIRECTORY_PASSES.reduce<Record<DomesticPassCategory, number>>(
-  (counts, pass) => {
-    counts[pass.category] += 1;
-    return counts;
-  },
-  { national: 0, regional: 0, city: 0, bus: 0, private: 0, special: 0 },
-);
-
 export default function PassListClient({ passes, lang, dict }: PassListClientProps) {
   const t = copy[lang as keyof typeof copy] || copy.zh;
   const searchParams = useSearchParams();
-  const router = useRouter();
-  const pathname = usePathname();
 
   // Unified list of passes
-  const allPasses = useMemo(() => [...passes, ...DOMESTIC_DIRECTORY_PASSES], [passes]);
+  const allPasses = useMemo(() => createPassCatalog(passes, DOMESTIC_DIRECTORY_PASSES), [passes]);
 
   // Unified filters
   const [query, setQuery] = useState('');
@@ -283,8 +269,6 @@ export default function PassListClient({ passes, lang, dict }: PassListClientPro
     setVisibleCount(DIRECTORY_PAGE_SIZE);
   };
   
-  const statusLabel = (value: DomesticDirectoryPass['status']) => value === 'on-sale' ? t.onSale : value === 'scheduled' ? t.scheduled : t.review;
-  
   // Combine counts for category tabs
   const combinedCategoryCounts = useMemo(() => {
     const counts = { national: 0, regional: 0, city: 0, bus: 0, private: 0, special: 0 } as Record<DomesticPassCategory, number>;
@@ -308,7 +292,7 @@ export default function PassListClient({ passes, lang, dict }: PassListClientPro
             <p className="mt-5 max-w-3xl text-base sm:text-lg leading-7 text-slate-600">{t.desc}</p>
           </div>
           <div className="rounded-2xl border border-emerald-200 bg-primary-dark p-5 text-emerald-50 shadow-md">
-            <p className="text-xs font-bold uppercase tracking-[0.14em] text-emerald-300">Data Snapshot</p>
+            <p className="text-xs font-bold uppercase tracking-[0.14em] text-emerald-300">{t.snapshot}</p>
             <p className="mt-2 text-2xl font-bold">{DOMESTIC_DIRECTORY_SNAPSHOT_DATE}</p>
             <Link
               href={`/${lang}/data-sources`}
@@ -370,7 +354,7 @@ export default function PassListClient({ passes, lang, dict }: PassListClientPro
               className="field-select max-w-52"
             >
               <option value="all">{t.allRegions}</option>
-              {directoryRegions.map(value => <option key={value} value={value}>{value}</option>)}
+              {directoryRegions.map(value => <option key={value} value={value}>{getRegionLabel(value, lang)}</option>)}
             </select>
             <select
               value={status}
@@ -392,7 +376,7 @@ export default function PassListClient({ passes, lang, dict }: PassListClientPro
         {filteredPasses.length ? (
           <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {visiblePasses.map(pass => (
-              <PassCard key={pass.id} pass={pass} dict={dict} lang={lang} />
+              <PassCard key={getCatalogKey(pass)} pass={pass} dict={dict} lang={lang} />
             ))}
           </section>
         ) : (

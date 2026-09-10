@@ -7,6 +7,7 @@ import type { Dictionary } from '@/i18n/dictionaries';
 
 
 export default function HeroSection({ dict, lang = 'zh' }: { dict: Dictionary, lang?: string }) {
+  const assistantLabel = lang === 'en' ? 'Japan Rail Pass Assistant' : lang === 'ja' ? '日本の鉄道パス案内' : '日本铁路周游券助手';
 
   return (
     <section className="bg-mesh pt-28 pb-20 lg:pt-36 lg:pb-28 relative overflow-hidden">
@@ -17,7 +18,7 @@ export default function HeroSection({ dict, lang = 'zh' }: { dict: Dictionary, l
           <div className="flex-1 text-center lg:text-left">
             <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
               <Sparkles className="w-4 h-4" />
-              <span>Japan Rail Pass Assistant</span>
+              <span>{assistantLabel}</span>
             </div>
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-6 leading-tight whitespace-pre-line">

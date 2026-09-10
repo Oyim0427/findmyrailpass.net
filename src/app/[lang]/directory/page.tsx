@@ -29,7 +29,7 @@ export default async function DirectoryPage({ params }: { params: Promise<{ lang
 
   return (
     <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-transparent text-gray-900">Loading...</div>}>
-      <PassListClient passes={passes} lang={lang} dict={dict} initialTab="directory" />
+      <PassListClient passes={passes} lang={lang} dict={dict} />
     </Suspense>
   );
 }

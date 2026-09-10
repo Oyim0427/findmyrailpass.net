@@ -1,0 +1,4287 @@
+{
+  "generatedAt": "2026-09-09T07:31:47.905Z",
+  "snapshotDate": "2026-09-09",
+  "counts": {
+    "activeCandidates": 376,
+    "published": 376,
+    "pendingApproval": 0,
+    "autoOffline": 190,
+    "hiddenByQuality": 191,
+    "revokedApprovals": 198
+  },
+  "pendingApproval": [],
+  "hiddenByQuality": [
+    {
+      "id": "sapporo23",
+      "name": "どサン子パス",
+      "company": "札幌市交通事業振興公社",
+      "region": "北海道",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.stsp.or.jp/business/streetcar/price/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "sapporo24",
+      "name": "路面電車1日乗車券",
+      "company": "札幌市交通事業振興公社",
+      "region": "北海道",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.stsp.or.jp/business/streetcar/price/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "hakodate53",
+      "name": "スマホ市電・函館バス共通１日乗車券",
+      "company": "函館市企業局交通部",
+      "region": "北海道",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.city.hakodate.hokkaido.jp/docs/2014012100977/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "hakodate54",
+      "name": "スマホ市電・函館バス共通２日乗車券",
+      "company": "函館市企業局交通部",
+      "region": "北海道",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.city.hakodate.hokkaido.jp/docs/2014012100977/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "hakodate51",
+      "name": "スマホ市電１日乗車券",
+      "company": "函館市企業局交通部",
+      "region": "北海道",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.city.hakodate.hokkaido.jp/docs/2014012100977/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "hakodate52",
+      "name": "スマホ市電２４時間乗車券",
+      "company": "函館市企業局交通部",
+      "region": "北海道",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.city.hakodate.hokkaido.jp/docs/2014012100977/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "jreast64-1",
+      "name": "津軽フリーパス",
+      "company": "ＪＲ東日本",
+      "region": "東北",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://maas-portal.com/tohoku/tickets/10230",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "abukyu05",
+      "name": "あぶ急トクだねきっぷ",
+      "company": "阿武隈急行",
+      "region": "東北",
+      "status": "needs-review",
+      "salesPeriod": "毎月9,19,29日",
+      "relatedUrl": "https://www.abukyu.co.jp/ticket/",
+      "officialSourceKind": "exact-product",
+      "issues": [
+        "sales-date-needs-review"
+      ]
+    },
+    {
+      "id": "abukyu85",
+      "name": "初恋＊れ～るとりっぷ フリー乗車券",
+      "company": "阿武隈急行",
+      "region": "東北",
+      "status": "on-sale",
+      "salesPeriod": "2024 / 12 / 1～",
+      "relatedUrl": "https://www.abukyu.co.jp/ticket/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "aizu91",
+      "name": "コロプラ☆乗り放題キップ",
+      "company": "会津鉄道",
+      "region": "東北",
+      "status": "scheduled",
+      "salesPeriod": "～2027 / 3 / 30",
+      "endDate": "2027-03-30",
+      "relatedUrl": "http://aizutetsudo.jp/ticket/koropura/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "aizu01",
+      "name": "会津・日光フリーきっぷ(若松エリア)",
+      "company": "会津鉄道",
+      "region": "東北",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.aizutetsudo.jp/ticket/aizu-nikko-free/",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "aizu02",
+      "name": "会津・日光フリーきっぷ(南会津エリア)",
+      "company": "会津鉄道",
+      "region": "東北",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.aizutetsudo.jp/ticket/aizu-nikko-free/",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "sanriku13",
+      "name": "１日フリー乗車券(釜石～宮古間用)",
+      "company": "三陸鉄道",
+      "region": "東北",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.sanrikutetsudou.com/%E3%81%8A%E5%BE%97%E3%81%8D%E3%81%A3%E3%81%B7%E6%83%85%E5%A0%B1/%E4%BC%81%E7%94%BB%E4%B9%97%E8%BB%8A%E5%88%B8/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "sanriku14",
+      "name": "１日フリー乗車券(宮古～久慈間用)",
+      "company": "三陸鉄道",
+      "region": "東北",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.sanrikutetsudou.com/%E3%81%8A%E5%BE%97%E3%81%8D%E3%81%A3%E3%81%B7%E6%83%85%E5%A0%B1/%E4%BC%81%E7%94%BB%E4%B9%97%E8%BB%8A%E5%88%B8/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "sanriku12",
+      "name": "１日フリー乗車券(盛～釜石間用)",
+      "company": "三陸鉄道",
+      "region": "東北",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.sanrikutetsudou.com/%E3%81%8A%E5%BE%97%E3%81%8D%E3%81%A3%E3%81%B7%E6%83%85%E5%A0%B1/%E4%BC%81%E7%94%BB%E4%B9%97%E8%BB%8A%E5%88%B8/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "sanriku11",
+      "name": "リアス線全線フリー乗車券",
+      "company": "三陸鉄道",
+      "region": "東北",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.sanrikutetsudou.com/%E3%81%8A%E5%BE%97%E3%81%8D%E3%81%A3%E3%81%B7%E6%83%85%E5%A0%B1/%E4%BC%81%E7%94%BB%E4%B9%97%E8%BB%8A%E5%88%B8/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "sanriku23",
+      "name": "中高生1日フリー乗車券(釜石～宮古間用)",
+      "company": "三陸鉄道",
+      "region": "東北",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.sanrikutetsudou.com/%E3%81%8A%E5%BE%97%E3%81%8D%E3%81%A3%E3%81%B7%E6%83%85%E5%A0%B1/%E4%BC%81%E7%94%BB%E4%B9%97%E8%BB%8A%E5%88%B8/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "sanriku22",
+      "name": "中高生1日フリー乗車券(盛～釜石間用)",
+      "company": "三陸鉄道",
+      "region": "東北",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.sanrikutetsudou.com/%E3%81%8A%E5%BE%97%E3%81%8D%E3%81%A3%E3%81%B7%E6%83%85%E5%A0%B1/%E4%BC%81%E7%94%BB%E4%B9%97%E8%BB%8A%E5%88%B8/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "flower01",
+      "name": "土休日フリーきっぷ",
+      "company": "山形鉄道",
+      "region": "東北",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://flower-liner.jp/ticket/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "isumi02",
+      "name": "いすみ鉄道一日フリー乗車券(土休日用)",
+      "company": "いすみ鉄道",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://isumirail.co.jp/tickets",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "isumi01",
+      "name": "いすみ鉄道一日フリー乗車券(平日用)",
+      "company": "いすみ鉄道",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://isumirail.co.jp/tickets",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "minatosen91",
+      "name": "コロプラ1日フリー乗車券",
+      "company": "ひたちなか海浜鉄道",
+      "region": "関東",
+      "status": "scheduled",
+      "salesPeriod": "～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "http://www.hitachinaka-rail.co.jp/gain",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "minatosen11",
+      "name": "湊線１日フリーきっぷ",
+      "company": "ひたちなか海浜鉄道",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.hitachinaka-rail.co.jp/gain",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "yurikamome12",
+      "name": "【ゆりかもめEnjoy Pass】ゆりかもめ24時間券",
+      "company": "ゆりかもめ",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.yurikamome.co.jp/ticket/digital-ticket.html",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "yurikamome11",
+      "name": "【ゆりかもめEnjoy Pass】ゆりかもめ一日乗車券",
+      "company": "ゆりかもめ",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://ars-yurikamome.triplabo.jp/activity/ja/LINKTIVITY-XUW91",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "yurikamome13",
+      "name": "【ゆりかもめEnjoy Pass】ゆりかもめ一日乗車券＋Tokyo Subway Ticket（24時間券）",
+      "company": "ゆりかもめ",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://ars-yurikamome.triplabo.jp/home",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "yurikamome03",
+      "name": "ゆりかもめ24時間券",
+      "company": "ゆりかもめ",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.yurikamome.co.jp/ticket/coupon.html?type=24hour",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "watarase01",
+      "name": "一日フリーきっぷ",
+      "company": "わたらせ渓谷鉄道",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.watetsu.com/otoku.html",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "daiyuzan91",
+      "name": "コロプラ☆大雄山線一日フリーきっぷ",
+      "company": "伊豆箱根鉄道",
+      "region": "関東",
+      "status": "scheduled",
+      "salesPeriod": "～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://www.izuhakone.co.jp/sunzudaiyu/sunzudaiyu-news/p000453.html",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "utsunomiya01",
+      "name": "ライトライン一日乗車券",
+      "company": "宇都宮ライトレール",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.miyarail.co.jp/userguide-ticket-info",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "seaside01",
+      "name": "全線１日乗車券",
+      "company": "横浜シーサイドライン",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.seasideline.co.jp/fare_ticket/about_ticket/index.html",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "yokohama12",
+      "name": "バス・地下鉄１日乗車券",
+      "company": "横浜市交通局",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.city.yokohama.lg.jp/kotsu/bus/unchin/ichinichi.html",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "kantetu02",
+      "name": "常総線・真岡鐵道共通一日自由きっぷ",
+      "company": "関東鉄道",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.kantetsu.co.jp/train/special-ticket",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "kantetu94",
+      "name": "竜鉄コロッケ★フリーきっぷ",
+      "company": "関東鉄道",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.kantetsu.co.jp/train/special-ticket",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "srail92",
+      "name": "ＳＲ一日乗車券",
+      "company": "埼玉高速鉄道",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.s-rail.co.jp/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "saitama50",
+      "name": "ニューシャトル １日フリー乗車券",
+      "company": "埼玉新都市交通",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.new-shuttle.jp/ticket/howto_use/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "yamaman01",
+      "name": "１日乗車券",
+      "company": "山万",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://town.yukarigaoka.jp/yukariline/fare/",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "kominato01",
+      "name": "1日フリーきっぷ",
+      "company": "小湊鉄道",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.kominato.co.jp/ticket/deal/#one-day-free-pass",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "syonan01",
+      "name": "湘南モノレール一日フリーきっぷ",
+      "company": "湘南モノレール",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.shonan-monorail.co.jp/freeticket/oneday.html",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "joshin11",
+      "name": "1日全線フリー乗車券",
+      "company": "上信電鉄",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.joshin-dentetsu.co.jp/ticket/1289/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "joshin12",
+      "name": "上野三碑巡り記念乗車券",
+      "company": "上信電鉄",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.joshin-dentetsu.co.jp/ticket/1154/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "seibu123",
+      "name": "栗山巧 Legend History 1DayPass 第一弾「デビューの奇跡」",
+      "company": "西武鉄道",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 4 / 28 / ～9 / 30",
+      "endDate": "2026-09-30",
+      "relatedUrl": "https://www.seiburailway.jp/railway/ticket/L1pass/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "seibu124",
+      "name": "栗山巧 Legend History 1DayPass 第二弾「キャプテンの証」",
+      "company": "西武鉄道",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 6 / 26 / ～9 / 30",
+      "endDate": "2026-09-30",
+      "relatedUrl": "https://www.seiburailway.jp/railway/ticket/L1pass/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "seibu121",
+      "name": "西武園ゆうえんち プールトクトクパス",
+      "company": "西武鉄道",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 6 / 27 / ～9 / 23",
+      "endDate": "2026-09-23",
+      "relatedUrl": "https://www.seiburailway.jp/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "sotetsutokyu01",
+      "name": "相鉄・東急 共通1日乗車券",
+      "company": "相模鉄道",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.sotetsu.co.jp/train/tickets/tour/",
+      "officialSourceKind": "exact-product",
+      "issues": [
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "tyoshi11",
+      "name": "デジタル1日乗車券 Beica",
+      "company": "銚子電鉄",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.choshi-dentetsu.jp/pass/",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "monorail01",
+      "name": "東京モノレール沿線お散歩1dayパス",
+      "company": "東京モノレール",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.tokyo-monorail.co.jp/tickets/value/ensenosanpo.html",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "tokyu03",
+      "name": "横浜中華街旅グルメきっぷ",
+      "company": "東京急行電鉄",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.tokyu.co.jp/railway/ticket/types/value_ticket/tabigurume_ticket.html",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "toei03",
+      "name": "都営まるごときっぷ",
+      "company": "東京都交通局",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.kotsu.metro.tokyo.jp/subway/fare/otoku_metro.html",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "tokyo02",
+      "name": "都営地下鉄・東京メトロ共通一日乗車券",
+      "company": "東京都交通局",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.kotsu.metro.tokyo.jp/subway/fare/otoku_metro_1day.html",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "toei02",
+      "name": "都電一日乗車券 / 都電IC一日乗車券",
+      "company": "東京都交通局",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.kotsu.metro.tokyo.jp/toden/fare/otoku_toden_oneday.html",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "rinkai91",
+      "name": "コミックマーケット108 記念1日乗車券",
+      "company": "東京臨海高速鉄道",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 7 / 31 / ～12 / 31",
+      "endDate": "2026-12-31",
+      "relatedUrl": "https://www.twr.co.jp/tabid/101/Default.aspx?itemid=1119&dispmid=860",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "tobu03",
+      "name": "台東・墨田 東京下町周遊きっぷ",
+      "company": "東武鉄道",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.tobu.co.jp/odekake/ticket/tokyo-shitamachi/taito-sumida.html",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "tobu02",
+      "name": "東京スカイツリー周辺散策フリーきっぷ",
+      "company": "東武鉄道",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.tobu.co.jp/odekake/ticket/skytree-line/sky-tree.html",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "maihama01",
+      "name": "４日フリーきっぷ",
+      "company": "舞浜リゾートライン",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.tokyodisneyresort.jp/tdr/resortline/fare/",
+      "officialSourceKind": "exact-product",
+      "issues": [
+        "source-link-broken"
+      ]
+    },
+    {
+      "id": "yagan13",
+      "name": "塩原温泉・野岩鉄道満喫切符",
+      "company": "野岩鉄道",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.yagan.co.jp/ticket/shiobara-yagan-mankitsu/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "yagan11",
+      "name": "野岩鉄道会津鬼怒川線全線フリーきっぷ",
+      "company": "野岩鉄道",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.yagan.co.jp/ticket/yagan-free/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "jrtokai08",
+      "name": "ＪＲ東海＆17 私鉄 乗り鉄☆たびきっぷ",
+      "company": "ＪＲ東海",
+      "region": "東海",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://jr-central.co.jp/news/release/_pdf/000044876.pdf",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "jrtokai85",
+      "name": "ふじのくに家康公きっぷ【西部エリア】",
+      "company": "ＪＲ東海",
+      "region": "東海",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://railway.jr-central.co.jp/tickets/fujinokuni-ieyasukou/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "jrtokai84",
+      "name": "ふじのくに家康公きっぷ【中部エリア】",
+      "company": "ＪＲ東海",
+      "region": "東海",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://railway.jr-central.co.jp/tickets/fujinokuni-ieyasukou/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "jrtokai83",
+      "name": "ふじのくに家康公きっぷ【東部エリア】",
+      "company": "ＪＲ東海",
+      "region": "東海",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://railway.jr-central.co.jp/tickets/fujinokuni-ieyasukou/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "jrtokai06",
+      "name": "富士山満喫きっぷ(静岡中部)",
+      "company": "ＪＲ東海",
+      "region": "東海",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://railway.jr-central.co.jp/tickets/mtfuji-enjoypass/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "jrtokai07",
+      "name": "富士山満喫きっぷ(静岡東部)",
+      "company": "ＪＲ東海",
+      "region": "東海",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://railway.jr-central.co.jp/tickets/mtfuji-enjoypass/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "sunzu91",
+      "name": "コロプラ☆駿豆線一日フリーきっぷ",
+      "company": "伊豆箱根鉄道",
+      "region": "東海",
+      "status": "scheduled",
+      "salesPeriod": "～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://www.izuhakone.co.jp/sunzudaiyu/sunzudaiyu-news/p000453.html",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "sunzu85",
+      "name": "駿豆線１日乗り放題乗車券 Aqours旅助け",
+      "company": "伊豆箱根鉄道",
+      "region": "東海",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 7 / 3 / ～2027 / 6 / 30",
+      "endDate": "2027-06-30",
+      "relatedUrl": "https://www.izuhakone.co.jp/izu-group/izu-news/p010912_d/fil/railway_news_20260626_02.pdf",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "sunzu01",
+      "name": "駿豆線一日乗り放題乗車券・旅助け",
+      "company": "伊豆箱根鉄道",
+      "region": "東海",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.izuhakone.co.jp/sunzudaiyu/zunzu_sub_nav/sunzudaiyu-ticket/p000467.html",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "entetu02",
+      "name": "あかでん1 日フリーきっぷ",
+      "company": "遠州鉄道",
+      "region": "東海",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.entetsu.co.jp/tetsudou/guide/discount.html",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "entetu01",
+      "name": "遠鉄ぶらりきっぷ",
+      "company": "遠州鉄道",
+      "region": "東海",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.entetsu.co.jp/tetsudou/guide/discount.html",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "tenhama11",
+      "name": "遠鉄電車・天浜線共通1日フリーきっぷ(西ルート)",
+      "company": "遠州鉄道",
+      "region": "東海",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.entetsu.co.jp/tetsudou/guide/discount.html",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "tenhama12",
+      "name": "遠鉄電車・天浜線共通1日フリーきっぷ(東ルート)",
+      "company": "遠州鉄道",
+      "region": "東海",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.entetsu.co.jp/tetsudou/guide/discount.html",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "gakunan02",
+      "name": "春・夏・冬休みこどもフリーパス",
+      "company": "岳南鉄道",
+      "region": "東海",
+      "status": "needs-review",
+      "salesPeriod": "春休み / 夏休み / 冬休み",
+      "relatedUrl": "https://www.gakutetsu.jp/couponpass/index.html",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "sales-date-needs-review",
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "toyotetu02",
+      "name": "1DAY FREE PASS",
+      "company": "豊橋鉄道",
+      "region": "東海",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.toyotetsu.com/stay/ticket.html",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "toyotetu01",
+      "name": "渥美線１日フリー乗車券",
+      "company": "豊橋鉄道",
+      "region": "東海",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.toyotetsu.com/stay/ticket.html",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "toyotetu05",
+      "name": "伊良湖１ＤＡＹフリーきっぷ",
+      "company": "豊橋鉄道",
+      "region": "東海",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.toyotetsu.com/stay/ticket.html",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "toyotetu06",
+      "name": "伊良湖２ＤＡＹフリーきっぷ",
+      "company": "豊橋鉄道",
+      "region": "東海",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.toyotetsu.com/stay/ticket.html",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "guideway91",
+      "name": "モバイルホリデー１日乗車券",
+      "company": "名古屋ガイドウェイバス",
+      "region": "東海",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.guideway.co.jp/fare/pdf/mobileholiday.pdf",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "nagoya105",
+      "name": "アジアパラ競技大会開催記念バス・地下鉄全線一日乗車券",
+      "company": "名古屋市交通局",
+      "region": "東海",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 8 / 10～",
+      "relatedUrl": "https://www.kotsu.city.nagoya.jp/jp/pc/ENJOY/TRP0005300.htm",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "nagoya104",
+      "name": "アジア競技大会開催記念バス・地下鉄全線一日乗車券",
+      "company": "名古屋市交通局",
+      "region": "東海",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 8 / 10～",
+      "relatedUrl": "https://www.kotsu.city.nagoya.jp/jp/pc/ENJOY/TRP0005300.htm",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "nagoya02",
+      "name": "ドニチエコきっぷ",
+      "company": "名古屋市交通局",
+      "region": "東海",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.kotsu.city.nagoya.jp/jp/pc/TICKET/TRP0000310.htm",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "nagoya12",
+      "name": "バス・地下鉄全線一日乗車券",
+      "company": "名古屋市交通局",
+      "region": "東海",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.kotsu.city.nagoya.jp/jp/pc/TICKET/TRP0000310.htm",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "nagoya01",
+      "name": "地下鉄全線24時間券",
+      "company": "名古屋市交通局",
+      "region": "東海",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.kotsu.city.nagoya.jp/jp/pc/TICKET/TRP0000310.htm",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "meitetu101",
+      "name": "中日ドラゴンズ コラボフリーきっぷ",
+      "company": "名古屋鉄道",
+      "region": "東海",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 7 / 13 / ～9 / 30",
+      "endDate": "2026-09-30",
+      "relatedUrl": "https://www.meitetsu.co.jp/profile/news/2026/__icsFiles/afieldfile/2026/07/02/26-07-02dragons.pdf",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "meitetu94",
+      "name": "謎解きゲーム1DAYフリーきっぷ",
+      "company": "名古屋鉄道",
+      "region": "東海",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 3 / 27 / ～12 / 13",
+      "endDate": "2026-12-13",
+      "relatedUrl": "https://www.meitetsu.co.jp/plan/gourmet/detail/1287949_8036.html",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "akechi87",
+      "name": "「VIVANT」オリジナルフリー切符",
+      "company": "明知鉄道",
+      "region": "東海",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 7 / 18～",
+      "relatedUrl": "https://www.aketetsu.co.jp/news/tbs%e3%83%86%e3%83%ac%e3%83%93%e6%97%a5%e6%9b%9c%e5%8a%87%e5%a0%b4%e3%80%8cvivant%e3%80%8d%e3%83%a9%e3%83%83%e3%83%94%e3%83%b3%e3%82%b0%e5%88%97%e8%bb%8a%e3%81%a8%e3%83%95%e3%83%aa%e3%83%bc%e5%88%87/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "akechi03",
+      "name": "あけてつ全線フリー切符",
+      "company": "明知鉄道",
+      "region": "東海",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.aketetsu.co.jp/ticket/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "akechi91",
+      "name": "くり切符",
+      "company": "明知鉄道",
+      "region": "東海",
+      "status": "needs-review",
+      "salesPeriod": "10～11月",
+      "relatedUrl": "https://www.aketetsu.co.jp/ticket/",
+      "officialSourceKind": "exact-product",
+      "issues": [
+        "sales-date-needs-review"
+      ]
+    },
+    {
+      "id": "akechi99",
+      "name": "明知鉄道うちわ切符",
+      "company": "明知鉄道",
+      "region": "東海",
+      "status": "needs-review",
+      "salesPeriod": "7～9月",
+      "relatedUrl": "https://www.aketetsu.co.jp/ticket/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "sales-date-needs-review",
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "yoro11",
+      "name": "養老線フリーきっぷ",
+      "company": "養老鉄道",
+      "region": "東海",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.yororailway.co.jp/ticket/valueticket/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "ishikawa02",
+      "name": "IRいしかわ(金沢・大聖寺)１日フリーきっぷ",
+      "company": "IRいしかわ鉄道",
+      "region": "北信越",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.ishikawa-railway.jp/ticket/ticket_plan/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "ishikawa11",
+      "name": "子育て応援・金沢スマイルきっぷ",
+      "company": "IRいしかわ鉄道",
+      "region": "北信越",
+      "status": "on-sale",
+      "salesPeriod": "2025 / 7 / 11 / ～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://www.ishikawa-railway.jp/ticket/ticket_plan/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "ishikawa14",
+      "name": "子育て応援・全線スマイルきっぷ",
+      "company": "IRいしかわ鉄道",
+      "region": "北信越",
+      "status": "on-sale",
+      "salesPeriod": "2025 / 7 / 11 / ～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://www.ishikawa-railway.jp/ticket/ticket_plan/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "ishikawa13",
+      "name": "子育て応援・南加賀スマイルきっぷ",
+      "company": "IRいしかわ鉄道",
+      "region": "北信越",
+      "status": "on-sale",
+      "salesPeriod": "2025 / 7 / 11 / ～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://www.ishikawa-railway.jp/ticket/ticket_plan/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "ishikawa12",
+      "name": "子育て応援・白山スマイルきっぷ",
+      "company": "IRいしかわ鉄道",
+      "region": "北信越",
+      "status": "on-sale",
+      "salesPeriod": "2025 / 7 / 11 / ～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://www.ishikawa-railway.jp/ticket/ticket_plan/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "etizen03",
+      "name": "えちぜん鉄道１日フリーきっぷ(恐竜博物館セット券)",
+      "company": "えちぜん鉄道",
+      "region": "北信越",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.echizen-tetudo.co.jp/fare/special.html",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "noto02",
+      "name": "奥能登まるごとフリーきっぷ",
+      "company": "のと鉄道",
+      "region": "北信越",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://nototetsu.jp/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "ueda02",
+      "name": "1日まるまるフリーきっぷ",
+      "company": "上田電鉄",
+      "region": "北信越",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.uedadentetsu.com/news/post-2961.html",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "titetu94",
+      "name": "宇奈月満喫きっぷ(魚津・黒部版)",
+      "company": "富山地方鉄道",
+      "region": "北信越",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.chitetsu.co.jp/?p=64673",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "titetu93",
+      "name": "宇奈月満喫きっぷ(全線版)",
+      "company": "富山地方鉄道",
+      "region": "北信越",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.chitetsu.co.jp/?p=64673",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "etizenfukui01",
+      "name": "福井鐵道・えちぜん鉄道共通１日フリーきっぷ",
+      "company": "福井鉄道",
+      "region": "北信越",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.echizen-tetudo.co.jp/fare/special.html",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "hokuhoku01",
+      "name": "ほくほくワンデーパス",
+      "company": "北越急行",
+      "region": "北信越",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://hokuhoku.co.jp/pdf/oneday.pdf",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "hokuriku01",
+      "name": "石川線・浅野川線共通一日フリー乗車券",
+      "company": "北陸鉄道",
+      "region": "北信越",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.hokutetsu.co.jp/ticket/train-free/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "hokuriku04",
+      "name": "石川線土日祝限定1日フリーエコきっぷ",
+      "company": "北陸鉄道",
+      "region": "北信越",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.hokutetsu.co.jp/ticket/free-eco/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "hokuriku92",
+      "name": "石川線平日限定シルバー1日フリーエコきっぷ",
+      "company": "北陸鉄道",
+      "region": "北信越",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.hokutetsu.co.jp/ticket/silver-free-eco/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "hokuriku03",
+      "name": "浅野川線土日祝限定1日フリーエコきっぷ",
+      "company": "北陸鉄道",
+      "region": "北信越",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.hokutetsu.co.jp/ticket/free-eco/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "hokuriku93",
+      "name": "浅野川線平日限定シルバー1日フリーエコきっぷ",
+      "company": "北陸鉄道",
+      "region": "北信越",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.hokutetsu.co.jp/ticket/silver-free-eco/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "manyo04",
+      "name": "高岡まちなか乗り放題１日フリーきっぷ",
+      "company": "万葉線",
+      "region": "北信越",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.manyosen.co.jp/timetable/profit/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "manyo05",
+      "name": "新湊グルメ＆万葉線フリーきっぷ",
+      "company": "万葉線",
+      "region": "北信越",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://toyama-city.myroute.fun/info/500/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "manyo01",
+      "name": "万葉線１日フリー乗車券",
+      "company": "万葉線",
+      "region": "北信越",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.manyosen.co.jp/timetable/profit/index.html",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "iga49",
+      "name": "【★伊賀流忍者博物館★入場券付き】伊賀鉄道一日フリー乗車券",
+      "company": "伊賀鉄道",
+      "region": "近畿",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://pass.ryde-go.com/products/Q73G1MS2GWRV",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "iga45",
+      "name": "【伊賀酒試飲コイン付き】伊賀鉄道一日フリー乗車券",
+      "company": "伊賀鉄道",
+      "region": "近畿",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://pass.ryde-go.com/products/DMW849MSJW37",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "iga44",
+      "name": "【電車型マグネット付き】伊賀鉄道一日フリー乗車券",
+      "company": "伊賀鉄道",
+      "region": "近畿",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://pass.ryde-go.com/products/EPY36LKSGZ81",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "eiden104",
+      "name": "京都八瀬にゃんにゃんきっぷ",
+      "company": "叡山電鉄",
+      "region": "近畿",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 4 / 1 / ～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://eizandensha.co.jp/mv/wp-content/uploads/sites/2/2026/02/news_20260213.pdf",
+      "officialSourceKind": "exact-product",
+      "issues": [
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "keihan88",
+      "name": "「京阪電車×響け！ユーフォニアム2026」京阪線フリーチケット",
+      "company": "京阪電気鉄道",
+      "region": "近畿",
+      "status": "scheduled",
+      "salesPeriod": "2026 / 10 / 17 / ～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://www.keihan.co.jp/euphonium/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "keihan86",
+      "name": "「京阪電車×響け！ユーフォニアム2026」大津線フリーチケット",
+      "company": "京阪電気鉄道",
+      "region": "近畿",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 9 / 1 / ～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://www.keihan.co.jp/euphonium/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "keihan104",
+      "name": "フェルメール《真珠の耳飾りの少女》展 記念乗車券",
+      "company": "京阪電気鉄道",
+      "region": "近畿",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 8 / 21 / ～12 / 30",
+      "endDate": "2026-12-30",
+      "relatedUrl": "https://www.keihan.co.jp/euphonium/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "kyoto12",
+      "name": "地下鉄・バス一日券",
+      "company": "京都市交通局",
+      "region": "近畿",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://oneday-pass.kyoto/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "hankyu103",
+      "name": "リアル謎解きゲーム ナゾときっぷ(阪急編)",
+      "company": "阪急電鉄",
+      "region": "近畿",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 3 / 16 / ～12 / 25",
+      "endDate": "2026-12-25",
+      "relatedUrl": "https://www.hankyu.co.jp/ticket/otoku/014061.html",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "hankai02",
+      "name": "TAKE TAKEきっぷ(１日乗車券)",
+      "company": "阪堺電気軌道",
+      "region": "近畿",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.hankai.co.jp/fare/ticket/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "hanshin93",
+      "name": "リアル謎解きゲーム ナゾときっぷ(阪神編)",
+      "company": "阪神電気鉄道",
+      "region": "近畿",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 3 / 16 / ～12 / 25",
+      "endDate": "2026-12-25",
+      "relatedUrl": "https://www.hanshin.co.jp/ticket/otoku/detail/005038.html",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "biwakokeihanna",
+      "name": "びわこ京阪奈線フリーキップ",
+      "company": "信楽高原鐵道",
+      "region": "近畿",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.ohmitetudo.co.jp/railway/ride/ticket/biwako-keihannna/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "shintetu81",
+      "name": "日曜限定 おでかけ4dayきっぷ",
+      "company": "神戸高速鉄道",
+      "region": "近畿",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 3 / 25 / ～2027 / 3 / 28",
+      "endDate": "2027-03-28",
+      "relatedUrl": "http://www.shintetsu.co.jp/railway/ticket/detail/4day.html",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "kobecity84",
+      "name": "海岸線中学生以下フリーパス",
+      "company": "神戸市交通局",
+      "region": "近畿",
+      "status": "scheduled",
+      "salesPeriod": "～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://kotsu.city.kobe.lg.jp/ensen-navi/bus-railway/freepass/",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "hankyu04",
+      "name": "京都・嵐山1dayパス",
+      "company": "神戸市交通局",
+      "region": "近畿",
+      "status": "scheduled",
+      "salesPeriod": "2026 / 10 / 1 / ～12 / 20",
+      "endDate": "2026-12-20",
+      "relatedUrl": "https://www.hankyu.co.jp/ticket/otoku/013931.html",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "kobecity04",
+      "name": "神戸市営地下鉄QR１日乗車券",
+      "company": "神戸市交通局",
+      "region": "近畿",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://kotsu.city.kobe.lg.jp/ensen-navi/bus-railway/kobecitysubwayqr1dayticket/",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "kobecity83",
+      "name": "兵庫津ミュージアム観覧券付き海岸線1日乗車券",
+      "company": "神戸市交通局",
+      "region": "近畿",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 4 / 1 / ～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://kotsu.city.kobe.lg.jp/ensen-navi/bus-railway/hyogonotsu-1day/",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "kobe02",
+      "name": "ポートライナー専用１日乗車券",
+      "company": "神戸新交通",
+      "region": "近畿",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.knt-liner.co.jp/ticketinfo/8166/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "kobe01",
+      "name": "共通１日乗車券",
+      "company": "神戸新交通",
+      "region": "近畿",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.knt-liner.co.jp/ticketinfo/8166/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "kobe03",
+      "name": "六甲ライナー専用１日乗車券",
+      "company": "神戸新交通",
+      "region": "近畿",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.knt-liner.co.jp/ticketinfo/8166/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "mizuma03",
+      "name": "昼間割引フリー乗車券",
+      "company": "水間鉄道",
+      "region": "近畿",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.suitetsu.com/event/20201102-3.pdf",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "mizuma01",
+      "name": "鉄道１日フリー乗車券",
+      "company": "水間鉄道",
+      "region": "近畿",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.suitetsu.com/train/infomation/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "osakamono96",
+      "name": "休日満喫1dayモバイルチケット",
+      "company": "大阪高速鉄道",
+      "region": "近畿",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.osaka-monorail.co.jp/ticket/value/33",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "osakametoro98",
+      "name": "「2つの世界と2匹の物語」１日乗車券",
+      "company": "大阪市高速電気軌道 / (大阪メトロ)",
+      "region": "近畿",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 6 / 26 / ～2027 / 1 / 31",
+      "endDate": "2027-01-31",
+      "relatedUrl": "https://subway.osakametro.co.jp/news/news/other/20260624_2_worlds_2_animals.php?_ga=2.106512259.1617438004.1785061804-750010525.1783783624&_gl=1*10btscu*_gcl_au*ODIyMzY4Mzg5LjE3ODM3ODM2MjQ.*_ga*NzUwMDEwNTI1LjE3ODM3ODM2MjQ.*_ga_LT5TV95QB9*czE3ODUwNjE4MDMkbzMkZzEkdDE3ODUwNjIwODUkajI3JGwwJGgw",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "nankai99",
+      "name": "南海旅なぞ TRAIN2026 ～謎解きは旅の途中で～１日フリー乗車券",
+      "company": "南海電気鉄道",
+      "region": "近畿",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 7 / 17 / ～2027 / 3 / 20",
+      "endDate": "2027-03-20",
+      "relatedUrl": "https://www.nankai.co.jp/traffic/digital/nazotoki_2026.html",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "nose73",
+      "name": "のせでん1dayパス",
+      "company": "能勢電鉄",
+      "region": "近畿",
+      "status": "scheduled",
+      "salesPeriod": "～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://noseden.hankyu.co.jp/upload_file/noseden/information/newsrelease202509161.pdf",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "hojo01",
+      "name": "１日フリーきっぷ",
+      "company": "北条鉄道",
+      "region": "近畿",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.hojorailway.jp/afare",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "osakametoro96",
+      "name": "Osaka Metro＆Kita-kyu Train Pass 1day",
+      "company": "北大阪急行電鉄",
+      "region": "近畿",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 4 / 1 / ～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://subway.osakametro.co.jp/guide/fare/category_digital_tickets/digital_tickets/digital_joshaken.php",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "kitakyu91",
+      "name": "リアル謎解きゲーム ナゾときっぷ(北急編)",
+      "company": "北大阪急行電鉄",
+      "region": "近畿",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 3 / 16 / ～12 / 25",
+      "endDate": "2026-12-25",
+      "relatedUrl": "https://www.kita-kyu.co.jp/event/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "jrwest133",
+      "name": "松江・出雲tabiwaぐるりんパス",
+      "company": "ＪＲ西日本",
+      "region": "中国",
+      "status": "scheduled",
+      "salesPeriod": "～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0002500",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "itibata04",
+      "name": "フォーゲル＆フリーチケット",
+      "company": "一畑電車",
+      "region": "中国",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://railway.ichibata.co.jp/maas-vogel/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "itibata02",
+      "name": "一畑電車シルバーきっぷ",
+      "company": "一畑電車",
+      "region": "中国",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://railway.ichibata.co.jp/tichet/silver/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "itibata01",
+      "name": "一畑電車フリー乗車券",
+      "company": "一畑電車",
+      "region": "中国",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://railway.ichibata.co.jp/tichet/free/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "itibata05",
+      "name": "古代出雲歴博入場券＆フリーチケット",
+      "company": "一畑電車",
+      "region": "中国",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://railway.ichibata.co.jp/tichet/izm/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "okaden02",
+      "name": "路面電車１日乗車券",
+      "company": "岡山電気軌道",
+      "region": "中国",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://okayama-kido.co.jp/tram/route-map/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "nishikigawa01",
+      "name": "１日フリーきっぷ",
+      "company": "錦川鉄道",
+      "region": "中国",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://nishikigawa.com/plan/one-day-free/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "astrum11",
+      "name": "サンフレッチェ応援乗車券",
+      "company": "広島高速交通",
+      "region": "中国",
+      "status": "needs-review",
+      "salesPeriod": "公式戦開催日",
+      "relatedUrl": "https://www.astramline.co.jp/ride-guidance/ticket.html",
+      "officialSourceKind": "exact-product",
+      "issues": [
+        "sales-date-needs-review"
+      ]
+    },
+    {
+      "id": "hiroshima02",
+      "name": "広島たびパス(デジタルチケット)",
+      "company": "広島電鉄",
+      "region": "中国",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.hiroden.co.jp/ticket-pass/bargain-tickets/travel.html",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "hiroshima08",
+      "name": "広島たびパス(ミドルエリア)",
+      "company": "広島電鉄",
+      "region": "中国",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.hiroden.co.jp/ticket-pass/bargain-tickets/travel.html",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "hiroshima01",
+      "name": "広島たびパス(紙チケット)",
+      "company": "広島電鉄",
+      "region": "中国",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.hiroden.co.jp/ticket-pass/bargain-tickets/travel.html",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "wakasa01",
+      "name": "１日フリー乗車券",
+      "company": "若桜鉄道",
+      "region": "中国",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://wakatetsu.co.jp/info",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "kotoden07",
+      "name": "ことでん24時間フリーきっぷ",
+      "company": "高松琴平電鉄",
+      "region": "四国",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.kotoden.co.jp/publichtm/kotoden/ticket/quicktrip/index.html",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "kotoden08",
+      "name": "ことでん48時間フリーきっぷ",
+      "company": "高松琴平電鉄",
+      "region": "四国",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.kotoden.co.jp/publichtm/kotoden/ticket/quicktrip/index.html",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "kotoden10",
+      "name": "やしま四国村・志度線パス リムジンバスセット券",
+      "company": "高松琴平電鉄",
+      "region": "四国",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.kotoden.co.jp/publichtm/kotoden/ticket/shikokumura_ticket/index.html",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "kurosio02",
+      "name": "くろしお1日フリーきっぷ",
+      "company": "土佐くろしお鉄道",
+      "region": "四国",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.tosakuro.com/discounts-tickets",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "kurosio01",
+      "name": "ごめん・なはり線フリーきっぷ",
+      "company": "土佐くろしお鉄道",
+      "region": "四国",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.tosakuro.com/discounts-tickets",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "tosakuro92",
+      "name": "ひがしこうち1日フリーきっぷ",
+      "company": "土佐くろしお鉄道",
+      "region": "四国",
+      "status": "scheduled",
+      "salesPeriod": "～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://www.tosakuro.com/discounts-tickets",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "jrsikoku67",
+      "name": "やなせたかしさんふるさとの地を巡る高知ものべ周遊パス",
+      "company": "土佐くろしお鉄道",
+      "region": "四国",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 3 / 1 / ～2027 / 3 / 31",
+      "endDate": "2026-03-31",
+      "relatedUrl": "https://www.jr-eki.com/ticket/brand/2-5IM",
+      "officialSourceKind": "exact-product",
+      "issues": [
+        "official-source-ended"
+      ]
+    },
+    {
+      "id": "tosaden02",
+      "name": "電車１日乗車券～軌道全線版～",
+      "company": "土佐電気鉄道",
+      "region": "四国",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.tosaden.co.jp/train/oneday.php",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "tosaden01",
+      "name": "電車１日乗車券～市内均一料金区間版～",
+      "company": "土佐電気鉄道",
+      "region": "四国",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.tosaden.co.jp/train/oneday.php",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "tosaden04",
+      "name": "電車24時間乗車券～軌道全線版～",
+      "company": "土佐電気鉄道",
+      "region": "四国",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.tosaden.co.jp/train/oneday.php",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "tosaden03",
+      "name": "電車24時間乗車券～市内均一料金区間版～",
+      "company": "土佐電気鉄道",
+      "region": "四国",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.tosaden.co.jp/info/dtl.php?ID=1875",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "jrkyusyu124",
+      "name": "JQ CARDおでかけネットパス(全九州版)",
+      "company": "ＪＲ九州",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "2025 / 9 / 1 / ～2027 / 3 / 29",
+      "endDate": "2027-03-29",
+      "relatedUrl": "https://www.jrkyushu-kippu.jp/fare/ticket/445",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "jrkyusyu123",
+      "name": "JQ CARDおでかけネットパス(北部九州版)",
+      "company": "ＪＲ九州",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "2025 / 9 / 1 / ～2027 / 3 / 29",
+      "endDate": "2027-03-29",
+      "relatedUrl": "https://www.jrkyushu-kippu.jp/fare/ticket/445",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "jrkyusyu116",
+      "name": "くまもっと！冒険きっぷ",
+      "company": "ＪＲ九州",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 6 / 17 / ～12 / 31",
+      "endDate": "2026-12-31",
+      "relatedUrl": "https://www.jrkyushu.co.jp/news/__icsFiles/afieldfile/2026/05/26/20260526_Kumamoto_DC_Collaboration_Campaign_1.pdf",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "jrkyusyu801",
+      "name": "ハロー！自由時間ネットパス(全九州版)",
+      "company": "ＪＲ九州",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.jrkyushu-kippu.jp/fare/ticket/358",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "jrkyusyu791",
+      "name": "ハロー！自由時間ネットパス(北部九州版)",
+      "company": "ＪＲ九州",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.jrkyushu-kippu.jp/fare/ticket/358",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "jrkyusyu81",
+      "name": "ぶらり大村線きっぷ",
+      "company": "ＪＲ九州",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.jrkyushu-kippu.jp/fare/ticket/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "kumagawa11",
+      "name": "くま川鉄道一日乗車券(代行バス込み)",
+      "company": "くまがわ鉄道",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://kumagawa-rail.com/time-fare/#toc_id_9_1",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "kumagawa84",
+      "name": "くま川鉄道一日乗車券(鉄道のみ)",
+      "company": "くまがわ鉄道",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://kumagawa-rail.com/time-fare/#toc_id_9_1",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "solaseed01",
+      "name": "鹿児島・宮崎フリーきっぷ",
+      "company": "ソラシドエア",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.solaseedair.jp/promotion/jrkyushu-freeticket/",
+      "officialSourceKind": "exact-product",
+      "issues": [
+        "source-link-broken"
+      ]
+    },
+    {
+      "id": "solaseed03",
+      "name": "西九州フリーきっぷ",
+      "company": "ソラシドエア",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.solaseedair.jp/promotion/jrkyushu-freeticket/",
+      "officialSourceKind": "exact-product",
+      "issues": [
+        "source-link-broken"
+      ]
+    },
+    {
+      "id": "solaseed05",
+      "name": "全九州フリーきっぷ",
+      "company": "ソラシドエア",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.solaseedair.jp/promotion/jrkyushu-freeticket/",
+      "officialSourceKind": "exact-product",
+      "issues": [
+        "source-link-broken"
+      ]
+    },
+    {
+      "id": "solaseed04",
+      "name": "中九州フリーきっぷ",
+      "company": "ソラシドエア",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.solaseedair.jp/promotion/jrkyushu-freeticket/",
+      "officialSourceKind": "exact-product",
+      "issues": [
+        "source-link-broken"
+      ]
+    },
+    {
+      "id": "solaseed02",
+      "name": "由布院・別府フリーきっぷ",
+      "company": "ソラシドエア",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.solaseedair.jp/promotion/jrkyushu-freeticket/",
+      "officialSourceKind": "exact-product",
+      "issues": [
+        "source-link-broken"
+      ]
+    },
+    {
+      "id": "yuirail51",
+      "name": "24時間乗り放題乗車券",
+      "company": "沖縄都市モノレール",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.yui-rail.co.jp/ticketinfo-ticket/ticketinfo/1day-pass/",
+      "officialSourceKind": "exact-product",
+      "issues": [
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "yuirail53",
+      "name": "48時間乗り放題乗車券",
+      "company": "沖縄都市モノレール",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.yui-rail.co.jp/ticketinfo-ticket/ticketinfo/1day-pass/",
+      "officialSourceKind": "exact-product",
+      "issues": [
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "yuirail02",
+      "name": "バスモノパス / 那覇バス＆ゆいレール１日共通パスポート",
+      "company": "沖縄都市モノレール",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.yui-rail.co.jp/ticketinfo-ticket/ticketinfo/ticket/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "yuirail55",
+      "name": "ゆいレール当日乗り放題乗車券 東京バス(沖縄)1日フリーパスセット券",
+      "company": "沖縄都市モノレール",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://ticket.jorudan.co.jp/yui-rail/ja/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "yuirail01",
+      "name": "一日乗車券 / 二日乗車券",
+      "company": "沖縄都市モノレール",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.yui-rail.co.jp/ticketinfo-ticket/ticketinfo/1day-pass/",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "yuirail52",
+      "name": "当日乗り放題乗車券",
+      "company": "沖縄都市モノレール",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.yui-rail.co.jp/ticketinfo-ticket/ticketinfo/1day-pass/",
+      "officialSourceKind": "exact-product",
+      "issues": [
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "amatetu01",
+      "name": "甘鉄一日フリー乗車券",
+      "company": "甘木鉄道",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.amatetsu.jp/fare/index.html",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "kagosima05",
+      "name": "市電・市バス・シティビューナイトパス",
+      "company": "鹿児島市交通局",
+      "region": "九州",
+      "status": "needs-review",
+      "salesPeriod": "3 / 1～4 / 30 / 7 / 1～8 / 31 / 12 / 1～1 / 31",
+      "relatedUrl": "https://www.kotsu-city-kagoshima.jp/ticket-summary/oneday/",
+      "officialSourceKind": "exact-product",
+      "issues": [
+        "sales-date-needs-review"
+      ]
+    },
+    {
+      "id": "kagosima03",
+      "name": "鹿児島市営バス・電車・フェリー共通利用券CUTE",
+      "company": "鹿児島市交通局",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.kagoshima-yokanavi.jp/article/mobileCUTE-usage",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "matuura04",
+      "name": "西肥バス・させぼバス・松浦鉄道 1 日乗車券",
+      "company": "松浦鉄道",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://matutetu.com/files/libs/5202/202410281037368164.pdf",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "nishitetu21",
+      "name": "福岡(天神)⇔太宰府1日フリー乗車券",
+      "company": "西日本鉄道",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://top.myroute.fun/ticket/fukuoka#dazaifucity",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "chikutetsu01",
+      "name": "ちくてつ24時間フリーきっぷ",
+      "company": "筑豊電気鉄道",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.chikutetsu.co.jp/data/topics/390_250131_chikutetsufree%20.pdf",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "simabara91",
+      "name": "島原鉄道乗り物コロカ1 日フリーきっぷ",
+      "company": "島原鉄道",
+      "region": "九州",
+      "status": "scheduled",
+      "salesPeriod": "～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://colopl.co.jp/service/other/coloca/transport/area06/norimono_shimabara/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "minamiaso01",
+      "name": "１日フリーキップ",
+      "company": "南阿蘇鉄道",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.mt-torokko.com/information/fare/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "minamiaso03",
+      "name": "南阿蘇鉄道24時間フリー乗車券",
+      "company": "南阿蘇鉄道",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.mt-torokko.com/information/fare/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "mojiko",
+      "name": "１日フリーきっぷ",
+      "company": "平成筑豊鉄道",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 4 / 1 / ～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://www.retro-line.net/value_tickets/1day-pass/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "chikuchiku91",
+      "name": "へい！ちくてつ１日フリーきっぷ",
+      "company": "平成筑豊鉄道",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.heichiku.net/d-tickets/heichikutetsu_d/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
+      "id": "kitamono01",
+      "name": "１日乗車券",
+      "company": "北九州高速鉄道",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.kitakyushu-monorail.co.jp/fare/special-ticket.php",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    }
+  ],
+  "autoOffline": [
+    {
+      "id": "sapporo23",
+      "name": "どサン子パス",
+      "company": "札幌市交通事業振興公社",
+      "region": "北海道",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.stsp.or.jp/business/streetcar/price/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "sapporo24",
+      "name": "路面電車1日乗車券",
+      "company": "札幌市交通事業振興公社",
+      "region": "北海道",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.stsp.or.jp/business/streetcar/price/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "hakodate53",
+      "name": "スマホ市電・函館バス共通１日乗車券",
+      "company": "函館市企業局交通部",
+      "region": "北海道",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.city.hakodate.hokkaido.jp/docs/2014012100977/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "hakodate54",
+      "name": "スマホ市電・函館バス共通２日乗車券",
+      "company": "函館市企業局交通部",
+      "region": "北海道",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.city.hakodate.hokkaido.jp/docs/2014012100977/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "hakodate51",
+      "name": "スマホ市電１日乗車券",
+      "company": "函館市企業局交通部",
+      "region": "北海道",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.city.hakodate.hokkaido.jp/docs/2014012100977/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "hakodate52",
+      "name": "スマホ市電２４時間乗車券",
+      "company": "函館市企業局交通部",
+      "region": "北海道",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.city.hakodate.hokkaido.jp/docs/2014012100977/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "jreast64-1",
+      "name": "津軽フリーパス",
+      "company": "ＪＲ東日本",
+      "region": "東北",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://maas-portal.com/tohoku/tickets/10230",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "abukyu05",
+      "name": "あぶ急トクだねきっぷ",
+      "company": "阿武隈急行",
+      "region": "東北",
+      "salesPeriod": "毎月9,19,29日",
+      "relatedUrl": "https://www.abukyu.co.jp/ticket/",
+      "reason": "quality-hidden:sales-date-needs-review"
+    },
+    {
+      "id": "abukyu85",
+      "name": "初恋＊れ～るとりっぷ フリー乗車券",
+      "company": "阿武隈急行",
+      "region": "東北",
+      "salesPeriod": "2024 / 12 / 1～",
+      "relatedUrl": "https://www.abukyu.co.jp/ticket/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "aizu91",
+      "name": "コロプラ☆乗り放題キップ",
+      "company": "会津鉄道",
+      "region": "東北",
+      "salesPeriod": "～2027 / 3 / 30",
+      "endDate": "2027-03-30",
+      "relatedUrl": "http://aizutetsudo.jp/ticket/koropura/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "aizu01",
+      "name": "会津・日光フリーきっぷ(若松エリア)",
+      "company": "会津鉄道",
+      "region": "東北",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.aizutetsudo.jp/ticket/aizu-nikko-free/",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "aizu02",
+      "name": "会津・日光フリーきっぷ(南会津エリア)",
+      "company": "会津鉄道",
+      "region": "東北",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.aizutetsudo.jp/ticket/aizu-nikko-free/",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "sanriku13",
+      "name": "１日フリー乗車券(釜石～宮古間用)",
+      "company": "三陸鉄道",
+      "region": "東北",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.sanrikutetsudou.com/%E3%81%8A%E5%BE%97%E3%81%8D%E3%81%A3%E3%81%B7%E6%83%85%E5%A0%B1/%E4%BC%81%E7%94%BB%E4%B9%97%E8%BB%8A%E5%88%B8/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "sanriku14",
+      "name": "１日フリー乗車券(宮古～久慈間用)",
+      "company": "三陸鉄道",
+      "region": "東北",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.sanrikutetsudou.com/%E3%81%8A%E5%BE%97%E3%81%8D%E3%81%A3%E3%81%B7%E6%83%85%E5%A0%B1/%E4%BC%81%E7%94%BB%E4%B9%97%E8%BB%8A%E5%88%B8/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "sanriku12",
+      "name": "１日フリー乗車券(盛～釜石間用)",
+      "company": "三陸鉄道",
+      "region": "東北",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.sanrikutetsudou.com/%E3%81%8A%E5%BE%97%E3%81%8D%E3%81%A3%E3%81%B7%E6%83%85%E5%A0%B1/%E4%BC%81%E7%94%BB%E4%B9%97%E8%BB%8A%E5%88%B8/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "sanriku11",
+      "name": "リアス線全線フリー乗車券",
+      "company": "三陸鉄道",
+      "region": "東北",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.sanrikutetsudou.com/%E3%81%8A%E5%BE%97%E3%81%8D%E3%81%A3%E3%81%B7%E6%83%85%E5%A0%B1/%E4%BC%81%E7%94%BB%E4%B9%97%E8%BB%8A%E5%88%B8/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "sanriku23",
+      "name": "中高生1日フリー乗車券(釜石～宮古間用)",
+      "company": "三陸鉄道",
+      "region": "東北",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.sanrikutetsudou.com/%E3%81%8A%E5%BE%97%E3%81%8D%E3%81%A3%E3%81%B7%E6%83%85%E5%A0%B1/%E4%BC%81%E7%94%BB%E4%B9%97%E8%BB%8A%E5%88%B8/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "sanriku22",
+      "name": "中高生1日フリー乗車券(盛～釜石間用)",
+      "company": "三陸鉄道",
+      "region": "東北",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.sanrikutetsudou.com/%E3%81%8A%E5%BE%97%E3%81%8D%E3%81%A3%E3%81%B7%E6%83%85%E5%A0%B1/%E4%BC%81%E7%94%BB%E4%B9%97%E8%BB%8A%E5%88%B8/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "flower01",
+      "name": "土休日フリーきっぷ",
+      "company": "山形鉄道",
+      "region": "東北",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://flower-liner.jp/ticket/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "isumi02",
+      "name": "いすみ鉄道一日フリー乗車券(土休日用)",
+      "company": "いすみ鉄道",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://isumirail.co.jp/tickets",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "isumi01",
+      "name": "いすみ鉄道一日フリー乗車券(平日用)",
+      "company": "いすみ鉄道",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://isumirail.co.jp/tickets",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "minatosen91",
+      "name": "コロプラ1日フリー乗車券",
+      "company": "ひたちなか海浜鉄道",
+      "region": "関東",
+      "salesPeriod": "～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "http://www.hitachinaka-rail.co.jp/gain",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "minatosen11",
+      "name": "湊線１日フリーきっぷ",
+      "company": "ひたちなか海浜鉄道",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.hitachinaka-rail.co.jp/gain",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "yurikamome12",
+      "name": "【ゆりかもめEnjoy Pass】ゆりかもめ24時間券",
+      "company": "ゆりかもめ",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.yurikamome.co.jp/ticket/digital-ticket.html",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "yurikamome11",
+      "name": "【ゆりかもめEnjoy Pass】ゆりかもめ一日乗車券",
+      "company": "ゆりかもめ",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://ars-yurikamome.triplabo.jp/activity/ja/LINKTIVITY-XUW91",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "yurikamome13",
+      "name": "【ゆりかもめEnjoy Pass】ゆりかもめ一日乗車券＋Tokyo Subway Ticket（24時間券）",
+      "company": "ゆりかもめ",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://ars-yurikamome.triplabo.jp/home",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "yurikamome03",
+      "name": "ゆりかもめ24時間券",
+      "company": "ゆりかもめ",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.yurikamome.co.jp/ticket/coupon.html?type=24hour",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "watarase01",
+      "name": "一日フリーきっぷ",
+      "company": "わたらせ渓谷鉄道",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.watetsu.com/otoku.html",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "daiyuzan91",
+      "name": "コロプラ☆大雄山線一日フリーきっぷ",
+      "company": "伊豆箱根鉄道",
+      "region": "関東",
+      "salesPeriod": "～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://www.izuhakone.co.jp/sunzudaiyu/sunzudaiyu-news/p000453.html",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "utsunomiya01",
+      "name": "ライトライン一日乗車券",
+      "company": "宇都宮ライトレール",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.miyarail.co.jp/userguide-ticket-info",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "seaside01",
+      "name": "全線１日乗車券",
+      "company": "横浜シーサイドライン",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.seasideline.co.jp/fare_ticket/about_ticket/index.html",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "yokohama12",
+      "name": "バス・地下鉄１日乗車券",
+      "company": "横浜市交通局",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.city.yokohama.lg.jp/kotsu/bus/unchin/ichinichi.html",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "kantetu02",
+      "name": "常総線・真岡鐵道共通一日自由きっぷ",
+      "company": "関東鉄道",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.kantetsu.co.jp/train/special-ticket",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "kantetu94",
+      "name": "竜鉄コロッケ★フリーきっぷ",
+      "company": "関東鉄道",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.kantetsu.co.jp/train/special-ticket",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "srail92",
+      "name": "ＳＲ一日乗車券",
+      "company": "埼玉高速鉄道",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.s-rail.co.jp/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "saitama50",
+      "name": "ニューシャトル １日フリー乗車券",
+      "company": "埼玉新都市交通",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.new-shuttle.jp/ticket/howto_use/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "yamaman01",
+      "name": "１日乗車券",
+      "company": "山万",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://town.yukarigaoka.jp/yukariline/fare/",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "kominato01",
+      "name": "1日フリーきっぷ",
+      "company": "小湊鉄道",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.kominato.co.jp/ticket/deal/#one-day-free-pass",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "syonan01",
+      "name": "湘南モノレール一日フリーきっぷ",
+      "company": "湘南モノレール",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.shonan-monorail.co.jp/freeticket/oneday.html",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "joshin11",
+      "name": "1日全線フリー乗車券",
+      "company": "上信電鉄",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.joshin-dentetsu.co.jp/ticket/1289/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "joshin12",
+      "name": "上野三碑巡り記念乗車券",
+      "company": "上信電鉄",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.joshin-dentetsu.co.jp/ticket/1154/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "seibu123",
+      "name": "栗山巧 Legend History 1DayPass 第一弾「デビューの奇跡」",
+      "company": "西武鉄道",
+      "region": "関東",
+      "salesPeriod": "2026 / 4 / 28 / ～9 / 30",
+      "endDate": "2026-09-30",
+      "relatedUrl": "https://www.seiburailway.jp/railway/ticket/L1pass/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "seibu124",
+      "name": "栗山巧 Legend History 1DayPass 第二弾「キャプテンの証」",
+      "company": "西武鉄道",
+      "region": "関東",
+      "salesPeriod": "2026 / 6 / 26 / ～9 / 30",
+      "endDate": "2026-09-30",
+      "relatedUrl": "https://www.seiburailway.jp/railway/ticket/L1pass/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "seibu121",
+      "name": "西武園ゆうえんち プールトクトクパス",
+      "company": "西武鉄道",
+      "region": "関東",
+      "salesPeriod": "2026 / 6 / 27 / ～9 / 23",
+      "endDate": "2026-09-23",
+      "relatedUrl": "https://www.seiburailway.jp/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "sotetsutokyu01",
+      "name": "相鉄・東急 共通1日乗車券",
+      "company": "相模鉄道",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.sotetsu.co.jp/train/tickets/tour/",
+      "reason": "quality-hidden:source-research-unresolved"
+    },
+    {
+      "id": "tyoshi11",
+      "name": "デジタル1日乗車券 Beica",
+      "company": "銚子電鉄",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.choshi-dentetsu.jp/pass/",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "monorail01",
+      "name": "東京モノレール沿線お散歩1dayパス",
+      "company": "東京モノレール",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.tokyo-monorail.co.jp/tickets/value/ensenosanpo.html",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "tokyu03",
+      "name": "横浜中華街旅グルメきっぷ",
+      "company": "東京急行電鉄",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.tokyu.co.jp/railway/ticket/types/value_ticket/tabigurume_ticket.html",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "toei03",
+      "name": "都営まるごときっぷ",
+      "company": "東京都交通局",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.kotsu.metro.tokyo.jp/subway/fare/otoku_metro.html",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "tokyo02",
+      "name": "都営地下鉄・東京メトロ共通一日乗車券",
+      "company": "東京都交通局",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.kotsu.metro.tokyo.jp/subway/fare/otoku_metro_1day.html",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "toei02",
+      "name": "都電一日乗車券 / 都電IC一日乗車券",
+      "company": "東京都交通局",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.kotsu.metro.tokyo.jp/toden/fare/otoku_toden_oneday.html",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "rinkai91",
+      "name": "コミックマーケット108 記念1日乗車券",
+      "company": "東京臨海高速鉄道",
+      "region": "関東",
+      "salesPeriod": "2026 / 7 / 31 / ～12 / 31",
+      "endDate": "2026-12-31",
+      "relatedUrl": "https://www.twr.co.jp/tabid/101/Default.aspx?itemid=1119&dispmid=860",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "tobu03",
+      "name": "台東・墨田 東京下町周遊きっぷ",
+      "company": "東武鉄道",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.tobu.co.jp/odekake/ticket/tokyo-shitamachi/taito-sumida.html",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "tobu02",
+      "name": "東京スカイツリー周辺散策フリーきっぷ",
+      "company": "東武鉄道",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.tobu.co.jp/odekake/ticket/skytree-line/sky-tree.html",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "maihama01",
+      "name": "４日フリーきっぷ",
+      "company": "舞浜リゾートライン",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.tokyodisneyresort.jp/tdr/resortline/fare/",
+      "reason": "quality-hidden:source-link-broken"
+    },
+    {
+      "id": "yagan13",
+      "name": "塩原温泉・野岩鉄道満喫切符",
+      "company": "野岩鉄道",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.yagan.co.jp/ticket/shiobara-yagan-mankitsu/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "yagan11",
+      "name": "野岩鉄道会津鬼怒川線全線フリーきっぷ",
+      "company": "野岩鉄道",
+      "region": "関東",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.yagan.co.jp/ticket/yagan-free/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "jrtokai08",
+      "name": "ＪＲ東海＆17 私鉄 乗り鉄☆たびきっぷ",
+      "company": "ＪＲ東海",
+      "region": "東海",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://jr-central.co.jp/news/release/_pdf/000044876.pdf",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "jrtokai85",
+      "name": "ふじのくに家康公きっぷ【西部エリア】",
+      "company": "ＪＲ東海",
+      "region": "東海",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://railway.jr-central.co.jp/tickets/fujinokuni-ieyasukou/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "jrtokai84",
+      "name": "ふじのくに家康公きっぷ【中部エリア】",
+      "company": "ＪＲ東海",
+      "region": "東海",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://railway.jr-central.co.jp/tickets/fujinokuni-ieyasukou/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "jrtokai83",
+      "name": "ふじのくに家康公きっぷ【東部エリア】",
+      "company": "ＪＲ東海",
+      "region": "東海",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://railway.jr-central.co.jp/tickets/fujinokuni-ieyasukou/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "jrtokai06",
+      "name": "富士山満喫きっぷ(静岡中部)",
+      "company": "ＪＲ東海",
+      "region": "東海",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://railway.jr-central.co.jp/tickets/mtfuji-enjoypass/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "jrtokai07",
+      "name": "富士山満喫きっぷ(静岡東部)",
+      "company": "ＪＲ東海",
+      "region": "東海",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://railway.jr-central.co.jp/tickets/mtfuji-enjoypass/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "sunzu91",
+      "name": "コロプラ☆駿豆線一日フリーきっぷ",
+      "company": "伊豆箱根鉄道",
+      "region": "東海",
+      "salesPeriod": "～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://www.izuhakone.co.jp/sunzudaiyu/sunzudaiyu-news/p000453.html",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "sunzu85",
+      "name": "駿豆線１日乗り放題乗車券 Aqours旅助け",
+      "company": "伊豆箱根鉄道",
+      "region": "東海",
+      "salesPeriod": "2026 / 7 / 3 / ～2027 / 6 / 30",
+      "endDate": "2027-06-30",
+      "relatedUrl": "https://www.izuhakone.co.jp/izu-group/izu-news/p010912_d/fil/railway_news_20260626_02.pdf",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "sunzu01",
+      "name": "駿豆線一日乗り放題乗車券・旅助け",
+      "company": "伊豆箱根鉄道",
+      "region": "東海",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.izuhakone.co.jp/sunzudaiyu/zunzu_sub_nav/sunzudaiyu-ticket/p000467.html",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "entetu02",
+      "name": "あかでん1 日フリーきっぷ",
+      "company": "遠州鉄道",
+      "region": "東海",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.entetsu.co.jp/tetsudou/guide/discount.html",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "entetu01",
+      "name": "遠鉄ぶらりきっぷ",
+      "company": "遠州鉄道",
+      "region": "東海",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.entetsu.co.jp/tetsudou/guide/discount.html",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "tenhama11",
+      "name": "遠鉄電車・天浜線共通1日フリーきっぷ(西ルート)",
+      "company": "遠州鉄道",
+      "region": "東海",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.entetsu.co.jp/tetsudou/guide/discount.html",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "tenhama12",
+      "name": "遠鉄電車・天浜線共通1日フリーきっぷ(東ルート)",
+      "company": "遠州鉄道",
+      "region": "東海",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.entetsu.co.jp/tetsudou/guide/discount.html",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "gakunan02",
+      "name": "春・夏・冬休みこどもフリーパス",
+      "company": "岳南鉄道",
+      "region": "東海",
+      "salesPeriod": "春休み / 夏休み / 冬休み",
+      "relatedUrl": "https://www.gakutetsu.jp/couponpass/index.html",
+      "reason": "quality-hidden:sales-date-needs-review,operator-overview-only"
+    },
+    {
+      "id": "toyotetu02",
+      "name": "1DAY FREE PASS",
+      "company": "豊橋鉄道",
+      "region": "東海",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.toyotetsu.com/stay/ticket.html",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "toyotetu01",
+      "name": "渥美線１日フリー乗車券",
+      "company": "豊橋鉄道",
+      "region": "東海",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.toyotetsu.com/stay/ticket.html",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "toyotetu05",
+      "name": "伊良湖１ＤＡＹフリーきっぷ",
+      "company": "豊橋鉄道",
+      "region": "東海",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.toyotetsu.com/stay/ticket.html",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "toyotetu06",
+      "name": "伊良湖２ＤＡＹフリーきっぷ",
+      "company": "豊橋鉄道",
+      "region": "東海",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.toyotetsu.com/stay/ticket.html",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "guideway91",
+      "name": "モバイルホリデー１日乗車券",
+      "company": "名古屋ガイドウェイバス",
+      "region": "東海",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.guideway.co.jp/fare/pdf/mobileholiday.pdf",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "nagoya105",
+      "name": "アジアパラ競技大会開催記念バス・地下鉄全線一日乗車券",
+      "company": "名古屋市交通局",
+      "region": "東海",
+      "salesPeriod": "2026 / 8 / 10～",
+      "relatedUrl": "https://www.kotsu.city.nagoya.jp/jp/pc/ENJOY/TRP0005300.htm",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "nagoya104",
+      "name": "アジア競技大会開催記念バス・地下鉄全線一日乗車券",
+      "company": "名古屋市交通局",
+      "region": "東海",
+      "salesPeriod": "2026 / 8 / 10～",
+      "relatedUrl": "https://www.kotsu.city.nagoya.jp/jp/pc/ENJOY/TRP0005300.htm",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "nagoya02",
+      "name": "ドニチエコきっぷ",
+      "company": "名古屋市交通局",
+      "region": "東海",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.kotsu.city.nagoya.jp/jp/pc/TICKET/TRP0000310.htm",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "nagoya12",
+      "name": "バス・地下鉄全線一日乗車券",
+      "company": "名古屋市交通局",
+      "region": "東海",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.kotsu.city.nagoya.jp/jp/pc/TICKET/TRP0000310.htm",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "nagoya01",
+      "name": "地下鉄全線24時間券",
+      "company": "名古屋市交通局",
+      "region": "東海",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.kotsu.city.nagoya.jp/jp/pc/TICKET/TRP0000310.htm",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "meitetu101",
+      "name": "中日ドラゴンズ コラボフリーきっぷ",
+      "company": "名古屋鉄道",
+      "region": "東海",
+      "salesPeriod": "2026 / 7 / 13 / ～9 / 30",
+      "endDate": "2026-09-30",
+      "relatedUrl": "https://www.meitetsu.co.jp/profile/news/2026/__icsFiles/afieldfile/2026/07/02/26-07-02dragons.pdf",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "meitetu94",
+      "name": "謎解きゲーム1DAYフリーきっぷ",
+      "company": "名古屋鉄道",
+      "region": "東海",
+      "salesPeriod": "2026 / 3 / 27 / ～12 / 13",
+      "endDate": "2026-12-13",
+      "relatedUrl": "https://www.meitetsu.co.jp/plan/gourmet/detail/1287949_8036.html",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "akechi87",
+      "name": "「VIVANT」オリジナルフリー切符",
+      "company": "明知鉄道",
+      "region": "東海",
+      "salesPeriod": "2026 / 7 / 18～",
+      "relatedUrl": "https://www.aketetsu.co.jp/news/tbs%e3%83%86%e3%83%ac%e3%83%93%e6%97%a5%e6%9b%9c%e5%8a%87%e5%a0%b4%e3%80%8cvivant%e3%80%8d%e3%83%a9%e3%83%83%e3%83%94%e3%83%b3%e3%82%b0%e5%88%97%e8%bb%8a%e3%81%a8%e3%83%95%e3%83%aa%e3%83%bc%e5%88%87/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "akechi03",
+      "name": "あけてつ全線フリー切符",
+      "company": "明知鉄道",
+      "region": "東海",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.aketetsu.co.jp/ticket/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "akechi91",
+      "name": "くり切符",
+      "company": "明知鉄道",
+      "region": "東海",
+      "salesPeriod": "10～11月",
+      "relatedUrl": "https://www.aketetsu.co.jp/ticket/",
+      "reason": "quality-hidden:sales-date-needs-review"
+    },
+    {
+      "id": "akechi99",
+      "name": "明知鉄道うちわ切符",
+      "company": "明知鉄道",
+      "region": "東海",
+      "salesPeriod": "7～9月",
+      "relatedUrl": "https://www.aketetsu.co.jp/ticket/",
+      "reason": "quality-hidden:sales-date-needs-review,operator-overview-only"
+    },
+    {
+      "id": "yoro11",
+      "name": "養老線フリーきっぷ",
+      "company": "養老鉄道",
+      "region": "東海",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.yororailway.co.jp/ticket/valueticket/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "ishikawa02",
+      "name": "IRいしかわ(金沢・大聖寺)１日フリーきっぷ",
+      "company": "IRいしかわ鉄道",
+      "region": "北信越",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.ishikawa-railway.jp/ticket/ticket_plan/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "ishikawa11",
+      "name": "子育て応援・金沢スマイルきっぷ",
+      "company": "IRいしかわ鉄道",
+      "region": "北信越",
+      "salesPeriod": "2025 / 7 / 11 / ～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://www.ishikawa-railway.jp/ticket/ticket_plan/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "ishikawa14",
+      "name": "子育て応援・全線スマイルきっぷ",
+      "company": "IRいしかわ鉄道",
+      "region": "北信越",
+      "salesPeriod": "2025 / 7 / 11 / ～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://www.ishikawa-railway.jp/ticket/ticket_plan/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "ishikawa13",
+      "name": "子育て応援・南加賀スマイルきっぷ",
+      "company": "IRいしかわ鉄道",
+      "region": "北信越",
+      "salesPeriod": "2025 / 7 / 11 / ～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://www.ishikawa-railway.jp/ticket/ticket_plan/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "ishikawa12",
+      "name": "子育て応援・白山スマイルきっぷ",
+      "company": "IRいしかわ鉄道",
+      "region": "北信越",
+      "salesPeriod": "2025 / 7 / 11 / ～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://www.ishikawa-railway.jp/ticket/ticket_plan/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "etizen03",
+      "name": "えちぜん鉄道１日フリーきっぷ(恐竜博物館セット券)",
+      "company": "えちぜん鉄道",
+      "region": "北信越",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.echizen-tetudo.co.jp/fare/special.html",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "noto02",
+      "name": "奥能登まるごとフリーきっぷ",
+      "company": "のと鉄道",
+      "region": "北信越",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://nototetsu.jp/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "ueda02",
+      "name": "1日まるまるフリーきっぷ",
+      "company": "上田電鉄",
+      "region": "北信越",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.uedadentetsu.com/news/post-2961.html",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "titetu94",
+      "name": "宇奈月満喫きっぷ(魚津・黒部版)",
+      "company": "富山地方鉄道",
+      "region": "北信越",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.chitetsu.co.jp/?p=64673",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "titetu93",
+      "name": "宇奈月満喫きっぷ(全線版)",
+      "company": "富山地方鉄道",
+      "region": "北信越",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.chitetsu.co.jp/?p=64673",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "etizenfukui01",
+      "name": "福井鐵道・えちぜん鉄道共通１日フリーきっぷ",
+      "company": "福井鉄道",
+      "region": "北信越",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.echizen-tetudo.co.jp/fare/special.html",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "hokuhoku01",
+      "name": "ほくほくワンデーパス",
+      "company": "北越急行",
+      "region": "北信越",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://hokuhoku.co.jp/pdf/oneday.pdf",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "hokuriku01",
+      "name": "石川線・浅野川線共通一日フリー乗車券",
+      "company": "北陸鉄道",
+      "region": "北信越",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.hokutetsu.co.jp/ticket/train-free/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "hokuriku04",
+      "name": "石川線土日祝限定1日フリーエコきっぷ",
+      "company": "北陸鉄道",
+      "region": "北信越",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.hokutetsu.co.jp/ticket/free-eco/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "hokuriku92",
+      "name": "石川線平日限定シルバー1日フリーエコきっぷ",
+      "company": "北陸鉄道",
+      "region": "北信越",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.hokutetsu.co.jp/ticket/silver-free-eco/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "hokuriku03",
+      "name": "浅野川線土日祝限定1日フリーエコきっぷ",
+      "company": "北陸鉄道",
+      "region": "北信越",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.hokutetsu.co.jp/ticket/free-eco/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "hokuriku93",
+      "name": "浅野川線平日限定シルバー1日フリーエコきっぷ",
+      "company": "北陸鉄道",
+      "region": "北信越",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.hokutetsu.co.jp/ticket/silver-free-eco/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "manyo04",
+      "name": "高岡まちなか乗り放題１日フリーきっぷ",
+      "company": "万葉線",
+      "region": "北信越",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.manyosen.co.jp/timetable/profit/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "manyo05",
+      "name": "新湊グルメ＆万葉線フリーきっぷ",
+      "company": "万葉線",
+      "region": "北信越",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://toyama-city.myroute.fun/info/500/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "manyo01",
+      "name": "万葉線１日フリー乗車券",
+      "company": "万葉線",
+      "region": "北信越",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.manyosen.co.jp/timetable/profit/index.html",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "iga49",
+      "name": "【★伊賀流忍者博物館★入場券付き】伊賀鉄道一日フリー乗車券",
+      "company": "伊賀鉄道",
+      "region": "近畿",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://pass.ryde-go.com/products/Q73G1MS2GWRV",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "iga45",
+      "name": "【伊賀酒試飲コイン付き】伊賀鉄道一日フリー乗車券",
+      "company": "伊賀鉄道",
+      "region": "近畿",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://pass.ryde-go.com/products/DMW849MSJW37",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "iga44",
+      "name": "【電車型マグネット付き】伊賀鉄道一日フリー乗車券",
+      "company": "伊賀鉄道",
+      "region": "近畿",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://pass.ryde-go.com/products/EPY36LKSGZ81",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "eiden104",
+      "name": "京都八瀬にゃんにゃんきっぷ",
+      "company": "叡山電鉄",
+      "region": "近畿",
+      "salesPeriod": "2026 / 4 / 1 / ～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://eizandensha.co.jp/mv/wp-content/uploads/sites/2/2026/02/news_20260213.pdf",
+      "reason": "quality-hidden:source-research-unresolved"
+    },
+    {
+      "id": "keihan88",
+      "name": "「京阪電車×響け！ユーフォニアム2026」京阪線フリーチケット",
+      "company": "京阪電気鉄道",
+      "region": "近畿",
+      "salesPeriod": "2026 / 10 / 17 / ～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://www.keihan.co.jp/euphonium/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "keihan86",
+      "name": "「京阪電車×響け！ユーフォニアム2026」大津線フリーチケット",
+      "company": "京阪電気鉄道",
+      "region": "近畿",
+      "salesPeriod": "2026 / 9 / 1 / ～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://www.keihan.co.jp/euphonium/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "keihan104",
+      "name": "フェルメール《真珠の耳飾りの少女》展 記念乗車券",
+      "company": "京阪電気鉄道",
+      "region": "近畿",
+      "salesPeriod": "2026 / 8 / 21 / ～12 / 30",
+      "endDate": "2026-12-30",
+      "relatedUrl": "https://www.keihan.co.jp/euphonium/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "kyoto12",
+      "name": "地下鉄・バス一日券",
+      "company": "京都市交通局",
+      "region": "近畿",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://oneday-pass.kyoto/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "hankyu103",
+      "name": "リアル謎解きゲーム ナゾときっぷ(阪急編)",
+      "company": "阪急電鉄",
+      "region": "近畿",
+      "salesPeriod": "2026 / 3 / 16 / ～12 / 25",
+      "endDate": "2026-12-25",
+      "relatedUrl": "https://www.hankyu.co.jp/ticket/otoku/014061.html",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "hankai02",
+      "name": "TAKE TAKEきっぷ(１日乗車券)",
+      "company": "阪堺電気軌道",
+      "region": "近畿",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.hankai.co.jp/fare/ticket/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "hanshin93",
+      "name": "リアル謎解きゲーム ナゾときっぷ(阪神編)",
+      "company": "阪神電気鉄道",
+      "region": "近畿",
+      "salesPeriod": "2026 / 3 / 16 / ～12 / 25",
+      "endDate": "2026-12-25",
+      "relatedUrl": "https://www.hanshin.co.jp/ticket/otoku/detail/005038.html",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "biwakokeihanna",
+      "name": "びわこ京阪奈線フリーキップ",
+      "company": "信楽高原鐵道",
+      "region": "近畿",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.ohmitetudo.co.jp/railway/ride/ticket/biwako-keihannna/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "shintetu81",
+      "name": "日曜限定 おでかけ4dayきっぷ",
+      "company": "神戸高速鉄道",
+      "region": "近畿",
+      "salesPeriod": "2026 / 3 / 25 / ～2027 / 3 / 28",
+      "endDate": "2027-03-28",
+      "relatedUrl": "http://www.shintetsu.co.jp/railway/ticket/detail/4day.html",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "kobecity84",
+      "name": "海岸線中学生以下フリーパス",
+      "company": "神戸市交通局",
+      "region": "近畿",
+      "salesPeriod": "～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://kotsu.city.kobe.lg.jp/ensen-navi/bus-railway/freepass/",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "hankyu04",
+      "name": "京都・嵐山1dayパス",
+      "company": "神戸市交通局",
+      "region": "近畿",
+      "salesPeriod": "2026 / 10 / 1 / ～12 / 20",
+      "endDate": "2026-12-20",
+      "relatedUrl": "https://www.hankyu.co.jp/ticket/otoku/013931.html",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "kobecity04",
+      "name": "神戸市営地下鉄QR１日乗車券",
+      "company": "神戸市交通局",
+      "region": "近畿",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://kotsu.city.kobe.lg.jp/ensen-navi/bus-railway/kobecitysubwayqr1dayticket/",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "kobecity83",
+      "name": "兵庫津ミュージアム観覧券付き海岸線1日乗車券",
+      "company": "神戸市交通局",
+      "region": "近畿",
+      "salesPeriod": "2026 / 4 / 1 / ～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://kotsu.city.kobe.lg.jp/ensen-navi/bus-railway/hyogonotsu-1day/",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "kobe02",
+      "name": "ポートライナー専用１日乗車券",
+      "company": "神戸新交通",
+      "region": "近畿",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.knt-liner.co.jp/ticketinfo/8166/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "kobe01",
+      "name": "共通１日乗車券",
+      "company": "神戸新交通",
+      "region": "近畿",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.knt-liner.co.jp/ticketinfo/8166/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "kobe03",
+      "name": "六甲ライナー専用１日乗車券",
+      "company": "神戸新交通",
+      "region": "近畿",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.knt-liner.co.jp/ticketinfo/8166/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "mizuma03",
+      "name": "昼間割引フリー乗車券",
+      "company": "水間鉄道",
+      "region": "近畿",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.suitetsu.com/event/20201102-3.pdf",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "mizuma01",
+      "name": "鉄道１日フリー乗車券",
+      "company": "水間鉄道",
+      "region": "近畿",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.suitetsu.com/train/infomation/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "osakamono96",
+      "name": "休日満喫1dayモバイルチケット",
+      "company": "大阪高速鉄道",
+      "region": "近畿",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.osaka-monorail.co.jp/ticket/value/33",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "osakametoro98",
+      "name": "「2つの世界と2匹の物語」１日乗車券",
+      "company": "大阪市高速電気軌道 / (大阪メトロ)",
+      "region": "近畿",
+      "salesPeriod": "2026 / 6 / 26 / ～2027 / 1 / 31",
+      "endDate": "2027-01-31",
+      "relatedUrl": "https://subway.osakametro.co.jp/news/news/other/20260624_2_worlds_2_animals.php?_ga=2.106512259.1617438004.1785061804-750010525.1783783624&_gl=1*10btscu*_gcl_au*ODIyMzY4Mzg5LjE3ODM3ODM2MjQ.*_ga*NzUwMDEwNTI1LjE3ODM3ODM2MjQ.*_ga_LT5TV95QB9*czE3ODUwNjE4MDMkbzMkZzEkdDE3ODUwNjIwODUkajI3JGwwJGgw",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "nankai99",
+      "name": "南海旅なぞ TRAIN2026 ～謎解きは旅の途中で～１日フリー乗車券",
+      "company": "南海電気鉄道",
+      "region": "近畿",
+      "salesPeriod": "2026 / 7 / 17 / ～2027 / 3 / 20",
+      "endDate": "2027-03-20",
+      "relatedUrl": "https://www.nankai.co.jp/traffic/digital/nazotoki_2026.html",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "nose73",
+      "name": "のせでん1dayパス",
+      "company": "能勢電鉄",
+      "region": "近畿",
+      "salesPeriod": "～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://noseden.hankyu.co.jp/upload_file/noseden/information/newsrelease202509161.pdf",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "hojo01",
+      "name": "１日フリーきっぷ",
+      "company": "北条鉄道",
+      "region": "近畿",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.hojorailway.jp/afare",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "osakametoro96",
+      "name": "Osaka Metro＆Kita-kyu Train Pass 1day",
+      "company": "北大阪急行電鉄",
+      "region": "近畿",
+      "salesPeriod": "2026 / 4 / 1 / ～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://subway.osakametro.co.jp/guide/fare/category_digital_tickets/digital_tickets/digital_joshaken.php",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "kitakyu91",
+      "name": "リアル謎解きゲーム ナゾときっぷ(北急編)",
+      "company": "北大阪急行電鉄",
+      "region": "近畿",
+      "salesPeriod": "2026 / 3 / 16 / ～12 / 25",
+      "endDate": "2026-12-25",
+      "relatedUrl": "https://www.kita-kyu.co.jp/event/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "jrwest133",
+      "name": "松江・出雲tabiwaぐるりんパス",
+      "company": "ＪＲ西日本",
+      "region": "中国",
+      "salesPeriod": "～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0002500",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "itibata04",
+      "name": "フォーゲル＆フリーチケット",
+      "company": "一畑電車",
+      "region": "中国",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://railway.ichibata.co.jp/maas-vogel/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "itibata02",
+      "name": "一畑電車シルバーきっぷ",
+      "company": "一畑電車",
+      "region": "中国",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://railway.ichibata.co.jp/tichet/silver/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "itibata01",
+      "name": "一畑電車フリー乗車券",
+      "company": "一畑電車",
+      "region": "中国",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://railway.ichibata.co.jp/tichet/free/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "itibata05",
+      "name": "古代出雲歴博入場券＆フリーチケット",
+      "company": "一畑電車",
+      "region": "中国",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://railway.ichibata.co.jp/tichet/izm/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "okaden02",
+      "name": "路面電車１日乗車券",
+      "company": "岡山電気軌道",
+      "region": "中国",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://okayama-kido.co.jp/tram/route-map/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "nishikigawa01",
+      "name": "１日フリーきっぷ",
+      "company": "錦川鉄道",
+      "region": "中国",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://nishikigawa.com/plan/one-day-free/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "astrum11",
+      "name": "サンフレッチェ応援乗車券",
+      "company": "広島高速交通",
+      "region": "中国",
+      "salesPeriod": "公式戦開催日",
+      "relatedUrl": "https://www.astramline.co.jp/ride-guidance/ticket.html",
+      "reason": "quality-hidden:sales-date-needs-review"
+    },
+    {
+      "id": "hiroshima02",
+      "name": "広島たびパス(デジタルチケット)",
+      "company": "広島電鉄",
+      "region": "中国",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.hiroden.co.jp/ticket-pass/bargain-tickets/travel.html",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "hiroshima08",
+      "name": "広島たびパス(ミドルエリア)",
+      "company": "広島電鉄",
+      "region": "中国",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.hiroden.co.jp/ticket-pass/bargain-tickets/travel.html",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "hiroshima01",
+      "name": "広島たびパス(紙チケット)",
+      "company": "広島電鉄",
+      "region": "中国",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.hiroden.co.jp/ticket-pass/bargain-tickets/travel.html",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "wakasa01",
+      "name": "１日フリー乗車券",
+      "company": "若桜鉄道",
+      "region": "中国",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://wakatetsu.co.jp/info",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "kotoden07",
+      "name": "ことでん24時間フリーきっぷ",
+      "company": "高松琴平電鉄",
+      "region": "四国",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.kotoden.co.jp/publichtm/kotoden/ticket/quicktrip/index.html",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "kotoden08",
+      "name": "ことでん48時間フリーきっぷ",
+      "company": "高松琴平電鉄",
+      "region": "四国",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.kotoden.co.jp/publichtm/kotoden/ticket/quicktrip/index.html",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "kotoden10",
+      "name": "やしま四国村・志度線パス リムジンバスセット券",
+      "company": "高松琴平電鉄",
+      "region": "四国",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.kotoden.co.jp/publichtm/kotoden/ticket/shikokumura_ticket/index.html",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "kurosio02",
+      "name": "くろしお1日フリーきっぷ",
+      "company": "土佐くろしお鉄道",
+      "region": "四国",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.tosakuro.com/discounts-tickets",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "kurosio01",
+      "name": "ごめん・なはり線フリーきっぷ",
+      "company": "土佐くろしお鉄道",
+      "region": "四国",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.tosakuro.com/discounts-tickets",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "tosakuro92",
+      "name": "ひがしこうち1日フリーきっぷ",
+      "company": "土佐くろしお鉄道",
+      "region": "四国",
+      "salesPeriod": "～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://www.tosakuro.com/discounts-tickets",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "tosaden02",
+      "name": "電車１日乗車券～軌道全線版～",
+      "company": "土佐電気鉄道",
+      "region": "四国",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.tosaden.co.jp/train/oneday.php",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "tosaden01",
+      "name": "電車１日乗車券～市内均一料金区間版～",
+      "company": "土佐電気鉄道",
+      "region": "四国",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.tosaden.co.jp/train/oneday.php",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "tosaden04",
+      "name": "電車24時間乗車券～軌道全線版～",
+      "company": "土佐電気鉄道",
+      "region": "四国",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.tosaden.co.jp/train/oneday.php",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "tosaden03",
+      "name": "電車24時間乗車券～市内均一料金区間版～",
+      "company": "土佐電気鉄道",
+      "region": "四国",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.tosaden.co.jp/info/dtl.php?ID=1875",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "jrkyusyu124",
+      "name": "JQ CARDおでかけネットパス(全九州版)",
+      "company": "ＪＲ九州",
+      "region": "九州",
+      "salesPeriod": "2025 / 9 / 1 / ～2027 / 3 / 29",
+      "endDate": "2027-03-29",
+      "relatedUrl": "https://www.jrkyushu-kippu.jp/fare/ticket/445",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "jrkyusyu123",
+      "name": "JQ CARDおでかけネットパス(北部九州版)",
+      "company": "ＪＲ九州",
+      "region": "九州",
+      "salesPeriod": "2025 / 9 / 1 / ～2027 / 3 / 29",
+      "endDate": "2027-03-29",
+      "relatedUrl": "https://www.jrkyushu-kippu.jp/fare/ticket/445",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "jrkyusyu116",
+      "name": "くまもっと！冒険きっぷ",
+      "company": "ＪＲ九州",
+      "region": "九州",
+      "salesPeriod": "2026 / 6 / 17 / ～12 / 31",
+      "endDate": "2026-12-31",
+      "relatedUrl": "https://www.jrkyushu.co.jp/news/__icsFiles/afieldfile/2026/05/26/20260526_Kumamoto_DC_Collaboration_Campaign_1.pdf",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "jrkyusyu801",
+      "name": "ハロー！自由時間ネットパス(全九州版)",
+      "company": "ＪＲ九州",
+      "region": "九州",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.jrkyushu-kippu.jp/fare/ticket/358",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "jrkyusyu791",
+      "name": "ハロー！自由時間ネットパス(北部九州版)",
+      "company": "ＪＲ九州",
+      "region": "九州",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.jrkyushu-kippu.jp/fare/ticket/358",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "jrkyusyu81",
+      "name": "ぶらり大村線きっぷ",
+      "company": "ＪＲ九州",
+      "region": "九州",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.jrkyushu-kippu.jp/fare/ticket/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "kumagawa11",
+      "name": "くま川鉄道一日乗車券(代行バス込み)",
+      "company": "くまがわ鉄道",
+      "region": "九州",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://kumagawa-rail.com/time-fare/#toc_id_9_1",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "kumagawa84",
+      "name": "くま川鉄道一日乗車券(鉄道のみ)",
+      "company": "くまがわ鉄道",
+      "region": "九州",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://kumagawa-rail.com/time-fare/#toc_id_9_1",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "solaseed01",
+      "name": "鹿児島・宮崎フリーきっぷ",
+      "company": "ソラシドエア",
+      "region": "九州",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.solaseedair.jp/promotion/jrkyushu-freeticket/?krt=service-inflight",
+      "reason": "quality-hidden:source-link-broken"
+    },
+    {
+      "id": "solaseed03",
+      "name": "西九州フリーきっぷ",
+      "company": "ソラシドエア",
+      "region": "九州",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.solaseedair.jp/promotion/jrkyushu-freeticket/?krt=service-inflight",
+      "reason": "quality-hidden:source-link-broken"
+    },
+    {
+      "id": "solaseed05",
+      "name": "全九州フリーきっぷ",
+      "company": "ソラシドエア",
+      "region": "九州",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.solaseedair.jp/promotion/jrkyushu-freeticket/?krt=service-inflight",
+      "reason": "quality-hidden:source-link-broken"
+    },
+    {
+      "id": "solaseed04",
+      "name": "中九州フリーきっぷ",
+      "company": "ソラシドエア",
+      "region": "九州",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.solaseedair.jp/promotion/jrkyushu-freeticket/?krt=service-inflight",
+      "reason": "quality-hidden:source-link-broken"
+    },
+    {
+      "id": "solaseed02",
+      "name": "由布院・別府フリーきっぷ",
+      "company": "ソラシドエア",
+      "region": "九州",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.solaseedair.jp/promotion/jrkyushu-freeticket/?krt=service-inflight",
+      "reason": "quality-hidden:source-link-broken"
+    },
+    {
+      "id": "yuirail51",
+      "name": "24時間乗り放題乗車券",
+      "company": "沖縄都市モノレール",
+      "region": "九州",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.yui-rail.co.jp/ticketinfo-ticket/ticketinfo/1day-pass/",
+      "reason": "quality-hidden:source-research-unresolved"
+    },
+    {
+      "id": "yuirail53",
+      "name": "48時間乗り放題乗車券",
+      "company": "沖縄都市モノレール",
+      "region": "九州",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.yui-rail.co.jp/ticketinfo-ticket/ticketinfo/1day-pass/",
+      "reason": "quality-hidden:source-research-unresolved"
+    },
+    {
+      "id": "yuirail02",
+      "name": "バスモノパス / 那覇バス＆ゆいレール１日共通パスポート",
+      "company": "沖縄都市モノレール",
+      "region": "九州",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.yui-rail.co.jp/ticketinfo-ticket/ticketinfo/ticket/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "yuirail55",
+      "name": "ゆいレール当日乗り放題乗車券 東京バス(沖縄)1日フリーパスセット券",
+      "company": "沖縄都市モノレール",
+      "region": "九州",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://ticket.jorudan.co.jp/yui-rail/ja/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "yuirail01",
+      "name": "一日乗車券 / 二日乗車券",
+      "company": "沖縄都市モノレール",
+      "region": "九州",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.yui-rail.co.jp/ticketinfo-ticket/ticketinfo/1day-pass/",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "yuirail52",
+      "name": "当日乗り放題乗車券",
+      "company": "沖縄都市モノレール",
+      "region": "九州",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.yui-rail.co.jp/ticketinfo-ticket/ticketinfo/1day-pass/",
+      "reason": "quality-hidden:source-research-unresolved"
+    },
+    {
+      "id": "amatetu01",
+      "name": "甘鉄一日フリー乗車券",
+      "company": "甘木鉄道",
+      "region": "九州",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.amatetsu.jp/fare/index.html",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "kagosima05",
+      "name": "市電・市バス・シティビューナイトパス",
+      "company": "鹿児島市交通局",
+      "region": "九州",
+      "salesPeriod": "3 / 1～4 / 30 / 7 / 1～8 / 31 / 12 / 1～1 / 31",
+      "relatedUrl": "https://www.kotsu-city-kagoshima.jp/ticket-summary/oneday/",
+      "reason": "quality-hidden:sales-date-needs-review"
+    },
+    {
+      "id": "kagosima03",
+      "name": "鹿児島市営バス・電車・フェリー共通利用券CUTE",
+      "company": "鹿児島市交通局",
+      "region": "九州",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.kagoshima-yokanavi.jp/article/mobileCUTE-usage",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "matuura04",
+      "name": "西肥バス・させぼバス・松浦鉄道 1 日乗車券",
+      "company": "松浦鉄道",
+      "region": "九州",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://matutetu.com/files/libs/5202/202410281037368164.pdf",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "nishitetu21",
+      "name": "福岡(天神)⇔太宰府1日フリー乗車券",
+      "company": "西日本鉄道",
+      "region": "九州",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://top.myroute.fun/ticket/fukuoka#dazaifucity",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "chikutetsu01",
+      "name": "ちくてつ24時間フリーきっぷ",
+      "company": "筑豊電気鉄道",
+      "region": "九州",
+      "salesPeriod": "発売中",
+      "relatedUrl": "http://www.chikutetsu.co.jp/data/topics/390_250131_chikutetsufree%20.pdf",
+      "reason": "quality-hidden:official-source-unconfirmed,source-research-unresolved"
+    },
+    {
+      "id": "simabara91",
+      "name": "島原鉄道乗り物コロカ1 日フリーきっぷ",
+      "company": "島原鉄道",
+      "region": "九州",
+      "salesPeriod": "～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://colopl.co.jp/service/other/coloca/transport/area06/norimono_shimabara/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "minamiaso01",
+      "name": "１日フリーキップ",
+      "company": "南阿蘇鉄道",
+      "region": "九州",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.mt-torokko.com/information/fare/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "minamiaso03",
+      "name": "南阿蘇鉄道24時間フリー乗車券",
+      "company": "南阿蘇鉄道",
+      "region": "九州",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.mt-torokko.com/information/fare/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "mojiko",
+      "name": "１日フリーきっぷ",
+      "company": "平成筑豊鉄道",
+      "region": "九州",
+      "salesPeriod": "2026 / 4 / 1 / ～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://www.retro-line.net/value_tickets/1day-pass/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "chikuchiku91",
+      "name": "へい！ちくてつ１日フリーきっぷ",
+      "company": "平成筑豊鉄道",
+      "region": "九州",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.heichiku.net/d-tickets/heichikutetsu_d/",
+      "reason": "quality-hidden:operator-overview-only"
+    },
+    {
+      "id": "kitamono01",
+      "name": "１日乗車券",
+      "company": "北九州高速鉄道",
+      "region": "九州",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.kitakyushu-monorail.co.jp/fare/special-ticket.php",
+      "reason": "quality-hidden:operator-overview-only"
+    }
+  ]
+}

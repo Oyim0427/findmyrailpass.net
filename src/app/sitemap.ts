@@ -7,8 +7,7 @@ export const dynamic = 'force-static';
 export default function sitemap(): MetadataRoute.Sitemap {
   const site = process.env.NEXT_PUBLIC_SITE_URL || 'https://findmyrailpass.net';
   const locales = ['zh', 'en', 'ja'];
-  const localizedPages = ['', '/passlist', '/directory'];
-  const chinesePages = ['/blog', '/help', '/data-sources', '/disclosure', '/products', '/privacy', '/terms', '/commercial'];
+  const localizedPages = ['', '/passlist', '/directory', '/blog', '/help', '/data-sources', '/disclosure', '/commercial', '/products', '/privacy', '/terms', '/image-credits'];
   const localized = locales.flatMap(lang => localizedPages.map(path => ({ url: `${site}/${lang}${path}`, lastModified: new Date('2026-09-01'), changeFrequency: path === '/passlist' ? 'weekly' as const : 'monthly' as const, priority: path === '' ? 1 : 0.8 })));
   const directoryDetails = locales.flatMap(lang => DOMESTIC_DIRECTORY_PASSES.map(pass => ({
     url: `${site}/${lang}/directory/${pass.id}`,
@@ -22,6 +21,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly' as const,
     priority: 0.75,
   })));
-  const chinese = chinesePages.map(path => ({ url: `${site}/zh${path}`, lastModified: new Date('2026-09-01'), changeFrequency: 'monthly' as const, priority: path === '/blog' ? 0.8 : 0.5 }));
-  return [...localized, ...verifiedPassDetails, ...directoryDetails, ...chinese];
+  return [...localized, ...verifiedPassDetails, ...directoryDetails];
 }

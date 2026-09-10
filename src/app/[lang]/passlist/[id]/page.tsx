@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import {
   ArrowLeft,
@@ -18,6 +19,9 @@ import FooterSection from '@/components/sections/FooterSection';
 import { getDictionary, type Locale } from '@/i18n/dictionaries';
 import { getAllPasses, getPassById } from '@/lib/passData';
 import { buildLocalizedMetadata } from '@/lib/seo';
+import { getPassImage } from '@/lib/passImages';
+import { getLocalizedPassFacts } from '@/lib/passLocalization';
+import { getRegionLabel } from '@/lib/regionLabels';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -133,6 +137,7 @@ export default async function VerifiedPassDetailPage({ params }: { params: Promi
   const locale = (lang === 'en' || lang === 'ja' ? lang : 'zh') as keyof typeof copy;
   const t = copy[locale];
   const dict = getDictionary(locale as Locale);
+  const facts = getLocalizedPassFacts(pass, locale);
   const name = locale === 'en' ? pass.name.en : locale === 'ja' ? pass.name.jp : pass.name.cn;
   const official = pass.officialLinks?.[0];
   const purchase = pass.purchaseLinks?.[0];
@@ -156,6 +161,8 @@ export default async function VerifiedPassDetailPage({ params }: { params: Promi
       <NavigationSection dict={dict} lang={lang} />
       <main>
         <section className={`relative overflow-hidden bg-gradient-to-br ${tones[pass.category] || tones.regional} text-white`}>
+          <Image src={getPassImage(pass)} alt={name} fill priority sizes="100vw" className="object-cover object-center opacity-65" />
+          <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/65 to-slate-900/25" />
           <div aria-hidden="true" className="absolute -right-16 -top-24 h-80 w-80 rounded-full border-[48px] border-white/10" />
           <TrainFront aria-hidden="true" className="absolute -bottom-16 right-4 h-64 w-64 rotate-[-8deg] text-white/10" strokeWidth={1} />
           <div className="relative mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
@@ -194,27 +201,27 @@ export default async function VerifiedPassDetailPage({ params }: { params: Promi
                   <p className="mt-1 text-2xl font-black">{pass.duration.join(' / ')} {t.days}</p>
                 </div>
               </div>
-              {pass.price.freeText && <p className="mt-5 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950"><strong>{t.priceNote}：</strong>{pass.price.freeText}</p>}
+              {facts.priceNote && <p className="mt-5 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950"><strong>{t.priceNote}：</strong>{facts.priceNote}</p>}
             </section>
 
             <section className="grid gap-5 md:grid-cols-2">
-              <InfoCard icon={MapPin} title={t.coverage} items={[...pass.coverage.regions, ...(pass.coverage.description ? [pass.coverage.description] : [])]} />
-              <InfoCard icon={Users} title={t.audience} items={pass.targetAudience} />
-              <InfoCard icon={TrainFront} title={t.transport} items={pass.trainTypes} />
-              <InfoCard icon={CheckCircle2} title={t.bestFor} items={pass.bestFor} />
+              <InfoCard icon={MapPin} title={t.coverage} items={[...pass.coverage.regions.map(region => getRegionLabel(region, locale)), ...(facts.coverageDescription ? [facts.coverageDescription] : [])]} />
+              <InfoCard icon={Users} title={t.audience} items={facts.audience} />
+              <InfoCard icon={TrainFront} title={t.transport} items={facts.transport} />
+              <InfoCard icon={CheckCircle2} title={t.bestFor} items={facts.bestFor} />
             </section>
 
-            {pass.validityPeriod?.description && (
+            {facts.validity && (
               <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
                 <h2 className="flex items-center gap-3 text-xl font-black"><CalendarDays className="h-6 w-6 text-primary" />{t.validity}</h2>
-                <p className="mt-4 text-sm leading-7 text-slate-700">{pass.validityPeriod.description}</p>
+                <p className="mt-4 text-sm leading-7 text-slate-700">{facts.validity}</p>
               </section>
             )}
 
-            {pass.ticket_note && (
+            {facts.note && (
               <section className="rounded-3xl border border-amber-200 bg-amber-50 p-6 sm:p-8">
                 <h2 className="font-black text-amber-950">{t.note}</h2>
-                <p className="mt-3 text-sm leading-7 text-amber-950/85">{pass.ticket_note}</p>
+                <p className="mt-3 text-sm leading-7 text-amber-950/85">{facts.note}</p>
               </section>
             )}
           </article>
@@ -242,10 +249,22 @@ export default async function VerifiedPassDetailPage({ params }: { params: Promi
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               {related.map(item => {
                 const itemName = locale === 'en' ? item.name.en : locale === 'ja' ? item.name.jp : item.name.cn;
-                return <Link key={item.id} href={`/${lang}/passlist/${item.id}`} className="group rounded-2xl border border-slate-200 bg-[#f8faf8] p-5 transition hover:-translate-y-0.5 hover:border-emerald-300 hover:shadow-md">
-                  <p className="text-xs font-bold text-primary">{item.company} · ¥{item.price.adult.regular.toLocaleString()}</p>
-                  <h3 className="mt-3 font-black leading-6">{itemName}</h3>
-                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-slate-600 group-hover:text-primary">{t.view}<ArrowRight className="h-4 w-4" /></span>
+                return <Link key={item.id} href={`/${lang}/passlist/${item.id}`} className="group overflow-hidden rounded-2xl border border-slate-200 bg-[#f8faf8] transition hover:-translate-y-0.5 hover:border-emerald-300 hover:shadow-md">
+                  <div className="relative h-32 overflow-hidden bg-slate-200">
+                    <Image
+                      src={getPassImage(item)}
+                      alt={itemName}
+                      fill
+                      sizes="(min-width: 768px) 33vw, 100vw"
+                      className="object-cover transition duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/35 to-transparent" aria-hidden="true" />
+                  </div>
+                  <div className="p-5">
+                    <p className="text-xs font-bold text-primary">{item.company} · ¥{item.price.adult.regular.toLocaleString()}</p>
+                    <h3 className="mt-3 font-black leading-6">{itemName}</h3>
+                    <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-slate-600 group-hover:text-primary">{t.view}<ArrowRight className="h-4 w-4" /></span>
+                  </div>
                 </Link>;
               })}
             </div>

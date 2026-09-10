@@ -8,18 +8,25 @@
     "start": "next start",
     "lint": "eslint",
     "qa": "node scripts/audit-static-export.mjs",
+    "qa:locales": "node scripts/audit-localization.mjs",
+    "calculator:check": "node scripts/check-calculator.mjs",
+    "images:check": "node scripts/check-pass-images.mjs",
     "sources:check": "node scripts/check-official-sources.mjs",
+    "directory:bootstrap": "node scripts/bootstrap-directory-publication.mjs",
     "directory:sync": "node scripts/sync-biglobe-directory.mjs",
     "directory:links": "node scripts/check-directory-links.mjs",
-    "directory:categories": "node scripts/check-directory-categories.mjs"
+    "directory:categories": "node scripts/check-directory-categories.mjs",
+    "directory:research": "node scripts/research-directory-sources.mjs",
+    "directory:daily": "node scripts/daily-directory-maintenance.mjs",
+    "directory:review": "node scripts/directory-review-server.mjs",
+    "release:package": "node scripts/create-release-package.mjs"
   },
   "dependencies": {
-    "@next/font": "^14.2.15",
-    "csv-parse": "^6.2.1",
+    "csv-parse": "7.0.2",
     "csv-parser": "^3.2.0",
     "framer-motion": "^12.23.22",
     "lucide-react": "^0.545.0",
-    "next": "15.5.4",
+    "next": "15.5.24",
     "react": "19.1.0",
     "react-dom": "19.1.0"
   },
@@ -35,9 +42,14 @@
     "@types/react-dom": "^19",
     "@types/tailwindcss": "^3.0.11",
     "eslint": "^9",
-    "eslint-config-next": "15.5.4",
+    "eslint-config-next": "15.5.24",
     "tailwindcss": "^4",
     "typescript": "^5",
     "xlsx": "^0.18.5"
+  },
+  "overrides": {
+    "next": {
+      "postcss": "8.5.28"
+    }
   }
 }

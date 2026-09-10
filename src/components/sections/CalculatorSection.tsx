@@ -12,6 +12,16 @@ interface CalculatorSectionProps {
 }
 
 export default function CalculatorSection({ passes, dict, lang }: CalculatorSectionProps) {
+  const copy = lang === 'ja' ? {
+    badges: ['全サイトの周遊券を検索', '確認可能な運賃を比較', 'サイト内詳細・公式リンク'],
+    description: '地方きっぷも含めて検索。地域・種類で候補を絞り、確認済みの価格を比較できます。',
+  } : lang === 'en' ? {
+    badges: ['Search all passes', 'Compare available fares', 'On-site details & official links'],
+    description: 'Search local tickets and rail passes together. Filter by region and category, and compare verified fares.',
+  } : {
+    badges: ['搜索全站周游券', '比较可核验票价', '站内详情与官网链接'],
+    description: '地方券也能一起搜索，按地区与类别筛选候选，并比较已有明确价格的票券。',
+  };
   return (
     <section id="calculator" className="py-24 bg-primary/10 relative overflow-hidden">
       {/* Decorative background */}
@@ -30,20 +40,20 @@ export default function CalculatorSection({ passes, dict, lang }: CalculatorSect
           <div className="flex flex-wrap justify-center items-center gap-3 mb-6">
             <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-orange-50 text-orange-700 text-sm font-bold border border-orange-200">
               <CheckCircle2 className="w-4 h-4 text-orange-600" strokeWidth={3} />
-              快速周游券推荐
+              {copy.badges[0]}
             </span>
             <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-orange-50 text-orange-700 text-sm font-bold border border-orange-200">
               <CheckCircle2 className="w-4 h-4 text-orange-600" strokeWidth={3} />
-              快速了解节省金额
+              {copy.badges[1]}
             </span>
             <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-orange-50 text-orange-700 text-sm font-bold border border-orange-200">
               <CheckCircle2 className="w-4 h-4 text-orange-600" strokeWidth={3} />
-              快速获取购买链接
+              {copy.badges[2]}
             </span>
           </div>
 
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-            输入旅行计划，用规则估算比较周游券与单独购票；实际价格请在官方页面确认
+            {copy.description}
           </p>
         </div>
 

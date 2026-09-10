@@ -34,7 +34,7 @@ const issues = [];
 for (const file of htmlFiles) {
   const html = fs.readFileSync(file, 'utf8');
   const relativeFile = path.relative(root, file);
-  const isLabelledDiscoveryPage = /^(zh|en|ja)[\\/](data-sources|passlist)\.html$/.test(relativeFile);
+  const isLabelledDiscoveryPage = /^(zh|en|ja)[\\/](data-sources|passlist)(?:\.html|[\\/]index\.html)$/.test(relativeFile);
   if (/www2s\.biglobe\.ne\.jp/i.test(html) && !isLabelledDiscoveryPage) issues.push(`${file}: BIGLOBE URL leaked outside an explicitly labelled discovery/source page`);
   if (/href=["']#["']/i.test(html)) issues.push(`${file}: placeholder href="#"`);
 
@@ -65,25 +65,33 @@ for (const category of directoryCategories) {
 if (directoryRows.some(pass => !directoryCategories.includes(pass.category))) {
   issues.push('Directory data contains an invalid category value.');
 }
+if (directoryRows.some(pass => pass.officialSourceKind !== 'exact-product')) {
+  issues.push('Public directory data contains a pass without an exact official product source.');
+}
+if (directoryRows.some(pass => pass.status === 'needs-review')) {
+  issues.push('Public directory data contains a pass whose sales dates still need review.');
+}
 const directoryClientSource = fs.readFileSync(path.resolve('src/app/[lang]/passlist/PassListClient.tsx'), 'utf8');
-if (!directoryClientSource.includes("const matchesCategory = dirCategory === 'all' || pass.category === dirCategory")) {
+if (!directoryClientSource.includes("const matchesCategory = category === 'all' || passCategory === category")) {
   issues.push('Directory category buttons are no longer connected to the local-pass filter.');
-}
-if (!directoryClientSource.includes('href={officialSource.url}')) {
-  issues.push('Directory cards are missing the operator-site button href.');
-}
-if (!directoryClientSource.includes('target="_blank"')) {
-  issues.push('Directory operator-site buttons no longer open separately from the on-site detail flow.');
-}
-const detailHrefUses = directoryClientSource.match(/href=\{detailHref\}/g)?.length ?? 0;
-if (detailHrefUses < 2) {
-  issues.push('Directory cards must use the on-site detail href for both the full-card overlay and the detail button.');
 }
 const officialPassSource = fs.readFileSync(path.resolve('src/data/officialPasses.ts'), 'utf8');
 const officialPassIds = [...officialPassSource.matchAll(/\bid:\s*'([^']+)'/g)].map(match => match[1]);
 const passCardSource = fs.readFileSync(path.resolve('src/components/PassCard.tsx'), 'utf8');
-if (!passCardSource.includes('const detailHref = `/${lang}/passlist/${pass.id}`')) {
-  issues.push('Verified pass cards no longer point their detail button to an on-site detail page.');
+if (!passCardSource.includes("const detailHref = isDirectory ? `/${lang}/directory/${pass.id}` : `/${lang}/passlist/${pass.id}`")) {
+  issues.push('Pass cards no longer resolve their on-site detail route by pass type.');
+}
+const detailHrefUses = passCardSource.match(/href=\{detailHref\}/g)?.length ?? 0;
+if (detailHrefUses < 2 || !passCardSource.includes('data-card-link="details"')) {
+  issues.push('Pass cards must use the on-site detail href for both the full-card overlay and the detail button.');
+}
+const officialActionIndex = passCardSource.indexOf('data-card-action="official"');
+const detailsActionIndex = passCardSource.indexOf('data-card-action="details"');
+if (officialActionIndex < 0 || detailsActionIndex < 0 || officialActionIndex > detailsActionIndex) {
+  issues.push('Pass-card actions must place the official-site button on the left and on-site details on the right.');
+}
+if (!passCardSource.includes('data-card-action="official" href={dirSource.url} target="_blank"')) {
+  issues.push('Directory official-site buttons no longer open the operator page in a separate tab.');
 }
 for (const locale of ['zh', 'en', 'ja']) {
   for (const id of officialPassIds) {

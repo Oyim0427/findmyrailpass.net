@@ -4,83 +4,19 @@ import { useState } from 'react';
 import { ChevronDown, HelpCircle } from 'lucide-react';
 import type { Dictionary } from '@/i18n/dictionaries';
 
-interface FAQ {
-  question: string;
-  answer: string;
-}
+const copy = {
+  zh: { title: '常见问题', description: '解答周游券购买和使用中的常见疑问', faqs: [
+    ['应该什么时候购买日本铁路周游券？', '建议在行程和长距离移动基本确定后购买，并确认领取期限、销售期和使用资格。不同票券条件不同，请以运营方页面为准。'], ['周游券包含哪些线路？', '每张票券的覆盖范围不同。即使是全国版也可能有列车、座席或追加票例外，请查看本站详情和运营方最新路线图。'], ['可以用周游券乘坐地铁吗？', '通常不能把 JR 票券用于地铁或私铁，但部分地区组合券包含合作线路。请逐张确认适用范围。'], ['儿童票的规定是什么？', '儿童年龄、免费同行和是否占座的条件因产品而异。计算器只在价格明确时估算，最终以运营方规则为准。'],
+  ] },
+  en: { title: 'Frequently asked questions', description: 'Common questions about buying and using Japan rail passes', faqs: [
+    ['When should I buy a Japan rail pass?', 'Buy after your itinerary and long-distance trips are reasonably settled, and check pickup deadlines, sales periods and eligibility. Conditions vary by pass, so follow the operator page.'], ['Which lines does a pass include?', 'Coverage differs by product. Even nationwide passes may have train, seat or supplemental-ticket exceptions. Check the on-site detail and the operator’s latest route map.'], ['Can I use a rail pass on the subway?', 'JR passes generally do not cover subways or private railways, although some regional combination tickets include partner lines. Check each product’s coverage.'], ['How do child fares work?', 'Age limits, free accompanying children and seat rules vary by product. The calculator estimates child prices only when they are clear; the operator’s rules are final.'],
+  ] },
+  ja: { title: 'よくある質問', description: '日本の鉄道パスの購入・利用に関する主な質問', faqs: [
+    ['鉄道パスはいつ購入すればよいですか？', '旅程と長距離移動がある程度決まった後、受取期限、発売期間、利用資格を確認して購入します。条件は商品ごとに異なるため、運行会社ページを優先してください。'], ['どの路線が利用できますか？', '利用範囲は商品ごとに異なります。全国版でも列車、座席、追加券に例外があるため、サイト内詳細と運行会社の最新路線図をご確認ください。'], ['地下鉄でも使えますか？', '通常、JRのパスで地下鉄や私鉄は利用できません。ただし、地域の組合せきっぷには提携路線を含む場合があります。商品ごとに確認してください。'], ['こども料金の条件は？', '年齢区分、無料で同伴できる人数、座席利用の条件は商品ごとに異なります。計算機は料金が明確な場合だけ試算し、最終条件は運行会社の規則に従います。'],
+  ] },
+};
 
-export default function FAQSection({ dict }: { dict?: Dictionary }) {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-
-  const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
-  const faqs: FAQ[] = dict?.faqs || [
-    {
-      question: '我应该什么时候购买日本铁路周游券 (JR Pass)?',
-      answer: '建议您在出发前往日本之前的1-3个月内购买。购买后，您将收到兑换券（MCO），该兑换券自开具之日起3个月内有效。'
-    },
-    {
-      question: 'JR Pass 包含哪些线路？',
-      answer: '全国版 JR Pass 包含几乎所有的 JR 集团营运的铁路列车（包括新干线、特急、急行、快速及普通列车），以及 JR 巴士公司的本地路线和 JR 西日本宫岛渡轮。但请注意，“希望号”(Nozomi) 和“瑞穗号”(Mizuho) 新干线需另外购买专用车票。'
-    },
-    {
-      question: '我可以使用 JR Pass 乘坐地铁吗？',
-      answer: '一般情况下不可以。JR Pass 仅限 JR 运营的线路使用，不能用于乘坐东京 Metro 地铁、都营地铁或其他私营铁路（如小田急、京王等）。不过，JR 拥有覆盖主要景点的市内环线（如东京山手线、大阪环状线），这些都涵盖在内。'
-    },
-    {
-      question: '儿童票的规定是什么？',
-      answer: '购买周游券时，6-11岁的儿童可享受儿童票（大约为成人票价的一半）。5岁及以下的婴幼儿如果不需要单独预定座位，可以免费随同成人乘车。'
-    }
-  ];
-
-  return (
-    <section className="py-24 bg-transparent relative">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center p-3 bg-primary/10 rounded-2xl mb-6 shadow-sm">
-            <HelpCircle className="w-8 h-8 text-primary" />
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 tracking-tight">
-            {dict?.faqTitle || '常见问题 (FAQ)'}
-          </h2>
-          <p className="text-lg text-gray-500">
-            {dict?.faqDesc || '解答您关于周游券购买和使用的常见疑问'}
-          </p>
-        </div>
-
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div 
-              key={index} 
-              className="border border-gray-200 rounded-2xl overflow-hidden transition-all duration-300 hover:border-green-300 bg-white shadow-sm hover:shadow-md"
-            >
-              <button
-                className="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none"
-                onClick={() => toggleFAQ(index)}
-              >
-                <span className="font-bold text-lg text-gray-800 pr-8">{faq.question}</span>
-                <div className={`p-2 rounded-full flex-shrink-0 transition-colors ${openIndex === index ? 'bg-primary/10' : 'bg-transparent'}`}>
-                  <ChevronDown 
-                    className={`w-5 h-5 transition-transform duration-300 ${openIndex === index ? 'rotate-180 text-green-600' : 'text-gray-400'}`} 
-                  />
-                </div>
-              </button>
-              
-              <div 
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                }`}
-              >
-                <div className="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-50 pt-4 mt-2">
-                  {faq.answer}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+export default function FAQSection({ dict, lang = 'zh' }: { dict?: Dictionary; lang?: string }) {
+  const [openIndex, setOpenIndex] = useState<number | null>(0); const locale = lang === 'en' || lang === 'ja' ? lang : 'zh'; const t = copy[locale]; const faqs = dict?.faqs || t.faqs.map(([question, answer]) => ({ question, answer }));
+  return <section className="relative bg-transparent py-24"><div className="relative z-10 mx-auto max-w-3xl px-4 sm:px-6 lg:px-8"><div className="mb-16 text-center"><div className="mb-6 inline-flex items-center justify-center rounded-2xl bg-primary/10 p-3 shadow-sm"><HelpCircle className="h-8 w-8 text-primary" /></div><h2 className="mb-6 text-3xl font-bold tracking-tight text-gray-900 md:text-4xl">{dict?.faqTitle || t.title}</h2><p className="text-lg text-gray-500">{dict?.faqDesc || t.description}</p></div><div className="space-y-4">{faqs.map((faq, index) => <div key={faq.question} className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition hover:border-green-300 hover:shadow-md"><button className="flex w-full items-center justify-between px-6 py-5 text-left focus:outline-none" onClick={() => setOpenIndex(openIndex === index ? null : index)} aria-expanded={openIndex === index}><span className="pr-8 text-lg font-bold text-gray-800">{faq.question}</span><span className={`shrink-0 rounded-full p-2 ${openIndex === index ? 'bg-primary/10' : ''}`}><ChevronDown className={`h-5 w-5 transition-transform ${openIndex === index ? 'rotate-180 text-green-600' : 'text-gray-400'}`} /></span></button><div className={`overflow-hidden transition-all ${openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}><div className="mx-6 border-t border-gray-100 pb-6 pt-4 leading-relaxed text-gray-600">{faq.answer}</div></div></div>)}</div></div></section>;
 }

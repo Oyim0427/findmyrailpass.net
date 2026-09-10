@@ -8,6 +8,8 @@ import { event } from '@/lib/analytics';
 import type { Dictionary } from '@/i18n/dictionaries';
 import { DomesticDirectoryPass } from '@/data/domesticPassDirectory';
 import { resolveDirectoryOfficialSource } from '@/data/directoryOfficialSourceOverrides';
+import { getPassImage } from '@/lib/passImages';
+import { getRegionLabel } from '@/lib/regionLabels';
 
 interface PassCardProps {
   pass: JRPass | DomesticDirectoryPass;
@@ -15,12 +17,6 @@ interface PassCardProps {
   dict?: Dictionary;
   lang?: string;
 }
-
-const tones: Record<string, string> = {
-  national: 'from-[#172554] via-[#1e3a8a] to-[#2563eb]',
-  regional: 'from-[#064e3b] via-[#047857] to-[#0f766e]',
-  city: 'from-[#7c2d12] via-[#c2410c] to-[#9a3412]',
-};
 
 export default function PassCard({ pass, onClick, dict, lang = 'zh' }: PassCardProps) {
   const isDirectory = 'salesPeriod' in pass;
@@ -32,7 +28,7 @@ export default function PassCard({ pass, onClick, dict, lang = 'zh' }: PassCardP
   const jrPass = !isDirectory ? pass as JRPass : null;
   const dirPass = isDirectory ? pass as DomesticDirectoryPass : null;
 
-  const imageUrl = jrPass?.coverage?.map || '/images/nophoto.svg';
+  const imageUrl = getPassImage(pass);
 
   const purchase = jrPass?.purchaseLinks?.[0];
   const dirSource = dirPass ? resolveDirectoryOfficialSource(dirPass) : null;
@@ -42,9 +38,9 @@ export default function PassCard({ pass, onClick, dict, lang = 'zh' }: PassCardP
   const description = isDirectory 
     ? (lang === 'en' ? 'Local pass from directory.' : lang === 'ja' ? '地方きっぷ一覧からの情報です。' : '来自地方券目录的信息。') + (dirPass?.salesPeriod ? ` ${lang === 'en' ? 'Sales Period:' : lang === 'ja' ? '発売期間:' : '销售期:'} ${dirPass.salesPeriod}` : '')
     : lang === 'en'
-    ? `An official ${pass.company} rail pass for ${jrPass!.coverage.regions.join(', ')}. Check the operator page for current coverage, eligibility and purchase conditions.`
+    ? `An official ${pass.company} rail pass for ${jrPass!.coverage.regions.map(value => getRegionLabel(value, lang)).join(', ')}. Check the operator page for current coverage, eligibility and purchase conditions.`
     : lang === 'ja'
-      ? `${pass.company} が提供する ${jrPass!.coverage.regions.join('・')} エリアの公式鉄道パスです。最新の範囲・利用資格・購入条件は運行会社ページでご確認ください。`
+      ? `${pass.company} が提供する ${jrPass!.coverage.regions.map(value => getRegionLabel(value, lang)).join('・')} エリアの公式鉄道パスです。最新の範囲・利用資格・購入条件は運行会社ページでご確認ください。`
       : jrPass!.description;
       
   const tags = isDirectory 
@@ -56,7 +52,13 @@ export default function PassCard({ pass, onClick, dict, lang = 'zh' }: PassCardP
   };
 
   return (
-    <article className="group h-full overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white shadow-[0_12px_35px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(15,23,42,0.12)] flex flex-col" onClick={onClick}>
+    <article className="group relative h-full overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white shadow-[0_12px_35px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(15,23,42,0.12)] flex flex-col" onClick={onClick}>
+      <Link
+        href={detailHref}
+        data-card-link="details"
+        aria-label={`${name} ${dict?.details || (lang === 'ja' ? 'サイト内詳細' : lang === 'en' ? 'On-site details' : '站内详情')}`}
+        className="absolute inset-0 z-10 rounded-[1.5rem] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40 focus-visible:ring-inset"
+      />
       <div className="relative min-h-[12rem] flex flex-col justify-between overflow-hidden p-6 text-white">
         <Image
           src={imageUrl}
@@ -98,21 +100,21 @@ export default function PassCard({ pass, onClick, dict, lang = 'zh' }: PassCardP
           {tags.map((tag) => <span key={tag} className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">{tag}</span>)}
         </div>
         <div className="mt-5 space-y-2 text-xs text-slate-500">
-          <p className="flex items-center gap-2"><MapPin className="h-3.5 w-3.5 text-slate-400" />{isDirectory ? dirPass!.region : jrPass!.coverage.regions.join(' · ')}</p>
+          <p className="flex items-center gap-2"><MapPin className="h-3.5 w-3.5 text-slate-400" />{isDirectory ? dirPass!.region : jrPass!.coverage.regions.map(value => getRegionLabel(value, lang)).join(' · ')}</p>
           {!isDirectory && (
             <p className="flex items-center gap-2"><ShieldCheck className="h-3.5 w-3.5 text-primary" />{lang === 'en' ? `Verified ${jrPass!.lastVerifiedAt}` : lang === 'ja' ? `${jrPass!.lastVerifiedAt} 確認` : `${jrPass!.lastVerifiedAt} 官方核验`}</p>
           )}
         </div>
 
-        <div className="mt-auto grid grid-cols-2 gap-3 pt-6">
-          <Link href={detailHref} onClick={(event) => event.stopPropagation()} className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-3 py-3 text-sm font-semibold text-slate-700 transition hover:border-primary hover:text-primary">{dict?.details || '站内详情'}<ArrowRight className="h-4 w-4" /></Link>
+        <div className="relative z-20 mt-auto grid grid-cols-2 gap-3 pt-6">
           {isDirectory ? (
             dirSource?.url ? (
-              <a href={dirSource.url} target="_blank" rel="noopener noreferrer" onClick={(e) => { e.stopPropagation(); trackOutbound(dirSource.url!); }} className="btn-primary inline-flex items-center justify-center gap-2 px-3 py-3 text-sm"><Ticket className="h-4 w-4" />{lang === 'en' ? 'Official' : lang === 'ja' ? '公式サイト' : '官网'}</a>
+              <a data-card-action="official" href={dirSource.url} target="_blank" rel="noopener noreferrer" onClick={(e) => { e.stopPropagation(); trackOutbound(dirSource.url!); }} className="btn-primary inline-flex items-center justify-center gap-2 px-3 py-3 text-sm"><Ticket className="h-4 w-4" />{lang === 'en' ? 'Official' : lang === 'ja' ? '公式サイト' : '官网'}</a>
             ) : null
           ) : (
-            purchase && <a href={purchase.url} target="_blank" rel={purchase.type === 'affiliate' ? 'sponsored noopener noreferrer' : 'noopener noreferrer'} onClick={(e) => { e.stopPropagation(); trackOutbound(purchase.url); }} className="btn-primary inline-flex items-center justify-center gap-2 px-3 py-3 text-sm"><Ticket className="h-4 w-4" />{purchase.type === 'official' ? (dict?.buyNow || '官方购买') : (lang === 'en' ? 'Check price' : '查看售价')}</a>
+            purchase && <a data-card-action="official" href={purchase.url} target="_blank" rel={purchase.type === 'affiliate' ? 'sponsored noopener noreferrer' : 'noopener noreferrer'} onClick={(e) => { e.stopPropagation(); trackOutbound(purchase.url); }} className="btn-primary inline-flex items-center justify-center gap-2 px-3 py-3 text-sm"><Ticket className="h-4 w-4" />{purchase.type === 'official' ? (dict?.buyNow || (lang === 'en' ? 'Official purchase' : lang === 'ja' ? '公式購入' : '官方购买')) : (lang === 'en' ? 'Check price' : lang === 'ja' ? '価格を見る' : '查看售价')}</a>
           )}
+          <Link data-card-action="details" href={detailHref} onClick={(event) => event.stopPropagation()} className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-3 py-3 text-sm font-semibold text-slate-700 transition hover:border-primary hover:text-primary">{dict?.details || (lang === 'en' ? 'On-site details' : lang === 'ja' ? 'サイト内詳細' : '站内详情')}<ArrowRight className="h-4 w-4" /></Link>
         </div>
       </div>
     </article>

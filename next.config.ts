@@ -10,8 +10,8 @@ const nextConfig: NextConfig = {
       },
     },
   },
-  // 修复路由问题
-  trailingSlash: false,
+  // FTP/static hosts can serve every route from a real directory index without rewrites.
+  trailingSlash: true,
   // 静态导出配置 - 用于 FTP 部署
   output: 'export',
   // 禁用图片优化以兼容静态导出

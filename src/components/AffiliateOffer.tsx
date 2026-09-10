@@ -5,9 +5,9 @@ import { ExternalLink, ShieldCheck } from 'lucide-react';
 import { event } from '@/lib/analytics';
 
 const copy = {
-  zh: ['合作平台价格', '想比较其他销售渠道？此链接为 Affiliate 链接；如您完成购买，本站可能获得佣金，通常不会增加您的价格。', '查看合作平台售价', '查看披露'],
-  en: ['Partner price', 'Compare another sales channel. This is an affiliate link; we may earn a commission if you book, usually at no extra cost to you.', 'Check partner price', 'Read disclosure'],
-  ja: ['提携サイトの価格', '他の販売チャネルも比較できます。このリンクはアフィリエイトリンクで、購入時に当サイトが報酬を受ける場合があります。', '提携価格を見る', '開示を見る']
+  zh: ['合作平台价格', '此链接为 Affiliate 链接；如您在合作平台完成购买，本站可能获得佣金，通常不会增加您的价格。付款、出票、取消与退款均由该平台处理。', '前往合作平台', '查看披露'],
+  en: ['Partner price', 'This is an affiliate link. We may earn a commission if you buy on the partner site, normally at no extra cost to you. That partner handles payment, ticket delivery, cancellation and refunds.', 'Go to partner site', 'Read disclosure'],
+  ja: ['提携サイトの価格', 'アフィリエイトリンクです。提携サイトで購入が成立すると、通常お客様の支払額を増やさず当サイトが報酬を受け取る場合があります。決済、発券、取消、払戻しは提携サイトが行います。', '提携サイトへ', '開示を見る']
 };
 
 export default function AffiliateOffer({ lang = 'zh' }: { lang?: string }) {

@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { asLocale, SITE_URL } from '@/lib/seo';
+import '@/app/globals.css';
+import ConsentManager from '@/components/ConsentManager';
+import { GA_MEASUREMENT_ID } from '@/lib/analytics';
 
 export async function generateStaticParams() {
   return [{ lang: 'zh' }, { lang: 'en' }, { lang: 'ja' }];
@@ -22,7 +25,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     metadataBase: new URL(SITE_URL),
     title: titles[locale],
     description: descriptions[locale],
-    robots: { index: locale === 'zh', follow: true },
+    robots: { index: true, follow: true },
     other: { 'content-language': locale === 'zh' ? 'zh-CN' : locale },
   };
 }
@@ -36,5 +39,11 @@ export default async function RootLayout({
 }) {
   const { lang } = await params;
   const locale = asLocale(lang);
-  return <><script dangerouslySetInnerHTML={{ __html: `document.documentElement.lang=${JSON.stringify(locale === 'zh' ? 'zh-CN' : locale)}` }} />{children}</>;
+  return (
+    <html lang={locale === 'zh' ? 'zh-CN' : locale}>
+      <body className="antialiased text-gray-900">
+        <ConsentManager lang={locale} measurementId={GA_MEASUREMENT_ID}>{children}</ConsentManager>
+      </body>
+    </html>
+  );
 }

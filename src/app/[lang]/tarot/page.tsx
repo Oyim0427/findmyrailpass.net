@@ -3,156 +3,26 @@
 import { useState } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
-import NavigationSection from "@/components/sections/NavigationSection";
-import FooterSection from "@/components/sections/FooterSection";
+import NavigationSection from '@/components/sections/NavigationSection';
+import FooterSection from '@/components/sections/FooterSection';
+
+const copy = {
+  zh: { title: '路线塔罗灵感', subtitle: '只生成旅行灵感，不生成购票建议', instruction: '静下心来，想一想您想探索的日本地区，然后选择一张牌。', reveal: '点击翻开', route: '路线灵感', again: '重新抽取', compare: '用官方数据比较', noteTitle: '互动说明', note: '此互动仅供娱乐，不影响计算器排序，也不是购票或财务建议。实际选择请根据行程、预算和运营方最新规则决定。', cards: [
+    ['愚者', '新的开始与冒险精神', '东京 → 大阪 → 京都', '把它当作路线灵感；东京到关西跨越多个运营区域，请先比较普通票与全国券。'], ['魔术师', '创造力与行动力', '札幌 → 函馆 → 小樽', '是否购买北海道铁路券取决于实际车次、天数和普通票合计。'], ['女祭司', '直觉与智慧', '福冈 → 熊本 → 鹿儿岛', '请根据北部、南部或全九州的实际覆盖范围比较。'], ['皇帝', '稳定与秩序', '日本全国 JR 网络', '跨区路线可以比较全国券，但不代表一定划算；应先查普通票总价。'], ['恋人', '选择与连结', '高松 → 松山 → 高知', '四国票券范围可能调整，出发前请查看 JR 四国官网。'], ['战车', '前进与决心', '东京 → 箱根 → 河口湖', '私铁、巴士与 JR 线路覆盖不同，请逐段核对。'],
+  ] },
+  en: { title: 'Route tarot inspiration', subtitle: 'Travel inspiration only—not a ticket recommendation', instruction: 'Take a moment to picture the part of Japan you want to explore, then choose a card.', reveal: 'Reveal', route: 'Route inspiration', again: 'Draw again', compare: 'Compare with official data', noteTitle: 'About this interaction', note: 'This interaction is for entertainment only. It does not affect calculator ranking and is not ticket-buying or financial advice. Decide using your itinerary, budget and the operator’s latest rules.', cards: [
+    ['The Fool', 'New beginnings and adventure', 'Tokyo → Osaka → Kyoto', 'Use this as route inspiration. Tokyo to Kansai crosses operator areas, so compare regular tickets with a nationwide pass first.'], ['The Magician', 'Creativity and action', 'Sapporo → Hakodate → Otaru', 'Whether a Hokkaido rail pass fits depends on your actual trains, travel days and regular-ticket total.'], ['The High Priestess', 'Intuition and wisdom', 'Fukuoka → Kumamoto → Kagoshima', 'Compare Northern, Southern and All Kyushu coverage against your real itinerary.'], ['The Emperor', 'Stability and order', 'Nationwide JR network', 'A cross-region trip may justify comparison, but a nationwide pass is not automatically cheaper. Check regular fares first.'], ['The Lovers', 'Choice and connection', 'Takamatsu → Matsuyama → Kochi', 'Shikoku pass coverage can change, so check the JR Shikoku website before departure.'], ['The Chariot', 'Momentum and determination', 'Tokyo → Hakone → Lake Kawaguchi', 'Private railways, buses and JR lines have different coverage. Check every segment.'],
+  ] },
+  ja: { title: '旅程タロット', subtitle: '旅行のヒントだけを表示し、購入判断は行いません', instruction: '行ってみたい日本の地域を思い浮かべて、カードを1枚選んでください。', reveal: 'カードを開く', route: '旅程のヒント', again: 'もう一度引く', compare: '公式情報で比較', noteTitle: 'この機能について', note: 'この機能は娯楽用です。計算機の表示順には影響せず、購入・金融上の助言でもありません。実際の旅程、予算、運行会社の最新条件でご判断ください。', cards: [
+    ['愚者', '新しい始まりと冒険', '東京 → 大阪 → 京都', '旅程のヒントとしてご利用ください。東京から関西は複数地域をまたぐため、通常きっぷと全国版パスを先に比較します。'], ['魔術師', '創造力と行動力', '札幌 → 函館 → 小樽', '北海道の鉄道パスが合うかは、実際の列車、日数、通常運賃の合計で決まります。'], ['女教皇', '直感と知恵', '福岡 → 熊本 → 鹿児島', '北部九州、南部九州、全九州の利用範囲を実際の旅程と比較してください。'], ['皇帝', '安定と秩序', '全国のJRネットワーク', '地域をまたぐ旅程では全国版も比較できますが、必ず安いとは限りません。通常運賃を先に確認します。'], ['恋人', '選択とつながり', '高松 → 松山 → 高知', '四国のきっぷは利用範囲が変更される場合があります。出発前にJR四国公式サイトをご確認ください。'], ['戦車', '前進と決意', '東京 → 箱根 → 河口湖', '私鉄、バス、JRでは利用範囲が異なるため、区間ごとに確認してください。'],
+  ] },
+};
+const emoji = ['🎭', '🎪', '🌙', '👑', '💕', '🏎️'];
 
 export default function TarotPage() {
-  const params = useParams<{ lang: string }>();
-  const lang = params?.lang || 'zh';
-  const [selectedCard, setSelectedCard] = useState<number | null>(null);
-  const [isRevealed, setIsRevealed] = useState(false);
-
-  const tarotCards = [
-    {
-      id: 1,
-      name: "愚者",
-      emoji: "🎭",
-      description: "新的开始，充满冒险精神",
-      route: "东京 → 大阪 → 京都",
-      meaning: "把它当作路线灵感；东京到关西跨越多个运营区域，请先比较普通票与全国券。"
-    },
-    {
-      id: 2,
-      name: "魔术师",
-      emoji: "🎪",
-      description: "创造力与行动力",
-      route: "札幌 → 函馆 → 小樽",
-      meaning: "把它当作路线灵感；是否买北海道铁路券取决于实际车次、天数和普通票合计。"
-    },
-    {
-      id: 3,
-      name: "女祭司",
-      emoji: "🌙",
-      description: "直觉与智慧",
-      route: "福冈 → 熊本 → 鹿儿岛",
-      meaning: "把它当作路线灵感；请根据北部、南部或全九州的实际覆盖范围比较。"
-    },
-    {
-      id: 4,
-      name: "皇帝",
-      emoji: "👑",
-      description: "权威与稳定",
-      route: "全国JR网络",
-      meaning: "跨区路线可以比较全国券，但并不代表一定划算；应先查普通票总价。"
-    },
-    {
-      id: 5,
-      name: "恋人",
-      emoji: "💕",
-      description: "爱情与选择",
-      route: "高松 → 松山 → 高知",
-      meaning: "把它当作路线灵感；四国票券范围可能调整，出发前请看 JR 四国官网。"
-    },
-    {
-      id: 6,
-      name: "战车",
-      emoji: "🏎️",
-      description: "胜利与决心",
-      route: "东京 → 箱根 → 河口湖",
-      meaning: "把它当作路线灵感；私铁、巴士与 JR 线路的覆盖并不相同，请逐段核对。"
-    }
-  ];
-
-  const handleCardClick = (cardId: number) => {
-    setSelectedCard(cardId);
-    setIsRevealed(true);
-  };
-
-  const resetTarot = () => {
-    setSelectedCard(null);
-    setIsRevealed(false);
-  };
-
-  return (
-    <div className="min-h-screen">
-      <NavigationSection lang={lang} />
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">路线塔罗占卜</h1>
-          <p className="text-xl text-gray-600">只生成旅行灵感，不生成购票建议</p>
-        </div>
-
-        {!isRevealed ? (
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-8">
-              <p className="text-lg text-gray-700 mb-4">
-                请静下心来，思考您想要探索的日本地区，然后选择一张塔罗牌...
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-              {tarotCards.map((card) => (
-                <div
-                  key={card.id}
-                  className="bg-white rounded-lg shadow-lg p-4 cursor-pointer hover:shadow-xl transition-all duration-300 hover:scale-105"
-                  onClick={() => handleCardClick(card.id)}
-                >
-                  <div className="text-center">
-                    <div className="text-3xl mb-2">🃏</div>
-                    <p className="text-sm text-gray-600">点击翻开</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        ) : (
-          <div className="max-w-4xl mx-auto">
-            {selectedCard && (
-              <div className="bg-white rounded-lg shadow-xl p-8 text-center">
-                <div className="text-6xl mb-4">
-                  {tarotCards[selectedCard - 1].emoji}
-                </div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                  {tarotCards[selectedCard - 1].name}
-                </h2>
-                <p className="text-xl text-gray-700 mb-6">
-                  {tarotCards[selectedCard - 1].description}
-                </p>
-                
-                <div className="bg-gradient-to-r from-red-50 to-pink-50 rounded-lg p-6 mb-6">
-                  <h3 className="text-2xl font-bold text-red-600 mb-2">推荐路线</h3>
-                  <p className="text-lg text-gray-800 mb-4">
-                    {tarotCards[selectedCard - 1].route}
-                  </p>
-                  <p className="text-lg text-gray-700">
-                    {tarotCards[selectedCard - 1].meaning}
-                  </p>
-                </div>
-
-                <div className="flex justify-center space-x-4">
-                  <button
-                    onClick={resetTarot}
-                    className="bg-gradient-to-r from-amber-400 to-orange-500 text-white px-6 py-3 rounded-lg hover:from-amber-500 hover:to-orange-600 transition-all duration-200 shadow-lg shadow-amber-400/25"
-                  >
-                    重新占卜
-                  </button>
-                  <Link href={`/${lang}#calculator`} className="bg-gradient-to-r from-amber-400 to-orange-500 text-white px-6 py-3 rounded-lg hover:from-amber-500 hover:to-orange-600 transition-all duration-200 shadow-lg shadow-amber-400/25">用官方数据比较</Link>
-                </div>
-              </div>
-            )}
-          </div>
-        )}
-
-        <div className="mt-12 text-center">
-          <div className="bg-white rounded-lg shadow-lg p-6 max-w-2xl mx-auto">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">占卜说明</h3>
-            <p className="text-gray-700">
-              此互动仅供娱乐，不影响计算器排序，也不是购票或财务建议。实际选择请根据行程、预算和运营方最新规则决定。
-            </p>
-          </div>
-        </div>
-      </main>
-      <FooterSection lang={lang} />
-    </div>
-  );
+  const params = useParams<{ lang: string }>(); const locale = params?.lang === 'en' || params?.lang === 'ja' ? params.lang : 'zh'; const t = copy[locale]; const [selectedCard, setSelectedCard] = useState<number | null>(null); const card = selectedCard === null ? null : t.cards[selectedCard];
+  return <div className="min-h-screen"><NavigationSection lang={locale} /><main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8"><div className="mb-12 text-center"><h1 className="mb-4 text-4xl font-bold text-gray-900">{t.title}</h1><p className="text-xl text-gray-600">{t.subtitle}</p></div>
+    {!card ? <div className="mx-auto max-w-4xl"><p className="mb-8 text-center text-lg text-gray-700">{t.instruction}</p><div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">{t.cards.map((item, index) => <button key={item[0]} type="button" className="rounded-lg bg-white p-4 shadow-lg transition hover:scale-105 hover:shadow-xl" onClick={() => setSelectedCard(index)}><span className="mb-2 block text-3xl">🃏</span><span className="text-sm text-gray-600">{t.reveal}</span></button>)}</div></div> : <div className="mx-auto max-w-4xl rounded-lg bg-white p-8 text-center shadow-xl"><div className="mb-4 text-6xl">{emoji[selectedCard!]}</div><h2 className="mb-4 text-3xl font-bold text-gray-900">{card[0]}</h2><p className="mb-6 text-xl text-gray-700">{card[1]}</p><div className="mb-6 rounded-lg bg-gradient-to-r from-red-50 to-pink-50 p-6"><h3 className="mb-2 text-2xl font-bold text-red-700">{t.route}</h3><p className="mb-4 text-lg text-gray-800">{card[2]}</p><p className="text-lg text-gray-700">{card[3]}</p></div><div className="flex flex-wrap justify-center gap-4"><button onClick={() => setSelectedCard(null)} className="rounded-lg bg-orange-600 px-6 py-3 font-bold text-white hover:bg-orange-700">{t.again}</button><Link href={`/${locale}#calculator`} className="rounded-lg bg-primary px-6 py-3 font-bold text-white hover:bg-primary-dark">{t.compare}</Link></div></div>}
+    <div className="mx-auto mt-12 max-w-2xl rounded-lg bg-white p-6 text-center shadow-lg"><h3 className="mb-4 text-xl font-bold text-gray-900">{t.noteTitle}</h3><p className="text-gray-700">{t.note}</p></div>
+  </main><FooterSection lang={locale} /></div>;
 }
