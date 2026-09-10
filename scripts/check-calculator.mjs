@@ -19,13 +19,17 @@ function loadTypeScript(relativePath) {
 
 const { OFFICIAL_PASSES: official } = loadTypeScript('src/data/officialPasses.ts');
 const { DOMESTIC_DIRECTORY_PASSES: directory } = loadTypeScript('src/data/domesticPassDirectory.ts');
-const { createPassCatalog, getCatalogKey, getCatalogDetailHref, isDirectoryPass, searchCalculatorCatalog, searchCatalogByKeyword } = loadTypeScript('src/lib/passCatalog.ts');
+const { createPassCatalog, getCatalogKey, getCatalogDetailHref, getIndexableDirectoryPasses, isDirectoryPass, searchCalculatorCatalog, searchCatalogByKeyword } = loadTypeScript('src/lib/passCatalog.ts');
+const publicDirectory = getIndexableDirectoryPasses(directory);
 const catalog = createPassCatalog(official, directory);
 const baseline = JSON.stringify(catalog);
 const defaultQuery = { origin: '', destination: 'all', query: '', category: 'all', tripDays: 7, adults: 1, children: 0 };
 const search = (overrides = {}, records = catalog) => searchCalculatorCatalog(records, { ...defaultQuery, ...overrides });
 
-assert.equal(catalog.length, official.length + directory.length);
+assert.equal(catalog.length, official.length + publicDirectory.length);
+assert.equal(publicDirectory.length, directory.length - 1, 'The duplicate Kumamoto paper/mobile records must merge into one product');
+const kumamoto = publicDirectory.find(pass => pass.id === 'kumamotoshi01');
+assert.match(kumamoto?.priceText || '', /Paper.*700円.*Mobile.*500円/, 'Merged Kumamoto prices must preserve paper and mobile variants');
 assert.equal(search().length, catalog.length, 'Unfiltered search must include every site record');
 assert.ok(search().length > 4, 'Search must retain hidden matches beyond the four initially displayed results');
 assert.equal(new Set(search().map(result => result.key)).size, catalog.length);
@@ -53,9 +57,9 @@ for (const category of new Set(catalog.map(pass => pass.category))) {
   assert.equal(matches.length, catalog.filter(pass => pass.category === category).length);
   assert.ok(matches.every(result => result.pass.category === category));
 }
-for (const region of new Set(directory.map(pass => pass.region))) {
+for (const region of new Set(publicDirectory.map(pass => pass.region))) {
   const matches = search({ destination: region, origin: '関東' });
-  for (const pass of directory.filter(pass => pass.region === region)) {
+  for (const pass of publicDirectory.filter(pass => pass.region === region)) {
     assert.ok(matches.some(result => result.key === getCatalogKey(pass)), `Region filter lost ${pass.name}`);
   }
 }
@@ -104,4 +108,4 @@ for (const child of [undefined, { regular: 0 }, { regular: NaN }]) {
 }
 assert.equal(JSON.stringify(catalog), baseline, 'Search must not mutate production records');
 
-console.log(`Calculator checks passed: all ${catalog.length} passes searchable (${official.length} official + ${directory.length} directory), all categories/regions, fare safeguards, and on-site detail routes${process.argv.includes('--export') ? ' including static exports' : ''}.`);
+console.log(`Calculator checks passed: all ${catalog.length} public passes searchable (${official.length} official + ${publicDirectory.length} deduplicated directory), all categories/regions, fare safeguards, and on-site detail routes${process.argv.includes('--export') ? ' including static exports' : ''}.`);

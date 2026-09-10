@@ -30,9 +30,12 @@ import {
 } from '@/data/directoryOfficialSourceOverrides';
 import { getDirectoryPassCategoryLabel } from '@/lib/directoryPassCategories';
 import { getPassImage } from '@/lib/passImages';
+import { getDirectoryIndexDecision, getIndexableDirectoryPasses } from '@/lib/passCatalog';
+import { getRegionLabel } from '@/lib/regionLabels';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
+const INDEXABLE_DIRECTORY_PASSES = getIndexableDirectoryPasses(DOMESTIC_DIRECTORY_PASSES);
 
 export function generateStaticParams() {
   return DOMESTIC_DIRECTORY_PASSES.map(pass => ({ id: pass.id }));
@@ -128,16 +131,20 @@ const copy = {
   },
 };
 
-function getPass(id: string) {
+function getRawPass(id: string) {
   return DOMESTIC_DIRECTORY_PASSES.find(pass => pass.id === id);
 }
 
+function getPass(id: string) {
+  return INDEXABLE_DIRECTORY_PASSES.find(pass => pass.id === id) || getRawPass(id);
+}
+
 function getRelatedPasses(pass: DomesticDirectoryPass) {
-  const sameCompany = DOMESTIC_DIRECTORY_PASSES.filter(item => item.id !== pass.id && item.company === pass.company);
-  const sameCategory = DOMESTIC_DIRECTORY_PASSES.filter(
+  const sameCompany = INDEXABLE_DIRECTORY_PASSES.filter(item => item.id !== pass.id && item.company === pass.company);
+  const sameCategory = INDEXABLE_DIRECTORY_PASSES.filter(
     item => item.id !== pass.id && item.category === pass.category && item.region === pass.region && item.company !== pass.company,
   );
-  const sameRegion = DOMESTIC_DIRECTORY_PASSES.filter(
+  const sameRegion = INDEXABLE_DIRECTORY_PASSES.filter(
     item => item.id !== pass.id && item.region === pass.region && item.category !== pass.category && item.company !== pass.company,
   );
   return [...sameCompany, ...sameCategory, ...sameRegion].slice(0, 3);
@@ -152,23 +159,38 @@ function sourceLabel(kind: DirectoryOfficialSourceKind, t: (typeof copy)['zh']) 
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string; id: string }> }) {
   const { lang, id } = await params;
+  const rawPass = getRawPass(id);
+  if (!rawPass) return {};
   const pass = getPass(id);
   if (!pass) return {};
+  const locale = lang === 'en' || lang === 'ja' ? lang : 'zh';
+  const regionLabel = getRegionLabel(pass.region, locale);
+  const decision = getDirectoryIndexDecision(rawPass, DOMESTIC_DIRECTORY_PASSES);
 
-  return buildLocalizedMetadata({
+  const metadata = buildLocalizedMetadata({
     lang,
     path: `directory/${pass.id}`,
     titles: {
-      zh: `${pass.name}｜票价、有效期与销售期｜FindMyJR-Pass`,
-      en: `${pass.name} | Price, Validity & Sales Period | FindMyJR-Pass`,
-      ja: `${pass.name}｜料金・有効期間・発売期間｜FindMyJR-Pass`,
+      zh: `${pass.name}｜${pass.company}・${regionLabel}票价与有效期｜FindMyJR-Pass`,
+      en: `${pass.name} | ${pass.company}, ${regionLabel} | Price & Validity`,
+      ja: `${pass.name}｜${pass.company}・${regionLabel}｜料金・有効期間`,
     },
     descriptions: {
-      zh: `查看${pass.company}「${pass.name}」的参考价格、有效期、销售期间、使用期间与来源状态。全部内容在本站详情页展示。`,
-      en: `See the recorded price, validity, sales period, travel period and source status for ${pass.name} by ${pass.company}, all on one on-site page.`,
-      ja: `${pass.company}「${pass.name}」の参考料金、有効期間、発売期間、利用期間、出典状況をサイト内で確認できます。`,
+      zh: `查看${pass.company}「${pass.name}」的参考价格（${pass.priceText || '以官网为准'}）、有效期、销售期间、使用期间与官方来源核验状态。`,
+      en: `Check ${pass.name} by ${pass.company}: recorded price (${pass.priceText || 'see operator'}), validity, sales period, travel period and verified source status.`,
+      ja: `${pass.company}「${pass.name}」の参考料金（${pass.priceText || '公式サイトで確認'}）、有効期間、発売期間、利用期間、公式情報の確認状況。`,
     },
   });
+  if (decision.indexable) return metadata;
+  const canonicalPath = (value: 'zh' | 'en' | 'ja') => `/${value}/directory/${decision.canonicalId}`;
+  return {
+    ...metadata,
+    robots: { index: false, follow: true },
+    alternates: {
+      canonical: canonicalPath(locale),
+      languages: { 'zh-CN': canonicalPath('zh'), en: canonicalPath('en'), ja: canonicalPath('ja'), 'x-default': canonicalPath('en') },
+    },
+  };
 }
 
 export default async function DirectoryPassDetailPage({ params }: { params: Promise<{ lang: string; id: string }> }) {
@@ -181,6 +203,7 @@ export default async function DirectoryPassDetailPage({ params }: { params: Prom
   const dict = getDictionary(locale as Locale);
   const source = resolveDirectoryOfficialSource(pass);
   const categoryLabel = getDirectoryPassCategoryLabel(pass.category, locale);
+  const regionLabel = getRegionLabel(pass.region, locale);
   const relatedPasses = getRelatedPasses(pass);
   const status = pass.status === 'on-sale'
     ? t.statusOnSale
@@ -199,12 +222,20 @@ export default async function DirectoryPassDetailPage({ params }: { params: Prom
     { label: t.usePeriod, value: pass.usePeriodText, icon: TrainFront },
     { label: t.salesLocation, value: pass.salesLocationText, icon: TicketCheck },
   ];
+  const overview = locale === 'zh'
+    ? `${pass.name}由${pass.company}发行，本站将其归入${regionLabel}的${categoryLabel}。当前记录价格为${pass.priceText || t.missing}，有效期为${pass.validityText || t.missing}，销售期为${pass.salesPeriod}。`
+    : locale === 'en'
+      ? `${pass.name} is issued by ${pass.company} and listed as a ${categoryLabel} for ${regionLabel}. The recorded price is ${pass.priceText || t.missing}, validity is ${pass.validityText || t.missing}, and the sales period is ${pass.salesPeriod}.`
+      : `${pass.name}は${pass.company}が発売する、${regionLabel}の${categoryLabel}です。記録料金は${pass.priceText || t.missing}、有効期間は${pass.validityText || t.missing}、発売期間は${pass.salesPeriod}です。`;
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: pass.name,
     description: `${pass.company} ${pass.name} — ${pass.salesPeriod}`,
     inLanguage: locale === 'zh' ? 'zh-CN' : locale,
+    dateModified: DOMESTIC_DIRECTORY_SNAPSHOT_DATE,
+    isBasedOn: source.url,
+    publisher: { '@type': 'Organization', name: 'FindMyJR-Pass' },
     about: {
       '@type': 'Thing',
       name: pass.name,
@@ -236,7 +267,7 @@ export default async function DirectoryPassDetailPage({ params }: { params: Prom
               </p>
               <div className="mt-5 flex flex-wrap gap-2">
                 <span className="rounded-full bg-white/12 px-3 py-1 text-xs font-bold text-white ring-1 ring-inset ring-white/20">
-                  {pass.region}
+                  {regionLabel}
                 </span>
                 <span className="rounded-full bg-cyan-300/15 px-3 py-1 text-xs font-bold text-cyan-50 ring-1 ring-inset ring-cyan-200/25">
                   {categoryLabel}
@@ -259,6 +290,7 @@ export default async function DirectoryPassDetailPage({ params }: { params: Prom
                   <TicketCheck className="h-6 w-6 text-primary" />{pass.name}
                 </h2>
               </div>
+              <p className="px-6 py-5 text-sm leading-7 text-slate-600 sm:px-8">{overview}</p>
               <dl className="divide-y divide-slate-100">
                 {factRows.map(({ label, value, icon: Icon }) => (
                   <div key={label} className="grid gap-2 px-6 py-5 sm:grid-cols-[12rem_1fr] sm:gap-6 sm:px-8">
@@ -316,7 +348,7 @@ export default async function DirectoryPassDetailPage({ params }: { params: Prom
 
             <div className="rounded-3xl bg-slate-950 p-6 text-white">
               <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-cyan-300">
-                <MapPin className="h-4 w-4" />{pass.region}
+                <MapPin className="h-4 w-4" />{regionLabel}
               </p>
               <p className="mt-3 text-lg font-black">{pass.company}</p>
               <p className="mt-3 text-sm leading-6 text-slate-300">{pass.salesPeriod}</p>

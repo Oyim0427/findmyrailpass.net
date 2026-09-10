@@ -1,8 +1,19 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import ts from 'typescript';
 
 const root = path.resolve('out');
 const htmlFiles = [];
+
+function loadTypeScript(relativePath) {
+  const source = fs.readFileSync(path.resolve(relativePath), 'utf8');
+  const { outputText } = ts.transpileModule(source, {
+    compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 },
+  });
+  const loadedModule = { exports: {} };
+  new Function('module', 'exports', outputText)(loadedModule, loadedModule.exports);
+  return loadedModule.exports;
+}
 
 function walk(dir) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -56,6 +67,9 @@ const directoryRows = JSON.parse(directorySource.slice(
   directorySource.indexOf(directoryMarker) + directoryMarker.length,
   directorySource.lastIndexOf(';'),
 ));
+const { getDirectoryIndexDecision, getIndexableDirectoryPasses } = loadTypeScript('src/lib/passCatalog.ts');
+const indexableDirectoryRows = getIndexableDirectoryPasses(directoryRows);
+const indexableDirectoryIds = new Set(indexableDirectoryRows.map(pass => pass.id));
 const directoryCategories = ['national', 'regional', 'city', 'bus', 'private', 'special'];
 for (const category of directoryCategories) {
   if (!directoryRows.some(pass => pass.category === category)) {
@@ -70,6 +84,33 @@ if (directoryRows.some(pass => pass.officialSourceKind !== 'exact-product')) {
 }
 if (directoryRows.some(pass => pass.status === 'needs-review')) {
   issues.push('Public directory data contains a pass whose sales dates still need review.');
+}
+const sitemap = fs.readFileSync(path.resolve(root, 'sitemap.xml'), 'utf8');
+for (const pass of directoryRows) {
+  const decision = getDirectoryIndexDecision(pass, directoryRows);
+  for (const locale of ['zh', 'en', 'ja']) {
+    const page = path.resolve(root, locale, 'directory', pass.id, 'index.html');
+    const html = fs.existsSync(page) ? fs.readFileSync(page, 'utf8') : '';
+    const sitemapUrl = `https://findmyrailpass.net/${locale}/directory/${pass.id}`;
+    if (decision.indexable) {
+      if (!html.includes('<meta name="robots" content="index, follow"')) issues.push(`${page}: indexable directory page is missing index, follow`);
+      if (!sitemap.includes(`<loc>${sitemapUrl}</loc>`)) issues.push(`Sitemap is missing indexable directory page ${sitemapUrl}`);
+    } else {
+      if (!html.includes('<meta name="robots" content="noindex, follow"')) issues.push(`${page}: non-indexable directory page is missing noindex, follow`);
+      if (sitemap.includes(`<loc>${sitemapUrl}</loc>`)) issues.push(`Sitemap contains non-indexable directory page ${sitemapUrl}`);
+      const canonical = `https://findmyrailpass.net/${locale}/directory/${decision.canonicalId}/`;
+      if (!html.includes(`<link rel="canonical" href="${canonical}"`)) issues.push(`${page}: expected canonical ${canonical}`);
+    }
+  }
+}
+const publicationReview = JSON.parse(fs.readFileSync(path.resolve('reports/directory-publication-review.json'), 'utf8'));
+for (const hidden of publicationReview.hiddenByQuality || []) {
+  for (const locale of ['zh', 'en', 'ja']) {
+    if (sitemap.includes(`/${locale}/directory/${hidden.id}`)) issues.push(`Sitemap contains quality-hidden pass ${hidden.id}`);
+  }
+}
+if (indexableDirectoryRows.length !== directoryRows.length - 1 || !indexableDirectoryIds.has('kumamotoshi01')) {
+  issues.push('Expected the two Kumamoto paper/mobile source records to merge into one indexable product.');
 }
 const directoryClientSource = fs.readFileSync(path.resolve('src/app/[lang]/passlist/PassListClient.tsx'), 'utf8');
 if (!directoryClientSource.includes("const matchesCategory = category === 'all' || passCategory === category")) {
@@ -112,4 +153,4 @@ if (issues.length) {
   process.exit(1);
 }
 
-console.log(`Static export audit passed: ${htmlFiles.length} HTML files, ${officialPassIds.length * 3} verified-pass detail pages, ${passIds.length * 3} directory detail pages, no broken internal links or visitor-facing BIGLOBE detail links.`);
+console.log(`Static export audit passed: ${htmlFiles.length} HTML files, ${officialPassIds.length * 3} verified-pass detail pages, ${indexableDirectoryRows.length * 3} indexable directory details, ${passIds.length - indexableDirectoryRows.length} legacy duplicate kept noindex, no broken internal links or visitor-facing BIGLOBE detail links.`);

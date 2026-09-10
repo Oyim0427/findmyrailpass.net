@@ -11,9 +11,112 @@ export function getCatalogKey(pass: CatalogPass): string {
   return `${isDirectoryPass(pass) ? 'directory' : 'verified'}:${pass.id}`;
 }
 
+function normalizeDirectoryText(value: string | null | undefined): string {
+  return (value || '').normalize('NFKC').replace(/\s+/g, ' ').trim();
+}
+
+function normalizeOfficialUrl(value: string | undefined): string {
+  if (!value) return '';
+  try {
+    const url = new URL(value);
+    url.hash = '';
+    return url.href.replace(/\/$/, '').toLowerCase();
+  } catch {
+    return '';
+  }
+}
+
+function directoryProductKey(pass: DomesticDirectoryPass): string {
+  return [
+    normalizeDirectoryText(pass.name),
+    normalizeDirectoryText(pass.company),
+    normalizeDirectoryText(pass.region),
+    normalizeOfficialUrl(pass.relatedUrl),
+  ].join('|');
+}
+
+function hasClearSalesPeriod(pass: DomesticDirectoryPass): boolean {
+  return pass.status !== 'needs-review'
+    && Boolean(pass.startDate || pass.endDate || /(発売中|通年|常時)/.test(pass.salesPeriod));
+}
+
+function hasUsefulDetailContent(pass: DomesticDirectoryPass): boolean {
+  return [pass.priceText, pass.validityText, pass.usePeriodText, pass.salesLocationText]
+    .filter(value => normalizeDirectoryText(value).length > 0)
+    .length >= 2;
+}
+
+export type DirectoryIndexDecision = {
+  indexable: boolean;
+  canonicalId: string;
+  reasons: string[];
+};
+
+function getDirectoryBaseIssues(pass: DomesticDirectoryPass): string[] {
+  const reasons: string[] = [];
+  if (pass.officialSourceKind !== 'exact-product') reasons.push('official-product-source-required');
+  if (!normalizeOfficialUrl(pass.relatedUrl)) reasons.push('valid-official-url-required');
+  if (!hasClearSalesPeriod(pass)) reasons.push('clear-sales-period-required');
+  if (!hasUsefulDetailContent(pass)) reasons.push('insufficient-detail-content');
+  if (!normalizeDirectoryText(pass.name) || !normalizeDirectoryText(pass.company) || !normalizeDirectoryText(pass.region)) {
+    reasons.push('identity-fields-required');
+  }
+  return reasons;
+}
+
+export function getDirectoryIndexDecision(
+  pass: DomesticDirectoryPass,
+  directory: DomesticDirectoryPass[],
+): DirectoryIndexDecision {
+  const reasons = getDirectoryBaseIssues(pass);
+  const key = directoryProductKey(pass);
+  const canonical = directory.find(item => directoryProductKey(item) === key && getDirectoryBaseIssues(item).length === 0) || pass;
+  if (canonical.id !== pass.id) reasons.push(`duplicate-of:${canonical.id}`);
+  return { indexable: reasons.length === 0, canonicalId: canonical.id, reasons };
+}
+
+function joinDistinct(values: (string | undefined)[]): string | undefined {
+  const distinct = [...new Set(values.map(normalizeDirectoryText).filter(Boolean))];
+  return distinct.length ? distinct.join(' / ') : undefined;
+}
+
+function mergeDirectoryProductGroup(group: DomesticDirectoryPass[]): DomesticDirectoryPass {
+  const primary = group[0];
+  if (group.length === 1) return primary;
+  const priceText = group.some(item => item.id === 'kumamotoshi01') && group.some(item => item.id === 'kumamotoshi03')
+    ? '紙券 / Paper：大人 700円・小人 350円 ／ モバイル券 / Mobile：大人 500円・小人 250円'
+    : joinDistinct(group.map(item => item.priceText));
+  return {
+    ...primary,
+    priceText,
+    validityText: joinDistinct(group.map(item => item.validityText)),
+    usePeriodText: joinDistinct(group.map(item => item.usePeriodText)),
+    salesLocationText: joinDistinct(group.map(item => item.salesLocationText)),
+    relatedUrlCorrected: group.some(item => item.relatedUrlCorrected),
+  };
+}
+
+/**
+ * Return only records that are safe to publish and index. Identical product
+ * records discovered under multiple source pages are merged into the first ID.
+ * The old detail ID can remain generated as noindex for backwards compatibility.
+ */
+export function getIndexableDirectoryPasses(directory: DomesticDirectoryPass[]): DomesticDirectoryPass[] {
+  const groups = new Map<string, DomesticDirectoryPass[]>();
+  for (const pass of directory) {
+    const decision = getDirectoryIndexDecision(pass, directory);
+    if (decision.reasons.some(reason => !reason.startsWith('duplicate-of:'))) continue;
+    const key = directoryProductKey(pass);
+    groups.set(key, [...(groups.get(key) || []), pass]);
+  }
+  return [...groups.values()].map(group => mergeDirectoryProductGroup(
+    [...new Map(group.map(pass => [pass.id, pass])).values()],
+  ));
+}
+
 // Preserve the two source schemas and provenance; never invent structured local fares.
 export function createPassCatalog(verified: JRPass[], directory: DomesticDirectoryPass[]): CatalogPass[] {
-  return [...new Map([...verified, ...directory].map(pass => [getCatalogKey(pass), pass])).values()];
+  return [...new Map([...verified, ...getIndexableDirectoryPasses(directory)].map(pass => [getCatalogKey(pass), pass])).values()];
 }
 
 export function getCatalogDetailHref(pass: CatalogPass, lang: string): string {
