@@ -2223,6 +2223,18 @@
       "reason": "quality-hidden:operator-overview-only",
       "detectedAt": "2026-09-09T07:31:47.906Z",
       "snapshotDate": "2026-09-09"
+    },
+    {
+      "id": "jrsikoku81",
+      "name": "スマえき若者限定四国フリーきっぷ",
+      "company": "ＪＲ四国",
+      "region": "四国",
+      "salesPeriod": "2026 / 6 / 18 / ～9 / 11",
+      "endDate": "2026-09-11",
+      "relatedUrl": "https://www.jr-eki.com/ticket/brand/2-3XF",
+      "reason": "ended-by-date",
+      "detectedAt": "2026-09-15T04:42:26.623Z",
+      "snapshotDate": "2026-09-15"
     }
   ]
 }

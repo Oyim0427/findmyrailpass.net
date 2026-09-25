@@ -79,13 +79,27 @@ export default function PassCard({ pass, onClick, dict, lang = 'zh' }: PassCardP
         <h3 className="relative mt-6 text-xl sm:text-2xl font-bold leading-tight drop-shadow-md text-balance">{name}</h3>
       </div>
 
-      <div className="flex min-h-[27rem] flex-col p-6">
+      <div className="flex flex-1 flex-col p-6">
         <div className="flex items-end justify-between gap-4 border-b border-slate-100 pb-5">
-          <div>
+          <div className="flex-1 min-w-0 pr-2">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">{dict?.priceAdult || '成人价格起'}</p>
-            <p className="mt-1 text-3xl font-bold tracking-tight text-slate-950">
-              {isDirectory ? dirPass?.priceText || '---' : `¥${jrPass!.price.adult.regular.toLocaleString()}`}
-            </p>
+            <div className="mt-1 font-bold tracking-tight">
+              {isDirectory ? (
+                dirPass?.priceText ? (
+                  <div className="flex flex-col gap-0.5">
+                    {dirPass.priceText.split(/／|\//).map((part, index) => (
+                      <span key={index} className={index === 0 ? "text-2xl sm:text-3xl text-slate-950 truncate" : "text-sm sm:text-base text-slate-500 truncate"}>
+                        {part.trim()}
+                      </span>
+                    ))}
+                  </div>
+                ) : (
+                  <span className="text-2xl sm:text-3xl text-slate-950">---</span>
+                )
+              ) : (
+                <span className="text-2xl sm:text-3xl text-slate-950 truncate block">¥{jrPass!.price.adult.regular.toLocaleString()}</span>
+              )}
+            </div>
           </div>
           <div className="text-right text-sm text-slate-500 max-w-[40%]">
             <CalendarDays className="mb-1 ml-auto h-4 w-4 text-primary" />

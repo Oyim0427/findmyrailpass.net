@@ -1607,11 +1607,6 @@
       "approvedAt": "2026-09-09T06:24:46.442Z",
       "approvedBy": "existing-catalog-baseline"
     },
-    "jrsikoku81": {
-      "fingerprint": "jrsikoku81|2026-06-18|2026-09-11|2026 / 6 / 18 / ~9 / 11",
-      "approvedAt": "2026-09-09T06:24:46.442Z",
-      "approvedBy": "existing-catalog-baseline"
-    },
     "jrsikoku06": {
       "fingerprint": "jrsikoku06|2027-03-31|2027-03-31|~2027 / 3 / 31",
       "approvedAt": "2026-09-09T06:24:46.442Z",
@@ -1883,6 +1878,6 @@
       "approvedBy": "existing-catalog-baseline"
     }
   },
-  "updatedAt": "2026-09-09T07:31:47.896Z",
+  "updatedAt": "2026-09-15T04:42:26.608Z",
   "lastRevocationReason": "not-eligible-under-exact-official-source-policy"
 }

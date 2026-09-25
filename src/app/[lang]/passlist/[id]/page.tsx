@@ -7,15 +7,16 @@ import {
   BadgeJapaneseYen,
   CalendarDays,
   CheckCircle2,
-  ExternalLink,
   MapPin,
   ShieldCheck,
-  Ticket,
   TrainFront,
   Users,
 } from 'lucide-react';
 import NavigationSection from '@/components/sections/NavigationSection';
 import FooterSection from '@/components/sections/FooterSection';
+import AdSlot from '@/components/AdSlot';
+import PassFeedback from '@/components/PassFeedback';
+import PurchaseChannels, { type OfficialPurchaseLink } from '@/components/PurchaseChannels';
 import { getDictionary, type Locale } from '@/i18n/dictionaries';
 import { getAllPasses, getPassById } from '@/lib/passData';
 import { buildLocalizedMetadata } from '@/lib/seo';
@@ -45,11 +46,9 @@ const copy = {
     bestFor: '适合这样的行程',
     validity: '有效期间',
     note: '使用前注意',
-    sourceTitle: '来源与购买',
+    sourceTitle: '来源与核验',
     sourceBody: '本页是 FindMyJR-Pass 整理的站内详情。票价和规则可能变化，付款前请通过运营方页面再次确认。',
     verifiedAt: '最后核验日期',
-    official: '运营方详细',
-    buy: '官方购买',
     related: '其他已核验周游券',
     view: '查看站内详情',
     days: '日',
@@ -68,11 +67,9 @@ const copy = {
     bestFor: 'Best for',
     validity: 'Validity period',
     note: 'Before you travel',
-    sourceTitle: 'Sources and purchase',
+    sourceTitle: 'Source and verification',
     sourceBody: 'This is an on-site FindMyJR-Pass detail page. Fares and rules can change, so confirm them with the operator before payment.',
     verifiedAt: 'Last checked',
-    official: 'Operator details',
-    buy: 'Official purchase',
     related: 'Other verified passes',
     view: 'View on-site details',
     days: 'days',
@@ -91,11 +88,9 @@ const copy = {
     bestFor: 'おすすめの旅程',
     validity: '有効期間',
     note: '利用前の注意',
-    sourceTitle: '出典・購入',
+    sourceTitle: '出典・確認',
     sourceBody: 'このページは FindMyJR-Pass が整理したサイト内詳細です。料金・条件は変わる場合があるため、購入前に運行会社ページで再確認してください。',
     verifiedAt: '最終確認日',
-    official: '運行会社の詳細',
-    buy: '公式購入',
     related: 'その他の確認済みパス',
     view: 'サイト内詳細を見る',
     days: '日',
@@ -140,7 +135,13 @@ export default async function VerifiedPassDetailPage({ params }: { params: Promi
   const facts = getLocalizedPassFacts(pass, locale);
   const name = locale === 'en' ? pass.name.en : locale === 'ja' ? pass.name.jp : pass.name.cn;
   const official = pass.officialLinks?.[0];
-  const purchase = pass.purchaseLinks?.[0];
+  const officialPurchaseLinks: OfficialPurchaseLink[] = (pass.purchaseLinks ?? [])
+    .filter(link => link.type !== 'affiliate' && link.type !== 'sponsored')
+    .map(link => ({ url: link.url, kind: 'purchase' }));
+  const officialLinks: OfficialPurchaseLink[] = [
+    ...officialPurchaseLinks,
+    ...(official ? [{ url: official.url, kind: 'details' as const }] : []),
+  ];
   const related = getAllPasses().filter(item => item.id !== pass.id).slice(0, 3);
   const description = locale === 'zh'
     ? pass.description
@@ -227,7 +228,8 @@ export default async function VerifiedPassDetailPage({ params }: { params: Promi
           </article>
 
           <aside>
-            <section className="sticky top-24 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div className="space-y-6">
+            <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-100 text-primary"><ShieldCheck className="h-6 w-6" /></div>
               <h2 className="mt-5 text-xl font-black">{t.sourceTitle}</h2>
               <p className="mt-3 text-sm leading-6 text-slate-600">{t.sourceBody}</p>
@@ -235,11 +237,9 @@ export default async function VerifiedPassDetailPage({ params }: { params: Promi
                 <dt className="font-bold text-slate-400">{t.verifiedAt}</dt>
                 <dd className="mt-1 font-bold text-slate-800">{pass.lastVerifiedAt || '—'}</dd>
               </dl>
-              <div className="mt-6 grid gap-3">
-                {official && <a href={official.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl border border-primary px-4 py-3 text-sm font-bold text-primary hover:bg-primary/10">{t.official}<ExternalLink className="h-4 w-4" /></a>}
-                {purchase && <a href={purchase.url} target="_blank" rel={purchase.type === 'affiliate' ? 'sponsored noopener noreferrer' : 'noopener noreferrer'} className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#c2410c] px-4 py-3 text-sm font-bold text-white hover:bg-[#9a3412]"><Ticket className="h-4 w-4" />{t.buy}</a>}
-              </div>
             </section>
+            <PurchaseChannels passId={pass.id} lang={lang} officialLinks={officialLinks} />
+            </div>
           </aside>
         </div>
 
@@ -270,6 +270,13 @@ export default async function VerifiedPassDetailPage({ params }: { params: Promi
             </div>
           </div>
         </section>
+        <PassFeedback passId={pass.id} passName={name} passPath={`/${lang}/passlist/${pass.id}/`} lang={lang} />
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <AdSlot
+            slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_PASS_DETAIL}
+            label={lang === 'zh' ? '广告' : lang === 'ja' ? '広告' : 'Advertisement'}
+          />
+        </div>
       </main>
       <FooterSection dict={dict} lang={lang} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />

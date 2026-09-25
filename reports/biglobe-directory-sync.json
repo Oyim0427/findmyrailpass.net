@@ -1,18 +1,18 @@
 {
-  "snapshotDate": "2026-09-09",
+  "snapshotDate": "2026-09-15",
   "discoverySource": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/",
   "regionalIndexes": [
     {
       "region": "全国",
       "url": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/zenkoku.htm",
       "discovered": 12,
-      "included": 1
+      "included": 2
     },
     {
       "region": "北海道",
       "url": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/hokkaido.htm",
       "discovered": 31,
-      "included": 23
+      "included": 25
     },
     {
       "region": "東北",
@@ -29,20 +29,20 @@
     {
       "region": "東海",
       "url": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/tokai.htm",
-      "discovered": 118,
-      "included": 78
+      "discovered": 117,
+      "included": 79
     },
     {
       "region": "北信越",
       "url": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/hokusinetu.htm",
       "discovered": 111,
-      "included": 78
+      "included": 80
     },
     {
       "region": "近畿",
       "url": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/kinki.htm",
-      "discovered": 278,
-      "included": 176
+      "discovered": 280,
+      "included": 183
     },
     {
       "region": "中国",
@@ -54,38 +54,38 @@
       "region": "四国",
       "url": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/sikoku.htm",
       "discovered": 43,
-      "included": 37
+      "included": 36
     },
     {
       "region": "九州",
       "url": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/kyusyu.htm",
-      "discovered": 102,
-      "included": 69
+      "discovered": 104,
+      "included": 76
     }
   ],
-  "discoveredRows": 1006,
-  "excludedEnded": 332,
-  "includedBeforeDeduplication": 674,
-  "includedAfterDeduplication": 567,
+  "discoveredRows": 1009,
+  "excludedEnded": 316,
+  "includedBeforeDeduplication": 693,
+  "includedAfterDeduplication": 582,
   "excludedByOfficialSource": 1,
-  "eligibleAfterOfficialCheck": 376,
-  "publishedAfterApproval": 376,
-  "pendingApproval": 0,
-  "autoOffline": 190,
-  "hiddenByQuality": 191,
-  "revokedApprovals": 198,
+  "eligibleAfterOfficialCheck": 383,
+  "publishedAfterApproval": 375,
+  "pendingApproval": 8,
+  "autoOffline": 0,
+  "hiddenByQuality": 199,
+  "revokedApprovals": 0,
   "categoryRuleVersion": "2026-09-03-v1",
   "categoryCounts": {
     "national": 1,
-    "regional": 71,
+    "regional": 70,
     "city": 53,
     "bus": 21,
     "private": 195,
     "special": 35
   },
-  "withRelatedUrl": 376,
-  "correctedOfficialUrls": 136,
-  "exactProductSources": 376,
+  "withRelatedUrl": 375,
+  "correctedOfficialUrls": 139,
+  "exactProductSources": 375,
   "operatorOverviewSources": 0,
   "needsReview": 0,
   "detailFailures": []

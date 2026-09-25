@@ -19,6 +19,7 @@ function loadTypeScript(relativePath) {
 
 const { OFFICIAL_PASSES: official } = loadTypeScript('src/data/officialPasses.ts');
 const { DOMESTIC_DIRECTORY_PASSES: directory } = loadTypeScript('src/data/domesticPassDirectory.ts');
+const { MAJOR_REGIONS } = loadTypeScript('src/types/pass.ts');
 const { createPassCatalog, getCatalogKey, getCatalogDetailHref, getIndexableDirectoryPasses, isDirectoryPass, searchCalculatorCatalog, searchCatalogByKeyword } = loadTypeScript('src/lib/passCatalog.ts');
 const publicDirectory = getIndexableDirectoryPasses(directory);
 const catalog = createPassCatalog(official, directory);
@@ -38,6 +39,9 @@ const idCollision = { ...directory[0], id: official[0].id };
 assert.equal(createPassCatalog([official[0]], [idCollision]).length, 2, 'Source-specific IDs must not collide');
 
 for (const pass of catalog) {
+  assert.ok(Array.isArray(pass.majorRegions), `Missing major-region array: ${pass.id}`);
+  assert.ok(pass.majorRegions.every(region => MAJOR_REGIONS.includes(region)), `Unknown major region: ${pass.id}`);
+  assert.equal(new Set(pass.majorRegions).size, pass.majorRegions.length, `Duplicate major region: ${pass.id}`);
   const names = isDirectoryPass(pass) ? [pass.name] : Object.values(pass.name);
   for (const name of names) {
     assert.ok(search({ query: name }).some(result => result.key === getCatalogKey(pass)), `Unsearchable name: ${name}`);
@@ -57,9 +61,9 @@ for (const category of new Set(catalog.map(pass => pass.category))) {
   assert.equal(matches.length, catalog.filter(pass => pass.category === category).length);
   assert.ok(matches.every(result => result.pass.category === category));
 }
-for (const region of new Set(publicDirectory.map(pass => pass.region))) {
+for (const region of new Set(publicDirectory.flatMap(pass => pass.majorRegions))) {
   const matches = search({ destination: region, origin: '関東' });
-  for (const pass of publicDirectory.filter(pass => pass.region === region)) {
+  for (const pass of publicDirectory.filter(pass => pass.majorRegions.includes(region))) {
     assert.ok(matches.some(result => result.key === getCatalogKey(pass)), `Region filter lost ${pass.name}`);
   }
 }
@@ -80,8 +84,34 @@ assert.equal(searchCatalogByKeyword(catalog, '   ').length, 0, 'Blank input must
 const broad = directory.find(pass => pass.region === '全国');
 assert.ok(broad);
 const broadMatch = search({ destination: '北海道' }, [broad])[0];
-assert.ok(broadMatch.reasons.includes('directoryBroad'));
+assert.deepEqual(broad.majorRegions, ['北海道', '東北', '関東', '北信越']);
+assert.ok(broadMatch.reasons.includes('directoryRegion'));
 assert.ok(!broadMatch.reasons.includes('nationalMatch'), 'Directory geography is not a coverage claim');
+assert.equal(search({ destination: '九州' }, [broad]).length, 0, '全国 directory filing must not imply nationwide coverage');
+assert.equal(search({ destination: '全国' }, [broad]).length, 0);
+assert.equal(search({ destination: '全国' }, [official[0]]).length, 1);
+
+const regionPass = (id, majorRegions, duration = [7]) => ({
+  ...official[0], id, category: 'regional', majorRegions, duration,
+  coverage: { ...official[0].coverage, regions: majorRegions },
+});
+const focused = regionPass('focused', ['関東', '近畿'], [1]);
+const wide = regionPass('wide', ['関東', '近畿', '中国']);
+const destinationOnly = regionPass('destination-only', ['近畿']);
+const originOnly = regionPass('origin-only', ['関東']);
+const unrelated = regionPass('unrelated', ['北海道']);
+const geographicMatches = search({ origin: '関東', destination: '近畿', tripDays: 7 },
+  [originOnly, unrelated, destinationOnly, wide, focused]);
+assert.deepEqual(geographicMatches.map(result => result.pass.id),
+  ['focused', 'wide', 'destination-only', 'origin-only'],
+  'Both-endpoint focused passes must beat broader and one-sided candidates regardless of validity');
+assert.ok(geographicMatches[0].reasons.includes('bothFocused'));
+assert.ok(geographicMatches[1].reasons.includes('bothBroad'));
+assert.ok(geographicMatches[2].reasons.includes('destinationOnly'));
+assert.ok(geographicMatches[3].reasons.includes('originOnly'));
+const localPair = { ...directory[0], id: 'local-pair', region: '関東', majorRegions: ['関東', '近畿'] };
+assert.equal(search({ origin: '関東', destination: '近畿' }, [destinationOnly, localPair])[0].pass.id, 'local-pair');
+assert.ok(search({ origin: '関東', destination: '近畿' }, [localPair])[0].reasons.includes('directoryReview'));
 const missingPrice = { ...directory[0], priceText: undefined, validityText: undefined };
 const unpricedMatch = search({ budget: 100000, children: 2 }, [missingPrice])[0];
 assert.ok(unpricedMatch);

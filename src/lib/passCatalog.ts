@@ -135,7 +135,8 @@ export interface CalculatorQuery {
 }
 
 export type MatchReason = 'regionMatch' | 'nationalMatch' | 'originMatch'
-  | 'daysFit' | 'daysShort' | 'daysLong' | 'directoryRegion' | 'directoryBroad' | 'directoryReview';
+  | 'bothFocused' | 'bothBroad' | 'destinationOnly' | 'originOnly'
+  | 'daysFit' | 'daysShort' | 'daysLong' | 'directoryRegion' | 'directoryReview';
 
 export interface CalculatorMatch {
   pass: CatalogPass;
@@ -162,7 +163,7 @@ function normalize(text: string | null | undefined): string {
 }
 
 function searchableText(pass: CatalogPass): string {
-  const regions = isDirectoryPass(pass) ? [pass.region] : pass.coverage.regions;
+  const regions = isDirectoryPass(pass) ? [pass.region, ...pass.majorRegions] : [...pass.coverage.regions, ...pass.majorRegions];
   const fields = isDirectoryPass(pass)
     ? [pass.name, pass.company, pass.priceText, pass.validityText, pass.salesPeriod]
     : [pass.name.cn, pass.name.en, pass.name.jp, pass.company, pass.description];
@@ -206,7 +207,8 @@ export function searchCatalogByKeyword(catalog: CatalogPass[], query: string): C
 }
 
 export function searchCalculatorCatalog(catalog: CatalogPass[], input: CalculatorQuery): CalculatorMatch[] {
-  const allRegions = !input.destination || input.destination === 'all';
+  const destination = input.destination && input.destination !== 'all' ? input.destination : '';
+  const origin = input.origin && input.origin !== '全国' ? input.origin : '';
   const budget = input.budget !== undefined && Number.isFinite(input.budget) && input.budget > 0 ? input.budget : undefined;
 
   return catalog.flatMap((pass): CalculatorMatch[] => {
@@ -214,34 +216,41 @@ export function searchCalculatorCatalog(catalog: CatalogPass[], input: Calculato
     if (!matchesCatalogKeyword(pass, input.query)) return [];
 
     const directory = isDirectoryPass(pass);
-    const passRegions = directory ? [pass.region] : pass.coverage.regions;
-    const broadListing = directory && pass.region === '全国';
-    // A discovery index filed under 全国 is NOT verified nationwide coverage.
-    const nationalCoverage = !directory && (pass.category === 'national' || passRegions.includes('全国'));
-    const regionMatch = passRegions.includes(input.destination);
-    if (!allRegions && !regionMatch && !nationalCoverage && !broadListing) return [];
+    const passRegions = pass.majorRegions;
+    // A directory record filed under 全国 is not evidence of nationwide coverage.
+    const nationalCoverage = !directory && pass.coverage.regions.includes('全国');
+    const includesRegion = (region: string) => nationalCoverage || passRegions.some(passRegion => passRegion === region);
+    const destinationMatch = Boolean(destination && (destination === '全国' ? nationalCoverage : includesRegion(destination)));
+    const originMatch = Boolean(origin && includesRegion(origin));
+    if (destination === '全国' && !nationalCoverage) return [];
+    if (destination && !destinationMatch && !originMatch) return [];
 
-    let score = 0;
+    const plannedRegions = new Set([origin, destination].filter(region => region && region !== '全国'));
+    const hasExtraRegions = nationalCoverage || passRegions.some(region => !plannedRegions.has(region));
+    // Geographic tiers always outrank duration and price. A one-sided result is
+    // a discovery candidate, never a claim that the whole itinerary is covered.
+    const tier = destination && origin
+      ? destinationMatch && originMatch ? (hasExtraRegions ? 3 : 4) : destinationMatch ? 2 : originMatch ? 1 : 0
+      : destination ? destinationMatch ? (hasExtraRegions ? 3 : 4) : 0
+        : origin && originMatch ? (hasExtraRegions ? 3 : 4) : 0;
+    let score = tier * 100;
     const reasons: MatchReason[] = [];
+    if (destination && origin) {
+      if (destinationMatch && originMatch) reasons.push(hasExtraRegions ? 'bothBroad' : 'bothFocused');
+      else if (destinationMatch) reasons.push('destinationOnly');
+      else if (originMatch) reasons.push('originOnly');
+    }
     if (directory) {
-      if (broadListing) {
-        reasons.push('directoryBroad');
-        score += 5;
-      } else {
-        reasons.push('directoryRegion');
-        score += allRegions ? 10 : 40;
-      }
+      reasons.push('directoryRegion');
       reasons.push('directoryReview');
       return [{ pass, key: getCatalogKey(pass), score, reasons }];
     }
 
-    if (!allRegions) {
+    if (destinationMatch) {
       reasons.push(nationalCoverage ? 'nationalMatch' : 'regionMatch');
-      score += regionMatch ? 45 : 25;
     }
-    if (input.origin && (nationalCoverage || passRegions.includes(input.origin))) {
+    if (originMatch) {
       reasons.push('originMatch');
-      score += 10;
     }
     const durations = pass.duration.filter(days => Number.isFinite(days) && days > 0);
     const validity = durations.sort((a, b) => Math.abs(a - input.tripDays) - Math.abs(b - input.tripDays))[0];

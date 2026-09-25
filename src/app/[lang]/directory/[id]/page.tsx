@@ -17,6 +17,9 @@ import {
 } from 'lucide-react';
 import NavigationSection from '@/components/sections/NavigationSection';
 import FooterSection from '@/components/sections/FooterSection';
+import AdSlot from '@/components/AdSlot';
+import PassFeedback from '@/components/PassFeedback';
+import PurchaseChannels from '@/components/PurchaseChannels';
 import { getDictionary, type Locale } from '@/i18n/dictionaries';
 import { buildLocalizedMetadata } from '@/lib/seo';
 import {
@@ -48,13 +51,15 @@ const copy = {
     category: '票券分类',
     eyebrow: 'FindMyJR-Pass 站内周游券详情',
     price: '参考价格',
+    adult: '成人',
+    child: '儿童',
     validity: '有效期',
     salesPeriod: '销售期间',
     usePeriod: '使用期间',
     salesLocation: '销售地点',
     missing: '目录暂无记录',
     sourceTitle: '数据来源与核验状态',
-    sourceBody: '本站把公开目录信息整理为独立详情页，并保存关联来源用于后台校正。为避免来回跳转，本页不提供 BIGLOBE 或运营方外链。',
+    sourceBody: '本站把公开目录信息整理为独立详情页，并保存关联来源用于后台校正。页面详情不跳转 BIGLOBE；经过核验的运营方产品入口会在购买渠道中单独提供。',
     sourceDomain: '来源域名',
     checked: '资料快照',
     corrected: '历史失效地址已替换',
@@ -77,13 +82,15 @@ const copy = {
     category: 'Pass category',
     eyebrow: 'FindMyJR-Pass on-site pass detail',
     price: 'Reference price',
+    adult: 'Adult',
+    child: 'Child',
     validity: 'Validity',
     salesPeriod: 'Sales period',
     usePeriod: 'Travel period',
     salesLocation: 'Where it is sold',
     missing: 'Not recorded in the directory',
     sourceTitle: 'Source and review status',
-    sourceBody: 'We turn public directory records into standalone on-site pages and retain related sources for background checks. This page does not link visitors to BIGLOBE or operator sites.',
+    sourceBody: 'We turn public directory records into standalone on-site pages and retain related sources for background checks. Details do not send visitors to BIGLOBE; a verified operator product page is listed separately under purchase channels.',
     sourceDomain: 'Source domain',
     checked: 'Data snapshot',
     corrected: 'A stale historical URL was replaced',
@@ -106,13 +113,15 @@ const copy = {
     category: 'きっぷ分類',
     eyebrow: 'FindMyJR-Pass サイト内きっぷ詳細',
     price: '参考価格',
+    adult: '大人',
+    child: '小人',
     validity: '有効期間',
     salesPeriod: '発売期間',
     usePeriod: '利用期間',
     salesLocation: '発売場所',
     missing: '一覧に記録がありません',
     sourceTitle: '出典と確認状況',
-    sourceBody: '公開一覧の情報をサイト内の個別ページに整理し、関連元は裏側の確認用として保存します。BIGLOBE や事業者サイトへの外部リンクは設置していません。',
+    sourceBody: '公開一覧の情報をサイト内の個別ページに整理し、関連元は裏側の確認用として保存します。詳細表示はBIGLOBEへ移動せず、確認済みの事業者商品ページは購入先欄に分けて掲載します。',
     sourceDomain: '出典ドメイン',
     checked: 'データスナップショット',
     corrected: '過去の無効 URL を差し替え済み',
@@ -155,6 +164,25 @@ function sourceLabel(kind: DirectoryOfficialSourceKind, t: (typeof copy)['zh']) 
   if (kind === 'operator-overview') return t.overview;
   if (kind === 'recorded-related') return t.recorded;
   return t.unavailable;
+}
+
+function splitAdultChildPrice(value: string | undefined) {
+  const match = value?.match(/^大人\s*[:：]?\s*([\d,]+円)\s*(?:[／/]\s*|\s+)小人\s*[:：]?\s*([\d,]+円)$/);
+  return match ? { adult: match[1], child: match[2] } : null;
+}
+
+function splitPriceVariants(value: string | undefined) {
+  if (!value) return null;
+  const segments = value.trim().replace(/\s*\/\s*$/, '').split(/\s+\/\s*/);
+  if (segments.length < 2) return null;
+
+  const variants: Array<{ label: string; adult: string; child: string }> = [];
+  for (const segment of segments) {
+    const match = segment.match(/^(.+?)\s*大人\s*[:：]?\s*([\d,]+円)\s*(?:[／/]\s*|\s+)小人\s*[:：]?\s*([\d,]+円)$/);
+    if (!match) return null;
+    variants.push({ label: match[1].trim().replace(/[：:]$/, ''), adult: match[2], child: match[3] });
+  }
+  return variants;
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string; id: string }> }) {
@@ -215,6 +243,11 @@ export default async function DirectoryPassDetailPage({ params }: { params: Prom
     : pass.status === 'scheduled'
       ? 'bg-sky-100 text-sky-900'
       : 'bg-amber-100 text-amber-950';
+  const adultChildPrice = splitAdultChildPrice(pass.priceText);
+  const priceVariants = splitPriceVariants(pass.priceText);
+  const overviewPrice = adultChildPrice
+    ? `${t.adult}：${adultChildPrice.adult}、${t.child}：${adultChildPrice.child}`
+    : pass.priceText;
   const factRows = [
     { label: t.price, value: pass.priceText, icon: BadgeJapaneseYen },
     { label: t.validity, value: pass.validityText, icon: Clock3 },
@@ -223,10 +256,10 @@ export default async function DirectoryPassDetailPage({ params }: { params: Prom
     { label: t.salesLocation, value: pass.salesLocationText, icon: TicketCheck },
   ];
   const overview = locale === 'zh'
-    ? `${pass.name}由${pass.company}发行，本站将其归入${regionLabel}的${categoryLabel}。当前记录价格为${pass.priceText || t.missing}，有效期为${pass.validityText || t.missing}，销售期为${pass.salesPeriod}。`
+    ? `${pass.name}由${pass.company}发行，本站将其归入${regionLabel}的${categoryLabel}。${priceVariants ? '不同票种的参考价格见下方' : `当前记录价格为${overviewPrice || t.missing}`}，有效期为${pass.validityText || t.missing}，销售期为${pass.salesPeriod}。`
     : locale === 'en'
-      ? `${pass.name} is issued by ${pass.company} and listed as a ${categoryLabel} for ${regionLabel}. The recorded price is ${pass.priceText || t.missing}, validity is ${pass.validityText || t.missing}, and the sales period is ${pass.salesPeriod}.`
-      : `${pass.name}は${pass.company}が発売する、${regionLabel}の${categoryLabel}です。記録料金は${pass.priceText || t.missing}、有効期間は${pass.validityText || t.missing}、発売期間は${pass.salesPeriod}です。`;
+      ? `${pass.name} is issued by ${pass.company} and listed as a ${categoryLabel} for ${regionLabel}. ${priceVariants ? 'Prices by ticket type are shown below' : `The recorded price is ${overviewPrice || t.missing}`}; validity is ${pass.validityText || t.missing}, and the sales period is ${pass.salesPeriod}.`
+      : `${pass.name}は${pass.company}が発売する、${regionLabel}の${categoryLabel}です。${priceVariants ? '券種ごとの参考料金は下記に掲載しています' : `記録料金は${overviewPrice || t.missing}`}、有効期間は${pass.validityText || t.missing}、発売期間は${pass.salesPeriod}です。`;
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
@@ -298,7 +331,24 @@ export default async function DirectoryPassDetailPage({ params }: { params: Prom
                       <Icon className="h-4 w-4 text-primary" />{label}
                     </dt>
                     <dd className={`text-sm font-semibold leading-6 ${value ? 'text-slate-800' : 'text-slate-400'}`}>
-                      {value || t.missing}
+                      {label === t.price && priceVariants ? (
+                        <div className="grid gap-3 md:grid-cols-2">
+                          {priceVariants.map((variant, index) => (
+                            <div key={`${variant.label}-${index}`} className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                              <div className="font-bold text-slate-900">{variant.label}</div>
+                              <div className="mt-3 grid grid-cols-2 gap-3 border-t border-slate-200 pt-3">
+                                <div><div className="text-xs text-slate-500">{t.adult}</div><div className="mt-1 text-base font-bold">{variant.adult}</div></div>
+                                <div><div className="text-xs text-slate-500">{t.child}</div><div className="mt-1 text-base font-bold">{variant.child}</div></div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      ) : label === t.price && adultChildPrice ? (
+                        <div className="grid gap-2 sm:grid-cols-2">
+                          <div><span className="mr-2 text-slate-500">{t.adult}</span>{adultChildPrice.adult}</div>
+                          <div><span className="mr-2 text-slate-500">{t.child}</span>{adultChildPrice.child}</div>
+                        </div>
+                      ) : value || t.missing}
                     </dd>
                   </div>
                 ))}
@@ -346,6 +396,12 @@ export default async function DirectoryPassDetailPage({ params }: { params: Prom
               </Link>
             </section>
 
+            <PurchaseChannels
+              passId={pass.id}
+              lang={lang}
+              officialLinks={source.kind === 'exact-product' && source.url ? [{ url: source.url, kind: 'details' }] : []}
+            />
+
             <div className="rounded-3xl bg-slate-950 p-6 text-white">
               <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-cyan-300">
                 <MapPin className="h-4 w-4" />{regionLabel}
@@ -392,6 +448,13 @@ export default async function DirectoryPassDetailPage({ params }: { params: Prom
             </div>
           </section>
         )}
+        <PassFeedback passId={pass.id} passName={pass.name} passPath={`/${lang}/directory/${pass.id}/`} lang={lang} />
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <AdSlot
+            slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_PASS_DETAIL}
+            label={lang === 'zh' ? '广告' : lang === 'ja' ? '広告' : 'Advertisement'}
+          />
+        </div>
       </main>
       <FooterSection dict={dict} lang={lang} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />

@@ -1,9 +1,10 @@
 {
-  "completedAt": "2026-09-09T06:53:40.188Z",
-  "snapshotDate": "2026-09-09",
-  "published": 566,
-  "pendingApproval": 0,
+  "completedAt": "2026-09-15T04:43:16.538Z",
+  "snapshotDate": "2026-09-15",
+  "published": 375,
+  "pendingApproval": 8,
+  "hiddenByQuality": 199,
   "autoOffline": 0,
-  "unreachableLinks": 2,
+  "unreachableLinks": 0,
   "liveDeployment": "not-configured"
 }

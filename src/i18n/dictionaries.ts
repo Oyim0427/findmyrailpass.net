@@ -22,7 +22,7 @@ const dictionaries = {
         desc: '优先跳转运营方官方页面，Affiliate 链接与广告会明确披露。'
       }
     ],
-    omikujiTitle: '行前抽签',
+    omikujiTitle: '行前\n抽签',
     omikujiDesc: '轻互动，不抢主线 CTA',
     proCalcTitle: '高级计算器',
     viewAllPasses: '查看所有周游券',
@@ -159,7 +159,7 @@ const dictionaries = {
         desc: 'Official links come first; affiliate links and advertising are always disclosed.'
       }
     ],
-    omikujiTitle: 'Omikuji: Fortune Telling',
+    omikujiTitle: 'Omikuji:\nFortune Telling',
     omikujiDesc: 'A light pre-trip interaction',
     proCalcTitle: 'Pro Route Optimizer',
     viewAllPasses: 'View All Passes',
@@ -296,7 +296,7 @@ const dictionaries = {
         desc: '公式ページを優先し、提携リンクと広告は明確に表示します。'
       }
     ],
-    omikujiTitle: '旅行前のおみくじ',
+    omikujiTitle: '旅行前の\nおみくじ',
     omikujiDesc: '楽しい事前体験',
     proCalcTitle: 'プロルートオプティマイザー',
     viewAllPasses: 'すべてのパスを見る',

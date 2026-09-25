@@ -9,6 +9,8 @@
     "lint": "eslint",
     "qa": "node scripts/audit-static-export.mjs",
     "qa:locales": "node scripts/audit-localization.mjs",
+    "locale:check": "node scripts/check-locale-detection.mjs",
+    "purchase:check": "node scripts/check-purchase-channels.mjs",
     "calculator:check": "node scripts/check-calculator.mjs",
     "images:check": "node scripts/check-pass-images.mjs",
     "sources:check": "node scripts/check-official-sources.mjs",

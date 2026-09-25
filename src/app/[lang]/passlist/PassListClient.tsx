@@ -68,10 +68,8 @@ const copy = {
     dirAllCategories: '全部',
     dirClear: '清除筛选',
     allRegions: '全部地区',
-    allStatus: '全部状态',
-    onSale: '标记在售',
-    scheduled: '即将/定期开售',
-    review: '季节或特定日',
+    onSale: '在售',
+    limited: '限定',
     dirFound: '条地方券目录记录',
     dirEmpty: '没有找到符合条件的地方券。',
     price: '目录记录价格',
@@ -117,10 +115,8 @@ const copy = {
     dirAllCategories: 'All',
     dirClear: 'Clear filters',
     allRegions: 'All regions',
-    allStatus: 'All statuses',
-    onSale: 'Listed on sale',
-    scheduled: 'Scheduled/periodic',
-    review: 'Seasonal/specific days',
+    onSale: 'On sale',
+    limited: 'Limited',
     dirFound: 'directory entries',
     dirEmpty: 'No local passes match your query.',
     price: 'Directory price record',
@@ -166,10 +162,8 @@ const copy = {
     dirAllCategories: 'すべて',
     dirClear: '絞り込みを解除',
     allRegions: '全地域',
-    allStatus: '全ステータス',
-    onSale: '発売中表記',
-    scheduled: '発売予定・定期発売',
-    review: '季節・特定日',
+    onSale: '発売中',
+    limited: '限定',
     dirFound: '件の一覧',
     dirEmpty: '条件に一致する地方きっぷが見つかりませんでした。',
     price: '一覧記載の料金',
@@ -189,8 +183,9 @@ const copy = {
   },
 };
 
-type StatusFilter = 'all' | DomesticDirectoryPass['status'];
+type StatusFilter = 'on-sale' | 'limited';
 type DirectoryCategoryFilter = 'all' | DomesticPassCategory;
+type EligibilityFilter = 'all' | 'everyone' | 'foreign' | 'youth' | 'senior' | 'child';
 
 export default function PassListClient({ passes, lang, dict }: PassListClientProps) {
   const t = copy[lang as keyof typeof copy] || copy.zh;
@@ -203,7 +198,8 @@ export default function PassListClient({ passes, lang, dict }: PassListClientPro
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState<DirectoryCategoryFilter>('all');
   const [region, setRegion] = useState('all');
-  const [status, setStatus] = useState<StatusFilter>('all');
+  const [status, setStatus] = useState<StatusFilter>('on-sale');
+  const [eligibility, setEligibility] = useState<EligibilityFilter>('all');
   const [visibleCount, setVisibleCount] = useState(DIRECTORY_PAGE_SIZE);
 
   useEffect(() => {
@@ -243,29 +239,55 @@ export default function PassListClient({ passes, lang, dict }: PassListClientPro
       }
     }
     
-    // Status (only applies to directory passes)
-    let matchesStatus = true;
-    if (status !== 'all') {
-      if (isDirectory) {
-        matchesStatus = (pass as DomesticDirectoryPass).status === status;
-      } else {
-        matchesStatus = false; // Verified passes don't have a status that matches these filters
+    // Scheduled directory passes and explicitly limited official passes share
+    // the visitor-facing "limited" filter; records needing review stay hidden.
+    const matchesStatus = isDirectory
+      ? status === 'on-sale'
+        ? (pass as DomesticDirectoryPass).status === 'on-sale'
+        : (pass as DomesticDirectoryPass).status === 'scheduled'
+      : status === 'on-sale'
+        ? !(pass as JRPass).isLimitedPeriod
+        : (pass as JRPass).isLimitedPeriod === true;
+    
+    // Eligibility
+    let matchesEligibility = true;
+    if (eligibility !== 'all') {
+      const targetText = isDirectory 
+        ? ((pass as DomesticDirectoryPass).priceText + ' ' + (pass as DomesticDirectoryPass).name).toLowerCase()
+        : ((pass as JRPass).targetAudience?.join(' ') + ' ' + (pass as JRPass).name.jp).toLowerCase();
+        
+      if (eligibility === 'foreign') {
+        matchesEligibility = !isDirectory || targetText.includes('訪日') || targetText.includes('外国人') || targetText.includes('tourist');
+      } else if (eligibility === 'senior') {
+        matchesEligibility = targetText.includes('シニア') || targetText.includes('大人の休日') || targetText.includes('高齢') || targetText.includes('60歳') || targetText.includes('65歳') || targetText.includes('50歳');
+      } else if (eligibility === 'youth') {
+        matchesEligibility = targetText.includes('u25') || targetText.includes('学生') || targetText.includes('25歳以下') || targetText.includes('18歳') || targetText.includes('u22') || targetText.includes('学割');
+      } else if (eligibility === 'child') {
+        matchesEligibility = targetText.includes('こどもパス') || targetText.includes('小学生限定') || targetText.includes('キッズ');
+      } else if (eligibility === 'everyone') {
+        const isForeignOnly = !isDirectory; 
+        const isSenior = targetText.includes('シニア') || targetText.includes('大人の休日');
+        const isYouth = targetText.includes('u25') || targetText.includes('学生') || targetText.includes('学割');
+        const isChildOnly = targetText.includes('こどもパス') || targetText.includes('小学生限定');
+        matchesEligibility = !isForeignOnly && !isSenior && !isYouth && !isChildOnly;
       }
     }
     
-    return matchesQuery && matchesCategory && matchesRegion && matchesStatus;
-  }), [allPasses, query, category, region, status]);
+    return matchesQuery && matchesCategory && matchesRegion && matchesStatus && matchesEligibility;
+  }), [allPasses, query, category, region, status, eligibility]);
 
   const visiblePasses = filteredPasses.slice(0, visibleCount);
 
   const updateCategory = (value: DirectoryCategoryFilter) => { setCategory(value); setVisibleCount(DIRECTORY_PAGE_SIZE); };
   const updateRegion = (value: string) => { setRegion(value); setVisibleCount(DIRECTORY_PAGE_SIZE); };
   const updateStatus = (value: StatusFilter) => { setStatus(value); setVisibleCount(DIRECTORY_PAGE_SIZE); };
+  const updateEligibility = (value: EligibilityFilter) => { setEligibility(value); setVisibleCount(DIRECTORY_PAGE_SIZE); };
   const clearFilters = () => {
     setQuery('');
     setCategory('all');
     setRegion('all');
-    setStatus('all');
+    setStatus('on-sale');
+    setEligibility('all');
     setVisibleCount(DIRECTORY_PAGE_SIZE);
   };
   
@@ -316,7 +338,7 @@ export default function PassListClient({ passes, lang, dict }: PassListClientPro
           <div className="mt-6 border-t border-slate-100 pt-5">
             <div className="flex items-center justify-between gap-4">
               <h2 className="text-sm font-black text-slate-900">{t.dirCategoryTitle}</h2>
-              {(query || category !== 'all' || region !== 'all' || status !== 'all') && (
+              {(query || category !== 'all' || region !== 'all' || status !== 'on-sale' || eligibility !== 'all') && (
                 <button onClick={clearFilters} className="shrink-0 text-sm font-bold text-[#c2410c] hover:text-[#9a3412]">
                   {t.dirClear}
                 </button>
@@ -361,10 +383,20 @@ export default function PassListClient({ passes, lang, dict }: PassListClientPro
               onChange={event => updateStatus(event.target.value as StatusFilter)}
               className="field-select max-w-56"
             >
-              <option value="all">{t.allStatus}</option>
               <option value="on-sale">{t.onSale}</option>
-              <option value="scheduled">{t.scheduled}</option>
-              <option value="needs-review">{t.review}</option>
+              <option value="limited">{t.limited}</option>
+            </select>
+            <select
+              value={eligibility}
+              onChange={event => updateEligibility(event.target.value as EligibilityFilter)}
+              className="field-select max-w-56"
+            >
+              <option value="all">{lang === 'en' ? 'All Eligibilities' : lang === 'ja' ? 'すべての対象者' : '全部适用人群'}</option>
+              <option value="everyone">{lang === 'en' ? 'Everyone' : lang === 'ja' ? '誰でも利用可' : '所有人适用'}</option>
+              <option value="foreign">{lang === 'en' ? 'Foreigners Only' : lang === 'ja' ? '訪日外国人限定' : '仅限外国游客'}</option>
+              <option value="youth">{lang === 'en' ? 'Youth/Student' : lang === 'ja' ? '若者・学生限定' : '青年/学生限定'}</option>
+              <option value="senior">{lang === 'en' ? 'Seniors Only' : lang === 'ja' ? 'シニア限定' : '仅限长者'}</option>
+              <option value="child">{lang === 'en' ? 'Children Only' : lang === 'ja' ? 'こども限定' : '仅限儿童'}</option>
             </select>
           </div>
         </section>

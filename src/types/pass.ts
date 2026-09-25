@@ -1,3 +1,7 @@
+// 大区用于计算器的粗粒度匹配，不代表具体线路或车次可使用。
+export const MAJOR_REGIONS = ['北海道', '東北', '関東', '東海', '北信越', '近畿', '中国', '四国', '九州'] as const;
+export type MajorRegion = typeof MAJOR_REGIONS[number];
+
 // JRPass 接口定义了日本各类铁路/交通周游券的详细信息结构
 export interface JRPass {
   id: string; // 周游券唯一标识
@@ -19,8 +23,9 @@ export interface JRPass {
     freeText?: string; // 自由入力的票价说明（对应 CSV 中的“价格”）
   };
   duration: number[]; // 适用天数列表，如[3,5,7]，从“有效期间”解析
+  majorRegions: MajorRegion[]; // 计算器使用的标准日本大区，具体线路仍以运营方为准
   coverage: {
-    regions: string[]; // 覆盖地区名称数组（对应“地区”）
+    regions: string[]; // 原始覆盖地区标签；全国型可使用“全国”
     map: string; // 地图图片路径（对应“详情页图片链接”）
     description?: string; // 自由乘车区间文本
   };

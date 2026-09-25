@@ -8,6 +8,7 @@ import PassesSection from "@/components/sections/PassesSection";
 import CTASection from "@/components/sections/CTASection";
 import FAQSection from "@/components/sections/FAQSection";
 import FooterSection from "@/components/sections/FooterSection";
+import AdSlot from "@/components/AdSlot";
 import TrustRevenueSection from "@/components/sections/TrustRevenueSection";
 import { getAllPasses, getPopularPasses } from "@/lib/passData";
 import { getDictionary, Locale } from "@/i18n/dictionaries";
@@ -56,6 +57,12 @@ export default async function Page({
       <CTASection dict={dict} lang={lang} />
       <FAQSection dict={dict} lang={lang} />
       <OmikujiSection dict={dict} lang={lang} />
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <AdSlot
+          slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_HOME_OMIKUJI}
+          label={lang === 'zh' ? '广告' : lang === 'ja' ? '広告' : 'Advertisement'}
+        />
+      </div>
       <FooterSection dict={dict} lang={lang} />
     </div>
   );

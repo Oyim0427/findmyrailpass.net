@@ -45,7 +45,7 @@ export default function TrustRevenueSection({ lang = 'zh' }: { lang?: string }) 
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-primary">{t.eyebrow}</p>
-            <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-950">{t.title}</h2>
+            <h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-950 leading-normal">{t.title}</h2>
             <p className="mt-5 max-w-xl text-lg leading-8 text-slate-600">{t.desc}</p>
             <Link href={`/${lang}/data-sources`} className="mt-6 inline-flex items-center gap-2 font-bold text-primary hover:text-primary-dark"><Database className="h-5 w-5" />{t.source}<ArrowRight className="h-4 w-4" /></Link>
           </div>

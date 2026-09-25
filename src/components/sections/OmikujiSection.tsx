@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import { Sparkles, Zap, Star, Heart, AlertTriangle, X, RotateCcw } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import type { Dictionary } from '@/i18n/dictionaries';
 
 interface OmikujiSectionProps {
@@ -198,8 +199,27 @@ export default function OmikujiSection({ dict, lang = 'zh' }: OmikujiSectionProp
                   <div className="w-12 h-12 rounded-2xl bg-teal-50 flex items-center justify-center mb-5 text-primary">
                     <Sparkles className="w-6 h-6" />
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight">
-                    {dict?.omikujiTitle || '行前抽签'}
+                  <h3 className="flex flex-col gap-2 mt-1 mb-1">
+                    {(() => {
+                      const parts = (dict?.omikujiTitle || '行前\n抽签').split('\n');
+                      if (parts.length === 2) {
+                        return (
+                          <>
+                            <span className="text-sm font-bold text-teal-600/90 tracking-[0.2em] uppercase">
+                              {parts[0]}
+                            </span>
+                            <span className="text-3xl sm:text-4xl font-extrabold text-slate-800 tracking-tight leading-none">
+                              {parts[1]}
+                            </span>
+                          </>
+                        );
+                      }
+                      return (
+                        <span className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight">
+                          {parts.join(' ')}
+                        </span>
+                      );
+                    })()}
                   </h3>
                   <p className="text-sm text-gray-500 font-light mt-3 leading-relaxed">
                     {dict?.omikujiDesc || '轻互动，不抢主线 CTA'}
@@ -213,24 +233,40 @@ export default function OmikujiSection({ dict, lang = 'zh' }: OmikujiSectionProp
 
                 {/* 右侧抽签互动区 */}
                 <div className="md:col-span-3 bg-gradient-to-br from-teal-50/70 via-cyan-50/50 to-white p-8 border-t md:border-t-0 md:border-l border-teal-100/60 flex flex-col items-center justify-center relative">
-                  <div className="relative mx-auto w-24 h-36 mb-4">
-                    <div className={`absolute top-4 left-1/2 transform -translate-x-1/2 w-14 h-20 bg-gradient-to-b from-[#b46b48] to-[#925032] rounded-t-lg shadow-inner z-10 transition-transform duration-1000 ${
-                      animationPhase === 'rotating' && isDrawing ? 'animate-spin' : ''
-                    }`}>
+                  <div className="relative mx-auto w-24 h-36 mb-4 flex justify-center">
+                    <motion.div
+                      className="absolute top-4 w-14 h-20 bg-gradient-to-b from-[#b46b48] to-[#925032] rounded-t-lg shadow-inner z-10"
+                      initial={{ rotate: 0, y: 0 }}
+                      animate={
+                        animationPhase === 'rotating' && isDrawing
+                          ? { rotate: [0, -15, 15, -15, 15, 0], y: [0, -5, 0, -5, 0] }
+                          : { rotate: 0, y: 0 }
+                      }
+                      transition={
+                        animationPhase === 'rotating'
+                          ? { duration: 0.4, repeat: Infinity, ease: 'easeInOut' }
+                          : { duration: 0.3 }
+                      }
+                    >
                       <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-10 h-0.5 bg-black/20 rounded-full"></div>
                       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-10 h-0.5 bg-black/20 rounded-full"></div>
                       <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 w-10 h-0.5 bg-black/20 rounded-full"></div>
-                    </div>
+                    </motion.div>
                     
-                    <div className={`absolute top-12 left-1/2 transform -translate-x-1/2 w-1.5 h-14 bg-red-500 rounded-full shadow-sm z-0 transition-all duration-500 ${
-                      showSticks && animationPhase === 'revealing' 
-                        ? 'translate-y-8 opacity-100' 
-                        : showSticks && animationPhase === 'retracting'
-                        ? 'translate-y-0 opacity-100'
-                        : 'translate-y-0 opacity-0'
-                    }`}></div>
+                    <motion.div
+                      className="absolute top-12 w-1.5 h-14 bg-red-500 rounded-full shadow-sm z-0"
+                      initial={{ y: 0, opacity: 0 }}
+                      animate={
+                        showSticks && animationPhase === 'revealing'
+                          ? { y: 40, opacity: 1 }
+                          : showSticks && animationPhase === 'retracting'
+                          ? { y: 0, opacity: 1 }
+                          : { y: 0, opacity: 0 }
+                      }
+                      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                    ></motion.div>
                     
-                    <div className="absolute top-24 left-1/2 transform -translate-x-1/2 w-16 h-3 bg-black/5 rounded-full blur-sm"></div>
+                    <div className="absolute top-24 w-16 h-3 bg-black/5 rounded-full blur-sm"></div>
                   </div>
 
                   <p className="text-gray-600 mb-6 text-sm font-medium text-center">
@@ -262,29 +298,51 @@ export default function OmikujiSection({ dict, lang = 'zh' }: OmikujiSectionProp
               result && (
                 <div className="p-6 sm:p-8 overflow-y-auto max-h-[80vh]">
                   <div className="text-center pt-2">
-                    <div className={`w-14 h-14 mx-auto bg-gradient-to-b ${result.color} rounded-2xl flex items-center justify-center mb-3 shadow-md transform -rotate-3 text-white`}>
+                    <motion.div
+                      initial={{ scale: 0, rotate: -180 }}
+                      animate={{ scale: 1, rotate: (result.type === '凶' || result.type === 'Curse') ? 12 : 0 }}
+                      transition={{ type: 'spring', damping: 12, stiffness: 200 }}
+                      className={`w-16 h-16 mx-auto bg-gradient-to-b ${result.color} rounded-2xl flex items-center justify-center mb-4 shadow-xl text-white`}
+                    >
                       {result.icon}
-                    </div>
-                    <h4 className={`text-3xl font-bold mb-2 bg-gradient-to-r ${result.color} bg-clip-text text-transparent`}>
+                    </motion.div>
+                    <motion.h4
+                      initial={{ opacity: 0, y: 20, scale: 0.8 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      transition={{ type: 'spring', damping: 15, stiffness: 200, delay: 0.1 }}
+                      className={`text-4xl font-black mb-2 bg-gradient-to-r ${result.color} bg-clip-text text-transparent drop-shadow-sm`}
+                    >
                       {result.type}
-                    </h4>
-                    <p className="text-lg text-gray-800 font-medium">{result.message}</p>
+                    </motion.h4>
+                    <motion.p
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.2 }}
+                      className="text-lg text-gray-800 font-medium"
+                    >
+                      {result.message}
+                    </motion.p>
                     
-                    <div className="mt-4 p-4 rounded-xl bg-slate-50 border border-slate-100 text-sm font-medium">
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3 }}
+                      className="mt-4 p-4 rounded-xl bg-slate-50 border border-slate-100 text-sm font-medium"
+                    >
                       <span className={`bg-gradient-to-r ${result.color} bg-clip-text text-transparent`}>
                         {result.advice}
                       </span>
-                    </div>
+                    </motion.div>
                     
                     <div className="grid sm:grid-cols-2 gap-4 mt-6 text-left">
                       <div className="bg-teal-50/50 p-4 rounded-xl border border-teal-100/50">
-                        <h5 className="font-bold text-gray-900 mb-2 flex items-center text-sm">
+                        <h5 className="font-bold text-gray-900 mb-3 flex items-center text-base">
                           <span className="w-6 h-6 rounded-full bg-teal-100 text-primary flex items-center justify-center mr-2 text-xs font-bold">
                             {dict?.omikujiGood || '吉'}
                           </span>
                           {dict?.omikujiSuggestions || '建议事项'}
                         </h5>
-                        <ul className="space-y-2 text-xs text-gray-700">
+                        <ul className="space-y-2.5 text-sm text-gray-700">
                           {result.suggestions.map((suggestion, index) => (
                             <li key={index} className="flex items-start">
                               <span className="text-primary mr-1.5">•</span>
@@ -295,13 +353,13 @@ export default function OmikujiSection({ dict, lang = 'zh' }: OmikujiSectionProp
                       </div>
                       
                       <div className="bg-orange-50/50 p-4 rounded-xl border border-orange-100/50">
-                        <h5 className="font-bold text-gray-900 mb-2 flex items-center text-sm">
+                        <h5 className="font-bold text-gray-900 mb-3 flex items-center text-base">
                           <span className="w-6 h-6 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center mr-2 text-xs font-bold">
                             {dict?.omikujiBad || '忌'}
                           </span>
                           {dict?.omikujiAvoid || '避免事项'}
                         </h5>
-                        <ul className="space-y-2 text-xs text-gray-700">
+                        <ul className="space-y-2.5 text-sm text-gray-700">
                           {result.avoid.map((item, index) => (
                             <li key={index} className="flex items-start">
                               <span className="text-orange-500 mr-1.5">•</span>
@@ -312,7 +370,7 @@ export default function OmikujiSection({ dict, lang = 'zh' }: OmikujiSectionProp
                       </div>
                     </div>
 
-                    <div className="mt-6 flex items-center justify-center gap-3 pt-2">
+                    <div className="mt-8 mb-4 sm:mb-6 flex items-center justify-center gap-3 pt-2">
                       <button
                         onClick={resetDraw}
                         className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl border border-slate-200 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition"
