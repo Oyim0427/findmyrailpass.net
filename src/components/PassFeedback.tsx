@@ -64,6 +64,8 @@ export default function PassFeedback({ passId, passName, passPath, lang }: {
   const locale: Locale = lang === 'en' || lang === 'ja' ? lang : 'zh';
   const t = copy[locale];
   const endpoint = feedbackEndpoint();
+  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL;
+  if (!endpoint && !email) return null;
   const titleId = `pass-feedback-title-${passId}`;
 
   return (
@@ -98,7 +100,7 @@ export default function PassFeedback({ passId, passName, passPath, lang }: {
             <p className="text-xs leading-5 text-slate-500">{t.note}</p>
           </form>
         ) : (
-          <p role="status" className="mt-4 rounded-xl bg-slate-50 p-3 text-xs leading-5 text-slate-600">{t.unavailable}</p>
+          <a className="mt-4 inline-block font-bold text-primary underline" href={`mailto:${email}?subject=${encodeURIComponent(`[${passId}] ${passName}`)}&body=${encodeURIComponent(passPath)}`}>{locale === 'zh' ? '通过邮件反馈' : locale === 'en' ? 'Report by email' : 'メールで報告する'}</a>
         )}
     </section>
   );

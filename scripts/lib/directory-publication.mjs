@@ -7,6 +7,15 @@ export const DIRECTORY_CANDIDATES_FILE = path.resolve('reports/directory-candida
 export const SOURCE_RESEARCH_FILE = path.resolve('data/directory-source-research.json');
 export const PUBLICATION_HISTORY_FILE = path.resolve('data/directory-publication-history.json');
 
+export function retainDirectoryArchives(previous, current, today, endedIds = new Set()) {
+  const currentIds = new Set(current.map(pass => pass.id));
+  return [...current, ...previous.filter(pass => !currentIds.has(pass.id)).map(pass => ({
+    ...pass,
+    status: pass.status === 'ended' || endedIds.has(pass.id) || (pass.endDate && pass.endDate < today)
+      ? 'ended' : 'needs-review',
+  }))];
+}
+
 export function readGeneratedDirectory(file = path.resolve('src/data/domesticPassDirectory.ts')) {
   if (!fs.existsSync(file)) return [];
   const source = fs.readFileSync(file, 'utf8');

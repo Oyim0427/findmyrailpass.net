@@ -25,7 +25,11 @@
     "directory:research": "node scripts/research-directory-sources.mjs",
     "directory:daily": "node scripts/daily-directory-maintenance.mjs",
     "directory:review": "node scripts/directory-review-server.mjs",
-    "release:package": "node scripts/create-release-package.mjs"
+    "release:package": "node scripts/create-release-package.mjs",
+    "directory:quality": "node scripts/check-directory-quality.mjs",
+    "fares:check": "node scripts/check-directory-fares.mjs",
+    "build:webpack": "next build",
+    "check:release": "node scripts/check-release.mjs"
   },
   "dependencies": {
     "csv-parse": "7.0.2",

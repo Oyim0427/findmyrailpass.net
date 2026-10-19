@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "passes": {
+    "jrhokkaido91": {
+      "sourceUrl": "https://www.jrhokkaido.co.jp/CM/Otoku/007200/",
+      "checkedAt": "2026-10-19",
+      "reviewAfter": "2026-11-18",
+      "facts": {
+        "priceText": "1日用（紙券・WEB版）：大人：3,000円／小児：1,500円 / 2日用（紙券・WEB版）：大人：4,500円／小児：2,250円",
+        "validityText": "1日／連続2日",
+        "salesPeriod": "紙券：2026/3/1～2027/3/31 / WEB版：2026/4/1～2027/3/31",
+        "startDate": "2026-03-01",
+        "endDate": "2027-03-31",
+        "status": "on-sale",
+        "usePeriodText": "1日用：2026/4/1～2027/3/31 / 2日用：2026/4/1～2027/4/1"
+      }
+    },
+    "jrhokkaido01": {
+      "sourceUrl": "https://www.jrhokkaido.co.jp/CM/Otoku/007218/",
+      "checkedAt": "2026-10-19",
+      "reviewAfter": "2026-11-18",
+      "facts": {
+        "priceText": "窓口：29,000円 / えきねっと：28,000円（大人・小児同額）"
+      }
+    },
+    "jrhokkaido11": {
+      "sourceUrl": "https://www.jrhokkaido.co.jp/CM/Otoku/007247/",
+      "checkedAt": "2026-10-19",
+      "reviewAfter": "2026-11-18",
+      "facts": {
+        "priceText": "1日用 大人：3,300円／小児：1,650円 / 2日用 大人：5,600円／小児：2,800円 / 3日用 大人：6,900円／小児：3,450円"
+      }
+    },
+    "keio01": {
+      "sourceUrl": "https://www.keio.co.jp/train/ticket/profitable/",
+      "checkedAt": "2026-10-19",
+      "reviewAfter": "2026-11-18",
+      "facts": {
+        "priceText": "よみうりランド：大人：5,620円／中高生・17歳以下：4,530円／小人：3,920円 / サンリオピューロランド：大人：4,460円／中高生・17歳以下：3,360円／小人：3,030円 / 東京サマーランド（7～9月の季節発売）：大人：5,470円／中学生：4,470円／小人：3,090円"
+      }
+    },
+    "tama92": {
+      "sourceUrl": "https://www.tama-monorail.co.jp/2026/07/post-580.html",
+      "checkedAt": "2026-10-19",
+      "reviewAfter": "2026-11-18",
+      "facts": {
+        "eligibility": "child"
+      }
+    },
+    "tama02": {
+      "sourceUrl": "https://www.tama-monorail.co.jp/monorail/ticket/set/",
+      "checkedAt": "2026-10-19",
+      "reviewAfter": "2026-11-18",
+      "facts": {
+        "priceText": "国営昭和記念公園（高校生以上）：920円 / 多摩動物公園（高校生以上）：1,000円 / ららぽーと立川立飛（中学生以上）：1,000円（不定期発売、確認時点で発売期間外）"
+      }
+    },
+    "yagan01": {
+      "sourceUrl": "https://www.yagan.co.jp/ticket/shisekimeguri/",
+      "checkedAt": "2026-10-19",
+      "reviewAfter": "2026-11-18",
+      "facts": {
+        "priceText": "龍王峡発：中三依温泉 大人：1,040円／小児：520円、上三依塩原温泉口 大人：1,180円／小児：590円、男鹿高原 大人：1,290円／小児：650円、会津高原尾瀬口 大人：1,530円／小児：770円 / 川治温泉発：中三依温泉 大人：730円／小児：370円、上三依塩原温泉口 大人：1,040円／小児：520円、男鹿高原 大人：1,180円／小児：590円、会津高原尾瀬口 大人：1,400円／小児：700円 / 川治湯元発：中三依温泉 大人：730円／小児：370円、上三依塩原温泉口 大人：900円／小児：450円、男鹿高原 大人：1,180円／小児：590円、会津高原尾瀬口 大人：1,400円／小児：700円"
+      }
+    },
+    "koyasan": {
+      "sourceUrl": "https://www.nankai.co.jp/traffic/digital/koyasan_odekake.html",
+      "checkedAt": "2026-10-19",
+      "reviewAfter": "2026-11-18",
+      "facts": {
+        "priceText": "阪急版：4,400円 / 北大阪急行版：4,400円 / Osaka Metro版：4,300円 / 阪神版：4,300円 / 山陽（明石以東）版：4,650円 / 山陽（全線）版：4,950円 / 神戸高速版：4,350円 / 京阪版：4,500円 / 近鉄版：4,600円 / 能勢版：4,800円（すべて大人料金、子供設定なし）",
+        "status": "on-sale",
+        "salesPeriod": "2026/4/1～2026/11/30",
+        "startDate": "2026-04-01",
+        "endDate": "2026-11-30"
+      },
+      "evidenceUrl": "https://www.nankai.co.jp/lib/traffic/digital/ticket/koyasan_odekake.pdf"
+    },
+    "surukan07": {
+      "sourceUrl": "https://www.feel-kobe.jp/tickets/machimeguri1day/",
+      "checkedAt": "2026-10-19",
+      "reviewAfter": "2026-11-18",
+      "facts": {
+        "priceText": "神戸エリア版：1,500円 / 阪急拡大版：2,300円 / 阪神拡大版：2,150円 / 近鉄拡大版（大阪発）：2,800円 / 近鉄拡大版（奈良発）：3,200円 / 山陽・明石以東版：2,100円 / 山陽・全線版：2,700円（いずれも大人のみ）"
+      }
+    },
+    "naraikaruga": {
+      "sourceUrl": "https://www.city.kyoto.lg.jp/kotsu/page/0000033599.html",
+      "checkedAt": "2026-10-19",
+      "reviewAfter": "2026-11-18",
+      "facts": {
+        "priceText": "京都市交通局版：大人：2,200円（他社局版の料金は各発売元で確認）"
+      }
+    },
+    "taikonoyu": {
+      "sourceUrl": "https://www.shintetsu.co.jp/railway/ticket/taikounoyu/",
+      "checkedAt": "2026-10-19",
+      "reviewAfter": "2026-11-18",
+      "facts": {
+        "priceText": "神戸電鉄版：大人：2,600円 / 2027/1/1～1/3は追加500円（他社版は各発売元で確認）"
+      }
+    },
+    "jrkyusyu91": {
+      "sourceUrl": "http://www.jrkyushu-kippu.jp/fare/ticket/304",
+      "checkedAt": "2026-10-19",
+      "reviewAfter": "2026-11-18",
+      "facts": {
+        "priceText": "インターネット列車予約：大人：14,300円／こども：7,150円 / 窓口発売：大人：15,800円／こども：7,900円"
+      }
+    }
+  }
+}

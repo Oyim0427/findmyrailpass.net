@@ -13,6 +13,7 @@ function loadTypeScript(relativePath, imports = {}) {
   });
   const loadedModule = { exports: {} };
   const requireImport = id => {
+    if (id.startsWith('@/') && !(id in imports)) return loadTypeScript(`src/${id.slice(2)}.ts`);
     assert.ok(id in imports, `Unexpected import in ${relativePath}: ${id}`);
     return imports[id];
   };
@@ -34,7 +35,7 @@ const defaultQuery = { origin: '', destination: 'all', query: '', category: 'all
 const search = (overrides = {}, records = catalog) => searchCalculatorCatalog(records, { ...defaultQuery, ...overrides });
 
 assert.equal(catalog.length, official.length + publicDirectory.length);
-assert.equal(publicDirectory.length, directory.length - 1, 'The duplicate Kumamoto paper/mobile records must merge into one product');
+assert.ok(publicDirectory.length < directory.length, 'Archived and duplicate products must not be recommended');
 const kumamoto = publicDirectory.find(pass => pass.id === 'kumamotoshi01');
 assert.match(kumamoto?.priceText || '', /Paper.*700円.*Mobile.*500円/, 'Merged Kumamoto prices must preserve paper and mobile variants');
 assert.equal(search().length, catalog.length, 'Unfiltered search must include every site record');

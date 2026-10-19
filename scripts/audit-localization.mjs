@@ -32,7 +32,7 @@ for (const [locale, config] of Object.entries(expected)) {
     if (!html) continue;
     if (!html.includes(`<html lang="${config.htmlLang}"`)) failures.push(`/${locale}/${page} has the wrong html lang`);
     if (!html.includes('<meta name="robots" content="index, follow"')) failures.push(`/${locale}/${page} is not indexable`);
-    const suffix = page ? `${page}/` : '';
+    const suffix = page ? `${page === 'help' ? 'blog' : page}/` : '';
     if (!html.includes(`<link rel="canonical" href="https://findmyrailpass.net/${locale}/${suffix}"`)) failures.push(`/${locale}/${page} canonical is incorrect`);
     for (const hreflang of ['zh-CN', 'en', 'ja', 'x-default']) {
       if (!html.includes(`hrefLang="${hreflang}"`) && !html.includes(`hreflang="${hreflang}"`)) failures.push(`/${locale}/${page} is missing hreflang ${hreflang}`);
@@ -43,7 +43,7 @@ for (const [locale, config] of Object.entries(expected)) {
 
 const sitemap = readFileSync(resolve(root, 'out', 'sitemap.xml'), 'utf8');
 for (const locale of ['zh', 'en', 'ja']) {
-  for (const page of publicPages) {
+  for (const page of publicPages.filter(page => page !== 'help')) {
     const suffix = page ? `/${page}` : '';
     if (!sitemap.includes(`https://findmyrailpass.net/${locale}${suffix}`)) failures.push(`sitemap is missing /${locale}${suffix}`);
   }

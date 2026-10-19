@@ -107,12 +107,12 @@ export default function PurchaseChannels({
         </div>
       </div>
 
-      <div className="mt-6 border-t border-slate-100 pt-6">
+      {partnerLinks.length > 0 && <div className="mt-6 border-t border-slate-100 pt-6">
         <p className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.12em] text-slate-500">
           <Store className="h-4 w-4 text-orange-600" />{t.partners}
         </p>
         <div className="mt-3 grid gap-2">
-          {PARTNER_PURCHASE_PROVIDERS.map(provider => {
+          {PARTNER_PURCHASE_PROVIDERS.filter(provider => partnerByProvider.has(provider.id)).map(provider => {
             const url = partnerByProvider.get(provider.id);
             return url ? (
               <a
@@ -126,15 +126,10 @@ export default function PurchaseChannels({
                 <span><strong className="block text-slate-950">{provider.name}</strong><span className="text-xs font-semibold text-orange-700">Affiliate</span></span>
                 <span className="inline-flex items-center gap-1 font-bold text-orange-700">{t.open}<ExternalLink className="h-4 w-4" /></span>
               </a>
-            ) : (
-              <div key={provider.id} aria-disabled="true" className="flex items-center justify-between gap-3 rounded-xl border border-dashed border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-500">
-                <span><strong className="block text-slate-700">{provider.name}</strong><span className="text-xs">{t.affiliate}</span></span>
-                <span className="rounded-full bg-slate-200 px-2.5 py-1 text-xs font-bold text-slate-600">{t.pending}</span>
-              </div>
-            );
+            ) : null;
           })}
         </div>
-      </div>
+      </div>}
 
       <p className="mt-5 flex items-start gap-2 text-xs leading-5 text-slate-500">
         <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-primary" />

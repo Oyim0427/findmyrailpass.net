@@ -30,9 +30,15 @@ const capture = (command, args) => {
 
 const sha256 = file => createHash('sha256').update(readFileSync(file)).digest('hex');
 
-mkdirSync(artifactDir, { recursive: true });
-run('test', ['-d', staticOutput]);
+// Refuse to label stale or uncommitted output as the current Git revision.
+if (capture('git', ['status', '--porcelain', '--untracked-files=normal'])) {
+  console.error('Commit the release source before packaging, then retry.');
+  process.exit(1);
+}
 run('git', ['rev-parse', '--verify', `${rollbackRef}^{commit}`]);
+run(process.platform === 'win32' ? 'npm.cmd' : 'npm', ['run', 'build']);
+run(process.platform === 'win32' ? 'npm.cmd' : 'npm', ['run', 'check:release']);
+mkdirSync(artifactDir, { recursive: true });
 run('git', ['archive', '--format=zip', `--output=${rollbackZip}`, rollbackRef]);
 run('zip', ['-qr', releaseZip, '.'], { cwd: staticOutput });
 
@@ -43,6 +49,7 @@ const manifest = {
   rollbackRef,
   rollbackCommit: capture('git', ['rev-parse', rollbackRef]),
   createdAt: new Date().toISOString(),
+  buildId: readFileSync(resolve(root, process.env.NEXT_EXPORT_DIR || '.next', 'BUILD_ID'), 'utf8').trim(),
   deployment: 'not performed',
   contents: 'Static Next.js export from out/. No environment files, source secrets, screenshots or review workbooks.',
 };

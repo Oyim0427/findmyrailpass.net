@@ -109,15 +109,15 @@ export const OFFICIAL_PASSES: JRPass[] = [
   {
     id: 'all-shikoku-3', sortOrder: 8,
     name: { en: 'ALL SHIKOKU Rail Pass (3-Day)', jp: 'ALL SHIKOKU Rail Pass（3日間）', cn: '四国铁路周游券（3日）' },
-    description: '覆盖 JR 四国及多家四国地方铁路的访日旅客通票。2026 年 10 月起产品范围将调整，出发前应再次确认。',
-    price: { adult: { regular: 9000 }, child: { regular: 4500 }, freeText: '海外购买：成人 ¥9,000；日本购买：成人 ¥9,500（2026-10 起有调整）' },
+    description: '覆盖 JR 四国及多家四国地方铁路的访日旅客通票。2026 年 10 月 1 日起发行的票券不含小豆岛渡轮和小豆岛橄榄巴士。',
+    price: { adult: { regular: 12000 }, child: { regular: 6000 }, freeText: '3 日：成人 ¥12,000 / 儿童 ¥6,000（2026-10-01 起发行）' },
     bestFor: ['高松 + 松山 + 高知', '四国铁路环游'], duration: [3],
     majorRegions: ['四国'],
     validityPeriod: { startDate: '', endDate: '', description: '连续 3 日' },
-    coverage: { regions: ['四国'], map: '', description: 'JR 四国及官方列明的合作铁路；2026-10 起覆盖范围调整。' },
+    coverage: { regions: ['四国'], map: '', description: 'JR 四国、土佐黑潮铁路及指定合作铁路；不含伊予铁道、小豆岛渡轮、小豆岛橄榄巴士及各公司巴士。' },
     targetAudience: ['符合短期停留条件的国际旅客'], trainTypes: ['特急列车', '普通列车', '私铁'],
-    officialLinks: [{ name: 'JR 四国官方条件与价格', url: 'https://www.jr-shikoku.co.jp/global/pdf_railpass/ALL_SHIKOKU_Rail_Pass_en.pdf' }],
+    officialLinks: [{ name: 'JR 四国官方条件与价格', url: 'https://www.jr-shikoku.co.jp/global/en/news/pdf/20260806_all-shikoku-rail-pass.pdf' }],
     purchaseLinks: [{ name: 'JR 四国官方入口', url: 'https://www.jr-shikoku.co.jp/global/en/', type: 'official' }],
-    category: 'regional', popularity: 4, company: 'JR Shikoku', sourceAuthority: 'operator', lastVerifiedAt: '2026-09-01', isLimitedPeriod: true
+    category: 'regional', popularity: 4, company: 'JR Shikoku', sourceAuthority: 'operator', lastVerifiedAt: '2026-10-19'
   }
 ];

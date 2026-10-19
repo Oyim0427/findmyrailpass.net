@@ -79,7 +79,7 @@ export default function ConsentManager({
         if (parsed.version === 1 && typeof parsed.optional === 'boolean') setSaved(parsed);
       }
     } catch {
-      window.localStorage.removeItem(STORAGE_KEY);
+      // Storage may be blocked; continue with necessary features only.
     } finally {
       setReady(true);
     }
@@ -98,7 +98,7 @@ export default function ConsentManager({
   const save = (optional: boolean) => {
     const previousOptional = saved?.optional === true;
     const next: SavedConsent = { version: 1, optional, updatedAt: new Date().toISOString() };
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+    try { window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next)); } catch { /* Keep this visit's choice in memory. */ }
     setSaved(next);
     setPanelOpen(false);
     if (!optional && previousOptional) window.location.reload();

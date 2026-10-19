@@ -13,6 +13,7 @@ function loadTypeScript(relativePath, imports = {}) {
   });
   const loadedModule = { exports: {} };
   const requireImport = id => {
+    if (id.startsWith('@/') && !(id in imports)) return loadTypeScript(`src/${id.slice(2)}.ts`);
     assert.ok(id in imports, `Unexpected import in ${relativePath}: ${id}`);
     return imports[id];
   };

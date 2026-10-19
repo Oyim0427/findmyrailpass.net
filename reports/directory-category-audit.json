@@ -1,64 +1,36 @@
 {
-  "generatedAt": "2026-09-03T05:56:45.418Z",
+  "generatedAt": "2026-10-19T10:03:09.730Z",
   "dataFile": "src/data/domesticPassDirectory.ts",
   "grain": "one current or scheduled local-pass directory record per id",
   "categoryRuleVersion": "2026-09-03-v1",
   "categoryCounts": {
-    "national": 4,
-    "regional": 93,
-    "city": 89,
-    "bus": 32,
-    "private": 298,
-    "special": 58
+    "national": 0,
+    "regional": 70,
+    "city": 53,
+    "bus": 20,
+    "private": 192,
+    "special": 32
   },
   "ruleCounts": {
-    "attraction-event-or-benefit-bundle": 58,
-    "bus-included": 32,
-    "jr-multi-operator-or-wide-area": 93,
-    "nationwide-region": 4,
-    "single-private-or-local-railway": 298,
-    "urban-transit-operator-or-mode": 89
+    "attraction-event-or-benefit-bundle": 32,
+    "bus-included": 20,
+    "jr-multi-operator-or-wide-area": 70,
+    "single-private-or-local-railway": 192,
+    "urban-transit-operator-or-mode": 53
   },
   "checks": {
-    "rowCount": 574,
-    "uniqueIds": 574,
+    "rowCount": 367,
+    "uniqueIds": 367,
     "duplicateIds": [],
     "invalidCategories": [],
     "classificationMismatches": [],
     "missingRequiredValues": [],
-    "emptyCategories": []
+    "emptyCategories": [
+      "national"
+    ]
   },
   "samples": {
-    "national": [
-      {
-        "id": "18kippu",
-        "name": "青春１８きっぷ",
-        "company": "ＪＲ各社",
-        "region": "全国",
-        "rule": "nationwide-region"
-      },
-      {
-        "id": "jreast201",
-        "name": "大人の休日倶楽部パス(東日本)",
-        "company": "ＪＲ東日本",
-        "region": "全国",
-        "rule": "nationwide-region"
-      },
-      {
-        "id": "jreast203",
-        "name": "大人の休日倶楽部パス(東日本･北海道)",
-        "company": "ＪＲ北海道 / ＪＲ東日本",
-        "region": "全国",
-        "rule": "nationwide-region"
-      },
-      {
-        "id": "jreast04",
-        "name": "北海道＆東日本パス",
-        "company": "ＪＲ北海道 / ＪＲ東日本",
-        "region": "全国",
-        "rule": "nationwide-region"
-      }
-    ],
+    "national": [],
     "regional": [
       {
         "id": "jrhokkaido88",
@@ -133,37 +105,9 @@
         "rule": "urban-transit-operator-or-mode"
       },
       {
-        "id": "sapporo23",
-        "name": "どサン子パス",
-        "company": "札幌市交通事業振興公社",
-        "region": "北海道",
-        "rule": "urban-transit-operator-or-mode"
-      },
-      {
         "id": "sapporo22",
         "name": "札幌市電24時間乗車券",
         "company": "札幌市交通事業振興公社",
-        "region": "北海道",
-        "rule": "urban-transit-operator-or-mode"
-      },
-      {
-        "id": "sapporo24",
-        "name": "路面電車1日乗車券",
-        "company": "札幌市交通事業振興公社",
-        "region": "北海道",
-        "rule": "urban-transit-operator-or-mode"
-      },
-      {
-        "id": "hakodate51",
-        "name": "スマホ市電１日乗車券",
-        "company": "函館市企業局交通部",
-        "region": "北海道",
-        "rule": "urban-transit-operator-or-mode"
-      },
-      {
-        "id": "hakodate52",
-        "name": "スマホ市電２４時間乗車券",
-        "company": "函館市企業局交通部",
         "region": "北海道",
         "rule": "urban-transit-operator-or-mode"
       },
@@ -173,30 +117,37 @@
         "company": "函館市企業局交通部",
         "region": "北海道",
         "rule": "urban-transit-operator-or-mode"
+      },
+      {
+        "id": "sendai03",
+        "name": "るーぷる仙台・地下鉄共通一日乗車券",
+        "company": "仙台市交通局",
+        "region": "東北",
+        "rule": "urban-transit-operator-or-mode"
+      },
+      {
+        "id": "sendai01",
+        "name": "地下鉄一日乗車券",
+        "company": "仙台市交通局",
+        "region": "東北",
+        "rule": "urban-transit-operator-or-mode"
+      },
+      {
+        "id": "jreast37",
+        "name": "モノレール＆都区内パス",
+        "company": "ＪＲ東日本",
+        "region": "関東",
+        "rule": "urban-transit-operator-or-mode"
+      },
+      {
+        "id": "jreast17",
+        "name": "都区内パス",
+        "company": "ＪＲ東日本",
+        "region": "関東",
+        "rule": "urban-transit-operator-or-mode"
       }
     ],
     "bus": [
-      {
-        "id": "hakodate53",
-        "name": "スマホ市電・函館バス共通１日乗車券",
-        "company": "函館市企業局交通部",
-        "region": "北海道",
-        "rule": "bus-included"
-      },
-      {
-        "id": "hakodate54",
-        "name": "スマホ市電・函館バス共通２日乗車券",
-        "company": "函館市企業局交通部",
-        "region": "北海道",
-        "rule": "bus-included"
-      },
-      {
-        "id": "yokohama12",
-        "name": "バス・地下鉄１日乗車券",
-        "company": "横浜市交通局",
-        "region": "関東",
-        "rule": "bus-included"
-      },
       {
         "id": "keikyu12",
         "name": "京急線・京急バス1日フリーパス",
@@ -226,10 +177,31 @@
         "rule": "bus-included"
       },
       {
-        "id": "guideway91",
-        "name": "モバイルホリデー１日乗車券",
-        "company": "名古屋ガイドウェイバス",
-        "region": "東海",
+        "id": "ishikawa04",
+        "name": "トレインパーク白山 IR・シャトルバスフリー乗車券",
+        "company": "IRいしかわ鉄道",
+        "region": "北信越",
+        "rule": "bus-included"
+      },
+      {
+        "id": "nagaden05",
+        "name": "ながでん鉄道・バス2DAYフリーきっぷ",
+        "company": "長野電鉄",
+        "region": "北信越",
+        "rule": "bus-included"
+      },
+      {
+        "id": "titetu02",
+        "name": "市内電車・バス１日ふりーきっぷ",
+        "company": "富山地方鉄道",
+        "region": "北信越",
+        "rule": "bus-included"
+      },
+      {
+        "id": "fukutetu05",
+        "name": "電車・バス休日フリーきっぷ",
+        "company": "福井鉄道",
+        "region": "北信越",
         "rule": "bus-included"
       }
     ],
@@ -263,22 +235,8 @@
         "rule": "single-private-or-local-railway"
       },
       {
-        "id": "abukyu05",
-        "name": "あぶ急トクだねきっぷ",
-        "company": "阿武隈急行",
-        "region": "東北",
-        "rule": "single-private-or-local-railway"
-      },
-      {
         "id": "abukyu102",
         "name": "学割乗車券",
-        "company": "阿武隈急行",
-        "region": "東北",
-        "rule": "single-private-or-local-railway"
-      },
-      {
-        "id": "abukyu85",
-        "name": "初恋＊れ～るとりっぷ フリー乗車券",
         "company": "阿武隈急行",
         "region": "東北",
         "rule": "single-private-or-local-railway"
@@ -289,30 +247,23 @@
         "company": "会津鉄道",
         "region": "東北",
         "rule": "single-private-or-local-railway"
+      },
+      {
+        "id": "konan01",
+        "name": "大黒様きっぷ",
+        "company": "弘南鉄道",
+        "region": "東北",
+        "rule": "single-private-or-local-railway"
+      },
+      {
+        "id": "sanriku25",
+        "name": "岩泉龍泉洞１日フリーきっぷ",
+        "company": "三陸鉄道",
+        "region": "東北",
+        "rule": "single-private-or-local-railway"
       }
     ],
     "special": [
-      {
-        "id": "abukyu101",
-        "name": "ポケモン天文台 1DAY PASS",
-        "company": "阿武隈急行",
-        "region": "東北",
-        "rule": "attraction-event-or-benefit-bundle"
-      },
-      {
-        "id": "abukyu12",
-        "name": "飯坂温泉日帰りきっぷ",
-        "company": "阿武隈急行",
-        "region": "東北",
-        "rule": "attraction-event-or-benefit-bundle"
-      },
-      {
-        "id": "aizu91",
-        "name": "コロプラ☆乗り放題キップ",
-        "company": "会津鉄道",
-        "region": "東北",
-        "rule": "attraction-event-or-benefit-bundle"
-      },
       {
         "id": "akitajukan92",
         "name": "コロプラフリーきっぷ",
@@ -342,10 +293,31 @@
         "rule": "attraction-event-or-benefit-bundle"
       },
       {
-        "id": "minatosen91",
-        "name": "コロプラ1日フリー乗車券",
-        "company": "ひたちなか海浜鉄道",
+        "id": "watarase91",
+        "name": "コロプラ一日フリーきっぷ",
+        "company": "わたらせ渓谷鉄道",
         "region": "関東",
+        "rule": "attraction-event-or-benefit-bundle"
+      },
+      {
+        "id": "enoden03",
+        "name": "江ノ電１日乗車券(のりおりくん)＆新江ノ島水族館セット",
+        "company": "江ノ島電鉄",
+        "region": "関東",
+        "rule": "attraction-event-or-benefit-bundle"
+      },
+      {
+        "id": "tama02",
+        "name": "多摩モノレールセット券",
+        "company": "多摩都市モノレール",
+        "region": "関東",
+        "rule": "attraction-event-or-benefit-bundle"
+      },
+      {
+        "id": "gakunan101",
+        "name": "幸運の末広がり8並び入場券＆全線1日フリー乗車券",
+        "company": "岳南鉄道",
+        "region": "東海",
         "rule": "attraction-event-or-benefit-bundle"
       }
     ]

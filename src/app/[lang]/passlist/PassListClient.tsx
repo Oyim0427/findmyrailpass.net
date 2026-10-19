@@ -26,6 +26,7 @@ import {
   getDirectoryPassCategoryLabel,
 } from '@/lib/directoryPassCategories';
 import { getRegionLabel } from '@/lib/regionLabels';
+import { getDirectoryAvailability } from '@/lib/directoryQuality';
 import { getPassEligibility } from '@/lib/passEligibility';
 
 interface PassListClientProps {
@@ -61,7 +62,7 @@ const copy = {
 
     // Directory Tab
     dirEyebrow: '日本国内自由乘车券扩展目录',
-    dirTitle: '不只 JR Pass，还有 {count} 张已核验地方铁路券',
+    dirTitle: '不只 JR Pass，还有 {count} 张地方铁路券资料',
     dirDesc: '仅显示可追溯到运营方官网精确产品页、销售日期明确且链接正常的地方券。点击卡片或右侧按钮查看本站详情，左侧按钮前往官网。',
     dirSource: '查看本站数据说明',
     dirSearch: '搜索券名、运营公司、价格或地区',
@@ -85,7 +86,7 @@ const copy = {
     qualityTitle: '地方券的显示标准',
     qualityBody: '只有官网精确产品页、来源核验通过、销售日期明确且链接正常的地方券才会显示。其他记录会在管理端隐藏，修复并经人工确认后才能重新上线。',
     switchTabPrompt: '想查找更多地方铁路、地下铁、一日券？',
-    switchTabBtn: '浏览已核验地方券目录',
+    switchTabBtn: '浏览地方券目录',
     snapshot: '数据快照',
   },
   en: {
@@ -108,7 +109,7 @@ const copy = {
     verified: 'Operator sources · Verification dates shown',
 
     dirEyebrow: 'Japan domestic free-pass directory',
-    dirTitle: '{count} verified local passes beyond the major JR passes',
+    dirTitle: '{count} local-pass records beyond the major JR passes',
     dirDesc: 'Only local passes with an exact operator product page, verified source, clear sales dates and a working link are shown. Open the on-site detail from the card or right button; the left button opens the operator site.',
     dirSource: 'Read our data notes',
     dirSearch: 'Search pass, operator, price or region',
@@ -132,7 +133,7 @@ const copy = {
     qualityTitle: 'Local-pass publication standard',
     qualityBody: 'A local pass is displayed only when its exact official product page, source, sales dates and link have been verified. Other records stay hidden until corrected and manually approved.',
     switchTabPrompt: 'Looking for regional railways, subways or 1-day passes?',
-    switchTabBtn: 'Browse Verified Local Passes',
+    switchTabBtn: 'Browse Local Passes',
     snapshot: 'Data snapshot',
   },
   ja: {
@@ -155,7 +156,7 @@ const copy = {
     verified: '運行会社情報 · 確認日を表示',
 
     dirEyebrow: '国内フリーきっぷ一覧',
-    dirTitle: '主要な JR パス以外の確認済み地方きっぷ {count} 件',
+    dirTitle: '主要な JR パス以外の地方きっぷの記録 {count} 件',
     dirDesc: '事業者公式の商品ページ、出典、発売日、リンクを確認できた地方きっぷだけを掲載します。カードまたは右ボタンでサイト内詳細、左ボタンで公式サイトを確認できます。',
     dirSource: 'データ方針を見る',
     dirSearch: 'きっぷ名・事業者・料金・地域を検索',
@@ -179,14 +180,14 @@ const copy = {
     qualityTitle: '地方きっぷの掲載基準',
     qualityBody: '公式の商品ページ、出典、発売日、リンクを確認できた地方きっぷだけを表示します。その他は管理側で非表示にし、修正と承認後に掲載します。',
     switchTabPrompt: '地方私鉄や地下鉄の一日乗車券をお探しですか？',
-    switchTabBtn: '確認済み地方きっぷを見る',
+    switchTabBtn: '地方きっぷの記録を見る',
     snapshot: 'データ更新日',
   },
 };
 
 type StatusFilter = 'on-sale' | 'limited';
 type DirectoryCategoryFilter = 'all' | DomesticPassCategory;
-type EligibilityFilter = 'all' | 'everyone' | 'foreign' | 'youth' | 'senior' | 'child';
+type EligibilityFilter = 'all' | 'everyone' | 'foreign' | 'youth' | 'senior' | 'child' | 'unknown';
 
 export default function PassListClient({ passes, lang, dict }: PassListClientProps) {
   const t = copy[lang as keyof typeof copy] || copy.zh;
@@ -235,8 +236,8 @@ export default function PassListClient({ passes, lang, dict }: PassListClientPro
     // the visitor-facing "limited" filter; records needing review stay hidden.
     const matchesStatus = isDirectory
       ? status === 'on-sale'
-        ? (pass as DomesticDirectoryPass).status === 'on-sale'
-        : (pass as DomesticDirectoryPass).status === 'scheduled'
+        ? getDirectoryAvailability(pass as DomesticDirectoryPass) === 'on-sale'
+        : getDirectoryAvailability(pass as DomesticDirectoryPass) === 'scheduled'
       : status === 'on-sale'
         ? !(pass as JRPass).isLimitedPeriod
         : (pass as JRPass).isLimitedPeriod === true;
@@ -366,6 +367,7 @@ export default function PassListClient({ passes, lang, dict }: PassListClientPro
               className="field-select max-w-56"
             >
               <option value="all">{lang === 'en' ? 'All Eligibilities' : lang === 'ja' ? 'すべての対象者' : '全部适用人群'}</option>
+              <option value="unknown">{lang === 'en' ? 'Confirm eligibility' : lang === 'ja' ? '利用資格は要確認' : '使用资格待确认'}</option>
               <option value="everyone">{lang === 'en' ? 'Everyone' : lang === 'ja' ? '誰でも利用可' : '所有人适用'}</option>
               <option value="foreign">{lang === 'en' ? 'Foreigners Only' : lang === 'ja' ? '訪日外国人限定' : '仅限外国游客'}</option>
               <option value="youth">{lang === 'en' ? 'Youth/Student' : lang === 'ja' ? '若者・学生限定' : '青年/学生限定'}</option>

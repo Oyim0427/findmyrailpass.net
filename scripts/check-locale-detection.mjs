@@ -20,7 +20,7 @@ assert.equal(localeFromBrowser(['fr-FR', 'en-US']), 'en');
 
 const rootHtml = readFileSync(resolve(process.cwd(), 'out', 'index.html'), 'utf8');
 assert.match(rootHtml, /<meta name="robots" content="noindex, follow"/);
-assert.doesNotMatch(rootHtml, /Choose your language|Language selection/);
 assert.match(rootHtml, /Choosing your language automatically/);
+for (const locale of ['zh', 'en', 'ja']) assert.ok(rootHtml.includes(`href="/${locale}/"`), 'Root must provide usable fallback language links');
 
 console.log('Locale detection QA passed: country mapping, browser fallback and root redirect shell checked.');

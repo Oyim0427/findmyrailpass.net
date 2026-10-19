@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useEffect, Fragment } from 'react';
+import { useState, Fragment } from 'react';
 import { Sparkles, Zap, Star, Heart, AlertTriangle, X, RotateCcw } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import type { Dictionary } from '@/i18n/dictionaries';
 
 interface OmikujiSectionProps {
@@ -87,7 +87,6 @@ const omikujiStyles = [
 
 export default function OmikujiSection({ dict, lang = 'zh' }: OmikujiSectionProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [hasAutoOpened, setHasAutoOpened] = useState(false);
   const [isDrawing, setIsDrawing] = useState(false);
   const [result, setResult] = useState<OmikujiResult | null>(null);
   const [showResult, setShowResult] = useState(false);
@@ -99,26 +98,6 @@ export default function OmikujiSection({ dict, lang = 'zh' }: OmikujiSectionProp
     en: { close: 'Close', again: 'Draw again', done: 'Done' },
     ja: { close: '閉じる', again: 'もう一度引く', done: '完了' },
   }[locale];
-
-  // 当用户滚动到周游券地图 (#map) 时自动弹出
-  useEffect(() => {
-    const target = document.getElementById('map');
-    if (!target) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-        if (entry.isIntersecting && !hasAutoOpened) {
-          setIsOpen(true);
-          setHasAutoOpened(true);
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    observer.observe(target);
-    return () => observer.disconnect();
-  }, [hasAutoOpened]);
 
   const drawOmikuji = () => {
     if (isDrawing) return;

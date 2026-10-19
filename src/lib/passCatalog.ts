@@ -1,5 +1,6 @@
 import type { JRPass } from '@/types/pass';
 import type { DomesticDirectoryPass } from '@/data/domesticPassDirectory';
+import { getDirectoryAvailability, hasRecordedFare } from '@/lib/directoryQuality';
 import { DIRECTORY_PASS_TRANSLATIONS } from '@/data/directoryPassTranslations';
 
 export type CatalogPass = JRPass | DomesticDirectoryPass;
@@ -99,6 +100,8 @@ export type DirectoryIndexDecision = {
 
 function getDirectoryBaseIssues(pass: DomesticDirectoryPass): string[] {
   const reasons: string[] = [];
+  if (getDirectoryAvailability(pass) === 'ended') reasons.push('recorded-sales-period-ended');
+  if (!hasRecordedFare(pass.priceText)) reasons.push('recorded-fare-required');
   if (pass.officialSourceKind !== 'exact-product') reasons.push('official-product-source-required');
   if (!normalizeOfficialUrl(pass.relatedUrl)) reasons.push('valid-official-url-required');
   if (!hasClearSalesPeriod(pass)) reasons.push('clear-sales-period-required');

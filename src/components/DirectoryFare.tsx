@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { Baby, BadgePercent, GraduationCap, UserRound, UsersRound } from 'lucide-react';
+import { getDirectoryPriceText } from '@/lib/directoryQuality';
 import { normalizePassDisplayText } from '@/lib/passDisplayText';
 
 type FareKind = 'adult' | 'child' | 'youth' | 'family' | 'special';
@@ -62,7 +63,7 @@ export default function DirectoryFare({ value, lang = 'ja', compact = false, tra
   compact?: boolean;
   trailing?: ReactNode;
 }) {
-  const text = normalizePassDisplayText(value).replace(/，/g, ',');
+  const text = normalizePassDisplayText(getDirectoryPriceText(value)).replace(/，/g, ',');
   const missingLabel = lang === 'en' ? 'Not recorded' : lang === 'ja' ? '記載なし' : '未记载';
   const fareLabel = String.raw`(?:ファミリー(?:[（(][^）)]*[）)])?|大人\d+名(?:\s*[＋+]\s*小人\d+名)?|U25(?:[（(][^）)]*[）)])?|シルバー(?:[（(][^）)]*[）)])?|ゴールド会員|中・高校生|中高生|高校生以上|高校生|中学生|小学生|小人・中学生|大人|おとな|成人|小人|小児|こども|子供)`;
   const pattern = new RegExp(`(${fareLabel})\\s*[:：]\\s*([\\d,]+\\s*(?:円|ポイント)|[-－—]+(?:円)?)`, 'g');
@@ -86,6 +87,6 @@ export default function DirectoryFare({ value, lang = 'ja', compact = false, tra
       <span className={`block break-words font-bold text-slate-950 ${compact ? 'text-lg' : 'mt-2 text-2xl'}`}>{part.text}</span>
     </div> : <p key={index} className={`break-words text-sm leading-6 text-slate-600 ${compact ? '' : 'sm:col-span-2'}`}>{part.text}</p>)}
     {trailing}
-    {!text && <span>—</span>}
+    {!text && <span>{lang === 'en' ? 'Confirm price on the official site' : lang === 'ja' ? '料金は公式サイトで要確認' : '价格请到官网确认'}</span>}
   </div>;
 }

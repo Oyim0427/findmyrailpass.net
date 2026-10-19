@@ -24,13 +24,14 @@ export function getLocalizedPassFacts(pass: JRPass, locale: SupportedLocale) {
     priceNote: pass.price.freeText,
   };
 
+  const shikoku = pass.id === 'all-shikoku-3';
   const regions = pass.coverage.regions.map(region => getRegionLabel(region, locale)).join(locale === 'ja' ? '・' : ', ');
   const maxDays = Math.max(...pass.duration);
   const duration = pass.duration.join(locale === 'ja' ? '・' : ' / ');
   const company = pass.company || (locale === 'ja' ? '運行会社' : 'the operator');
   return locale === 'ja' ? {
     summary: `${pass.name.jp}は${company}が提供する、${regions}を主な対象とした${duration}日間の鉄道パスです。料金と主な利用条件を下記に整理しています。購入前に運行会社の最新情報をご確認ください。`,
-    coverageDescription: undefined,
+    coverageDescription: shikoku ? '2026年10月1日以降発売分は小豆島フェリー・小豆島オリーブバスを含みません。伊予鉄道も対象外です。' : undefined,
     audience: [getPassEligibilityLabel(pass, 'ja')],
     transport: pass.trainTypes.map(item => transportLabels[item]?.ja || item),
     bestFor: [`${regions}を中心に移動する旅程`],
@@ -39,7 +40,7 @@ export function getLocalizedPassFacts(pass: JRPass, locale: SupportedLocale) {
     priceNote: '販売経路や購入時期により価格が異なる場合があります。最終価格は公式サイトでご確認ください。',
   } : {
     summary: `${pass.name.en} is a rail pass from ${company}, valid for ${duration} days and mainly covering ${regions}. Key fares and conditions are summarized below; confirm the latest details with the operator before purchase.`,
-    coverageDescription: undefined,
+    coverageDescription: shikoku ? 'Passes issued from October 1, 2026 exclude Shodoshima Ferry and Shodoshima Olive Bus. Iyotetsu is also excluded.' : undefined,
     audience: [getPassEligibilityLabel(pass, 'en')],
     transport: pass.trainTypes.map(item => transportLabels[item]?.en || item),
     bestFor: [`Trips focused on ${regions}`],

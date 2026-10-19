@@ -36,6 +36,7 @@ import { getPassImage } from '@/lib/passImages';
 import { getCatalogPassName, getDirectoryIndexDecision, getIndexableDirectoryPasses } from '@/lib/passCatalog';
 import { getRegionLabel } from '@/lib/regionLabels';
 import { normalizePassDisplayText as displayText } from '@/lib/passDisplayText';
+import { getDirectoryAvailability, getDirectoryPriceText } from '@/lib/directoryQuality';
 import { getPassEligibilityLabel } from '@/lib/passEligibility';
 import { getPassFeatureLink } from '@/lib/passFeatureLinks';
 import { getDirectoryTransportModes } from '@/lib/passTransport';
@@ -67,9 +68,9 @@ const copy = {
     salesLocation: '销售地点',
     eligibility: '适用人群',
     missing: '目录暂无记录',
-    sourceTitle: '已核验官方信息',
-    sourceBody: '本页内容依据运营方官方商品页面核验整理。',
-    checked: '最后核验日期',
+    sourceTitle: '官方来源与记录日期',
+    sourceBody: '本页提供运营方产品链接及已记录资料。价格、资格及当前销售状态请以官网为准。',
+    checked: '资料记录日期',
     warningTitle: '购买前请再次确认',
     warningBody: '票价、适用对象、销售地点和使用限制可能临时变化。本页用于检索与比较，不是车票，也不构成销售承诺。',
     related: '同一运营方或地区的其他票券',
@@ -95,9 +96,9 @@ const copy = {
     salesLocation: 'Where it is sold',
     eligibility: 'Eligibility',
     missing: 'Not recorded in the directory',
-    sourceTitle: 'Checked against official information',
-    sourceBody: 'This page is checked against the operator’s official product information.',
-    checked: 'Last checked',
+    sourceTitle: 'Official source and record date',
+    sourceBody: 'Operator links and recorded information are provided for reference. Confirm current fares, eligibility and availability with the operator.',
+    checked: 'Record date',
     warningTitle: 'Confirm again before buying',
     warningBody: 'Fares, eligibility, sales locations and restrictions can change at short notice. This page is for discovery and comparison; it is not a ticket or sales promise.',
     related: 'More passes from the same operator or area',
@@ -123,9 +124,9 @@ const copy = {
     salesLocation: '発売場所',
     eligibility: '利用資格',
     missing: '一覧に記録がありません',
-    sourceTitle: '公式情報を確認済み',
-    sourceBody: '掲載内容は事業者の公式商品ページをもとに確認・整理しています。',
-    checked: '最終確認日',
+    sourceTitle: '公式の出典・記録日',
+    sourceBody: '事業者の商品ページと記録済み情報を掲載しています。現在の料金・利用資格・発売状況は公式サイトでご確認ください。',
+    checked: '情報記録日',
     warningTitle: '購入前に再確認してください',
     warningBody: '料金、利用資格、発売場所、利用制限は予告なく変わる場合があります。本ページは検索・比較用であり、乗車券や販売保証ではありません。',
     related: '同じ事業者・地域のその他のきっぷ',
@@ -183,7 +184,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     ja: displayText(getCatalogPassName(pass, 'ja')),
   };
   const company = displayText(pass.company);
-  const price = displayText(pass.priceText);
+  const price = displayText(getDirectoryPriceText(pass.priceText));
 
   const metadata = buildLocalizedMetadata({
     lang,
@@ -225,12 +226,15 @@ export default async function DirectoryPassDetailPage({ params }: { params: Prom
   const categoryLabel = displayText(getDirectoryPassCategoryLabel(pass.category, locale));
   const regionLabel = displayText(getRegionLabel(pass.region, locale));
   const relatedPasses = getRelatedPasses(pass);
-  const status = pass.status === 'on-sale'
+  const availability = getDirectoryAvailability(pass);
+  const status = availability === 'ended'
+    ? (locale === 'zh' ? '记录销售期已结束' : locale === 'en' ? 'Recorded sales period ended' : '記録された発売期間は終了')
+    : availability === 'on-sale'
     ? t.statusOnSale
-    : pass.status === 'scheduled'
+    : availability === 'scheduled'
       ? t.statusScheduled
       : t.statusReview;
-  const priceText = displayText(pass.priceText);
+  const priceText = displayText(getDirectoryPriceText(pass.priceText));
   const validityText = displayText(pass.validityText);
   const salesPeriod = displayText(pass.salesPeriod);
   const usePeriodText = displayText(pass.usePeriodText);
@@ -250,7 +254,7 @@ export default async function DirectoryPassDetailPage({ params }: { params: Prom
     name,
     description: `${company} ${name} — ${salesPeriod}`,
     inLanguage: locale === 'zh' ? 'zh-CN' : locale,
-    dateModified: DOMESTIC_DIRECTORY_SNAPSHOT_DATE,
+    dateModified: pass.lastVerifiedAt || DOMESTIC_DIRECTORY_SNAPSHOT_DATE,
     isBasedOn: source.url,
     publisher: { '@type': 'Organization', name: 'FindMyJR-Pass' },
     about: {
@@ -281,7 +285,7 @@ export default async function DirectoryPassDetailPage({ params }: { params: Prom
             <h2 className="mt-5 text-xl font-black">{t.sourceTitle}</h2>
             <p className="mt-3 text-sm leading-6 text-slate-600">{t.sourceBody}</p>
             <dl className="mt-6 border-t border-slate-100 pt-5 text-sm">
-              <div><dt className="font-bold text-slate-400">{t.checked}</dt><dd className="mt-1 font-semibold text-slate-800">{DOMESTIC_DIRECTORY_SNAPSHOT_DATE}</dd></div>
+              <div><dt className="font-bold text-slate-400">{t.checked}</dt><dd className="mt-1 font-semibold text-slate-800">{pass.lastVerifiedAt || DOMESTIC_DIRECTORY_SNAPSHOT_DATE}</dd></div>
             </dl>
           </section>
           <PurchaseChannels
@@ -293,15 +297,15 @@ export default async function DirectoryPassDetailPage({ params }: { params: Prom
         </>}>
           <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
             <p className="text-base leading-8 text-slate-700">{overview}</p>
-            {priceText && <div className="mt-8">
+            {availability === 'ended' && <p role="status" className="mt-4 rounded-xl bg-amber-50 p-4 text-sm font-bold text-amber-950">{locale === 'zh' ? '本页为历史记录，不再作为在售票券推荐。是否续售请到官网确认。' : locale === 'en' ? 'This is an archived record and is no longer recommended as on sale. Check the operator for any renewal.' : 'このページは過去の記録です。発売中のきっぷとしては紹介していません。継続発売の有無は公式サイトでご確認ください。'}</p>}
+            <div className="mt-8">
               <h2 className="mb-3 text-sm font-bold text-slate-500">{t.price}</h2>
               <DirectoryFare
                 value={priceText}
                 lang={locale}
                 trailing={validityText ? <PassDetailMetricCard icon={CalendarDays} label={t.validity} value={validityText} inlineLabel /> : undefined}
               />
-            </div>}
-            {!priceText && validityText && <div className="mt-4"><PassDetailMetricCard icon={CalendarDays} label={t.validity} value={validityText} /></div>}
+            </div>
             <p className="mt-5 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950"><strong>{t.warningTitle}：</strong>{t.warningBody}</p>
           </section>
 

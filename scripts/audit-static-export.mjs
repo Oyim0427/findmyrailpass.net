@@ -86,7 +86,7 @@ if (directoryRows.some(pass => !directoryCategories.includes(pass.category))) {
 if (directoryRows.some(pass => pass.officialSourceKind !== 'exact-product')) {
   issues.push('Public directory data contains a pass without an exact official product source.');
 }
-if (directoryRows.some(pass => pass.status === 'needs-review')) {
+if (indexableDirectoryRows.some(pass => pass.status === 'needs-review')) {
   issues.push('Public directory data contains a pass whose sales dates still need review.');
 }
 const sitemap = fs.readFileSync(path.resolve(root, 'sitemap.xml'), 'utf8');
@@ -113,7 +113,7 @@ for (const hidden of publicationReview.hiddenByQuality || []) {
     if (sitemap.includes(`/${locale}/directory/${hidden.id}`)) issues.push(`Sitemap contains quality-hidden pass ${hidden.id}`);
   }
 }
-if (indexableDirectoryRows.length !== directoryRows.length - 1 || !indexableDirectoryIds.has('kumamotoshi01')) {
+if (indexableDirectoryIds.has('kumamotoshi03') || !indexableDirectoryIds.has('kumamotoshi01')) {
   issues.push('Expected the two Kumamoto paper/mobile source records to merge into one indexable product.');
 }
 const directoryClientSource = fs.readFileSync(path.resolve('src/app/[lang]/passlist/PassListClient.tsx'), 'utf8');
@@ -157,4 +157,4 @@ if (issues.length) {
   process.exit(1);
 }
 
-console.log(`Static export audit passed: ${htmlFiles.length} HTML files, ${officialPassIds.length * 3} verified-pass detail pages, ${indexableDirectoryRows.length * 3} indexable directory details, ${passIds.length - indexableDirectoryRows.length} legacy duplicate kept noindex, no broken internal links or visitor-facing BIGLOBE detail links.`);
+console.log(`Static export audit passed: ${htmlFiles.length} HTML files, ${officialPassIds.length * 3} verified-pass detail pages, ${indexableDirectoryRows.length * 3} indexable directory details, ${passIds.length - indexableDirectoryRows.length} archived or duplicate records kept noindex, no broken internal links or visitor-facing BIGLOBE detail links.`);

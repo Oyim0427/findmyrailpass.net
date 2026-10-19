@@ -12,6 +12,7 @@ run(process.execPath, ['scripts/research-directory-sources.mjs']);
 run(process.execPath, ['scripts/sync-biglobe-directory.mjs']);
 run(process.execPath, ['scripts/check-directory-links.mjs']);
 run(process.platform === 'win32' ? 'npm.cmd' : 'npm', ['run', 'build']);
+run(process.platform === 'win32' ? 'npm.cmd' : 'npm', ['run', 'check:release']);
 
 const review = JSON.parse(fs.readFileSync(PUBLICATION_REVIEW_FILE, 'utf8'));
 const links = JSON.parse(fs.readFileSync('reports/directory-link-health.json', 'utf8'));

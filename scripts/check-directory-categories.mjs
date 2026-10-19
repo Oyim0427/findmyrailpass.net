@@ -68,14 +68,15 @@ const report = {
   samples,
 };
 
-fs.mkdirSync(path.dirname(REPORT_FILE), { recursive: true });
-fs.writeFileSync(REPORT_FILE, `${JSON.stringify(report, null, 2)}\n`);
+if (!process.argv.includes('--check')) {
+  fs.mkdirSync(path.dirname(REPORT_FILE), { recursive: true });
+  fs.writeFileSync(REPORT_FILE, `${JSON.stringify(report, null, 2)}\n`);
+}
 
 const failed = duplicateIds.length
   || invalidCategories.length
   || classificationMismatches.length
   || checks.missingRequiredValues.length
-  || checks.emptyCategories.length
   || passes.length !== idCounts.size;
 
 if (failed) {
@@ -83,5 +84,5 @@ if (failed) {
   process.exit(1);
 }
 
-console.log(`Directory category audit passed: ${passes.length} unique passes across ${DIRECTORY_PASS_CATEGORIES.length} non-empty categories.`);
+console.log(`Directory category audit passed: ${passes.length} unique passes across ${DIRECTORY_PASS_CATEGORIES.length} categories (empty categories are allowed).`);
 console.log(DIRECTORY_PASS_CATEGORIES.map(category => `${category}=${categoryCounts[category]}`).join(', '));

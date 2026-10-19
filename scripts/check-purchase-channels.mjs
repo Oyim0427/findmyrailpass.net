@@ -1,22 +1,21 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { readGeneratedDirectory } from './lib/directory-publication.mjs';
 
-const cases = [
-  ['zh', 'passlist/japan-rail-pass-7', ['选择购买渠道', '运营方官网', '合作购票平台', '准备中']],
-  ['en', 'passlist/japan-rail-pass-7', ['Choose where to buy', 'Operator website', 'Partner booking sites', 'Coming soon']],
-  ['ja', 'passlist/japan-rail-pass-7', ['購入先を選ぶ', '運行会社公式サイト', '提携予約サイト', '準備中']],
-  ['zh', 'directory/jreast04', ['选择购买渠道', '查看官网详情', 'Trip.com']],
-];
-
-for (const [locale, path, expectedText] of cases) {
-  const file = resolve(process.cwd(), 'out', locale, path, 'index.html');
-  const html = readFileSync(file, 'utf8');
-  for (const text of expectedText) assert.ok(html.includes(text), `${file} is missing ${text}`);
-  for (const provider of ['Trip.com', 'Klook', 'KKday']) assert.ok(html.includes(provider), `${file} is missing ${provider}`);
+const localId = readGeneratedDirectory().find(pass => pass.id === 'jrhokkaido91').id;
+const labels = {
+  zh: ['选择购买渠道', '运营方官网'],
+  en: ['Choose where to buy', 'Operator website'],
+  ja: ['購入先を選ぶ', '運行会社公式サイト'],
+};
+for (const [locale, expected] of Object.entries(labels)) {
+  for (const path of ['passlist/japan-rail-pass-7', `directory/${localId}`]) {
+    const html = readFileSync(resolve('out', locale, path, 'index.html'), 'utf8');
+    for (const text of expected) assert.ok(html.includes(text), `${locale}/${path}: missing ${text}`);
+    assert.match(html, /href="https:\/\//, 'An actual outbound link is required');
+    assert.doesNotMatch(html, /aria-disabled="true"/, 'Do not display unconfigured partner placeholders');
+    assert.doesNotMatch(html, /Affiliate placeholder|Affiliate 预留|Affiliate 予約枠/);
+  }
 }
-
-const configurationSource = readFileSync(resolve(process.cwd(), 'src', 'data', 'partnerPurchaseLinks.ts'), 'utf8');
-assert.doesNotMatch(configurationSource, /https:\/\/(?:www\.)?(?:trip\.com|klook\.com|kkday\.com)/i, 'Placeholder links must not point to generic partner homepages');
-
-console.log('Purchase-channel QA passed: official actions and three non-clickable partner placeholders are present in all languages.');
+console.log('Purchase-channel QA passed: official actions work in all locales; unconfigured partners are hidden.');
