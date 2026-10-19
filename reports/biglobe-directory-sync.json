@@ -1,91 +1,91 @@
 {
-  "snapshotDate": "2026-09-15",
+  "snapshotDate": "2026-09-26",
   "discoverySource": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/",
   "regionalIndexes": [
     {
       "region": "全国",
       "url": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/zenkoku.htm",
       "discovered": 12,
-      "included": 2
+      "included": 6
     },
     {
       "region": "北海道",
       "url": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/hokkaido.htm",
       "discovered": 31,
-      "included": 25
+      "included": 28
     },
     {
       "region": "東北",
       "url": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/tohoku.htm",
-      "discovered": 68,
-      "included": 47
+      "discovered": 66,
+      "included": 46
     },
     {
       "region": "関東",
       "url": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/kanto.htm",
-      "discovered": 197,
-      "included": 127
+      "discovered": 202,
+      "included": 133
     },
     {
       "region": "東海",
       "url": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/tokai.htm",
       "discovered": 117,
-      "included": 79
+      "included": 81
     },
     {
       "region": "北信越",
       "url": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/hokusinetu.htm",
-      "discovered": 111,
+      "discovered": 112,
       "included": 80
     },
     {
       "region": "近畿",
       "url": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/kinki.htm",
-      "discovered": 280,
-      "included": 183
+      "discovered": 275,
+      "included": 194
     },
     {
       "region": "中国",
       "url": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/tyugoku.htm",
-      "discovered": 46,
-      "included": 38
+      "discovered": 47,
+      "included": 39
     },
     {
       "region": "四国",
       "url": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/sikoku.htm",
       "discovered": 43,
-      "included": 36
+      "included": 37
     },
     {
       "region": "九州",
       "url": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/kyusyu.htm",
-      "discovered": 104,
-      "included": 76
+      "discovered": 108,
+      "included": 78
     }
   ],
-  "discoveredRows": 1009,
-  "excludedEnded": 316,
-  "includedBeforeDeduplication": 693,
-  "includedAfterDeduplication": 582,
+  "discoveredRows": 1013,
+  "excludedEnded": 291,
+  "includedBeforeDeduplication": 722,
+  "includedAfterDeduplication": 607,
   "excludedByOfficialSource": 1,
-  "eligibleAfterOfficialCheck": 383,
-  "publishedAfterApproval": 375,
-  "pendingApproval": 8,
+  "eligibleAfterOfficialCheck": 396,
+  "publishedAfterApproval": 367,
+  "pendingApproval": 29,
   "autoOffline": 0,
-  "hiddenByQuality": 199,
+  "hiddenByQuality": 211,
   "revokedApprovals": 0,
   "categoryRuleVersion": "2026-09-03-v1",
   "categoryCounts": {
-    "national": 1,
+    "national": 0,
     "regional": 70,
     "city": 53,
-    "bus": 21,
-    "private": 195,
-    "special": 35
+    "bus": 20,
+    "private": 192,
+    "special": 32
   },
-  "withRelatedUrl": 375,
-  "correctedOfficialUrls": 139,
-  "exactProductSources": 375,
+  "withRelatedUrl": 367,
+  "correctedOfficialUrls": 135,
+  "exactProductSources": 367,
   "operatorOverviewSources": 0,
   "needsReview": 0,
   "detailFailures": []

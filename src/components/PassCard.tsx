@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import DirectoryFare from '@/components/DirectoryFare';
 import Image from 'next/image';
 import { JRPass } from '@/types/pass';
 import { ArrowRight, CalendarDays, MapPin, ShieldCheck, Ticket, Database } from 'lucide-react';
@@ -10,20 +11,21 @@ import { DomesticDirectoryPass } from '@/data/domesticPassDirectory';
 import { resolveDirectoryOfficialSource } from '@/data/directoryOfficialSourceOverrides';
 import { getPassImage } from '@/lib/passImages';
 import { getRegionLabel } from '@/lib/regionLabels';
+import { normalizePassDisplayText as displayText } from '@/lib/passDisplayText';
+import { getCatalogPassName } from '@/lib/passCatalog';
 
 interface PassCardProps {
   pass: JRPass | DomesticDirectoryPass;
   onClick?: () => void;
   dict?: Dictionary;
   lang?: string;
+  compact?: boolean;
 }
 
-export default function PassCard({ pass, onClick, dict, lang = 'zh' }: PassCardProps) {
+export default function PassCard({ pass, onClick, dict, lang = 'zh', compact = false }: PassCardProps) {
   const isDirectory = 'salesPeriod' in pass;
   
-  const name = isDirectory
-    ? (pass as DomesticDirectoryPass).name
-    : lang === 'en' ? (pass as JRPass).name.en : lang === 'ja' ? (pass as JRPass).name.jp : (pass as JRPass).name.cn;
+  const name = displayText(getCatalogPassName(pass, lang));
     
   const jrPass = !isDirectory ? pass as JRPass : null;
   const dirPass = isDirectory ? pass as DomesticDirectoryPass : null;
@@ -52,14 +54,14 @@ export default function PassCard({ pass, onClick, dict, lang = 'zh' }: PassCardP
   };
 
   return (
-    <article className="group relative h-full overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white shadow-[0_12px_35px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(15,23,42,0.12)] flex flex-col" onClick={onClick}>
+    <article className={`group relative flex h-full flex-col overflow-hidden border border-slate-200 bg-white transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(15,23,42,0.12)] ${compact ? 'rounded-[1.25rem] shadow-sm' : 'rounded-[1.5rem] shadow-[0_12px_35px_rgba(15,23,42,0.06)]'}`} onClick={onClick}>
       <Link
         href={detailHref}
         data-card-link="details"
         aria-label={`${name} ${dict?.details || (lang === 'ja' ? 'サイト内詳細' : lang === 'en' ? 'On-site details' : '站内详情')}`}
-        className="absolute inset-0 z-10 rounded-[1.5rem] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40 focus-visible:ring-inset"
+        className={`absolute inset-0 z-10 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40 focus-visible:ring-inset ${compact ? 'rounded-[1.25rem]' : 'rounded-[1.5rem]'}`}
       />
-      <div className="relative min-h-[12rem] flex flex-col justify-between overflow-hidden p-6 text-white">
+      <div className={`relative flex flex-col justify-between overflow-hidden text-white ${compact ? 'min-h-[9rem] p-4' : 'min-h-[12rem] p-6'}`}>
         <Image
           src={imageUrl}
           alt={name}
@@ -74,25 +76,19 @@ export default function PassCard({ pass, onClick, dict, lang = 'zh' }: PassCardP
           ) : (
             <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-primary-dark/60 px-3 py-1 text-xs font-semibold backdrop-blur-md"><ShieldCheck className="h-3.5 w-3.5" />{lang === 'en' ? 'Operator source' : lang === 'ja' ? '運行会社公式情報' : '运营方一手来源'}</span>
           )}
-          <span className="text-xs font-medium text-white/90 drop-shadow-sm text-right leading-tight max-w-[45%]">{pass.company}</span>
+          <span className="text-xs font-medium text-white/90 drop-shadow-sm text-right leading-tight max-w-[45%]">{displayText(pass.company)}</span>
         </div>
-        <h3 className="relative mt-6 text-xl sm:text-2xl font-bold leading-tight drop-shadow-md text-balance">{name}</h3>
+        <h3 className={`relative font-bold leading-tight drop-shadow-md text-balance ${compact ? 'mt-4 text-lg' : 'mt-6 text-xl sm:text-2xl'}`}>{name}</h3>
       </div>
 
-      <div className="flex flex-1 flex-col p-6">
+      <div className={`flex flex-1 flex-col ${compact ? 'p-4' : 'p-6'}`}>
         <div className="flex items-end justify-between gap-4 border-b border-slate-100 pb-5">
           <div className="flex-1 min-w-0 pr-2">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">{dict?.priceAdult || '成人价格起'}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">{isDirectory ? (lang === 'ja' ? '参考価格' : lang === 'en' ? 'Reference fares' : '参考票价') : dict?.priceAdult || '成人价格起'}</p>
             <div className="mt-1 font-bold tracking-tight">
               {isDirectory ? (
                 dirPass?.priceText ? (
-                  <div className="flex flex-col gap-0.5">
-                    {dirPass.priceText.split(/／|\//).map((part, index) => (
-                      <span key={index} className={index === 0 ? "text-2xl sm:text-3xl text-slate-950 truncate" : "text-sm sm:text-base text-slate-500 truncate"}>
-                        {part.trim()}
-                      </span>
-                    ))}
-                  </div>
+                  <DirectoryFare value={dirPass.priceText} lang={lang} compact />
                 ) : (
                   <span className="text-2xl sm:text-3xl text-slate-950">---</span>
                 )
@@ -104,31 +100,31 @@ export default function PassCard({ pass, onClick, dict, lang = 'zh' }: PassCardP
           <div className="text-right text-sm text-slate-500 max-w-[40%]">
             <CalendarDays className="mb-1 ml-auto h-4 w-4 text-primary" />
             <div className="line-clamp-2">
-              {isDirectory ? (dirPass?.validityText || dirPass?.usePeriodText || '---') : `${jrPass!.duration.join(' / ')} ${lang === 'en' ? 'days' : '日'}`}
+              {isDirectory ? (displayText(dirPass?.validityText || dirPass?.usePeriodText) || '---') : `${jrPass!.duration.join(' / ')} ${lang === 'en' ? 'days' : '日'}`}
             </div>
           </div>
         </div>
 
-        <p className="mt-5 line-clamp-3 text-sm leading-6 text-slate-600">{description}</p>
-        <div className="mt-5 flex flex-wrap gap-2">
-          {tags.map((tag) => <span key={tag} className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">{tag}</span>)}
+        {!compact && <p className="mt-5 line-clamp-3 text-sm leading-6 text-slate-600">{displayText(description)}</p>}
+        <div className={`${compact ? 'mt-3' : 'mt-5'} flex flex-wrap gap-2`}>
+          {tags.map((tag) => <span key={tag} className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">{displayText(tag)}</span>)}
         </div>
-        <div className="mt-5 space-y-2 text-xs text-slate-500">
-          <p className="flex items-center gap-2"><MapPin className="h-3.5 w-3.5 text-slate-400" />{isDirectory ? dirPass!.region : jrPass!.coverage.regions.map(value => getRegionLabel(value, lang)).join(' · ')}</p>
+        <div className={`${compact ? 'mt-3' : 'mt-5'} space-y-2 text-xs text-slate-500`}>
+          <p className="flex items-center gap-2"><MapPin className="h-3.5 w-3.5 text-slate-400" />{displayText(isDirectory ? dirPass!.region : jrPass!.coverage.regions.map(value => getRegionLabel(value, lang)).join(' · '))}</p>
           {!isDirectory && (
-            <p className="flex items-center gap-2"><ShieldCheck className="h-3.5 w-3.5 text-primary" />{lang === 'en' ? `Verified ${jrPass!.lastVerifiedAt}` : lang === 'ja' ? `${jrPass!.lastVerifiedAt} 確認` : `${jrPass!.lastVerifiedAt} 官方核验`}</p>
+            <p className="flex items-center gap-2"><ShieldCheck className="h-3.5 w-3.5 text-primary" />{displayText(lang === 'en' ? `Verified ${jrPass!.lastVerifiedAt}` : lang === 'ja' ? `${jrPass!.lastVerifiedAt} 確認` : `${jrPass!.lastVerifiedAt} 官方核验`)}</p>
           )}
         </div>
 
-        <div className="relative z-20 mt-auto grid grid-cols-2 gap-3 pt-6">
+        <div className={`relative z-20 mt-auto grid grid-cols-2 ${compact ? 'gap-2 pt-4' : 'gap-3 pt-6'}`}>
           {isDirectory ? (
             dirSource?.url ? (
-              <a data-card-action="official" href={dirSource.url} target="_blank" rel="noopener noreferrer" onClick={(e) => { e.stopPropagation(); trackOutbound(dirSource.url!); }} className="btn-primary inline-flex items-center justify-center gap-2 px-3 py-3 text-sm"><Ticket className="h-4 w-4" />{lang === 'en' ? 'Official' : lang === 'ja' ? '公式サイト' : '官网'}</a>
+              <a data-card-action="official" href={dirSource.url} target="_blank" rel="noopener noreferrer" onClick={(e) => { e.stopPropagation(); trackOutbound(dirSource.url!); }} className={`btn-primary inline-flex items-center justify-center gap-2 px-2 py-3 ${compact ? 'text-xs' : 'text-sm'}`}><Ticket className="h-4 w-4" />{lang === 'en' ? 'Official' : lang === 'ja' ? '公式サイト' : '官网'}</a>
             ) : null
           ) : (
-            purchase && <a data-card-action="official" href={purchase.url} target="_blank" rel={purchase.type === 'affiliate' ? 'sponsored noopener noreferrer' : 'noopener noreferrer'} onClick={(e) => { e.stopPropagation(); trackOutbound(purchase.url); }} className="btn-primary inline-flex items-center justify-center gap-2 px-3 py-3 text-sm"><Ticket className="h-4 w-4" />{purchase.type === 'official' ? (dict?.buyNow || (lang === 'en' ? 'Official purchase' : lang === 'ja' ? '公式購入' : '官方购买')) : (lang === 'en' ? 'Check price' : lang === 'ja' ? '価格を見る' : '查看售价')}</a>
+            purchase && <a data-card-action="official" href={purchase.url} target="_blank" rel={purchase.type === 'affiliate' ? 'sponsored noopener noreferrer' : 'noopener noreferrer'} onClick={(e) => { e.stopPropagation(); trackOutbound(purchase.url); }} className={`btn-primary inline-flex items-center justify-center gap-2 px-2 py-3 ${compact ? 'text-xs' : 'text-sm'}`}><Ticket className="h-4 w-4" />{purchase.type === 'official' ? (dict?.buyNow || (lang === 'en' ? 'Official purchase' : lang === 'ja' ? '公式購入' : '官方购买')) : (lang === 'en' ? 'Check price' : lang === 'ja' ? '価格を見る' : '查看售价')}</a>
           )}
-          <Link data-card-action="details" href={detailHref} onClick={(event) => event.stopPropagation()} className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-3 py-3 text-sm font-semibold text-slate-700 transition hover:border-primary hover:text-primary">{dict?.details || (lang === 'en' ? 'On-site details' : lang === 'ja' ? 'サイト内詳細' : '站内详情')}<ArrowRight className="h-4 w-4" /></Link>
+          <Link data-card-action="details" href={detailHref} onClick={(event) => event.stopPropagation()} className={`inline-flex items-center justify-center gap-1 rounded-xl border border-slate-300 bg-white px-2 py-3 font-semibold text-slate-700 transition hover:border-primary hover:text-primary ${compact ? 'text-xs' : 'text-sm'}`}>{dict?.details || (lang === 'en' ? 'On-site details' : lang === 'ja' ? 'サイト内詳細' : '站内详情')}<ArrowRight className="h-4 w-4" /></Link>
         </div>
       </div>
     </article>

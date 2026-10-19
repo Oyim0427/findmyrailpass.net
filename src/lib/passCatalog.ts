@@ -1,10 +1,55 @@
 import type { JRPass } from '@/types/pass';
 import type { DomesticDirectoryPass } from '@/data/domesticPassDirectory';
+import { DIRECTORY_PASS_TRANSLATIONS } from '@/data/directoryPassTranslations';
 
 export type CatalogPass = JRPass | DomesticDirectoryPass;
 
 export function isDirectoryPass(pass: CatalogPass): pass is DomesticDirectoryPass {
   return 'salesPeriod' in pass;
+}
+
+function normalizeTranslatedPassName(name: string, locale: string): string {
+  if (locale === 'en') {
+    return name
+      .replace(/\b(\d+)\s*DAY\b/gi, '$1-Day')
+      .replace(/\b(One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten)[ -]?Day\b/gi, (_, day: string) => (
+        `${day.charAt(0).toUpperCase()}${day.slice(1).toLowerCase()}-Day`
+      ))
+      .replace(/\bTickets\b/gi, 'Passes')
+      .replace(/\bTicket\b/gi, 'Pass');
+  }
+  if (locale === 'zh') {
+    const dayNumbers: Record<string, string> = {
+      一: '1', 二: '2', 两: '2', 三: '3', 四: '4', 五: '5',
+      六: '6', 七: '7', 八: '8', 九: '9', 十: '10',
+    };
+    const normalizedPassType = name.replace(/(?:周游)?自由通票/g, '周游券');
+    const normalizedDays = normalizedPassType.replace(
+      /([一二两三四五六七八九十]+)日/g,
+      (_, day: string) => {
+        if (dayNumbers[day]) return `${dayNumbers[day]}日`;
+        const [tens = '', units = ''] = day.split('十');
+        const value = (tens ? Number(dayNumbers[tens]) : 1) * 10 + (units ? Number(dayNumbers[units]) : 0);
+        return `${value}日`;
+      },
+    );
+    if (!/\d+日/.test(normalizedDays)) return normalizedDays;
+    return normalizedDays
+      .replace(/乘车券|通票/g, '周游券')
+      .replace(/(\d+日)([^（）()]{0,16}?)(?:漫游|畅游|巡游)券/g, '$1$2周游券')
+      .replace(/(\d+日)(?:自由|无限|畅乘|畅游|漫游|游)?券/g, '$1周游券')
+      .replace(/(\d+日)(?:自由|无限|畅乘|畅游|漫游|游)周游券/g, '$1周游券');
+  }
+  return name;
+}
+
+export function getCatalogPassName(pass: CatalogPass, locale: string): string {
+  if (isDirectoryPass(pass)) {
+    if (locale === 'ja') return pass.name;
+    const translated = DIRECTORY_PASS_TRANSLATIONS[pass.id]?.[locale === 'en' ? 'en' : 'zh'] || pass.name;
+    return normalizeTranslatedPassName(translated, locale);
+  }
+  return locale === 'en' ? pass.name.en : locale === 'ja' ? pass.name.jp : pass.name.cn;
 }
 
 export function getCatalogKey(pass: CatalogPass): string {
@@ -159,21 +204,23 @@ const categoryAliases: Record<string, string> = {
 };
 
 function normalize(text: string | null | undefined): string {
-  return (text || '').normalize('NFKC').toLowerCase().replace(/\s+/g, ' ').trim();
+  return (text || '').normalize('NFKC').toLowerCase().normalize('NFD')
+    .replace(/([a-z])[\u0300-\u036f]+/g, '$1').normalize('NFC')
+    .replace(/\s+/g, ' ').trim();
 }
 
-function searchableText(pass: CatalogPass): string {
+export function getCatalogSearchText(pass: CatalogPass): string {
   const regions = isDirectoryPass(pass) ? [pass.region, ...pass.majorRegions] : [...pass.coverage.regions, ...pass.majorRegions];
   const fields = isDirectoryPass(pass)
-    ? [pass.name, pass.company, pass.priceText, pass.validityText, pass.salesPeriod]
+    ? [getCatalogPassName(pass, 'ja'), getCatalogPassName(pass, 'en'), getCatalogPassName(pass, 'zh'), pass.company, pass.priceText, pass.validityText, pass.salesPeriod]
     : [pass.name.cn, pass.name.en, pass.name.jp, pass.company, pass.description];
   return normalize([...fields, ...regions, ...regions.map(region => regionAliases[region]), categoryAliases[pass.category]].filter(Boolean).join(' '));
 }
 
-function matchesCatalogKeyword(pass: CatalogPass, query: string): boolean {
+export function matchesCatalogKeyword(pass: CatalogPass, query: string): boolean {
   const words = normalize(query).split(' ').filter(Boolean);
   if (!words.length) return true;
-  const haystack = searchableText(pass);
+  const haystack = getCatalogSearchText(pass);
   return words.every(word => haystack.includes(word));
 }
 
@@ -189,20 +236,15 @@ export function searchCatalogByKeyword(catalog: CatalogPass[], query: string): C
   return catalog
     .filter(pass => matchesCatalogKeyword(pass, normalizedQuery))
     .sort((a, b) => {
-      const aName = normalize(isDirectoryPass(a) ? a.name : `${a.name.cn} ${a.name.jp} ${a.name.en}`);
-      const bName = normalize(isDirectoryPass(b) ? b.name : `${b.name.cn} ${b.name.jp} ${b.name.en}`);
+      const aNames = ['ja', 'en', 'zh'].map(locale => normalize(getCatalogPassName(a, locale)));
+      const bNames = ['ja', 'en', 'zh'].map(locale => normalize(getCatalogPassName(b, locale)));
       const aCompany = normalize(a.company);
       const bCompany = normalize(b.company);
-      const rank = (name: string, company: string) => name === normalizedQuery
-        ? 4
-        : name.startsWith(normalizedQuery)
-          ? 3
-          : name.includes(normalizedQuery)
-            ? 2
-            : company.includes(normalizedQuery)
-              ? 1
-              : 0;
-      return rank(bName, bCompany) - rank(aName, aCompany) || getCatalogKey(a).localeCompare(getCatalogKey(b));
+      const rank = (names: string[], company: string) => Math.max(
+        ...names.map(name => name === normalizedQuery ? 4 : name.startsWith(normalizedQuery) ? 3 : name.includes(normalizedQuery) ? 2 : 0),
+        company.includes(normalizedQuery) ? 1 : 0,
+      );
+      return rank(bNames, bCompany) - rank(aNames, aCompany) || getCatalogKey(a).localeCompare(getCatalogKey(b));
     });
 }
 

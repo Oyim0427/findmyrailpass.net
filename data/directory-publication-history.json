@@ -2235,6 +2235,99 @@
       "reason": "ended-by-date",
       "detectedAt": "2026-09-15T04:42:26.623Z",
       "snapshotDate": "2026-09-15"
+    },
+    {
+      "id": "jreast04",
+      "name": "北海道＆東日本パス",
+      "company": "ＪＲ北海道 / ＪＲ東日本",
+      "region": "全国",
+      "salesPeriod": "2026 / 6 / 20 / ～9 / 24",
+      "endDate": "2026-09-24",
+      "relatedUrl": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=2962",
+      "reason": "ended-by-date",
+      "detectedAt": "2026-09-26T13:15:10.031Z",
+      "snapshotDate": "2026-09-26"
+    },
+    {
+      "id": "abukyu101",
+      "name": "ポケモン天文台 1DAY PASS",
+      "company": "阿武隈急行",
+      "region": "東北",
+      "salesPeriod": "2026 / 7 / 5 / ～9 / 15",
+      "endDate": "2026-09-15",
+      "relatedUrl": "https://www.abukyu.co.jp/ticket/",
+      "reason": "not-in-current-active-source",
+      "detectedAt": "2026-09-26T13:15:10.031Z",
+      "snapshotDate": "2026-09-26"
+    },
+    {
+      "id": "abukyu12",
+      "name": "飯坂温泉日帰りきっぷ",
+      "company": "阿武隈急行",
+      "region": "東北",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.abukyu.co.jp/ticket/",
+      "reason": "quality-hidden:sales-date-needs-review",
+      "detectedAt": "2026-09-26T13:15:10.031Z",
+      "snapshotDate": "2026-09-26"
+    },
+    {
+      "id": "seibu118",
+      "name": "アニメ『魔入りました！入間くん』×西武鉄道 おトクにおでかけきっぷ",
+      "company": "西武鉄道",
+      "region": "関東",
+      "salesPeriod": "2026 / 7 / 17 / ～9 / 23",
+      "endDate": "2026-09-23",
+      "relatedUrl": "https://www.seiburailway.jp/railway/ticket/specialticket/otokuni-irumakun2026/",
+      "reason": "ended",
+      "detectedAt": "2026-09-26T13:15:10.031Z",
+      "snapshotDate": "2026-09-26"
+    },
+    {
+      "id": "seibu122",
+      "name": "西武園ゆうえんち 夏満喫トクトクパス",
+      "company": "西武鉄道",
+      "region": "関東",
+      "salesPeriod": "2026 / 6 / 27 / ～9 / 23",
+      "endDate": "2026-09-23",
+      "relatedUrl": "https://www.seiburailway.jp/railway/ticket/specialticket/natsumankitsu_digital/",
+      "reason": "ended",
+      "detectedAt": "2026-09-26T13:15:10.031Z",
+      "snapshotDate": "2026-09-26"
+    },
+    {
+      "id": "nagoya103",
+      "name": "ぴよりんと市バスでぷち旅",
+      "company": "名古屋市交通局",
+      "region": "東海",
+      "salesPeriod": "2026 / 7 / 17 / ～10 / 26",
+      "endDate": "2026-10-26",
+      "relatedUrl": "https://www.kotsu.city.nagoya.jp/rp/odekake/TRP0005544.htm",
+      "reason": "ended",
+      "detectedAt": "2026-09-26T13:15:10.031Z",
+      "snapshotDate": "2026-09-26"
+    },
+    {
+      "id": "kintetu03",
+      "name": "近鉄週末フリーパス",
+      "company": "近畿日本鉄道",
+      "region": "近畿",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.kintetsu.co.jp/senden/Railway/Ticket/weekend_free/index.html",
+      "reason": "changed-sales-period-awaiting-approval",
+      "detectedAt": "2026-09-26T13:15:10.031Z",
+      "snapshotDate": "2026-09-26"
+    },
+    {
+      "id": "tizukyu11",
+      "name": "智頭線普通列車１日乗車券",
+      "company": "智頭急行",
+      "region": "中国",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.chizukyu.co.jp/chizukyu/tokutoku/x229/",
+      "reason": "not-in-current-active-source",
+      "detectedAt": "2026-09-26T13:15:10.031Z",
+      "snapshotDate": "2026-09-26"
     }
   ]
 }

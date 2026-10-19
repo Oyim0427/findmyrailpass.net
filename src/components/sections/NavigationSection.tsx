@@ -10,9 +10,9 @@ export default function NavigationSection({ lang }: { dict?: Dictionary, lang?: 
   const pathname = usePathname();
   const locale = lang === 'en' || lang === 'ja' ? lang : 'zh';
   const copy = {
-    zh: { home: '首页', allPasses: '全部周游券', guides: '旅行指南', help: '帮助中心', search: '开始查询' },
-    en: { home: 'Home', allPasses: 'All Passes', guides: 'Travel Guides', help: 'Help Center', search: 'Start Search' },
-    ja: { home: 'ホーム', allPasses: 'すべてのパス', guides: '旅行ガイド', help: 'ヘルプ', search: '検索を始める' },
+    zh: { home: '首页', allPasses: '全部周游券', guides: '指南与帮助', search: '开始查询' },
+    en: { home: 'Home', allPasses: 'All Passes', guides: 'Guides & Help', search: 'Start Search' },
+    ja: { home: 'ホーム', allPasses: 'すべてのパス', guides: 'ガイド・ヘルプ', search: '検索を始める' },
   }[locale];
 
   const switchLanguage = (newLang: string) => {
@@ -33,7 +33,7 @@ export default function NavigationSection({ lang }: { dict?: Dictionary, lang?: 
             </Link>
           </div>
           
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-4">
             <Link href={`/${lang || 'zh'}`} className="text-gray-600 hover:text-primary transition-colors font-medium relative group">
               {copy.home}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary/100 transition-all group-hover:w-full"></span>
@@ -42,15 +42,11 @@ export default function NavigationSection({ lang }: { dict?: Dictionary, lang?: 
               {copy.allPasses}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary/100 transition-all group-hover:w-full"></span>
             </Link>
+            <Link href={`/${lang || 'zh'}/features`} className="text-gray-600 hover:text-primary font-medium">{locale === 'ja' ? '周遊券特集' : locale === 'en' ? 'Pass collections' : '周游券特集'}</Link>
             <Link href={`/${lang || 'zh'}/blog`} className="text-gray-600 hover:text-primary transition-colors font-medium relative group">
               {copy.guides}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary/100 transition-all group-hover:w-full"></span>
             </Link>
-            <Link href={`/${lang || 'zh'}/help`} className="text-gray-600 hover:text-primary transition-colors font-medium relative group">
-              {copy.help}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary/100 transition-all group-hover:w-full"></span>
-            </Link>
-            
             <div className="relative group flex items-center cursor-pointer text-gray-500 hover:text-primary">
               <Globe className="w-5 h-5 mr-1" />
               <span className="text-sm font-medium uppercase">{lang || 'zh'}</span>

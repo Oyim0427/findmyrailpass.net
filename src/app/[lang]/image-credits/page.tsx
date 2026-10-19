@@ -10,9 +10,9 @@ import { buildLocalizedMetadata } from '@/lib/seo';
 export const dynamic = 'force-static';
 
 const copy = {
-  zh: { title: '图片来源与开放授权', intro: '票券图片来自 Wikimedia Commons，并已下载到本站以保证稳定加载。图片按票券收录地区匹配，仅作地区与交通氛围展示，不代表票券覆盖画面中的具体线路。', back: '返回周游券列表', source: '查看原图与授权', note: '本站仅通过 CSS 裁切显示区域，下载的图片文件未做内容修改。各图片的权利仍属于相应作者。' },
-  en: { title: 'Image sources and open licences', intro: 'Pass images come from Wikimedia Commons and are stored locally for reliable loading. They are matched by catalogue region for context only and do not imply that a pass covers the exact route shown.', back: 'Back to all passes', source: 'Original file and licence', note: 'Images are only visually cropped with CSS; the downloaded files are otherwise unmodified. Rights remain with their respective creators.' },
-  ja: { title: '画像の出典・オープンライセンス', intro: 'きっぷ画像は Wikimedia Commons から取得し、安定表示のためサイト内に保存しています。掲載地域に応じたイメージであり、写真内の路線がきっぷの利用範囲に含まれることを示すものではありません。', back: '周遊券一覧へ戻る', source: '原画像とライセンス', note: 'CSS で表示範囲をトリミングしていますが、ダウンロード画像自体の内容は変更していません。各画像の権利はそれぞれの作者に帰属します。' },
+  zh: { title: '图片来源与开放授权', intro: '票券图片来自 Wikimedia Commons，并已下载到本站以保证稳定加载。图片按票券收录地区和交通类型匹配，仅作地区与交通氛围展示，不代表票券覆盖画面中的具体线路。', back: '返回周游券列表', source: '查看原图与授权', note: '本站仅通过 CSS 裁切显示区域，下载的图片文件未做内容修改。各图片的权利仍属于相应作者。' },
+  en: { title: 'Image sources and open licences', intro: 'Pass images come from Wikimedia Commons and are stored locally for reliable loading. They are matched by catalogue region and transport type for context only and do not imply that a pass covers the exact route shown.', back: 'Back to all passes', source: 'Original file and licence', note: 'Images are only visually cropped with CSS; the downloaded files are otherwise unmodified. Rights remain with their respective creators.' },
+  ja: { title: '画像の出典・オープンライセンス', intro: 'きっぷ画像は Wikimedia Commons から取得し、安定表示のためサイト内に保存しています。掲載地域や交通機関に応じたイメージであり、写真内の路線がきっぷの利用範囲に含まれることを示すものではありません。', back: '周遊券一覧へ戻る', source: '原画像とライセンス', note: 'CSS で表示範囲をトリミングしていますが、ダウンロード画像自体の内容は変更していません。各画像の権利はそれぞれの作者に帰属します。' },
 };
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {

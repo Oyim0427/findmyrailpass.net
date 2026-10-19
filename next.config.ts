@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { PHASE_DEVELOPMENT_SERVER } from 'next/constants';
 
 const nextConfig: NextConfig = {
   // 迁移到新的 turbopack 配置
@@ -20,4 +21,12 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default function config(phase: string): NextConfig {
+  // Keep a running preview from overwriting production build manifests.
+  if (process.env.NEXT_EXPORT_DIR) {
+    return { ...nextConfig, distDir: process.env.NEXT_EXPORT_DIR };
+  }
+  return phase === PHASE_DEVELOPMENT_SERVER
+    ? { ...nextConfig, distDir: '.next-dev' }
+    : nextConfig;
+}

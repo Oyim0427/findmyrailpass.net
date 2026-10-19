@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-09-15T04:42:53.742Z",
-  "snapshotDate": "2026-09-15",
+  "generatedAt": "2026-09-26T13:15:54.129Z",
+  "snapshotDate": "2026-09-26",
   "counts": {
-    "activeCandidates": 383,
-    "published": 375,
-    "pendingApproval": 8,
+    "activeCandidates": 396,
+    "published": 367,
+    "pendingApproval": 29,
     "autoOffline": 0,
-    "hiddenByQuality": 199,
+    "hiddenByQuality": 211,
     "revokedApprovals": 0
   },
   "pendingApproval": [
@@ -17,7 +17,7 @@
       "region": "全国",
       "salesPeriod": "2026 / 9 / 18 / ～10 / 16",
       "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/autumn.htm",
-      "status": "scheduled",
+      "status": "on-sale",
       "startDate": "2026-09-18",
       "endDate": "2026-10-16",
       "relatedUrl": "https://www.jrhokkaido.co.jp/CM/Otoku/007264/",
@@ -27,8 +27,119 @@
       "salesLocationText": "ＪＲの主な駅,駅の旅行センター,営業支店,主な旅行会社",
       "officialSourceKind": "exact-product",
       "relatedUrlCorrected": false,
+      "majorRegions": [],
       "category": "national",
       "approvalFingerprint": "autumn|2026-09-18|2026-10-16|2026 / 9 / 18 / ~10 / 16",
+      "reviewReason": "new-pass"
+    },
+    {
+      "id": "18kippu",
+      "name": "青春１８きっぷ",
+      "company": "ＪＲ各社",
+      "region": "全国",
+      "salesPeriod": "2026 / 11 / 27 / ～2027 / 1 / 9",
+      "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/18kippu.htm",
+      "status": "scheduled",
+      "startDate": "2026-11-27",
+      "endDate": "2027-01-09",
+      "relatedUrl": "https://www.jrhokkaido.co.jp/CM/Otoku/007255/",
+      "priceText": "３日間用：大人 / 小人 10,000円 / ５日間用：大人 / 小人 12,050円",
+      "validityText": "３日間／５日間",
+      "usePeriodText": "2026年3月1日～2026年4月10日 / 2026年7月18日～2026年9月8日 / 2026年12月11日～2027年1月11日 /",
+      "salesLocationText": "ＪＲの主な駅,駅の旅行センター,営業支店,主な旅行会社",
+      "officialSourceKind": "exact-product",
+      "relatedUrlCorrected": false,
+      "majorRegions": [],
+      "category": "national",
+      "approvalFingerprint": "18kippu|2026-11-27|2027-01-09|2026 / 11 / 27 / ~2027 / 1 / 9",
+      "reviewReason": "new-pass"
+    },
+    {
+      "id": "jreast221",
+      "name": "大人の休日パス(東日本スペシャル)",
+      "company": "ＪＲ東日本",
+      "region": "全国",
+      "salesPeriod": "2026 / 10 / 26 / ～11 / 30",
+      "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/jreast221.htm",
+      "status": "scheduled",
+      "startDate": "2026-10-26",
+      "endDate": "2026-11-30",
+      "relatedUrl": "https://jre-ot9.jp/ticket/special2611.html",
+      "priceText": "大人の休日倶楽部会員 / 普通車用：20,000円 グリーン車用：36,000円",
+      "validityText": "利用期間内の連続する５日間",
+      "usePeriodText": "2026年11月26日～2026年12月5日",
+      "salesLocationText": "えきねっと",
+      "officialSourceKind": "exact-product",
+      "relatedUrlCorrected": false,
+      "majorRegions": [],
+      "category": "national",
+      "approvalFingerprint": "jreast221|2026-10-26|2026-11-30|2026 / 10 / 26 / ~11 / 30",
+      "reviewReason": "new-pass"
+    },
+    {
+      "id": "jreast201",
+      "name": "大人の休日倶楽部パス(東日本)",
+      "company": "ＪＲ東日本",
+      "region": "全国",
+      "salesPeriod": "2026 / 12 / 18 / ～2027 / 1 / 25",
+      "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/jreast201.htm",
+      "status": "scheduled",
+      "startDate": "2026-12-18",
+      "endDate": "2027-01-25",
+      "relatedUrl": "https://jre-ot9.jp/ticket/clubpass.html",
+      "priceText": "大人の休日倶楽部会員限定 購入場所",
+      "validityText": "５日間",
+      "usePeriodText": "2026年6月22日～2026年7月4日 / 2026年8月31日～2026年9月12日 / 2026年1月18日～2027年1月30日 /",
+      "salesLocationText": "JR東日本の主な駅の指定席券売機 / びゅうプラザ・みどりの窓口",
+      "officialSourceKind": "exact-product",
+      "relatedUrlCorrected": true,
+      "majorRegions": [],
+      "category": "national",
+      "approvalFingerprint": "jreast201|2026-12-18|2027-01-25|2026 / 12 / 18 / ~2027 / 1 / 25",
+      "reviewReason": "new-pass"
+    },
+    {
+      "id": "jreast205",
+      "name": "大人の休日パス(東日本・北海道スペシャル)",
+      "company": "ＪＲ北海道 / ＪＲ東日本",
+      "region": "全国",
+      "salesPeriod": "2026 / 10 / 26 / ～11 / 30",
+      "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/jreast205.htm",
+      "status": "scheduled",
+      "startDate": "2026-10-26",
+      "endDate": "2026-11-30",
+      "relatedUrl": "https://jre-ot9.jp/ticket/special2611.html",
+      "priceText": "大人の休日倶楽部会員 / 普通車用：28,00円 グリーン車用：51,000円",
+      "validityText": "利用期間内の連続する５日間",
+      "usePeriodText": "2026年11月26日～2026年12月5日",
+      "salesLocationText": "えきねっと",
+      "officialSourceKind": "exact-product",
+      "relatedUrlCorrected": false,
+      "majorRegions": [],
+      "category": "national",
+      "approvalFingerprint": "jreast205|2026-10-26|2026-11-30|2026 / 10 / 26 / ~11 / 30",
+      "reviewReason": "new-pass"
+    },
+    {
+      "id": "jreast203",
+      "name": "大人の休日倶楽部パス(東日本･北海道)",
+      "company": "ＪＲ北海道 / ＪＲ東日本",
+      "region": "全国",
+      "salesPeriod": "2026 / 12 / 18 / ～2027 / 1 / 25",
+      "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/jreast203.htm",
+      "status": "scheduled",
+      "startDate": "2026-12-18",
+      "endDate": "2027-01-25",
+      "relatedUrl": "https://jre-ot9.jp/ticket/clubpass.html",
+      "priceText": "大人の休日倶楽部会員限定 / 購入場所",
+      "validityText": "５日間",
+      "usePeriodText": "2026年6月22日～2026年7月4日 / 2026年8月31日～2026年9月12日 / 2026年1月18日～2027年1月30日 /",
+      "salesLocationText": "JR東日本の主な駅の指定席券売機 / びゅうプラザ・みどりの窓口 / JR北海道の主な駅のみどりの窓口",
+      "officialSourceKind": "exact-product",
+      "relatedUrlCorrected": true,
+      "majorRegions": [],
+      "category": "national",
+      "approvalFingerprint": "jreast203|2026-12-18|2027-01-25|2026 / 12 / 18 / ~2027 / 1 / 25",
       "reviewReason": "new-pass"
     },
     {
@@ -48,8 +159,226 @@
       "salesLocationText": "JR北海道ePass ぐるっと北海道 JAL MaaS /",
       "officialSourceKind": "exact-product",
       "relatedUrlCorrected": false,
+      "majorRegions": [
+        "北海道"
+      ],
       "category": "regional",
       "approvalFingerprint": "jrhokkaido113|2026-06-26|2027-02-26|2026 / 6 / 26 / ~2027 / 2 / 26",
+      "reviewReason": "new-pass"
+    },
+    {
+      "id": "jrhokkaido55",
+      "name": "大人の休日パス(北海道スペシャル)",
+      "company": "ＪＲ北海道",
+      "region": "北海道",
+      "salesPeriod": "2026 / 10 / 26 / ～11 / 30",
+      "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/jrhokkaido55.htm",
+      "status": "scheduled",
+      "startDate": "2026-10-26",
+      "endDate": "2026-11-30",
+      "relatedUrl": "https://jre-ot9.jp/ticket/special2611.html",
+      "priceText": "大人の休日倶楽部会員 / 普通車用：18,070円 グリーン車用：36,050円",
+      "validityText": "利用期間内の連続する５日間",
+      "usePeriodText": "2026年11月26日～2026年12月5日",
+      "salesLocationText": "えきねっと",
+      "officialSourceKind": "exact-product",
+      "relatedUrlCorrected": false,
+      "majorRegions": [
+        "北海道"
+      ],
+      "category": "regional",
+      "approvalFingerprint": "jrhokkaido55|2026-10-26|2026-11-30|2026 / 10 / 26 / ~11 / 30",
+      "reviewReason": "new-pass"
+    },
+    {
+      "id": "jrhokkaido54",
+      "name": "大人の休日倶楽部パス（北海道）",
+      "company": "ＪＲ北海道",
+      "region": "北海道",
+      "salesPeriod": "2026 / 12 / 18 / ～2027 / 1 / 25",
+      "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/jrhokkaido54.htm",
+      "status": "scheduled",
+      "startDate": "2026-12-18",
+      "endDate": "2027-01-25",
+      "relatedUrl": "https://jre-ot9.jp/ticket/clubpass.html",
+      "priceText": "大人の休日倶楽部会員限定 購入場所",
+      "validityText": "５日間",
+      "usePeriodText": "2026年6月22日～2026年7月4日 / 2026年8月31日～2026年9月12日 / 2026年1月18日～2027年1月30日 /",
+      "salesLocationText": "えきねっと / JR北海道の主な駅のみどりの窓口 発売枚数 大人の休日倶楽部パス (東日本,東日本・北海道,北海道)の合計で、 普通車用：30,000枚 / 日、グリーン車用：1,000枚 / 期間",
+      "officialSourceKind": "exact-product",
+      "relatedUrlCorrected": true,
+      "majorRegions": [
+        "北海道"
+      ],
+      "category": "regional",
+      "approvalFingerprint": "jrhokkaido54|2026-12-18|2027-01-25|2026 / 12 / 18 / ~2027 / 1 / 25",
+      "reviewReason": "new-pass"
+    },
+    {
+      "id": "abukyu82",
+      "name": "あぶQフェスティバル限定乗車券",
+      "company": "阿武隈急行",
+      "region": "東北",
+      "salesPeriod": "2026 / 11 / 7",
+      "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/abukyu82.htm",
+      "status": "scheduled",
+      "startDate": "2026-11-07",
+      "relatedUrl": "https://www.abukyu.co.jp/topics/%e3%81%82%e3%81%b6q%e3%83%95%e3%82%a7%e3%82%b9%e3%83%86%e3%82%a3%e3%83%90%e3%83%ab2026%e5%b9%b411%e6%9c%887%e6%97%a5%e3%81%ab%e9%96%8b%e5%82%ac%e6%97%a5%e6%b1%ba%e5%ae%9a%ef%bc%81/",
+      "priceText": "大人：1,000円／小人：500円",
+      "validityText": "１日間",
+      "usePeriodText": "2026年11月7日 /",
+      "salesLocationText": "福島,保原,梁川,丸森,角田 /",
+      "officialSourceKind": "exact-product",
+      "relatedUrlCorrected": false,
+      "majorRegions": [
+        "東北"
+      ],
+      "category": "private",
+      "approvalFingerprint": "abukyu82|2026-11-07||2026 / 11 / 7",
+      "reviewReason": "new-pass"
+    },
+    {
+      "id": "jreast45",
+      "name": "ときわ路パス",
+      "company": "ＪＲ東日本",
+      "region": "関東",
+      "salesPeriod": "2026 / 9 / 3 / ～12 / 20",
+      "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/jreast45.htm",
+      "status": "on-sale",
+      "startDate": "2026-09-03",
+      "endDate": "2026-12-20",
+      "relatedUrl": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=3008",
+      "priceText": "大人：2,430円／小人：650円 /",
+      "validityText": "１日",
+      "usePeriodText": "【夏季】 2026年7月18日～2026年8月30日の土休日 / 【秋季】 2026年10月3日～2026年12月20日の土休日,2026年11月13日 / 【冬季】 2027年2月6日～2027年3月28日の土休日 /",
+      "salesLocationText": "フリー区間内のＪＲの主な駅 /",
+      "officialSourceKind": "exact-product",
+      "relatedUrlCorrected": true,
+      "majorRegions": [
+        "関東"
+      ],
+      "category": "regional",
+      "approvalFingerprint": "jreast45|2026-09-03|2026-12-20|2026 / 9 / 3 / ~12 / 20",
+      "reviewReason": "new-pass"
+    },
+    {
+      "id": "seibu126",
+      "name": "栗山巧 Legend History 1DayPass 第三弾「PR1DEと伝説」",
+      "company": "西武鉄道",
+      "region": "関東",
+      "salesPeriod": "2026 / 8 / 28 / ～9 / 30",
+      "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/seibu126.htm",
+      "status": "on-sale",
+      "startDate": "2026-08-28",
+      "endDate": "2026-09-30",
+      "relatedUrl": "https://www.seiburailway.jp/newsroom/news/20260818_KuriyamaLegendHistory/",
+      "priceText": "大人：3,000円 (2枚セット)",
+      "validityText": "１日間",
+      "usePeriodText": "2026年8月28日～2026年12月31日 /",
+      "salesLocationText": "2026年8月28日～2026年8月30日 西武球場前駅 / 2026年9月1日～9月30日 所沢駅 /",
+      "officialSourceKind": "exact-product",
+      "relatedUrlCorrected": true,
+      "majorRegions": [
+        "関東"
+      ],
+      "category": "private",
+      "approvalFingerprint": "seibu126|2026-08-28|2026-09-30|2026 / 8 / 28 / ~9 / 30",
+      "reviewReason": "new-pass"
+    },
+    {
+      "id": "seibu94",
+      "name": "西武線スタンプラリー1日おでかけきっぷ",
+      "company": "西武鉄道",
+      "region": "関東",
+      "salesPeriod": "2026 / 9 / 4 / ～11 / 3",
+      "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/seibu94.htm",
+      "status": "on-sale",
+      "startDate": "2026-09-04",
+      "endDate": "2026-11-03",
+      "relatedUrl": "https://www.seiburailway.jp/railway/ticket/specialticket/precure202609/",
+      "priceText": "大人：1,200円／小人：300円",
+      "validityText": "発売当日限り",
+      "usePeriodText": "2026年9月4日～2026年11月3日",
+      "salesLocationText": "西武線各駅自動券売機(武蔵横手～西武秩父駅間各駅,小竹向原,多摩川線各駅を除く) / 発売時間 ～16:00",
+      "officialSourceKind": "exact-product",
+      "relatedUrlCorrected": false,
+      "majorRegions": [
+        "関東"
+      ],
+      "category": "private",
+      "approvalFingerprint": "seibu94|2026-09-04|2026-11-03|2026 / 9 / 4 / ~11 / 3",
+      "reviewReason": "new-pass"
+    },
+    {
+      "id": "hokusou95",
+      "name": "北総・下町めぐりきっぷ",
+      "company": "北総鉄道",
+      "region": "関東",
+      "salesPeriod": "2026 / 10 / 3 / ～11 / 23",
+      "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/hokusou95.htm",
+      "status": "scheduled",
+      "startDate": "2026-10-03",
+      "endDate": "2026-11-23",
+      "relatedUrl": "https://www.hokuso-railway.co.jp/topics/detail/66732?doing_wp_cron=1783780289.5002450942993164062500",
+      "priceText": "大人：1,420円 小人：710円",
+      "validityText": "１日",
+      "usePeriodText": "発売当日",
+      "salesLocationText": "北総線各駅(京成高砂駅を除く)",
+      "officialSourceKind": "exact-product",
+      "relatedUrlCorrected": false,
+      "majorRegions": [
+        "関東"
+      ],
+      "category": "private",
+      "approvalFingerprint": "hokusou95|2026-10-03|2026-11-23|2026 / 10 / 3 / ~11 / 23",
+      "reviewReason": "new-pass"
+    },
+    {
+      "id": "hokusou91",
+      "name": "北総線1日乗車券",
+      "company": "北総鉄道",
+      "region": "関東",
+      "salesPeriod": "2026 / 10 / 3 / ～11 / 23",
+      "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/hokusou91.htm",
+      "status": "scheduled",
+      "startDate": "2026-10-03",
+      "endDate": "2026-11-23",
+      "relatedUrl": "https://www.hokuso-railway.co.jp/topics/detail/66691",
+      "priceText": "大人：1,000円 小人：500円",
+      "validityText": "１日",
+      "usePeriodText": "発売当日",
+      "salesLocationText": "北総線各駅及び京成高砂駅の定期券発売所 / RYDE PASS(ライドパス)アプリ",
+      "officialSourceKind": "exact-product",
+      "relatedUrlCorrected": false,
+      "majorRegions": [
+        "関東"
+      ],
+      "category": "private",
+      "approvalFingerprint": "hokusou91|2026-10-03|2026-11-23|2026 / 10 / 3 / ~11 / 23",
+      "reviewReason": "new-pass"
+    },
+    {
+      "id": "nagoya98",
+      "name": "名古屋まつり記念ドニチエコきっぷ",
+      "company": "名古屋市交通局",
+      "region": "東海",
+      "salesPeriod": "2026 / 10 / 3 / ～11 / 18",
+      "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/nagoya98.htm",
+      "status": "scheduled",
+      "startDate": "2026-10-03",
+      "endDate": "2026-11-18",
+      "relatedUrl": "https://www.kotsu.city.nagoya.jp/rp/about/TRP0005591.htm",
+      "priceText": "大人：620円",
+      "validityText": "１日",
+      "usePeriodText": "土,日,休日と毎月8日",
+      "salesLocationText": "地下鉄全駅,交通局サービスセンター(名古屋,栄,金山)",
+      "officialSourceKind": "exact-product",
+      "relatedUrlCorrected": false,
+      "majorRegions": [
+        "東海"
+      ],
+      "category": "special",
+      "approvalFingerprint": "nagoya98|2026-10-03|2026-11-18|2026 / 10 / 3 / ~11 / 18",
       "reviewReason": "new-pass"
     },
     {
@@ -69,50 +398,271 @@
       "salesLocationText": "電鉄黒部,宇奈月温泉 / くろワンきっぷ事務局 / 黒部市地域観光ギャラリー「観光案内所」 / 一部くろワンスタンプラリー加盟店",
       "officialSourceKind": "exact-product",
       "relatedUrlCorrected": false,
+      "majorRegions": [
+        "北信越"
+      ],
       "category": "private",
       "approvalFingerprint": "titetu92|2026-09-12|2026-10-31|2026 / 9 / 12 / ~10 / 31",
       "reviewReason": "new-pass"
     },
     {
-      "id": "fukutetu76",
-      "name": "ふくいまちなかイベントフリーきっぷ",
-      "company": "福井鉄道",
-      "region": "北信越",
-      "salesPeriod": "2026 / 9 / 13 / ～9 / 19",
-      "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/fukutetu76.htm",
-      "status": "on-sale",
-      "startDate": "2026-09-13",
-      "endDate": "2026-09-19",
-      "relatedUrl": "https://fukutetsu.jp/newsDetail.php?num=569",
-      "priceText": "大人：300円／小人：150円",
-      "validityText": "１日間",
-      "usePeriodText": "2026年9月13日,19日 / 2026年8月14日,20日,21日 / 2026年5月1日,31日 / 2026年3月1日,29日 / 2025年12月20日 / 2025年11月5日,23日 / 2025年10月5日,18日,19日 / 2025年9月4日,10日,21日,23日 /",
-      "salesLocationText": "ふくいMaaS",
+      "id": "jrwest168",
+      "name": "WESTERポイント関西・北陸フリーパス",
+      "company": "ＪＲ西日本",
+      "region": "近畿",
+      "salesPeriod": "2026 / 10 / 1 / ～12 / 22",
+      "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/jrwest168.htm",
+      "status": "scheduled",
+      "startDate": "2026-10-01",
+      "endDate": "2026-12-22",
+      "relatedUrl": "https://tickets.jr-odekake.net/shohindb/view/consumer/tokutoku/detail.html?shnId=126000112",
+      "priceText": "大人：6,000ポイント / 小人：3,000ポイント",
+      "validityText": "3日間",
+      "usePeriodText": "2026年10月13日～2026年12月24日",
+      "salesLocationText": "e5489 限定",
       "officialSourceKind": "exact-product",
       "relatedUrlCorrected": false,
-      "category": "private",
-      "approvalFingerprint": "fukutetu76|2026-09-13|2026-09-19|2026 / 9 / 13 / ~9 / 19",
+      "majorRegions": [
+        "近畿"
+      ],
+      "category": "regional",
+      "approvalFingerprint": "jrwest168|2026-10-01|2026-12-22|2026 / 10 / 1 / ~12 / 22",
       "reviewReason": "new-pass"
     },
     {
-      "id": "kumagawa96",
-      "name": "くま川鉄道全線運行再開2day乗車券",
-      "company": "くまがわ鉄道",
-      "region": "九州",
-      "salesPeriod": "2026 / 9 / 20 / ～9 / 21",
-      "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/kumagawa96.htm",
-      "status": "scheduled",
-      "startDate": "2026-09-20",
-      "endDate": "2026-09-21",
-      "relatedUrl": "https://kumagawa-rail.com/2026/09/10/4815/",
-      "priceText": "大人：2,000円 小人：1,000円",
-      "validityText": "2日間",
-      "usePeriodText": "2026年9月20日～2026年9月21日",
-      "salesLocationText": "人吉温泉,あさぎり",
+      "id": "jrwest171",
+      "name": "にんにんパス（QR)",
+      "company": "ＪＲ西日本",
+      "region": "近畿",
+      "salesPeriod": "2026 / 9 / 1 / ～2027 / 3 / 31",
+      "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/jrwest171.htm",
+      "status": "on-sale",
+      "startDate": "2026-09-01",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://tickets.jr-odekake.net/shohindb/view/consumer/tokutoku/detail.html?shnId=126000168",
+      "priceText": "大人：2,000円 / 小人：2,000円",
+      "validityText": "1日間",
+      "usePeriodText": "2026年10月1日～2027年3月31日",
+      "salesLocationText": "KANSAI MaaS",
       "officialSourceKind": "exact-product",
       "relatedUrlCorrected": false,
+      "majorRegions": [
+        "近畿"
+      ],
+      "category": "regional",
+      "approvalFingerprint": "jrwest171|2026-09-01|2027-03-31|2026 / 9 / 1 / ~2027 / 3 / 31",
+      "reviewReason": "new-pass"
+    },
+    {
+      "id": "jrwest169",
+      "name": "鉄道版ビワイチパス（QR）",
+      "company": "ＪＲ西日本",
+      "region": "近畿",
+      "salesPeriod": "2026 / 9 / 1 / ～2027 / 3 / 31",
+      "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/jrwest169.htm",
+      "status": "on-sale",
+      "startDate": "2026-09-01",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://tickets.jr-odekake.net/shohindb/view/consumer/tokutoku/detail.html?shnId=126000163",
+      "priceText": "大人：3,500円 / 小人：3,500円",
+      "validityText": "3日間",
+      "usePeriodText": "2026年10月1日～2027年3月31日",
+      "salesLocationText": "KANSAI MaaS",
+      "officialSourceKind": "exact-product",
+      "relatedUrlCorrected": false,
+      "majorRegions": [
+        "近畿"
+      ],
+      "category": "regional",
+      "approvalFingerprint": "jrwest169|2026-09-01|2027-03-31|2026 / 9 / 1 / ~2027 / 3 / 31",
+      "reviewReason": "new-pass"
+    },
+    {
+      "id": "jrwest170",
+      "name": "比叡山おでかけパス(QR)",
+      "company": "ＪＲ西日本",
+      "region": "近畿",
+      "salesPeriod": "2026 / 9 / 1 / ～2027 / 3 / 31",
+      "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/jrwest170.htm",
+      "status": "on-sale",
+      "startDate": "2026-09-01",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://tickets.jr-odekake.net/shohindb/view/consumer/tokutoku/detail.html?shnId=126000162",
+      "priceText": "大人：3,100円 / 小人：3,100円",
+      "validityText": "1日間",
+      "usePeriodText": "2026年10月1日～2027年3月31日",
+      "salesLocationText": "KANSAI MaaS",
+      "officialSourceKind": "exact-product",
+      "relatedUrlCorrected": false,
+      "majorRegions": [
+        "近畿"
+      ],
+      "category": "regional",
+      "approvalFingerprint": "jrwest170|2026-09-01|2027-03-31|2026 / 9 / 1 / ~2027 / 3 / 31",
+      "reviewReason": "new-pass"
+    },
+    {
+      "id": "kintetu03",
+      "name": "近鉄週末フリーパス",
+      "company": "近畿日本鉄道",
+      "region": "近畿",
+      "salesPeriod": "～2026 / 10 / 30",
+      "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/kintetu03.htm",
+      "status": "scheduled",
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "relatedUrl": "https://www.kintetsu.co.jp/senden/Railway/Ticket/weekend_free/index.html",
+      "priceText": "大人：5,000円 小人：2,500円",
+      "validityText": "３日間",
+      "usePeriodText": "～2026年11月2日",
+      "salesLocationText": "近鉄主要駅(特急券うりばのある駅) / 特急券等自動発売機MT型 / 近畿日本ツーリスト主要支店,営業所 / インターネット通信販売",
+      "officialSourceKind": "exact-product",
+      "relatedUrlCorrected": true,
+      "majorRegions": [
+        "近畿"
+      ],
       "category": "private",
-      "approvalFingerprint": "kumagawa96|2026-09-20|2026-09-21|2026 / 9 / 20 / ~9 / 21",
+      "approvalFingerprint": "kintetu03|2026-10-30|2026-10-30|~2026 / 10 / 30",
+      "reviewReason": "changed-sales-period"
+    },
+    {
+      "id": "kitakyumonorailkyoto",
+      "name": "北急・モノレール京都おでかけきっぷ",
+      "company": "大阪高速鉄道",
+      "region": "近畿",
+      "salesPeriod": "2026 / 9 / 11 / ～12 / 20",
+      "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/kitakyumonorailkyoto.htm",
+      "status": "on-sale",
+      "startDate": "2026-09-11",
+      "endDate": "2026-12-20",
+      "relatedUrl": "https://www.hankyu.co.jp/ticket/otoku/014158.html",
+      "priceText": "大人：1,500円",
+      "validityText": "１日",
+      "usePeriodText": "2026年4月10日～2026年6月14日 / 2026年9月11日～2026年12月20日 /",
+      "salesLocationText": "スルッとQRtto",
+      "officialSourceKind": "exact-product",
+      "relatedUrlCorrected": false,
+      "majorRegions": [
+        "近畿"
+      ],
+      "category": "city",
+      "approvalFingerprint": "kitakyumonorailkyoto|2026-09-11|2026-12-20|2026 / 9 / 11 / ~12 / 20",
+      "reviewReason": "new-pass"
+    },
+    {
+      "id": "jrwest167",
+      "name": "山口ふくの国周遊パス",
+      "company": "ＪＲ西日本",
+      "region": "中国",
+      "salesPeriod": "2026 / 9 / 1 / ～12 / 31",
+      "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/jrwest167.htm",
+      "status": "on-sale",
+      "startDate": "2026-09-01",
+      "endDate": "2026-12-31",
+      "relatedUrl": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0003200",
+      "priceText": "大人：5,000円／小人：2,500円",
+      "validityText": "2日間",
+      "usePeriodText": "2026年10月1日～2027年1月2日",
+      "salesLocationText": "tabiwa",
+      "officialSourceKind": "exact-product",
+      "relatedUrlCorrected": false,
+      "majorRegions": [
+        "中国"
+      ],
+      "category": "regional",
+      "approvalFingerprint": "jrwest167|2026-09-01|2026-12-31|2026 / 9 / 1 / ~12 / 31",
+      "reviewReason": "new-pass"
+    },
+    {
+      "id": "jrsikoku81",
+      "name": "スマえき若者限定四国フリーきっぷ",
+      "company": "ＪＲ四国",
+      "region": "四国",
+      "salesPeriod": "2026 / 11 / 11 / ～2027 / 1 / 9",
+      "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/jrsikoku81.htm",
+      "status": "scheduled",
+      "startDate": "2026-11-11",
+      "endDate": "2027-01-09",
+      "relatedUrl": "https://www.jr-eki.com/ticket/brand/2-3XF",
+      "priceText": "12,000円",
+      "validityText": "３日間",
+      "usePeriodText": "2026年3月1日～2026年4月10日 / 2026年7月18日～2026年9月13日 / 2026年8月7日～2026年8月16日を除く / 2026年12月11日～2027年1月11日 / 2026年12月23日～2027年1月4日を除く",
+      "salesLocationText": "しこくスマートえきちゃん",
+      "officialSourceKind": "exact-product",
+      "relatedUrlCorrected": false,
+      "majorRegions": [
+        "四国"
+      ],
+      "category": "regional",
+      "approvalFingerprint": "jrsikoku81|2026-11-11|2027-01-09|2026 / 11 / 11 / ~2027 / 1 / 9",
+      "reviewReason": "new-pass"
+    },
+    {
+      "id": "kumagawa02",
+      "name": "くま川鉄道2日乗車券",
+      "company": "くまがわ鉄道",
+      "region": "九州",
+      "salesPeriod": "発売中",
+      "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/kumagawa02.htm",
+      "status": "on-sale",
+      "relatedUrl": "https://kumagawa-rail.com/2026/09/16/4860/",
+      "priceText": "大人：2,000円 小人：1,000円",
+      "validityText": "2日間",
+      "usePeriodText": "通年",
+      "salesLocationText": "ジョルダンモバイルチケット",
+      "officialSourceKind": "exact-product",
+      "relatedUrlCorrected": false,
+      "majorRegions": [
+        "九州"
+      ],
+      "category": "private",
+      "approvalFingerprint": "kumagawa02|||発売中",
+      "reviewReason": "new-pass"
+    },
+    {
+      "id": "kumagawa93",
+      "name": "夏目友人帳祈念乗車券",
+      "company": "くまがわ鉄道",
+      "region": "九州",
+      "salesPeriod": "2026 / 9 / 14 / ～2027 / 3 / 31",
+      "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/kumagawa93.htm",
+      "status": "on-sale",
+      "startDate": "2026-09-14",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://kumagawa-rail.com/2026/09/12/4837/",
+      "priceText": "大人：1,500円",
+      "validityText": "1日間",
+      "usePeriodText": "2026年9月14日～2027年3月31日",
+      "salesLocationText": "人吉温泉,あさぎり / くま鉄オンラインショップYahoo！店 / 郵送： 詳細はこちら",
+      "officialSourceKind": "exact-product",
+      "relatedUrlCorrected": false,
+      "majorRegions": [
+        "九州"
+      ],
+      "category": "private",
+      "approvalFingerprint": "kumagawa93|2026-09-14|2027-03-31|2026 / 9 / 14 / ~2027 / 3 / 31",
+      "reviewReason": "new-pass"
+    },
+    {
+      "id": "kumaden01",
+      "name": "鉄道線全線1日フリー乗車券",
+      "company": "熊本電鉄",
+      "region": "九州",
+      "salesPeriod": "発売中",
+      "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/kumaden01.htm",
+      "status": "on-sale",
+      "relatedUrl": "https://www.kumamotodentetsu.co.jp/news/202609152467.html",
+      "priceText": "大人：1,300円",
+      "validityText": "1日間",
+      "usePeriodText": "通年",
+      "salesLocationText": "",
+      "officialSourceKind": "exact-product",
+      "relatedUrlCorrected": false,
+      "majorRegions": [
+        "九州"
+      ],
+      "category": "private",
+      "approvalFingerprint": "kumaden01|||発売中",
       "reviewReason": "new-pass"
     },
     {
@@ -132,54 +682,29 @@
       "salesLocationText": "ジョルダンモバイルチケット",
       "officialSourceKind": "exact-product",
       "relatedUrlCorrected": false,
+      "majorRegions": [
+        "九州"
+      ],
       "category": "city",
       "approvalFingerprint": "kagosima81|2026-08-08|2026-12-13|2026 / 8 / 8 / ~12 / 13",
-      "reviewReason": "new-pass"
-    },
-    {
-      "id": "nishitetu86",
-      "name": "西鉄電車沿線全エリア乗車券",
-      "company": "西日本鉄道",
-      "region": "九州",
-      "salesPeriod": "2026 / 9 / 15 / ～9 / 22",
-      "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/nishitetu86.htm",
-      "status": "scheduled",
-      "startDate": "2026-09-15",
-      "endDate": "2026-09-22",
-      "relatedUrl": "https://www.nishitetsu.jp/train/20260922trainnorihoudai/",
-      "priceText": "大人：1,500円",
-      "validityText": "１日",
-      "usePeriodText": "2026年9月22日",
-      "salesLocationText": "my route",
-      "officialSourceKind": "exact-product",
-      "relatedUrlCorrected": false,
-      "category": "regional",
-      "approvalFingerprint": "nishitetu86|2026-09-15|2026-09-22|2026 / 9 / 15 / ~9 / 22",
-      "reviewReason": "new-pass"
-    },
-    {
-      "id": "nishitetu87",
-      "name": "福岡市内エリア乗車券",
-      "company": "西日本鉄道",
-      "region": "九州",
-      "salesPeriod": "2026 / 9 / 15 / ～9 / 22",
-      "sourceDetailUrl": "https://www2s.biglobe.ne.jp/~t_aoyagi/railway/free/nishitetu87.htm",
-      "status": "scheduled",
-      "startDate": "2026-09-15",
-      "endDate": "2026-09-22",
-      "relatedUrl": "https://www.nishitetsu.jp/train/20260922trainnorihoudai/",
-      "priceText": "大人：800円",
-      "validityText": "１日",
-      "usePeriodText": "2026年9月22日",
-      "salesLocationText": "my route",
-      "officialSourceKind": "exact-product",
-      "relatedUrlCorrected": false,
-      "category": "regional",
-      "approvalFingerprint": "nishitetu87|2026-09-15|2026-09-22|2026 / 9 / 15 / ~9 / 22",
       "reviewReason": "new-pass"
     }
   ],
   "hiddenByQuality": [
+    {
+      "id": "jrhokkaido108",
+      "name": "JR北海道 どこ行く？ 平日パス(どこパス)",
+      "company": "ＪＲ北海道",
+      "region": "北海道",
+      "status": "scheduled",
+      "salesPeriod": "2026 / 9 / 26 / ～11 / 6",
+      "endDate": "2026-11-06",
+      "relatedUrl": "https://www.jrhokkaido.co.jp/CM/Otoku/007272/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
     {
       "id": "jrhokkaido114",
       "name": "地球探索鉄道花咲線フリーパス",
@@ -299,16 +824,16 @@
       ]
     },
     {
-      "id": "abukyu85",
-      "name": "初恋＊れ～るとりっぷ フリー乗車券",
+      "id": "abukyu12",
+      "name": "飯坂温泉日帰りきっぷ",
       "company": "阿武隈急行",
       "region": "東北",
-      "status": "on-sale",
-      "salesPeriod": "2024 / 12 / 1～",
+      "status": "needs-review",
+      "salesPeriod": "休止中",
       "relatedUrl": "https://www.abukyu.co.jp/ticket/",
-      "officialSourceKind": "operator-overview",
+      "officialSourceKind": "exact-product",
       "issues": [
-        "operator-overview-only"
+        "sales-date-needs-review"
       ]
     },
     {
@@ -496,6 +1021,19 @@
       ]
     },
     {
+      "id": "yurikamome14",
+      "name": "【Pass Case版】ゆりかもめ一日乗車券",
+      "company": "ゆりかもめ",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.yurikamome.co.jp/company/news/c81c3edcb63e74772f1ab8d11f1cf244.pdf",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
       "id": "yurikamome12",
       "name": "【ゆりかもめEnjoy Pass】ゆりかもめ24時間券",
       "company": "ゆりかもめ",
@@ -601,6 +1139,20 @@
       ]
     },
     {
+      "id": "mm118",
+      "name": "「カップヌードルミュージアム 横浜15周年記念」みなとみらい線一日乗車券",
+      "company": "横浜高速鉄道",
+      "region": "関東",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 9 / 2 / ～9 / 30",
+      "endDate": "2026-09-30",
+      "relatedUrl": "https://www.mm21railway.co.jp/info/news/uploads/press%20release_20260826%20.pdf",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
       "id": "yokohama12",
       "name": "バス・地下鉄１日乗車券",
       "company": "横浜市交通局",
@@ -679,6 +1231,19 @@
       ]
     },
     {
+      "id": "tukuba01",
+      "name": "ＴＸ！１日乗り放題きっぷ",
+      "company": "首都圏新都市鉄道",
+      "region": "関東",
+      "status": "scheduled",
+      "salesPeriod": "2026 / 10 / 1～",
+      "relatedUrl": "https://www.mir.co.jp/assets_rti/pdf/f5a88d75996d45c156c4ac49528ec401.pdf",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
       "id": "kominato01",
       "name": "1日フリーきっぷ",
       "company": "小湊鉄道",
@@ -718,6 +1283,20 @@
       ]
     },
     {
+      "id": "joshin94",
+      "name": "群馬県民の日・鉄道記念日1日全線フリー乗車券",
+      "company": "上信電鉄",
+      "region": "関東",
+      "status": "scheduled",
+      "salesPeriod": "2026 / 10 / 1 / ～10 / 31",
+      "endDate": "2026-10-31",
+      "relatedUrl": "https://www.joshin-dentetsu.co.jp/wp/wp-content/uploads/2026/09/23ca2aebecb948d4b04b15aa52ff64f6.pdf",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
       "id": "joshin12",
       "name": "上野三碑巡り記念乗車券",
       "company": "上信電鉄",
@@ -753,20 +1332,6 @@
       "salesPeriod": "2026 / 6 / 26 / ～9 / 30",
       "endDate": "2026-09-30",
       "relatedUrl": "https://www.seiburailway.jp/railway/ticket/L1pass/",
-      "officialSourceKind": "operator-overview",
-      "issues": [
-        "operator-overview-only"
-      ]
-    },
-    {
-      "id": "seibu121",
-      "name": "西武園ゆうえんち プールトクトクパス",
-      "company": "西武鉄道",
-      "region": "関東",
-      "status": "on-sale",
-      "salesPeriod": "2026 / 6 / 27 / ～9 / 23",
-      "endDate": "2026-09-23",
-      "relatedUrl": "https://www.seiburailway.jp/",
       "officialSourceKind": "operator-overview",
       "issues": [
         "operator-overview-only"
@@ -1111,6 +1676,19 @@
       "officialSourceKind": "operator-overview",
       "issues": [
         "operator-overview-only"
+      ]
+    },
+    {
+      "id": "gakunan102",
+      "name": "『超かぐや姫！』コラボデザイン1日フリー乗車券",
+      "company": "岳南鉄道",
+      "region": "東海",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 9 / 19～",
+      "relatedUrl": "https://www.city.fuji.shizuoka.jp/1035170000/p007756.html#p1",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
       ]
     },
     {
@@ -1697,6 +2275,20 @@
       ]
     },
     {
+      "id": "keihan108",
+      "name": "ありがとう2200系・2400系・2600系引退記念1日乗車券",
+      "company": "京阪電気鉄道",
+      "region": "近畿",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 9 / 12 / ～2027 / 3 / 31",
+      "endDate": "2027-03-31",
+      "relatedUrl": "https://www.keihan.co.jp/euphonium/",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
+      ]
+    },
+    {
       "id": "keihan104",
       "name": "フェルメール《真珠の耳飾りの少女》展 記念乗車券",
       "company": "京阪電気鉄道",
@@ -1752,17 +2344,30 @@
       ]
     },
     {
+      "id": "kintetu04",
+      "name": "近鉄週末おでかけデジタルフリーパス",
+      "company": "近畿日本鉄道",
+      "region": "近畿",
+      "status": "scheduled",
+      "salesPeriod": "2026 / 11 / 5～",
+      "relatedUrl": "https://files.microcms-assets.io/assets/f76cb3f097104533921f6d6262a336ee/e2877a8716e446df9335d7533d8d9e15/oshirase_260916-270331.pdf",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
       "id": "kintetu68",
       "name": "近鉄電車ナゾだらけの列車旅(橿原線＋α編)オリジナルデザイン1日乗車券",
       "company": "近畿日本鉄道",
       "region": "近畿",
-      "status": "scheduled",
+      "status": "on-sale",
       "salesPeriod": "2026 / 9 / 18 / ～2027 / 3 / 31",
       "endDate": "2027-03-31",
-      "relatedUrl": "https://www.kintetsu.co.jp/senden/Railway/Ticket/nazotoki_osaka/",
+      "relatedUrl": "https://www.kintetsu.co.jp/senden/Railway/Ticket/nazotoki_kashihara/",
+      "officialSourceKind": "operator-overview",
       "issues": [
-        "official-source-unconfirmed",
-        "source-link-broken"
+        "operator-overview-only"
       ]
     },
     {
@@ -1807,6 +2412,34 @@
       ]
     },
     {
+      "id": "sanyo97",
+      "name": "なぞときさんぽ旅 1dayチケット",
+      "company": "山陽電気鉄道",
+      "region": "近畿",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 8 / 28 / ～2027 / 5 / 31",
+      "endDate": "2027-05-31",
+      "relatedUrl": "http://www.sanyo-railway.co.jp/media/1786927145.pdf",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "hankyu04",
+      "name": "京都・嵐山1dayパス",
+      "company": "山陽電気鉄道",
+      "region": "近畿",
+      "status": "scheduled",
+      "salesPeriod": "2026 / 10 / 1 / ～12 / 20",
+      "endDate": "2026-12-20",
+      "relatedUrl": "https://www.hankyu.co.jp/ticket/otoku/index.html",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
       "id": "biwakokeihanna",
       "name": "びわこ京阪奈線フリーキップ",
       "company": "信楽高原鐵道",
@@ -1842,20 +2475,6 @@
       "salesPeriod": "～2027 / 3 / 31",
       "endDate": "2027-03-31",
       "relatedUrl": "https://kotsu.city.kobe.lg.jp/ensen-navi/bus-railway/freepass/",
-      "issues": [
-        "official-source-unconfirmed",
-        "source-research-unresolved"
-      ]
-    },
-    {
-      "id": "hankyu04",
-      "name": "京都・嵐山1dayパス",
-      "company": "神戸市交通局",
-      "region": "近畿",
-      "status": "scheduled",
-      "salesPeriod": "2026 / 10 / 1 / ～12 / 20",
-      "endDate": "2026-12-20",
-      "relatedUrl": "https://www.hankyu.co.jp/ticket/otoku/013931.html",
       "issues": [
         "official-source-unconfirmed",
         "source-research-unresolved"
@@ -1928,6 +2547,20 @@
       ]
     },
     {
+      "id": "mizuma94",
+      "name": "水間鉄道 宝くじきっぷ",
+      "company": "水間鉄道",
+      "region": "近畿",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 9 / 5 / ～10 / 11",
+      "endDate": "2026-10-11",
+      "relatedUrl": "https://www.suitetsu.com/event/20260824takatrakujikippu2.pdf",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
       "id": "mizuma03",
       "name": "昼間割引フリー乗車券",
       "company": "水間鉄道",
@@ -1967,20 +2600,6 @@
       ]
     },
     {
-      "id": "kitakyumonorailkyoto",
-      "name": "北急・モノレール京都おでかけきっぷ",
-      "company": "大阪高速鉄道",
-      "region": "近畿",
-      "status": "on-sale",
-      "salesPeriod": "2026 / 9 / 11 / ～12 / 20",
-      "endDate": "2026-12-20",
-      "relatedUrl": "https://www.hankyu.co.jp/ticket/otoku/014078.html",
-      "issues": [
-        "official-source-unconfirmed",
-        "source-research-unresolved"
-      ]
-    },
-    {
       "id": "osakametoro98",
       "name": "「2つの世界と2匹の物語」１日乗車券",
       "company": "大阪市高速電気軌道 / (大阪メトロ)",
@@ -2006,6 +2625,20 @@
       "officialSourceKind": "operator-overview",
       "issues": [
         "operator-overview-only"
+      ]
+    },
+    {
+      "id": "hankyu104",
+      "name": "「おさるのジョージ × 阪急電車」デジタル１日乗車券(能勢編)",
+      "company": "能勢電鉄",
+      "region": "近畿",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 8 / 4 / ～11 / 9",
+      "endDate": "2026-11-09",
+      "relatedUrl": "https://www.hankyu.co.jp/ticket/otoku/013899.html",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
       ]
     },
     {
@@ -2085,9 +2718,9 @@
       "status": "on-sale",
       "salesPeriod": "発売中",
       "relatedUrl": "https://railway.ichibata.co.jp/maas-vogel/",
-      "officialSourceKind": "operator-overview",
+      "officialSourceKind": "exact-product",
       "issues": [
-        "operator-overview-only"
+        "source-link-broken"
       ]
     },
     {
@@ -2218,6 +2851,19 @@
       "officialSourceKind": "operator-overview",
       "issues": [
         "operator-overview-only"
+      ]
+    },
+    {
+      "id": "tizukyu01",
+      "name": "智頭線普通列車１日乗車券",
+      "company": "智頭急行",
+      "region": "中国",
+      "status": "on-sale",
+      "salesPeriod": "発売中",
+      "relatedUrl": "https://www.chizukyu.co.jp/chizukyu/tokutoku/14/",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-link-broken"
       ]
     },
     {
@@ -2475,48 +3121,6 @@
       ]
     },
     {
-      "id": "kumagawa11",
-      "name": "くま川鉄道一日乗車券(代行バス込み)",
-      "company": "くまがわ鉄道",
-      "region": "九州",
-      "status": "scheduled",
-      "salesPeriod": "～2026 / 9 / 19",
-      "endDate": "2026-09-19",
-      "relatedUrl": "https://kumagawa-rail.com/time-fare/#toc_id_9_1",
-      "issues": [
-        "official-source-unconfirmed",
-        "source-research-unresolved"
-      ]
-    },
-    {
-      "id": "kumagawa84",
-      "name": "くま川鉄道一日乗車券(鉄道のみ)",
-      "company": "くまがわ鉄道",
-      "region": "九州",
-      "status": "scheduled",
-      "salesPeriod": "～2026 / 9 / 19",
-      "endDate": "2026-09-19",
-      "relatedUrl": "https://kumagawa-rail.com/time-fare/#toc_id_9_1",
-      "issues": [
-        "official-source-unconfirmed",
-        "source-research-unresolved"
-      ]
-    },
-    {
-      "id": "kumagawa93",
-      "name": "夏目友人帳祈念乗車券",
-      "company": "くまがわ鉄道",
-      "region": "九州",
-      "status": "on-sale",
-      "salesPeriod": "2026 / 9 / 14 / ～2027 / 3 / 31",
-      "endDate": "2027-03-31",
-      "relatedUrl": "https://kumagawa-rail.com/2026/09/12/4837/",
-      "issues": [
-        "official-source-unconfirmed",
-        "source-research-unresolved"
-      ]
-    },
-    {
       "id": "solaseed01",
       "name": "鹿児島・宮崎フリーきっぷ",
       "company": "ソラシドエア",
@@ -2673,6 +3277,62 @@
       ]
     },
     {
+      "id": "kumaden95",
+      "name": "1CHANCE FESTIVAL バス・電車1日乗車券",
+      "company": "熊本電鉄",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 8 / 24 / ～9 / 27",
+      "endDate": "2026-09-27",
+      "relatedUrl": "https://www.kumamotodentetsu.co.jp/1chancefes2026/",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "kumaden96",
+      "name": "1CHANCE FESTIVAL バス・電車2日乗車券",
+      "company": "熊本電鉄",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 8 / 24 / ～9 / 27",
+      "endDate": "2026-09-27",
+      "relatedUrl": "https://www.kumamotodentetsu.co.jp/1chancefes2026/",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "kumaden93",
+      "name": "1CHANCE FESTIVAL 電車1日乗車券",
+      "company": "熊本電鉄",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 8 / 24 / ～9 / 27",
+      "endDate": "2026-09-27",
+      "relatedUrl": "https://www.kumamotodentetsu.co.jp/1chancefes2026/",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "kumaden94",
+      "name": "1CHANCE FESTIVAL 電車2日乗車券",
+      "company": "熊本電鉄",
+      "region": "九州",
+      "status": "on-sale",
+      "salesPeriod": "2026 / 8 / 24 / ～9 / 27",
+      "endDate": "2026-09-27",
+      "relatedUrl": "https://www.kumamotodentetsu.co.jp/1chancefes2026/",
+      "issues": [
+        "official-source-unconfirmed",
+        "source-research-unresolved"
+      ]
+    },
+    {
       "id": "kagosima05",
       "name": "市電・市バス・シティビューナイトパス",
       "company": "鹿児島市交通局",
@@ -2735,6 +3395,19 @@
       "issues": [
         "official-source-unconfirmed",
         "source-research-unresolved"
+      ]
+    },
+    {
+      "id": "simabara93",
+      "name": "GO-SHIMATETSU-NORI-HODAI",
+      "company": "島原鉄道",
+      "region": "九州",
+      "status": "scheduled",
+      "salesPeriod": "2026 / 10 / 3",
+      "relatedUrl": "https://www.shimatetsu.co.jp/infos/detail/?id=819",
+      "officialSourceKind": "operator-overview",
+      "issues": [
+        "operator-overview-only"
       ]
     },
     {

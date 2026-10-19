@@ -1,484 +1,477 @@
 {
-  "checkedAt": "2026-09-15T04:42:58.930Z",
-  "urlCount": 309,
-  "reachable": 309,
+  "checkedAt": "2026-09-26T13:15:59.083Z",
+  "urlCount": 303,
+  "reachable": 303,
   "unreachable": 0,
   "results": [
-    {
-      "url": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=2962",
-      "reachable": true,
-      "status": 200,
-      "finalUrl": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=2962",
-      "latencyMs": 204
-    },
     {
       "url": "https://www.jrhokkaido.co.jp/CM/Otoku/007246/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jrhokkaido.co.jp/CM/Otoku/007246/",
-      "latencyMs": 294
+      "latencyMs": 184
     },
     {
       "url": "https://www.jrhokkaido.co.jp/CM/Otoku/007245/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jrhokkaido.co.jp/CM/Otoku/007245/",
-      "latencyMs": 294
+      "latencyMs": 202
     },
     {
       "url": "https://www.jrhokkaido.co.jp/CM/Otoku/007200/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jrhokkaido.co.jp/CM/Otoku/007200/",
-      "latencyMs": 289
+      "latencyMs": 162
     },
     {
       "url": "https://www.jrhokkaido.co.jp/CM/Otoku/007248/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jrhokkaido.co.jp/CM/Otoku/007248/",
-      "latencyMs": 276
+      "latencyMs": 162
     },
     {
       "url": "https://www.jrhokkaido.co.jp/CM/Otoku/007256/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jrhokkaido.co.jp/CM/Otoku/007256/",
-      "latencyMs": 276
+      "latencyMs": 158
     },
     {
       "url": "https://www.jrhokkaido.co.jp/CM/Otoku/007218/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jrhokkaido.co.jp/CM/Otoku/007218/",
-      "latencyMs": 276
+      "latencyMs": 163
     },
     {
       "url": "https://www.jrhokkaido.co.jp/CM/Otoku/007247/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jrhokkaido.co.jp/CM/Otoku/007247/",
-      "latencyMs": 271
+      "latencyMs": 203
     },
     {
       "url": "https://www.city.sapporo.jp/st/josyaken/doni-chika/donichika.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.city.sapporo.jp/st/josyaken/doni-chika/donichika.html",
-      "latencyMs": 241
+      "latencyMs": 156
     },
     {
       "url": "https://www.city.sapporo.jp/st/josyaken/card.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.city.sapporo.jp/st/josyaken/card.html",
-      "latencyMs": 233
+      "latencyMs": 155
     },
     {
       "url": "https://www.stsp.or.jp/business/streetcar/price/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.stsp.or.jp/business/streetcar/price/",
-      "latencyMs": 1490
+      "latencyMs": 764
     },
     {
       "url": "https://www.shr-isaribi.jp/ticket-guide/otoku/isaribi1daykanpass/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.shr-isaribi.jp/ticket-guide/otoku/isaribi1daykanpass/",
-      "latencyMs": 476
+      "latencyMs": 528
     },
     {
       "url": "https://www.shr-isaribi.jp/ticket-guide/otoku/isaribi1dayho/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.shr-isaribi.jp/ticket-guide/otoku/isaribi1dayho/",
-      "latencyMs": 434
+      "latencyMs": 526
     },
     {
       "url": "https://www.city.hakodate.hokkaido.jp/docs/2014012100977/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.city.hakodate.hokkaido.jp/docs/2014012100977/",
-      "latencyMs": 83
+      "latencyMs": 114
     },
     {
       "url": "https://igr.jp/ticket/holiday/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://igr.jp/ticket/holiday/",
-      "latencyMs": 240
+      "latencyMs": 247
     },
     {
       "url": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=3004",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=3004",
-      "latencyMs": 174
+      "latencyMs": 660
     },
     {
       "url": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=3005",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=3005",
-      "latencyMs": 114
+      "latencyMs": 340
     },
     {
       "url": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=3006",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=3006",
-      "latencyMs": 125
+      "latencyMs": 202
     },
     {
       "url": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=2823",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=2823",
-      "latencyMs": 158
+      "latencyMs": 662
     },
     {
       "url": "https://www.abukyu.co.jp/ticket/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.abukyu.co.jp/ticket/",
-      "latencyMs": 37
+      "latencyMs": 43
     },
     {
       "url": "https://www.aizukanko.com/kk/aizucard/index.htm",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.aizukanko.com/kk/aizucard/index.htm",
-      "latencyMs": 46
+      "latencyMs": 37
     },
     {
       "url": "https://konantetsudo.jp/2016/10/01/ticket007/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://konantetsudo.jp/2016/10/01/ticket007/",
-      "latencyMs": 554
+      "latencyMs": 490
     },
     {
       "url": "https://www.sanrikutetsudou.com/2026/04/01/%e5%b2%a9%e6%b3%89%e9%be%8d%e6%b3%89%e6%b4%9e%ef%bc%91%e6%97%a5%e3%83%95%e3%83%aa%e3%83%bc%e3%81%8d%e3%81%a3%e3%81%b7%e7%99%ba%e5%a3%b2%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.sanrikutetsudou.com/2026/04/01/%e5%b2%a9%e6%b3%89%e9%be%8d%e6%b3%89%e6%b4%9e%ef%bc%91%e6%97%a5%e3%83%95%e3%83%aa%e3%83%bc%e3%81%8d%e3%81%a3%e3%81%b7%e7%99%ba%e5%a3%b2%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b/",
-      "latencyMs": 967
+      "latencyMs": 868
     },
     {
       "url": "https://www.sanrikutetsudou.com/2026/08/05/%e4%b8%89%e9%89%84%e3%83%af%e3%83%b3%e3%82%b3%e3%82%a4%e3%83%b3%e3%83%95%e3%83%aa%e3%83%bc%e3%83%91%e3%82%b9%e7%99%ba%e5%a3%b2%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.sanrikutetsudou.com/2026/08/05/%e4%b8%89%e9%89%84%e3%83%af%e3%83%b3%e3%82%b3%e3%82%a4%e3%83%b3%e3%83%95%e3%83%aa%e3%83%bc%e3%83%91%e3%82%b9%e7%99%ba%e5%a3%b2%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6/",
-      "latencyMs": 2115
+      "latencyMs": 1036
     },
     {
       "url": "https://flower-liner.jp/ticket/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://flower-liner.jp/ticket/",
-      "latencyMs": 673
+      "latencyMs": 315
     },
     {
       "url": "https://colopl.co.jp/service/other/coloca/transport/area01/norimono_akitanairiku/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://colopl.co.jp/service/other/coloca/transport/area01/norimono_akitanairiku/",
-      "latencyMs": 21
+      "latencyMs": 28
     },
     {
       "url": "http://www.akita-nairiku.com/ticket/",
       "reachable": true,
       "status": 200,
       "finalUrl": "http://www.akita-nairiku.com/ticket/",
-      "latencyMs": 54
+      "latencyMs": 53
     },
     {
       "url": "https://www.akita-nairiku.com/ticket/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.akita-nairiku.com/ticket/",
-      "latencyMs": 41
+      "latencyMs": 46
     },
     {
       "url": "https://aoimorirailway.com/archives/otoku-ticket/aomori-city-odekake",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://aoimorirailway.com/archives/otoku-ticket/aomori-city-odekake",
-      "latencyMs": 237
+      "latencyMs": 272
     },
     {
       "url": "https://aoimorirailway.com/archives/otoku-ticket/tourist01",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://aoimorirailway.com/archives/otoku-ticket/tourist01",
-      "latencyMs": 229
+      "latencyMs": 238
     },
     {
       "url": "https://aoimorirailway.com/archives/otoku-ticket/1dp",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://aoimorirailway.com/archives/otoku-ticket/1dp",
-      "latencyMs": 243
+      "latencyMs": 225
     },
     {
       "url": "http://sendaitravelpass.jp/",
       "reachable": true,
       "status": 200,
       "finalUrl": "http://sendaitravelpass.jp/",
-      "latencyMs": 17
+      "latencyMs": 16
     },
     {
       "url": "https://www.kotsu.city.sendai.jp/waribiki/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.kotsu.city.sendai.jp/waribiki/",
-      "latencyMs": 118
+      "latencyMs": 45
     },
     {
       "url": "https://colopl.co.jp/service/other/coloca/transport/area01/norimono_tsugaru/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://colopl.co.jp/service/other/coloca/transport/area01/norimono_tsugaru/",
-      "latencyMs": 19
+      "latencyMs": 21
     },
     {
       "url": "https://ii-den.jp/how/ticket.php",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://ii-den.jp/how/ticket.php",
-      "latencyMs": 33
+      "latencyMs": 42
     },
     {
       "url": "https://colopl.co.jp/service/other/coloca/transport/area01/norimono_fukushima/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://colopl.co.jp/service/other/coloca/transport/area01/norimono_fukushima/",
-      "latencyMs": 18
+      "latencyMs": 21
     },
     {
       "url": "http://www.obako5.com/%E6%B2%BF%E7%B7%9A%E6%BA%80%E5%96%AB%E3%81%8A%E3%82%82%E3%81%A1%E3%82%83%E5%88%87%E7%AC%A6/",
       "reachable": true,
       "status": 200,
       "finalUrl": "http://www.obako5.com/%E6%B2%BF%E7%B7%9A%E6%BA%80%E5%96%AB%E3%81%8A%E3%82%82%E3%81%A1%E3%82%83%E5%88%87%E7%AC%A6/",
-      "latencyMs": 442
+      "latencyMs": 453
     },
     {
       "url": "http://www.obako5.com/%E6%A5%BD%E6%A5%BD%E9%81%8A%E9%81%8A%E4%B9%97%E8%BB%8A%E5%88%B8%EF%BC%91%E6%97%A5%E3%83%95%E3%83%AA%E3%83%BC%E5%88%B8/",
       "reachable": true,
       "status": 200,
       "finalUrl": "http://www.obako5.com/%E6%A5%BD%E6%A5%BD%E9%81%8A%E9%81%8A%E4%B9%97%E8%BB%8A%E5%88%B8%EF%BC%91%E6%97%A5%E3%83%95%E3%83%AA%E3%83%BC%E5%88%B8/",
-      "latencyMs": 435
+      "latencyMs": 440
     },
     {
       "url": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=2989",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=2989",
-      "latencyMs": 114
+      "latencyMs": 223
     },
     {
       "url": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=2833",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=2833",
-      "latencyMs": 137
+      "latencyMs": 184
     },
     {
       "url": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=2682",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=2682",
-      "latencyMs": 134
+      "latencyMs": 143
     },
     {
       "url": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=2846",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=2846",
-      "latencyMs": 162
+      "latencyMs": 170
     },
     {
       "url": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=2483",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=2483",
-      "latencyMs": 91
+      "latencyMs": 258
     },
     {
       "url": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=2490",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=2490",
-      "latencyMs": 119
+      "latencyMs": 199
     },
     {
       "url": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=2485",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=2485",
-      "latencyMs": 124
+      "latencyMs": 189
     },
     {
       "url": "https://isumirail.co.jp/blog/archives/8861",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://isumirail.co.jp/blog/archives/8861",
-      "latencyMs": 1064
+      "latencyMs": 816
     },
     {
       "url": "https://hitachinaka-rail-net.tourbooking-japan.com/A/ja-JP/product-detail/298",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://hitachinaka-rail-net.tourbooking-japan.com/A/ja-JP/product-detail/298",
-      "latencyMs": 466
+      "latencyMs": 297
     },
     {
       "url": "http://www.hitachinaka-rail.co.jp/gain",
       "reachable": true,
       "status": 200,
       "finalUrl": "http://www.hitachinaka-rail.co.jp/gain",
-      "latencyMs": 596
+      "latencyMs": 1510
     },
     {
       "url": "https://colopl.co.jp/service/other/coloca/transport/area02/norimono_watarase/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://colopl.co.jp/service/other/coloca/transport/area02/norimono_watarase/",
-      "latencyMs": 23
+      "latencyMs": 19
     },
     {
       "url": "https://www.izuhakone.co.jp/sunzudaiyu/zunzu_sub_nav/sunzudaiyu-ticket/p000563.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.izuhakone.co.jp/sunzudaiyu/zunzu_sub_nav/sunzudaiyu-ticket/p000563.html",
-      "latencyMs": 45
+      "latencyMs": 39
     },
     {
       "url": "https://www.mm21railway.co.jp/info/oneday.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.mm21railway.co.jp/info/oneday.html",
-      "latencyMs": 37
+      "latencyMs": 85
     },
     {
       "url": "https://www.tokyu.co.jp/railway/ticket/value-ticket/minatomirai-oneday-pass/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.tokyu.co.jp/railway/ticket/value-ticket/minatomirai-oneday-pass/",
-      "latencyMs": 80
+      "latencyMs": 114
     },
     {
       "url": "https://www.city.yokohama.lg.jp/kotsu/bus/unchin/minatoburari.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.city.yokohama.lg.jp/kotsu/bus/unchin/minatoburari.html",
-      "latencyMs": 122
+      "latencyMs": 46
     },
     {
       "url": "https://www.city.yokohama.lg.jp/kotsu/bus/unchin/ichinichi.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.city.yokohama.lg.jp/kotsu/bus/unchin/ichinichi.html",
-      "latencyMs": 49
+      "latencyMs": 57
     },
     {
       "url": "https://www.kantetsu.co.jp/train/special-ticket",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.kantetsu.co.jp/train/special-ticket",
-      "latencyMs": 327
+      "latencyMs": 58
     },
     {
       "url": "https://www.keio.co.jp/train/ticket/profitable/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.keio.co.jp/train/ticket/profitable/",
-      "latencyMs": 33
+      "latencyMs": 99
     },
     {
       "url": "https://www.keisei.co.jp/keisei/tetudou/ticket/shitamachi/index.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.keisei.co.jp/keisei/tetudou/ticket/shitamachi/index.html",
-      "latencyMs": 18
+      "latencyMs": 45
     },
     {
       "url": "https://www.keikyu.co.jp/visit/otoku/yokosuka_mankitsu/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.keikyu.co.jp/visit/otoku/yokosuka_mankitsu/",
-      "latencyMs": 37
+      "latencyMs": 207
     },
     {
       "url": "https://www.keikyu.co.jp/visit/otoku/otoku_yokohama.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.keikyu.co.jp/visit/otoku/otoku_yokohama.html",
-      "latencyMs": 41
+      "latencyMs": 38
     },
     {
       "url": "https://www.keikyu.co.jp/visit/otoku/otoku_pasmo_ensen.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.keikyu.co.jp/visit/otoku/otoku_pasmo_ensen.html",
-      "latencyMs": 41
+      "latencyMs": 37
     },
     {
       "url": "https://www.keikyu.co.jp/visit/otoku/otoku_miura.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.keikyu.co.jp/visit/otoku/otoku_miura.html",
-      "latencyMs": 35
+      "latencyMs": 41
     },
     {
       "url": "https://www.keikyu.co.jp/visit/otoku/marugoto/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.keikyu.co.jp/visit/otoku/marugoto/",
-      "latencyMs": 40
+      "latencyMs": 52
     },
     {
       "url": "https://www.keikyu.co.jp/visit/otoku/otoku_tokyo.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.keikyu.co.jp/visit/otoku/otoku_tokyo.html",
-      "latencyMs": 36
+      "latencyMs": 31
     },
     {
       "url": "https://www.enoden.co.jp/tourism/ticket/free/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.enoden.co.jp/tourism/ticket/free/",
-      "latencyMs": 103
+      "latencyMs": 108
     },
     {
       "url": "https://www.enoden.co.jp/tourism/ticket/noriorikun/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.enoden.co.jp/tourism/ticket/noriorikun/",
-      "latencyMs": 120
+      "latencyMs": 183
     },
     {
       "url": "https://www.enoden.co.jp/tourism/ticket/noriorikun-enosui/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.enoden.co.jp/tourism/ticket/noriorikun-enosui/",
-      "latencyMs": 142
+      "latencyMs": 163
     },
     {
       "url": "https://www.odakyu-freepass.jp/tanzawa/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.odakyu-freepass.jp/tanzawa/",
-      "latencyMs": 21
+      "latencyMs": 20
     },
     {
       "url": "https://www.hakonenavi.jp/transportation/ticket/nonbiri/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.hakonenavi.jp/transportation/ticket/nonbiri/",
-      "latencyMs": 150
+      "latencyMs": 166
     },
     {
       "url": "https://www.odakyu-freepass.jp/others/",
@@ -492,133 +485,119 @@
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.hakonenavi.jp/transportation/ticket/",
-      "latencyMs": 172
+      "latencyMs": 169
     },
     {
       "url": "https://www.hakonenavi.jp/transportation/ticket/freepass/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.hakonenavi.jp/transportation/ticket/freepass/",
-      "latencyMs": 25
+      "latencyMs": 19
     },
     {
       "url": "https://www.hakonenavi.jp/transportation/ticket/freepass_plus/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.hakonenavi.jp/transportation/ticket/freepass_plus/",
-      "latencyMs": 168
+      "latencyMs": 162
     },
     {
       "url": "https://www.kominato.co.jp/ticket/deal/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.kominato.co.jp/ticket/deal/",
-      "latencyMs": 275
+      "latencyMs": 182
     },
     {
       "url": "https://www.shonan-monorail.co.jp/form/enosui2024/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.shonan-monorail.co.jp/form/enosui2024/",
-      "latencyMs": 184
+      "latencyMs": 190
     },
     {
       "url": "https://jomorailway.com/hennopas_ticket.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://jomorailway.com/hennopas_ticket.html",
-      "latencyMs": 47
+      "latencyMs": 40
     },
     {
       "url": "https://jomorailway.com/akagifree_ticket.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://jomorailway.com/akagifree_ticket.html",
-      "latencyMs": 71
-    },
-    {
-      "url": "https://www.seiburailway.jp/railway/ticket/specialticket/otokuni-irumakun2026/",
-      "reachable": true,
-      "status": 200,
-      "finalUrl": "https://www.seiburailway.jp/railway/ticket/specialticket/otokuni-irumakun2026/",
-      "latencyMs": 45
+      "latencyMs": 47
     },
     {
       "url": "https://www.seiburailway.jp/railway/ticket/specialticket/mvpodekakepassdigital/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.seiburailway.jp/railway/ticket/specialticket/mvpodekakepassdigital/",
-      "latencyMs": 36
+      "latencyMs": 25
     },
     {
       "url": "https://www.seiburailway.jp/railway/ticket/specialticket/metsa-hypermuseum_digital/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.seiburailway.jp/railway/ticket/specialticket/metsa-hypermuseum_digital/",
-      "latencyMs": 41
-    },
-    {
-      "url": "https://www.seiburailway.jp/railway/ticket/specialticket/natsumankitsu_digital/",
-      "reachable": true,
-      "status": 200,
-      "finalUrl": "https://www.seiburailway.jp/railway/ticket/specialticket/natsumankitsu_digital/",
-      "latencyMs": 35
+      "latencyMs": 22
     },
     {
       "url": "https://www.seiburailway.jp/railway/ticket/specialticket/yuuenchi_tokutoku_digital/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.seiburailway.jp/railway/ticket/specialticket/yuuenchi_tokutoku_digital/",
-      "latencyMs": 40
+      "latencyMs": 19
     },
     {
       "url": "http://chiba-monorail.co.jp/index.php/ryoukin/free/",
       "reachable": true,
       "status": 200,
       "finalUrl": "http://chiba-monorail.co.jp/index.php/ryoukin/free/",
-      "latencyMs": 136
+      "latencyMs": 215
     },
     {
       "url": "https://www.sotetsu.co.jp/train/tickets/tour/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.sotetsu.co.jp/train/tickets/tour/",
-      "latencyMs": 20
+      "latencyMs": 18
     },
     {
       "url": "https://www.tama-monorail.co.jp/2026/07/post-580.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.tama-monorail.co.jp/2026/07/post-580.html",
-      "latencyMs": 63
+      "latencyMs": 62
     },
     {
       "url": "https://www.tama-monorail.co.jp/monorail/ticket/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.tama-monorail.co.jp/monorail/ticket/",
-      "latencyMs": 59
+      "latencyMs": 57
     },
     {
       "url": "https://www.tama-monorail.co.jp/monorail/ticket/set/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.tama-monorail.co.jp/monorail/ticket/set/",
-      "latencyMs": 82
+      "latencyMs": 56
     },
     {
       "url": "https://www.chichibu-railway.co.jp/information/couponpass.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.chichibu-railway.co.jp/information/couponpass.html",
-      "latencyMs": 886
+      "latencyMs": 3088
     },
     {
       "url": "https://www.choshi-dentetsu.jp/pass/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.choshi-dentetsu.jp/pass/",
-      "latencyMs": 275
+      "latencyMs": 264
     },
     {
       "url": "https://www.choshi-dentetsu.jp/news/7439/",
@@ -632,84 +611,84 @@
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.tokyu.co.jp/railway/ticket/value-ticket/setagaya/",
-      "latencyMs": 53
+      "latencyMs": 64
     },
     {
       "url": "https://www.tokyu.co.jp/railway/ticket/value-ticket/iketama/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.tokyu.co.jp/railway/ticket/value-ticket/iketama/",
-      "latencyMs": 102
+      "latencyMs": 48
     },
     {
       "url": "https://www.tokyu.co.jp/railway/ticket/value-ticket/subway-metro-oneday/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.tokyu.co.jp/railway/ticket/value-ticket/subway-metro-oneday/",
-      "latencyMs": 72
+      "latencyMs": 47
     },
     {
       "url": "https://www.tokyu.co.jp/railway/ticket/value-ticket/ichinichinorihodai/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.tokyu.co.jp/railway/ticket/value-ticket/ichinichinorihodai/",
-      "latencyMs": 41
+      "latencyMs": 80
     },
     {
       "url": "https://www.tokyu.co.jp/railway/ticket/value-ticket/metro-oneday/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.tokyu.co.jp/railway/ticket/value-ticket/metro-oneday/",
-      "latencyMs": 53
+      "latencyMs": 66
     },
     {
       "url": "https://www.tokyu.co.jp/railway/ticket/value-ticket/kids-pass/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.tokyu.co.jp/railway/ticket/value-ticket/kids-pass/",
-      "latencyMs": 63
+      "latencyMs": 97
     },
     {
       "url": "https://www.tokyu.co.jp/railway/ticket/value-ticket/triangle/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.tokyu.co.jp/railway/ticket/value-ticket/triangle/",
-      "latencyMs": 40
+      "latencyMs": 85
     },
     {
       "url": "https://www.tokyu.co.jp/railway/ticket/value-ticket/oneday-pass/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.tokyu.co.jp/railway/ticket/value-ticket/oneday-pass/",
-      "latencyMs": 55
+      "latencyMs": 40
     },
     {
       "url": "https://www.tokyometro.jp/ticket/value/1day/index.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.tokyometro.jp/ticket/value/1day/index.html",
-      "latencyMs": 46
+      "latencyMs": 84
     },
     {
       "url": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=2487",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=2487",
-      "latencyMs": 111
+      "latencyMs": 108
     },
     {
       "url": "https://www.twr.co.jp/route/tabid/126/Default.aspx",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.twr.co.jp/route/tabid/126/Default.aspx",
-      "latencyMs": 479
+      "latencyMs": 409
     },
     {
       "url": "https://www.tobu.co.jp/odekake/ticket/tojo-line/saitama_platinum.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.tobu.co.jp/odekake/ticket/tojo-line/saitama_platinum.html",
-      "latencyMs": 19
+      "latencyMs": 20
     },
     {
       "url": "https://www.tobu.co.jp/odekake/ticket/nikko-kinugawa/train.html",
@@ -723,98 +702,98 @@
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.tobu.co.jp/odekake/ticket/nikko-kinugawa/ouchijuku.html",
-      "latencyMs": 75
+      "latencyMs": 20
     },
     {
       "url": "https://www.yagan.co.jp/ticket/shisekimeguri/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.yagan.co.jp/ticket/shisekimeguri/",
-      "latencyMs": 20
+      "latencyMs": 19
     },
     {
       "url": "https://www.yagan.co.jp/ticket/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.yagan.co.jp/ticket/",
-      "latencyMs": 24
+      "latencyMs": 20
     },
     {
       "url": "http://www.ryutetsu.jp/oneday.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "http://www.ryutetsu.jp/oneday.html",
-      "latencyMs": 32
+      "latencyMs": 1248
     },
     {
       "url": "https://railway.jr-central.co.jp/tickets/holiday/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://railway.jr-central.co.jp/tickets/holiday/",
-      "latencyMs": 109
+      "latencyMs": 72
     },
     {
       "url": "https://railway.jr-central.co.jp/tickets/aozora-free-holiday/index.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://railway.jr-central.co.jp/tickets/aozora-free-holiday/index.html",
-      "latencyMs": 53
+      "latencyMs": 76
     },
     {
       "url": "https://railway.jr-central.co.jp/tickets/nagoya-odekake/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://railway.jr-central.co.jp/tickets/nagoya-odekake/",
-      "latencyMs": 57
+      "latencyMs": 50
     },
     {
       "url": "https://railway.jr-central.co.jp/tickets/tateyama-kurobe-alpine/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://railway.jr-central.co.jp/tickets/tateyama-kurobe-alpine/",
-      "latencyMs": 64
+      "latencyMs": 44
     },
     {
       "url": "https://www.aikanrailway.co.jp/information/info_data_7_38_1.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.aikanrailway.co.jp/information/info_data_7_38_1.html",
-      "latencyMs": 85
+      "latencyMs": 121
     },
     {
       "url": "https://www.linimo.jp/use/2018020914391287.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.linimo.jp/use/2018020914391287.html",
-      "latencyMs": 44
+      "latencyMs": 52
     },
     {
       "url": "https://www.izukyu.co.jp/ticket/detail.php?CN=314449",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.izukyu.co.jp/ticket/detail.php?CN=314449",
-      "latencyMs": 47
+      "latencyMs": 44
     },
     {
       "url": "https://www.izukyu.co.jp/ticket/detail.php?CN=423810",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.izukyu.co.jp/ticket/detail.php?CN=423810",
-      "latencyMs": 43
+      "latencyMs": 38
     },
     {
       "url": "https://www.hama-pass.com/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.hama-pass.com/",
-      "latencyMs": 36
+      "latencyMs": 42
     },
     {
       "url": "https://www.gakutetsu.jp/couponpass/index.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.gakutetsu.jp/couponpass/index.html",
-      "latencyMs": 27
+      "latencyMs": 29
     },
     {
       "url": "https://www.gakutetsu.jp/topics/gakutetsudaruma.html",
@@ -828,125 +807,118 @@
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.gakutetsu.jp/topics/888zoromekippu.html",
-      "latencyMs": 29
+      "latencyMs": 26
     },
     {
       "url": "https://sangirail.co.jp/1daypass/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://sangirail.co.jp/1daypass/",
-      "latencyMs": 18
+      "latencyMs": 16
     },
     {
       "url": "https://www.yar.co.jp/special_tickets/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.yar.co.jp/special_tickets/",
-      "latencyMs": 76
+      "latencyMs": 55
     },
     {
       "url": "https://train.shizutetsu.co.jp/ticket",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://train.shizutetsu.co.jp/ticket",
-      "latencyMs": 259
+      "latencyMs": 220
     },
     {
       "url": "https://daitetsu.jp/ft_freeticket?doing_wp_cron=1789095783.4505639076232910156250",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://daitetsu.jp/ft_freeticket?doing_wp_cron=1789095783.4505639076232910156250",
-      "latencyMs": 146
+      "latencyMs": 188
     },
     {
       "url": "https://tarumi-railway.com/fare/otoku/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://tarumi-railway.com/fare/otoku/",
-      "latencyMs": 36
+      "latencyMs": 31
     },
     {
       "url": "http://www.nagatetsu.co.jp/gain/1dayfree/",
       "reachable": true,
       "status": 200,
       "finalUrl": "http://www.nagatetsu.co.jp/gain/1dayfree/",
-      "latencyMs": 255
+      "latencyMs": 244
     },
     {
       "url": "https://www.tenhama.co.jp/events/35736/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.tenhama.co.jp/events/35736/",
-      "latencyMs": 1394
+      "latencyMs": 351
     },
     {
       "url": "https://www.tenhama.co.jp/about/joshaken/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.tenhama.co.jp/about/joshaken/",
-      "latencyMs": 364
+      "latencyMs": 351
     },
     {
       "url": "http://www.fujikyu-railway.jp/ticket/ticket07.php",
       "reachable": true,
       "status": 200,
       "finalUrl": "http://www.fujikyu-railway.jp/ticket/ticket07.php",
-      "latencyMs": 15
+      "latencyMs": 20
     },
     {
       "url": "http://www.fujikyu-railway.jp/ticket/ticket16.php",
       "reachable": true,
       "status": 200,
       "finalUrl": "http://www.fujikyu-railway.jp/ticket/ticket16.php",
-      "latencyMs": 14
+      "latencyMs": 17
     },
     {
       "url": "http://www.fujikyu-railway.jp/ticket/ticket17.php",
       "reachable": true,
       "status": 200,
       "finalUrl": "http://www.fujikyu-railway.jp/ticket/ticket17.php",
-      "latencyMs": 17
+      "latencyMs": 21
     },
     {
       "url": "http://www.fujikyu-railway.jp/ticket/ticket18.php",
       "reachable": true,
       "status": 200,
       "finalUrl": "http://www.fujikyu-railway.jp/ticket/ticket18.php",
-      "latencyMs": 17
+      "latencyMs": 21
     },
     {
       "url": "https://www.toyotetsu.com/stay/ticket.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.toyotetsu.com/stay/ticket.html",
-      "latencyMs": 38
+      "latencyMs": 46
     },
     {
       "url": "https://colopl.co.jp/service/other/coloca/transport/area03/norimono_toyotetsu/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://colopl.co.jp/service/other/coloca/transport/area03/norimono_toyotetsu/",
-      "latencyMs": 26
+      "latencyMs": 20
     },
     {
       "url": "https://www.guideway.co.jp/cgi_system/multieditor/info.cgi?action=data_view&key=1743473981264894&mode=news",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.guideway.co.jp/cgi_system/multieditor/info.cgi?action=data_view&key=1743473981264894&mode=news",
-      "latencyMs": 152
+      "latencyMs": 147
     },
     {
       "url": "https://www.kotsu.city.nagoya.jp/rp/about/TRP0005582.htm",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.kotsu.city.nagoya.jp/rp/about/TRP0005582.htm",
-      "latencyMs": 55
-    },
-    {
-      "url": "https://www.kotsu.city.nagoya.jp/rp/odekake/TRP0005544.htm",
-      "reachable": true,
-      "status": 200,
-      "finalUrl": "https://www.kotsu.city.nagoya.jp/rp/odekake/TRP0005544.htm",
       "latencyMs": 58
     },
     {
@@ -954,126 +926,126 @@
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.kotsu.city.nagoya.jp/rp/about/TRP0005486.htm",
-      "latencyMs": 62
+      "latencyMs": 55
     },
     {
       "url": "https://www.meitetsu.co.jp/plan/campaign/detail/1288091_8034.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.meitetsu.co.jp/plan/campaign/detail/1288091_8034.html",
-      "latencyMs": 78
+      "latencyMs": 51
     },
     {
       "url": "https://www.meitetsu.co.jp/plan/discount/1dayfree.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.meitetsu.co.jp/plan/discount/1dayfree.html",
-      "latencyMs": 73
+      "latencyMs": 52
     },
     {
       "url": "https://www.meitetsu.co.jp/plan/discount/2dayfree.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.meitetsu.co.jp/plan/discount/2dayfree.html",
-      "latencyMs": 83
+      "latencyMs": 54
     },
     {
       "url": "https://www.aonamiline.co.jp/ticket/special-ticket",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.aonamiline.co.jp/ticket/special-ticket",
-      "latencyMs": 371
+      "latencyMs": 368
     },
     {
       "url": "https://www.ishikawa-railway.jp/ticket/ticket_plan/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.ishikawa-railway.jp/ticket/ticket_plan/",
-      "latencyMs": 124
+      "latencyMs": 111
     },
     {
       "url": "https://www.ishikawa-railway.jp/news/1212",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.ishikawa-railway.jp/news/1212",
-      "latencyMs": 132
+      "latencyMs": 124
     },
     {
       "url": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0001300",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0001300",
-      "latencyMs": 82
+      "latencyMs": 162
     },
     {
       "url": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0001200",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0001200",
-      "latencyMs": 125
+      "latencyMs": 194
     },
     {
       "url": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0001100",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0001100",
-      "latencyMs": 86
+      "latencyMs": 146
     },
     {
       "url": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=2993",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=2993",
-      "latencyMs": 122
+      "latencyMs": 199
     },
     {
       "url": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=2466",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jreast.co.jp/tickets/info.aspx?GoodsCd=2466",
-      "latencyMs": 148
+      "latencyMs": 122
     },
     {
       "url": "https://ainokaze.co.jp/ticket/plan",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://ainokaze.co.jp/ticket/plan",
-      "latencyMs": 84
+      "latencyMs": 62
     },
     {
       "url": "http://www.echigo-tokimeki.co.jp/ticket/plan/",
       "reachable": true,
       "status": 200,
       "finalUrl": "http://www.echigo-tokimeki.co.jp/ticket/plan/",
-      "latencyMs": 32
+      "latencyMs": 37
     },
     {
       "url": "https://www.alpico.co.jp/traffic/ticket/6/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.alpico.co.jp/traffic/ticket/6/",
-      "latencyMs": 205
+      "latencyMs": 207
     },
     {
       "url": "https://www.echizen-tetudo.co.jp/fare/special.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.echizen-tetudo.co.jp/fare/special.html",
-      "latencyMs": 50
+      "latencyMs": 46
     },
     {
       "url": "https://www.echizen-tetudo.co.jp/fare/1day.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.echizen-tetudo.co.jp/fare/1day.html",
-      "latencyMs": 47
+      "latencyMs": 56
     },
     {
       "url": "https://www.shinanorailway.co.jp/tour-info/gain/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.shinanorailway.co.jp/tour-info/gain/",
-      "latencyMs": 155
+      "latencyMs": 126
     },
     {
       "url": "https://nototetsu.jp/uncategorized/%e4%bc%91%e6%97%a5%e9%99%90%e5%ae%9a%ef%bc%91%e6%97%a5%e3%83%95%e3%83%aa%e3%83%bc%e4%b9%97%e8%bb%8a%e5%88%b8%ef%bc%88%e3%83%9d%e3%82%b1%e3%83%a2%e3%83%b3%e3%83%87%e3%82%b6%e3%82%a4%e3%83%b3%ef%bc%89/",
@@ -1087,231 +1059,231 @@
       "reachable": true,
       "status": 200,
       "finalUrl": "https://nototetsu.jp/fare/",
-      "latencyMs": 35
+      "latencyMs": 38
     },
     {
       "url": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0001500",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0001500",
-      "latencyMs": 100
+      "latencyMs": 189
     },
     {
       "url": "https://www.hapi-line.co.jp/ticket/ticket_plan/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.hapi-line.co.jp/ticket/ticket_plan/",
-      "latencyMs": 287
+      "latencyMs": 304
     },
     {
       "url": "https://www.hapi-line.co.jp/ticket/ticket_plan/05",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.hapi-line.co.jp/ticket/ticket_plan/05",
-      "latencyMs": 256
+      "latencyMs": 287
     },
     {
       "url": "https://www.nagaden-net.co.jp/info/ticket",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.nagaden-net.co.jp/info/ticket",
-      "latencyMs": 44
+      "latencyMs": 70
     },
     {
       "url": "https://www.chitetsu.co.jp/?p=17407",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.chitetsu.co.jp/?p=17407",
-      "latencyMs": 111
+      "latencyMs": 82
     },
     {
       "url": "https://www.chitetsu.co.jp/ticket/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.chitetsu.co.jp/ticket/",
-      "latencyMs": 39
+      "latencyMs": 19
     },
     {
       "url": "https://www.chitetsu.co.jp/?p=1002",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.chitetsu.co.jp/?p=1002",
-      "latencyMs": 114
+      "latencyMs": 85
     },
     {
       "url": "https://www.chitetsu.co.jp/?p=20987",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.chitetsu.co.jp/?p=20987",
-      "latencyMs": 121
+      "latencyMs": 101
     },
     {
       "url": "https://www.chitetsu.co.jp/?p=1073",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.chitetsu.co.jp/?p=1073",
-      "latencyMs": 128
+      "latencyMs": 95
     },
     {
       "url": "https://www.chitetsu.co.jp/?p=63201",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.chitetsu.co.jp/?p=63201",
-      "latencyMs": 89
+      "latencyMs": 94
     },
     {
       "url": "https://fukutetsu.jp/newsDetail.php?num=721",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://fukutetsu.jp/newsDetail.php?num=721",
-      "latencyMs": 107
+      "latencyMs": 63
     },
     {
       "url": "https://fukutetsu.jp/train/tickets1.php",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://fukutetsu.jp/train/tickets1.php",
-      "latencyMs": 138
+      "latencyMs": 56
     },
     {
       "url": "https://fukui-maas.jp/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://fukui-maas.jp/",
-      "latencyMs": 830
+      "latencyMs": 717
     },
     {
       "url": "https://www.hokutetsu.co.jp/ticket/colopl/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.hokutetsu.co.jp/ticket/colopl/",
-      "latencyMs": 195
+      "latencyMs": 144
     },
     {
       "url": "https://www.hokutetsu.co.jp/ticket/kanazawa-oneday/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.hokutetsu.co.jp/ticket/kanazawa-oneday/",
-      "latencyMs": 196
+      "latencyMs": 138
     },
     {
       "url": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0001600",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0001600",
-      "latencyMs": 107
+      "latencyMs": 144
     },
     {
       "url": "https://www.manyosen.co.jp/timetable/profit/index.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.manyosen.co.jp/timetable/profit/index.html",
-      "latencyMs": 45
+      "latencyMs": 19
     },
     {
       "url": "https://app.kansai-maas.jp/tickets/KMJW103600",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://app.kansai-maas.jp/tickets/KMJW103600",
-      "latencyMs": 69
+      "latencyMs": 61
     },
     {
       "url": "https://tickets.jr-odekake.net/shohindb/view/consumer/tokutoku/detail.html?shnId=126000088",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://tickets.jr-odekake.net/shohindb/view/consumer/tokutoku/detail.html?shnId=126000088",
-      "latencyMs": 1209
+      "latencyMs": 930
     },
     {
       "url": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0001900",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0001900",
-      "latencyMs": 92
+      "latencyMs": 126
     },
     {
       "url": "https://app.kansai-maas.jp/tickets/KMKH100600",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://app.kansai-maas.jp/tickets/KMKH100600",
-      "latencyMs": 76
+      "latencyMs": 197
     },
     {
       "url": "https://www.jr-odekake.net/ticket/tokutoku/kobesuma_seaworld/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jr-odekake.net/ticket/tokutoku/kobesuma_seaworld/",
-      "latencyMs": 88
+      "latencyMs": 100
     },
     {
       "url": "https://tickets.jr-odekake.net/shohindb/view/consumer/tokutoku/detail.html?shnId=126000089",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://tickets.jr-odekake.net/shohindb/view/consumer/tokutoku/detail.html?shnId=126000089",
-      "latencyMs": 1126
+      "latencyMs": 952
     },
     {
       "url": "https://www.igatetsu.co.jp/?p=419",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.igatetsu.co.jp/?p=419",
-      "latencyMs": 55
+      "latencyMs": 86
     },
     {
       "url": "https://www.igatetsu.co.jp/?p=804",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.igatetsu.co.jp/?p=804",
-      "latencyMs": 56
+      "latencyMs": 70
     },
     {
       "url": "https://eizandensha.co.jp/good-value/onsen/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://eizandensha.co.jp/good-value/onsen/",
-      "latencyMs": 159
+      "latencyMs": 150
     },
     {
       "url": "https://eizandensha.co.jp/good-value/eekippu/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://eizandensha.co.jp/good-value/eekippu/",
-      "latencyMs": 156
+      "latencyMs": 141
     },
     {
       "url": "https://eizandensha.co.jp/good-value/ramen/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://eizandensha.co.jp/good-value/ramen/",
-      "latencyMs": 149
+      "latencyMs": 135
     },
     {
       "url": "https://eizandensha.co.jp/good-value/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://eizandensha.co.jp/good-value/",
-      "latencyMs": 167
+      "latencyMs": 132
     },
     {
       "url": "https://eizandensha.co.jp/good-value/hieizan_freepass/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://eizandensha.co.jp/good-value/hieizan_freepass/",
-      "latencyMs": 155
+      "latencyMs": 134
     },
     {
       "url": "https://eizandensha.co.jp/good-value/hieizan_higaeri/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://eizandensha.co.jp/good-value/hieizan_higaeri/",
-      "latencyMs": 159
+      "latencyMs": 124
     },
     {
       "url": "https://tickets.jr-odekake.net/shohindb/view/consumer/tokutoku/detail.html?shnId=126000086",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://tickets.jr-odekake.net/shohindb/view/consumer/tokutoku/detail.html?shnId=126000086",
-      "latencyMs": 1101
+      "latencyMs": 1053
     },
     {
       "url": "https://www.keihan.co.jp/traffic/valueticket/detail/teamlab-kyoto.html",
@@ -1325,49 +1297,49 @@
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.keihan.co.jp/traffic/valueticket/detail/hirapagogo.html",
-      "latencyMs": 46
+      "latencyMs": 50
     },
     {
       "url": "https://www.keihan.co.jp/traffic/valueticket/detail/eizan1day.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.keihan.co.jp/traffic/valueticket/detail/eizan1day.html",
-      "latencyMs": 33
+      "latencyMs": 44
     },
     {
       "url": "https://www.keihan.co.jp/traffic/valueticket/detail/kyoto1day.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.keihan.co.jp/traffic/valueticket/detail/kyoto1day.html",
-      "latencyMs": 65
+      "latencyMs": 58
     },
     {
       "url": "https://www.keihan.co.jp/traffic/valueticket/detail/osaka-kyoto1day.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.keihan.co.jp/traffic/valueticket/detail/osaka-kyoto1day.html",
-      "latencyMs": 63
+      "latencyMs": 44
     },
     {
       "url": "https://www.keihan.co.jp/traffic/valueticket/detail/kotokoto-1day.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.keihan.co.jp/traffic/valueticket/detail/kotokoto-1day.html",
-      "latencyMs": 60
+      "latencyMs": 51
     },
     {
       "url": "https://www.keihan.co.jp/traffic/valueticket/detail/kotokoto1day-hennou.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.keihan.co.jp/traffic/valueticket/detail/kotokoto1day-hennou.html",
-      "latencyMs": 36
+      "latencyMs": 47
     },
     {
       "url": "https://www.keihan.co.jp/otsu_kotokoto/ticket/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.keihan.co.jp/otsu_kotokoto/ticket/",
-      "latencyMs": 27
+      "latencyMs": 42
     },
     {
       "url": "https://www.keihan.co.jp/traffic/valueticket/detail/kyouto_rakuhoku.html",
@@ -1381,112 +1353,105 @@
       "reachable": true,
       "status": 200,
       "finalUrl": "https://eizandensha.co.jp/good-value/subway_eiden/",
-      "latencyMs": 109
+      "latencyMs": 127
     },
     {
       "url": "https://www.keihan.co.jp/traffic/valueticket/detail/hieizan-otsu.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.keihan.co.jp/traffic/valueticket/detail/hieizan-otsu.html",
-      "latencyMs": 34
+      "latencyMs": 44
     },
     {
       "url": "https://www.city.kyoto.lg.jp/kotsu/page/0000028376.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.city.kyoto.lg.jp/kotsu/page/0000028376.html",
-      "latencyMs": 515
+      "latencyMs": 78
     },
     {
       "url": "https://trains.willer.co.jp/planned_ticket/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://trains.willer.co.jp/planned_ticket/",
-      "latencyMs": 23
+      "latencyMs": 107
     },
     {
       "url": "https://www.city.kyoto.lg.jp/kotsu/page/0000034406.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.city.kyoto.lg.jp/kotsu/page/0000034406.html",
-      "latencyMs": 66
+      "latencyMs": 46
     },
     {
       "url": "https://www.keifuku.co.jp/cms/%e7%a7%8b%e3%81%ae%e5%b5%90%e5%b1%b1%e3%83%bb%e9%ab%98%e9%9b%84%e3%81%b8-%ef%bd%9e-%e8%a5%bf%e6%97%a5%e6%9c%ac%ef%bd%8a%ef%bd%92%e3%83%90%e3%82%b9%ef%bc%86%e5%b5%90%e9%9b%bb%e3%80%8c%e5%b5%90%e5%b1%b1/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.keifuku.co.jp/cms/%e7%a7%8b%e3%81%ae%e5%b5%90%e5%b1%b1%e3%83%bb%e9%ab%98%e9%9b%84%e3%81%b8-%ef%bd%9e-%e8%a5%bf%e6%97%a5%e6%9c%ac%ef%bd%8a%ef%bd%92%e3%83%90%e3%82%b9%ef%bc%86%e5%b5%90%e9%9b%bb%e3%80%8c%e5%b5%90%e5%b1%b1/",
-      "latencyMs": 293
+      "latencyMs": 349
     },
     {
       "url": "https://www.keifuku.co.jp/cms/randen_ticket/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.keifuku.co.jp/cms/randen_ticket/",
-      "latencyMs": 305
+      "latencyMs": 338
     },
     {
       "url": "https://www.jr-odekake.net/ticket/tokutoku/iseshima_dp/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jr-odekake.net/ticket/tokutoku/iseshima_dp/",
-      "latencyMs": 26
+      "latencyMs": 33
     },
     {
       "url": "https://app.kansai-maas.jp/tickets/KMKT100500",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://app.kansai-maas.jp/tickets/KMKT100500",
-      "latencyMs": 60
-    },
-    {
-      "url": "https://www.kintetsu.co.jp/senden/Railway/Ticket/weekend_free/index.html",
-      "reachable": true,
-      "status": 200,
-      "finalUrl": "https://www.kintetsu.co.jp/senden/Railway/Ticket/weekend_free/index.html",
-      "latencyMs": 18
+      "latencyMs": 162
     },
     {
       "url": "https://www.ohmitetudo.co.jp/railway/ride/ticket/1day/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.ohmitetudo.co.jp/railway/ride/ticket/1day/",
-      "latencyMs": 14
+      "latencyMs": 23
     },
     {
       "url": "https://www.ohmitetudo.co.jp/railway/ride/ticket/mankitsu/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.ohmitetudo.co.jp/railway/ride/ticket/mankitsu/",
-      "latencyMs": 13
+      "latencyMs": 19
     },
     {
       "url": "https://www.hankyu.co.jp/ticket/otoku/013807.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.hankyu.co.jp/ticket/otoku/013807.html",
-      "latencyMs": 57
+      "latencyMs": 53
     },
     {
       "url": "https://www.hankyu.co.jp/ticket/otoku/013812.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.hankyu.co.jp/ticket/otoku/013812.html",
-      "latencyMs": 66
+      "latencyMs": 60
     },
     {
       "url": "https://www.hankai.co.jp/fare/ticket/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.hankai.co.jp/fare/ticket/",
-      "latencyMs": 74
+      "latencyMs": 93
     },
     {
       "url": "https://www.nankai.co.jp/traffic/digital/koyasan_odekake.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.nankai.co.jp/traffic/digital/koyasan_odekake.html",
-      "latencyMs": 82
+      "latencyMs": 36
     },
     {
       "url": "https://www.sanyo-railway.co.jp/railway/untin/ticket02.html",
@@ -1500,357 +1465,350 @@
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.sanyo-railway.co.jp/railway/untin/ticket04.html",
-      "latencyMs": 65
+      "latencyMs": 76
     },
     {
       "url": "https://www.sanyo-railway.co.jp/railway/untin/ticket01.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.sanyo-railway.co.jp/railway/untin/ticket01.html",
-      "latencyMs": 69
+      "latencyMs": 71
     },
     {
       "url": "https://www.sanyo-railway.co.jp/railway/untin/ticket07.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.sanyo-railway.co.jp/railway/untin/ticket07.html",
-      "latencyMs": 79
+      "latencyMs": 62
     },
     {
       "url": "https://www.sanyo-railway.co.jp/railway/untin/ticket03.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.sanyo-railway.co.jp/railway/untin/ticket03.html",
-      "latencyMs": 70
+      "latencyMs": 59
     },
     {
       "url": "https://www.feel-kobe.jp/tickets/machimeguri1day/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.feel-kobe.jp/tickets/machimeguri1day/",
-      "latencyMs": 91
+      "latencyMs": 93
     },
     {
       "url": "https://www.sanyo-railway.co.jp/railway/untin/kobenishisumaparks1day.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.sanyo-railway.co.jp/railway/untin/kobenishisumaparks1day.html",
-      "latencyMs": 57
+      "latencyMs": 55
     },
     {
       "url": "https://www.city.kyoto.lg.jp/kotsu/page/0000033599.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.city.kyoto.lg.jp/kotsu/page/0000033599.html",
-      "latencyMs": 64
+      "latencyMs": 109
     },
     {
       "url": "https://www.shintetsu.co.jp/railway/ticket/taikounoyu/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.shintetsu.co.jp/railway/ticket/taikounoyu/",
-      "latencyMs": 79
+      "latencyMs": 81
     },
     {
       "url": "https://www.city.koka.lg.jp/7956.htm",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.city.koka.lg.jp/7956.htm",
-      "latencyMs": 140
+      "latencyMs": 105
     },
     {
       "url": "https://pass.ryde-go.com/products/EPY86LKS2WR1",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://pass.ryde-go.com/products/EPY86LKS2WR1",
-      "latencyMs": 58
+      "latencyMs": 165
     },
     {
       "url": "https://www.hankyu.co.jp/ticket/otoku/013806.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.hankyu.co.jp/ticket/otoku/013806.html",
-      "latencyMs": 59
+      "latencyMs": 55
     },
     {
       "url": "https://www.hanshin.co.jp/ticket/otoku/detail/004603.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.hanshin.co.jp/ticket/otoku/detail/004603.html",
-      "latencyMs": 56
+      "latencyMs": 58
     },
     {
       "url": "https://www.osaka-monorail.co.jp/ticket/value/33",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.osaka-monorail.co.jp/ticket/value/33",
-      "latencyMs": 196
+      "latencyMs": 210
     },
     {
       "url": "https://www.osaka-monorail.co.jp/ticket/value/29",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.osaka-monorail.co.jp/ticket/value/29",
-      "latencyMs": 217
+      "latencyMs": 202
     },
     {
       "url": "https://www.osaka-monorail.co.jp/ticket/value/34",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.osaka-monorail.co.jp/ticket/value/34",
-      "latencyMs": 207
+      "latencyMs": 197
     },
     {
       "url": "https://www.osaka-monorail.co.jp/ticket/value/31",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.osaka-monorail.co.jp/ticket/value/31",
-      "latencyMs": 216
+      "latencyMs": 218
     },
     {
       "url": "https://subway.osakametro.co.jp/guide/fare/category_digital_tickets/digital_tickets/digital_joshaken.php",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://subway.osakametro.co.jp/guide/fare/category_digital_tickets/digital_tickets/digital_joshaken.php",
-      "latencyMs": 60
+      "latencyMs": 74
     },
     {
       "url": "https://subway.osakametro.co.jp/guide/page/enjoy-eco.php",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://subway.osakametro.co.jp/guide/page/enjoy-eco.php",
-      "latencyMs": 26
+      "latencyMs": 79
     },
     {
       "url": "https://www.keihan.co.jp/traffic/valueticket/detail/osakametro.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.keihan.co.jp/traffic/valueticket/detail/osakametro.html",
-      "latencyMs": 56
+      "latencyMs": 59
     },
     {
       "url": "https://www.tankai.jp/tourist_tickets/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.tankai.jp/tourist_tickets/",
-      "latencyMs": 127
+      "latencyMs": 136
     },
     {
       "url": "https://osaka-amazing-pass.com/info.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://osaka-amazing-pass.com/info.html",
-      "latencyMs": 23
+      "latencyMs": 20
     },
     {
       "url": "https://www.nankai.co.jp/traffic/otoku/umimachi.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.nankai.co.jp/traffic/otoku/umimachi.html",
-      "latencyMs": 43
+      "latencyMs": 75
     },
     {
       "url": "https://www.kita-kyu.co.jp/train/ticket/value/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.kita-kyu.co.jp/train/ticket/value/",
-      "latencyMs": 183
+      "latencyMs": 163
     },
     {
       "url": "https://wakayama-dentetsu.co.jp/fare/one-day-pass/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://wakayama-dentetsu.co.jp/fare/one-day-pass/",
-      "latencyMs": 311
+      "latencyMs": 334
     },
     {
       "url": "https://wakayama-dentetsu.co.jp/info/15486/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://wakayama-dentetsu.co.jp/info/15486/",
-      "latencyMs": 352
+      "latencyMs": 347
     },
     {
       "url": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0000400",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0000400",
-      "latencyMs": 97
+      "latencyMs": 131
     },
     {
       "url": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0000300",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0000300",
-      "latencyMs": 144
+      "latencyMs": 177
     },
     {
       "url": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0001000",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0001000",
-      "latencyMs": 134
+      "latencyMs": 122
     },
     {
       "url": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0000900",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0000900",
-      "latencyMs": 160
+      "latencyMs": 232
     },
     {
       "url": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0002400",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0002400",
-      "latencyMs": 166
+      "latencyMs": 98
     },
     {
       "url": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0000700",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0000700",
-      "latencyMs": 134
+      "latencyMs": 203
     },
     {
       "url": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0000600",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0000600",
-      "latencyMs": 137
+      "latencyMs": 172
     },
     {
       "url": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0000100",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0000100",
-      "latencyMs": 105
+      "latencyMs": 129
     },
     {
       "url": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0000200",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0000200",
-      "latencyMs": 91
+      "latencyMs": 98
     },
     {
       "url": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0000000",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0000000",
-      "latencyMs": 120
+      "latencyMs": 153
     },
     {
       "url": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0001700",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0001700",
-      "latencyMs": 124
+      "latencyMs": 420
     },
     {
       "url": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0000500",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0000500",
-      "latencyMs": 119
+      "latencyMs": 152
     },
     {
       "url": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0001800",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=J0001800",
-      "latencyMs": 126
+      "latencyMs": 144
     },
     {
       "url": "https://www.ibara-railway.co.jp/fare/super-holiday/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.ibara-railway.co.jp/fare/super-holiday/",
-      "latencyMs": 128
+      "latencyMs": 163
     },
     {
       "url": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=N6000700",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://app.tabi-wester.westjr.co.jp/eticketDetails?ticket_id=N6000700",
-      "latencyMs": 111
+      "latencyMs": 95
     },
     {
       "url": "https://okayama-kido.co.jp/tram/tram-status-info/post-3248/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://okayama-kido.co.jp/tram/tram-status-info/post-3248/",
-      "latencyMs": 618
+      "latencyMs": 589
     },
     {
       "url": "https://www.astramline.co.jp/ride-guidance/ticket.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.astramline.co.jp/ride-guidance/ticket.html",
-      "latencyMs": 75
+      "latencyMs": 74
     },
     {
       "url": "https://www.hiroden.co.jp/ticket-pass/bargain-tickets/digitalcitypass.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.hiroden.co.jp/ticket-pass/bargain-tickets/digitalcitypass.html",
-      "latencyMs": 103
+      "latencyMs": 52
     },
     {
       "url": "https://www.hiroden.co.jp/ticket-pass/bargain-tickets/oneday.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.hiroden.co.jp/ticket-pass/bargain-tickets/oneday.html",
-      "latencyMs": 91
+      "latencyMs": 55
     },
     {
       "url": "https://www.mobirytravel.jp/ticket/3f4008_6ds0/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.mobirytravel.jp/ticket/3f4008_6ds0/",
-      "latencyMs": 26
+      "latencyMs": 30
     },
     {
       "url": "https://www.mobirytravel.jp/ticket/iqiksgeq1/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.mobirytravel.jp/ticket/iqiksgeq1/",
-      "latencyMs": 22
+      "latencyMs": 26
     },
     {
       "url": "https://wakatetsu.co.jp/info",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://wakatetsu.co.jp/info",
-      "latencyMs": 382
+      "latencyMs": 383
     },
     {
       "url": "https://www.tottori-guide.jp/tourism/tour/view/570",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.tottori-guide.jp/tourism/tour/view/570",
-      "latencyMs": 189
+      "latencyMs": 259
     },
     {
       "url": "https://www.mizurin.co.jp/info_detail/index/392.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.mizurin.co.jp/info_detail/index/392.html",
-      "latencyMs": 211
-    },
-    {
-      "url": "https://www.chizukyu.co.jp/chizukyu/tokutoku/x229/",
-      "reachable": true,
-      "status": 200,
-      "finalUrl": "https://www.chizukyu.co.jp/chizukyu/tokutoku/x229/",
-      "latencyMs": 510
+      "latencyMs": 150
     },
     {
       "url": "https://www.jr-eki.com/ticket/brand/2-3WM",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jr-eki.com/ticket/brand/2-3WM",
-      "latencyMs": 184
+      "latencyMs": 215
     },
     {
       "url": "https://www.jr-eki.com/ticket/brand/2-3UX",
@@ -1864,161 +1822,161 @@
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jr-eki.com/ticket/brand/2-3V6",
-      "latencyMs": 259
+      "latencyMs": 236
     },
     {
       "url": "https://www.jr-eki.com/ticket/brand",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jr-eki.com/ticket/brand",
-      "latencyMs": 157
+      "latencyMs": 140
     },
     {
       "url": "https://www.jr-eki.com/ticket/brand/2-3VQ",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jr-eki.com/ticket/brand/2-3VQ",
-      "latencyMs": 249
+      "latencyMs": 213
     },
     {
       "url": "https://www.jr-eki.com/ticket/brand/2-5FK",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jr-eki.com/ticket/brand/2-5FK",
-      "latencyMs": 255
+      "latencyMs": 342
     },
     {
       "url": "https://www.iyotetsu.co.jp/ticket/toku/1day_lim.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.iyotetsu.co.jp/ticket/toku/1day_lim.html",
-      "latencyMs": 82
+      "latencyMs": 103
     },
     {
       "url": "https://www.iyotetsu.co.jp/ticket/toku/1day_rail.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.iyotetsu.co.jp/ticket/toku/1day_rail.html",
-      "latencyMs": 84
+      "latencyMs": 100
     },
     {
       "url": "https://www.jr-eki.com/ticket/brand/2-5EG",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jr-eki.com/ticket/brand/2-5EG",
-      "latencyMs": 180
+      "latencyMs": 122
     },
     {
       "url": "https://www.kotoden.co.jp/publichtm/kotoden/new/2023/reoma_tiket/index.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.kotoden.co.jp/publichtm/kotoden/new/2023/reoma_tiket/index.html",
-      "latencyMs": 75
+      "latencyMs": 71
     },
     {
       "url": "https://www.kotoden.co.jp/publichtm/kotoden/ticket/free_ticket2019/index.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.kotoden.co.jp/publichtm/kotoden/ticket/free_ticket2019/index.html",
-      "latencyMs": 81
+      "latencyMs": 67
     },
     {
       "url": "https://www.kotoden.co.jp/publichtm/kotoden/ticket/kotoden_onsen/index.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.kotoden.co.jp/publichtm/kotoden/ticket/kotoden_onsen/index.html",
-      "latencyMs": 89
+      "latencyMs": 65
     },
     {
       "url": "https://www.kotoden.co.jp/publichtm/kotoden/ticket/shikokumura_ticket/index.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.kotoden.co.jp/publichtm/kotoden/ticket/shikokumura_ticket/index.html",
-      "latencyMs": 68
+      "latencyMs": 65
     },
     {
       "url": "https://www.kotoden.co.jp/publichtm/kotoden/ticket/digital_ticket/index.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.kotoden.co.jp/publichtm/kotoden/ticket/digital_ticket/index.html",
-      "latencyMs": 66
+      "latencyMs": 69
     },
     {
       "url": "https://www.kotoden.co.jp/publichtm/kotoden/new/2023/rail_limousines/index.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.kotoden.co.jp/publichtm/kotoden/new/2023/rail_limousines/index.html",
-      "latencyMs": 65
+      "latencyMs": 66
     },
     {
       "url": "https://www.jr-eki.com/ticket/brand/2-5G4",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jr-eki.com/ticket/brand/2-5G4",
-      "latencyMs": 207
+      "latencyMs": 133
     },
     {
       "url": "https://www.tosakuro.com/discounts-tickets",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.tosakuro.com/discounts-tickets",
-      "latencyMs": 144
+      "latencyMs": 169
     },
     {
       "url": "https://www.jr-eki.com/ticket/brand/2-5HA",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jr-eki.com/ticket/brand/2-5HA",
-      "latencyMs": 178
+      "latencyMs": 115
     },
     {
       "url": "https://www.tosaden.co.jp/info/dtl.php?ID=2007",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.tosaden.co.jp/info/dtl.php?ID=2007",
-      "latencyMs": 87
+      "latencyMs": 84
     },
     {
       "url": "https://www.jrkyushu.co.jp/maas/jrs_maas/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jrkyushu.co.jp/maas/jrs_maas/",
-      "latencyMs": 87
+      "latencyMs": 43
     },
     {
       "url": "https://www.jrkyushu-kippu.jp/fare/ticket/457?",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jrkyushu-kippu.jp/fare/ticket/457?",
-      "latencyMs": 308
+      "latencyMs": 298
     },
     {
       "url": "http://www.jrkyushu-kippu.jp/fare/ticket/304",
       "reachable": true,
       "status": 200,
       "finalUrl": "http://www.jrkyushu-kippu.jp/fare/ticket/304",
-      "latencyMs": 265
+      "latencyMs": 244
     },
     {
       "url": "https://www.jrkyushu-kippu.jp/fare/ticket/458",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.jrkyushu-kippu.jp/fare/ticket/458",
-      "latencyMs": 291
+      "latencyMs": 263
     },
     {
       "url": "http://www.jrkyushu-kippu.jp/fare/ticket/96",
       "reachable": true,
       "status": 200,
       "finalUrl": "http://www.jrkyushu-kippu.jp/fare/ticket/96",
-      "latencyMs": 263
+      "latencyMs": 235
     },
     {
       "url": "https://kumagawa-rail.com/sankobus-kumatetsu/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://kumagawa-rail.com/sankobus-kumatetsu/",
-      "latencyMs": 36
+      "latencyMs": 39
     },
     {
       "url": "https://ticket.jorudan.co.jp/yui-rail/ja/",
@@ -2032,119 +1990,119 @@
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.kotsu-kumamoto.jp/kihon/pub/detail.aspx?c_id=66&id=1433&pg=1",
-      "latencyMs": 368
+      "latencyMs": 136
     },
     {
       "url": "https://www.kotsu-kumamoto.jp/kihon/pub/detail.aspx?c_id=66&id=1434&pg=1",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.kotsu-kumamoto.jp/kihon/pub/detail.aspx?c_id=66&id=1434&pg=1",
-      "latencyMs": 190
+      "latencyMs": 124
     },
     {
       "url": "https://kitakyushu-tourpass.com/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://kitakyushu-tourpass.com/",
-      "latencyMs": 41
+      "latencyMs": 45
     },
     {
       "url": "https://www.kotsu-city-kagoshima.jp/ticket-summary/oneday/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.kotsu-city-kagoshima.jp/ticket-summary/oneday/",
-      "latencyMs": 141
+      "latencyMs": 125
     },
     {
       "url": "https://matutetu.com/pages/745/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://matutetu.com/pages/745/",
-      "latencyMs": 69
+      "latencyMs": 55
     },
     {
       "url": "https://matutetu.com/pages/744/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://matutetu.com/pages/744/",
-      "latencyMs": 73
+      "latencyMs": 50
     },
     {
       "url": "https://colopl.co.jp/service/other/coloca/transport/area06/norimono_matsuura/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://colopl.co.jp/service/other/coloca/transport/area06/norimono_matsuura/",
-      "latencyMs": 29
+      "latencyMs": 21
     },
     {
       "url": "https://www.ensen24.jp/kippu/32/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.ensen24.jp/kippu/32/",
-      "latencyMs": 148
+      "latencyMs": 253
     },
     {
       "url": "https://www.naga-den.com/pages/11/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.naga-den.com/pages/11/",
-      "latencyMs": 627
+      "latencyMs": 623
     },
     {
       "url": "https://www.city.nagasaki.lg.jp/page/64856.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.city.nagasaki.lg.jp/page/64856.html",
-      "latencyMs": 60
+      "latencyMs": 62
     },
     {
       "url": "https://www.naga-den.com/pages/12",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.naga-den.com/pages/12",
-      "latencyMs": 60
+      "latencyMs": 68
     },
     {
       "url": "https://www.shimatetsu.co.jp/railway/special-ticket/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.shimatetsu.co.jp/railway/special-ticket/",
-      "latencyMs": 276
+      "latencyMs": 345
     },
     {
       "url": "https://www.mt-torokko.com/information/fare/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.mt-torokko.com/information/fare/",
-      "latencyMs": 128
+      "latencyMs": 148
     },
     {
       "url": "https://www.hs-orange.com/page952.html?type=new&pg=1&nw_id=1",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.hs-orange.com/page952.html?type=new&pg=1&nw_id=1",
-      "latencyMs": 158
+      "latencyMs": 137
     },
     {
       "url": "https://www.hs-orange.com/page966.html",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.hs-orange.com/page966.html",
-      "latencyMs": 151
+      "latencyMs": 138
     },
     {
       "url": "https://subway.city.fukuoka.lg.jp/fare/card/oneday.php",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://subway.city.fukuoka.lg.jp/fare/card/oneday.php",
-      "latencyMs": 35
+      "latencyMs": 27
     },
     {
       "url": "https://subway.city.fukuoka.lg.jp/fare/card/fami.php",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://subway.city.fukuoka.lg.jp/fare/card/fami.php",
-      "latencyMs": 33
+      "latencyMs": 21
     },
     {
       "url": "https://subway.city.fukuoka.lg.jp/fare/famipair/",
@@ -2158,14 +2116,14 @@
       "reachable": true,
       "status": 200,
       "finalUrl": "https://subway.city.fukuoka.lg.jp/fare/kidsticket/",
-      "latencyMs": 28
+      "latencyMs": 21
     },
     {
       "url": "https://www.heichiku.net/d-tickets/1dayfree/",
       "reachable": true,
       "status": 200,
       "finalUrl": "https://www.heichiku.net/d-tickets/1dayfree/",
-      "latencyMs": 837
+      "latencyMs": 805
     }
   ]
 }

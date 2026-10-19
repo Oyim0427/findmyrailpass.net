@@ -64,14 +64,14 @@ export default function PassFeedback({ passId, passName, passPath, lang }: {
   const locale: Locale = lang === 'en' || lang === 'ja' ? lang : 'zh';
   const t = copy[locale];
   const endpoint = feedbackEndpoint();
+  const titleId = `pass-feedback-title-${passId}`;
 
   return (
-    <section aria-labelledby="pass-feedback-title" className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
-      <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
-        <h2 id="pass-feedback-title" className="text-xl font-black text-slate-950">{t.title}</h2>
-        <p className="mt-2 text-sm leading-6 text-slate-600">{t.intro}</p>
+    <section aria-labelledby={titleId} className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
+        <h2 id={titleId} className="text-lg font-black leading-7 text-slate-950">{t.title}</h2>
+        <p className="mt-2 text-xs leading-5 text-slate-600">{t.intro}</p>
         {endpoint ? (
-          <form action={endpoint} method="POST" target="_blank" rel="noopener" className="mt-6 grid gap-4 sm:grid-cols-2">
+          <form action={endpoint} method="POST" target="_blank" rel="noopener" className="mt-5 grid gap-4">
             <input type="hidden" name="passId" value={passId} />
             <input type="hidden" name="passName" value={passName} />
             <input type="hidden" name="pagePath" value={passPath} />
@@ -90,17 +90,16 @@ export default function PassFeedback({ passId, passName, passPath, lang }: {
               {t.source}
               <input name="sourceUrl" type="url" maxLength={500} placeholder="https://" className="field-select mt-2" />
             </label>
-            <label className="block text-sm font-bold text-slate-700 sm:col-span-2">
+            <label className="block text-sm font-bold text-slate-700">
               {t.details}
-              <textarea name="details" required minLength={10} maxLength={2000} rows={4} placeholder={t.detailsPlaceholder} className="field-select mt-2 resize-y" />
+              <textarea name="details" required minLength={10} maxLength={2000} rows={3} placeholder={t.detailsPlaceholder} className="field-select mt-2 resize-y" />
             </label>
-            <button type="submit" className="btn-primary px-6 py-3 text-sm sm:col-span-2 sm:justify-self-start">{t.submit}</button>
-            <p className="text-xs leading-5 text-slate-500 sm:col-span-2">{t.note}</p>
+            <button type="submit" className="btn-primary w-full justify-center px-5 py-3 text-sm">{t.submit}</button>
+            <p className="text-xs leading-5 text-slate-500">{t.note}</p>
           </form>
         ) : (
-          <p role="status" className="mt-5 rounded-xl bg-slate-50 p-4 text-sm text-slate-600">{t.unavailable}</p>
+          <p role="status" className="mt-4 rounded-xl bg-slate-50 p-3 text-xs leading-5 text-slate-600">{t.unavailable}</p>
         )}
-      </div>
     </section>
   );
 }

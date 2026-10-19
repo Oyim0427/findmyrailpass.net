@@ -10,7 +10,7 @@ import {
 import NavigationSection from '@/components/sections/NavigationSection';
 import FooterSection from '@/components/sections/FooterSection';
 import PassCard from '@/components/PassCard';
-import { createPassCatalog, getCatalogKey } from '@/lib/passCatalog';
+import { createPassCatalog, getCatalogKey, matchesCatalogKeyword } from '@/lib/passCatalog';
 import AffiliateOffer from '@/components/AffiliateOffer';
 import AdSlot from '@/components/AdSlot';
 import { JRPass } from '@/types/pass';
@@ -26,6 +26,7 @@ import {
   getDirectoryPassCategoryLabel,
 } from '@/lib/directoryPassCategories';
 import { getRegionLabel } from '@/lib/regionLabels';
+import { getPassEligibility } from '@/lib/passEligibility';
 
 interface PassListClientProps {
   passes: JRPass[];
@@ -206,7 +207,6 @@ export default function PassListClient({ passes, lang, dict }: PassListClientPro
     const urlRegion = searchParams.get('region');
     if (urlRegion && directoryRegions.includes(urlRegion)) {
       setRegion(urlRegion);
-      setCategory('regional');
     }
   }, [searchParams]);
 
@@ -215,15 +215,7 @@ export default function PassListClient({ passes, lang, dict }: PassListClientPro
     const isDirectory = 'salesPeriod' in pass;
     
     // Query
-    let searchable = '';
-    if (isDirectory) {
-      const dp = pass as DomesticDirectoryPass;
-      searchable = [dp.name, dp.company, dp.region, dp.priceText, dp.salesPeriod].filter(Boolean).join(' ').toLowerCase();
-    } else {
-      const jp = pass as JRPass;
-      searchable = [jp.name.cn, jp.name.en, jp.name.jp, jp.company, ...jp.coverage.regions].filter(Boolean).join(' ').toLowerCase();
-    }
-    const matchesQuery = !query.trim() || searchable.includes(query.trim().toLowerCase());
+    const matchesQuery = matchesCatalogKeyword(pass, query);
     
     // Category
     const passCategory = isDirectory ? (pass as DomesticDirectoryPass).category : (pass as JRPass).category;
@@ -252,25 +244,7 @@ export default function PassListClient({ passes, lang, dict }: PassListClientPro
     // Eligibility
     let matchesEligibility = true;
     if (eligibility !== 'all') {
-      const targetText = isDirectory 
-        ? ((pass as DomesticDirectoryPass).priceText + ' ' + (pass as DomesticDirectoryPass).name).toLowerCase()
-        : ((pass as JRPass).targetAudience?.join(' ') + ' ' + (pass as JRPass).name.jp).toLowerCase();
-        
-      if (eligibility === 'foreign') {
-        matchesEligibility = !isDirectory || targetText.includes('訪日') || targetText.includes('外国人') || targetText.includes('tourist');
-      } else if (eligibility === 'senior') {
-        matchesEligibility = targetText.includes('シニア') || targetText.includes('大人の休日') || targetText.includes('高齢') || targetText.includes('60歳') || targetText.includes('65歳') || targetText.includes('50歳');
-      } else if (eligibility === 'youth') {
-        matchesEligibility = targetText.includes('u25') || targetText.includes('学生') || targetText.includes('25歳以下') || targetText.includes('18歳') || targetText.includes('u22') || targetText.includes('学割');
-      } else if (eligibility === 'child') {
-        matchesEligibility = targetText.includes('こどもパス') || targetText.includes('小学生限定') || targetText.includes('キッズ');
-      } else if (eligibility === 'everyone') {
-        const isForeignOnly = !isDirectory; 
-        const isSenior = targetText.includes('シニア') || targetText.includes('大人の休日');
-        const isYouth = targetText.includes('u25') || targetText.includes('学生') || targetText.includes('学割');
-        const isChildOnly = targetText.includes('こどもパス') || targetText.includes('小学生限定');
-        matchesEligibility = !isForeignOnly && !isSenior && !isYouth && !isChildOnly;
-      }
+      matchesEligibility = getPassEligibility(pass) === eligibility;
     }
     
     return matchesQuery && matchesCategory && matchesRegion && matchesStatus && matchesEligibility;

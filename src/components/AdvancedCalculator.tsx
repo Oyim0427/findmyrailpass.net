@@ -2,16 +2,18 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
+import DirectoryFare from '@/components/DirectoryFare';
 import Image from 'next/image';
 import { AlertTriangle, ArrowRight, CalendarDays, ExternalLink, MapPin, ReceiptJapaneseYen, Search, Ticket, Users } from 'lucide-react';
 import { MAJOR_REGIONS, type JRPass } from '@/types/pass';
 import { DOMESTIC_DIRECTORY_PASSES } from '@/data/domesticPassDirectory';
 import { resolveDirectoryOfficialSource } from '@/data/directoryOfficialSourceOverrides';
 import { DIRECTORY_PASS_CATEGORY_ORDER, getDirectoryPassCategoryLabel } from '@/lib/directoryPassCategories';
-import { createPassCatalog, getCatalogDetailHref, isDirectoryPass, searchCalculatorCatalog, searchCatalogByKeyword, type CalculatorMatch } from '@/lib/passCatalog';
+import { createPassCatalog, getCatalogDetailHref, getCatalogPassName, isDirectoryPass, searchCalculatorCatalog, searchCatalogByKeyword, type CalculatorMatch } from '@/lib/passCatalog';
 import { event } from '@/lib/analytics';
 import { getPassImage } from '@/lib/passImages';
 import { getRegionLabel } from '@/lib/regionLabels';
+import { normalizePassDisplayText as displayText } from '@/lib/passDisplayText';
 
 interface AdvancedCalculatorProps {
   passes: JRPass[];
@@ -209,7 +211,7 @@ export default function AdvancedCalculator({ passes, lang = 'zh' }: AdvancedCalc
                   <div className="max-h-[22rem] overflow-y-auto">
                     {keywordSuggestions.map(pass => {
                       const directory = isDirectoryPass(pass);
-                      const name = directory ? pass.name : locale === 'en' ? pass.name.en : locale === 'ja' ? pass.name.jp : pass.name.cn;
+                      const name = displayText(getCatalogPassName(pass, locale));
                       const region = (directory ? pass.majorRegions.length ? pass.majorRegions : [pass.region] : pass.coverage.regions)
                         .map(value => getRegionLabel(value, locale)).join(' / ');
                       return (
@@ -224,7 +226,7 @@ export default function AdvancedCalculator({ passes, lang = 'zh' }: AdvancedCalc
                           </span>
                           <span className="min-w-0 flex-1">
                             <span className="block truncate text-sm font-bold text-slate-950 group-hover:text-primary-dark">{name}</span>
-                            <span className="mt-1 block truncate text-xs text-slate-500">{pass.company} · {region}</span>
+                            <span className="mt-1 block truncate text-xs text-slate-500">{displayText(pass.company)} · {displayText(region)}</span>
                           </span>
                           <ArrowRight className="h-4 w-4 shrink-0 text-slate-400 group-hover:text-primary" />
                         </Link>
@@ -273,34 +275,34 @@ export default function AdvancedCalculator({ passes, lang = 'zh' }: AdvancedCalc
         <p role="status" className="mt-2 font-semibold text-primary-dark">{t.resultCount.replace('{total}', catalog.length.toLocaleString()).replace('{matched}', results.length.toLocaleString()).replace('{shown}', Math.min(visibleCount, results.length).toLocaleString())}</p>
         <p className="mt-2 text-sm leading-6 text-slate-600">{t.resultDesc}</p>
 
-        {results.length ? <div className="mt-6 grid gap-4">{results.slice(0, visibleCount).map(result => {
+        {results.length ? <div className="mt-6 grid gap-5 md:grid-cols-2">{results.slice(0, visibleCount).map(result => {
           const pass = result.pass;
           const directory = isDirectoryPass(pass);
-          const name = directory ? pass.name : locale === 'en' ? pass.name.en : locale === 'ja' ? pass.name.jp : pass.name.cn;
+          const name = displayText(getCatalogPassName(pass, locale));
           const detailHref = getCatalogDetailHref(pass, locale);
           const officialUrl = directory ? resolveDirectoryOfficialSource(pass).url : pass.purchaseLinks?.find(link => link.type === 'official')?.url || pass.officialLinks[0]?.url;
-          return <article key={result.key} className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
+          return <article key={result.key} className="flex min-w-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
             <div className="relative -mx-5 -mt-5 mb-5 h-40 overflow-hidden border-b border-slate-100 bg-slate-100 sm:-mx-6 sm:-mt-6 sm:h-48">
-              <Image src={getPassImage(pass)} alt={name} fill sizes="(min-width: 1024px) 56rem, 100vw" className="object-cover transition-transform duration-500 hover:scale-105" />
+              <Image src={getPassImage(pass)} alt={name} fill sizes="(min-width: 768px) 28rem, 100vw" className="object-cover transition-transform duration-500 hover:scale-105" />
               <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-slate-950/35 via-transparent to-transparent" />
             </div>
-            <div className="flex flex-col justify-between gap-5 md:flex-row">
+            <div className="flex flex-col gap-5">
               <div className="min-w-0 flex-1">
                 <span className={`inline-block rounded-full px-3 py-1 text-xs font-bold ${directory ? 'bg-amber-50 text-amber-900' : 'bg-teal-50 text-teal-800'}`}>{directory ? t.directory : t.official}</span>
                 <h4 className="mt-3 break-words text-xl font-bold text-slate-950"><Link href={detailHref} className="hover:text-primary-dark hover:underline">{name}</Link></h4>
-                <p className="mt-2 text-sm text-slate-500">{pass.company} · {(directory ? pass.majorRegions.length ? pass.majorRegions : [pass.region] : pass.coverage.regions).map(value => getRegionLabel(value, locale)).join(' / ')} · {pass.category === 'local' ? t.local : getDirectoryPassCategoryLabel(pass.category, locale)}</p>
-                <p className="mt-2 text-sm text-slate-600">{t.validity}: {directory ? pass.validityText || '—' : `${pass.duration.join(' / ')} ${t.day}`}</p>
-                {directory && <p className="mt-1 text-sm text-slate-600">{t.sales}: {pass.salesPeriod || '—'}</p>}
+                <p className="mt-2 text-sm text-slate-500">{displayText(pass.company)} · {displayText((directory ? pass.majorRegions.length ? pass.majorRegions : [pass.region] : pass.coverage.regions).map(value => getRegionLabel(value, locale)).join(' / '))} · {pass.category === 'local' ? t.local : getDirectoryPassCategoryLabel(pass.category, locale)}</p>
+                <p className="mt-2 text-sm text-slate-600">{t.validity}: {directory ? displayText(pass.validityText) || '—' : `${pass.duration.join(' / ')} ${t.day}`}</p>
+                {directory && <p className="mt-1 text-sm text-slate-600">{t.sales}: {displayText(pass.salesPeriod) || '—'}</p>}
                 <ul className="mt-4 flex flex-wrap gap-2">{result.reasons.map(reason => <li key={reason} className="rounded-xl bg-slate-100 px-3 py-1 text-xs leading-5 text-slate-700">{t.reasons[reason]}</li>)}</ul>
               </div>
-              <div className="min-w-0 md:w-56 md:shrink-0 md:text-right">
+              <div className="min-w-0">
                 <p className="text-xs font-bold text-slate-500">{directory ? t.recordedPrice : t.passTotal}</p>
-                <p className={`mt-1 break-words font-bold text-slate-950 ${directory ? 'text-base leading-7' : 'text-2xl'}`}>{result.totalPassCost !== undefined ? `¥${result.totalPassCost.toLocaleString()}` : directory ? pass.priceText || t.unknownPrice : t.unknownPrice}</p>
+                <div className={`mt-1 break-words font-bold text-slate-950 ${directory ? 'text-base leading-7' : 'text-2xl'}`}>{result.totalPassCost !== undefined ? `¥${result.totalPassCost.toLocaleString()}` : directory ? <DirectoryFare value={pass.priceText} lang={locale} compact /> : t.unknownPrice}</div>
                 {result.totalPassCost === undefined && <p className="mt-2 text-xs leading-5 text-amber-800">{t.noCalculation}</p>}
                 {result.difference !== undefined && <p className={`mt-2 text-sm font-semibold ${result.difference >= 0 ? 'text-teal-700' : 'text-rose-700'}`}>¥{Math.abs(result.difference).toLocaleString()} {result.difference >= 0 ? t.budgetDiffSave : t.budgetDiffMore}</p>}
               </div>
             </div>
-            <div className="mt-5 flex flex-col gap-3 border-t border-slate-100 pt-5 sm:flex-row sm:justify-end">
+            <div className="mt-auto flex flex-col gap-3 border-t border-slate-100 pt-5 sm:flex-row sm:justify-end">
               {officialUrl && <a href={officialUrl} target="_blank" rel="noopener noreferrer" onClick={() => event({ action: 'outbound_click', category: 'calculator_official', label: pass.id })} className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-4 py-3 text-sm font-bold text-slate-700 hover:border-primary">{t.buy}<ExternalLink className="h-4 w-4" /></a>}
               <Link href={detailHref} className="btn-primary inline-flex items-center justify-center gap-2 px-4 py-3 text-sm font-bold">{t.details}<ArrowRight className="h-4 w-4" /></Link>
             </div>

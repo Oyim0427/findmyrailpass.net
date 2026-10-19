@@ -1,44 +1,98 @@
 import Link from 'next/link';
-import { ArrowRight, BadgeJapaneseYen, Database, ExternalLink, ShieldCheck, Sparkles } from 'lucide-react';
+import { ArrowRight, BadgeJapaneseYen, Database, BookOpen, ShoppingBag, Sparkles } from 'lucide-react';
 
 const copy = {
-  zh: {
-    eyebrow: '一手信息 · 清楚披露', title: '比较留在本站，购买由实际销售者完成',
-    desc: '票价、范围和购买条件优先取自 JR 集团及各运营公司官网。本站不售票、不收取票款；官方与 Affiliate 链接会明确区分。',
-    source: '查看数据方法', cards: [
-      ['免费比较工具', '按行程比较单买车票与区域券，结果是估算，不冒充实时票价。', '开始计算'],
-      ['官方与合作购买入口', '跳转后的运营方或合作平台负责付款、出票、取消和退款。', '浏览票券'],
-      ['佣金透明披露', 'Affiliate 链接会清楚标注；购买成立时本站可能获得佣金。', '了解本站如何盈利'],
-      ['本站不处理票款', '本站不保存银行卡、护照或完整订单资料，也不提供自己的票券结算。', '查看付款说明'],
+  "zh": {
+    "eyebrow": "找到适合你的旅行方式",
+    "title": "比较周游券的优劣，让每一程更值得",
+    "desc": "从价格、有效天数到可用地区，轻松看懂不同周游券的特点。结合你的目的地和行程，找到更合适的选择。",
+    "source": "了解我们的比较依据",
+    "cards": [
+      [
+        "免费比较工具",
+        "输入旅行计划，比较周游券与单独购票的参考费用。",
+        "开始比较"
+      ],
+      [
+        "发现适合你的票券",
+        "从全国通票到城市一日券，按地区和交通类型轻松筛选。",
+        "浏览周游券"
+      ],
+      [
+        "周游券特集",
+        "按旅行主题探索票券，发现周末出游、城市漫游和跨地区旅行的选择。",
+        "探索特集"
+      ],
+      [
+        "更快捷地购买周游券",
+        "查看票券详情与购买渠道，快速前往官网或合作平台购买。",
+        "寻找购票入口"
+      ]
     ]
   },
-  en: {
-    eyebrow: 'First-party sources · Clear disclosure', title: 'Compare here; buy from the actual seller',
-    desc: 'Prices, coverage and eligibility are checked against JR Group and operator websites. We do not sell tickets or collect fares, and official and affiliate links are clearly distinguished.',
-    source: 'See our data method', cards: [
-      ['Free comparison', 'Compare individual tickets with regional passes. Results are estimates, never presented as live fares.', 'Calculate now'],
-      ['Official & partner purchase', 'The operator or partner handles payment, ticket delivery, cancellation and refunds.', 'Browse passes'],
-      ['Transparent commission', 'Affiliate links are labelled. We may earn a commission when a purchase is completed.', 'How we earn'],
-      ['No ticket payments here', 'We do not store card, passport or full order data and provide no first-party ticket checkout.', 'Read payment information'],
+  "en": {
+    "eyebrow": "Find your way to travel",
+    "title": "Compare the possibilities. Find your perfect pass.",
+    "desc": "Explore prices, validity and travel areas side by side. Find the pass that suits your destinations and the way you want to travel.",
+    "source": "How we compare",
+    "cards": [
+      [
+        "Free trip comparison",
+        "Compare available pass fares with your individual-ticket budget.",
+        "Start comparing"
+      ],
+      [
+        "Find your next pass",
+        "Explore nationwide passes, regional routes and city tickets.",
+        "Browse passes"
+      ],
+      [
+        "Pass collections",
+        "Discover passes for city breaks, weekend outings and regional adventures.",
+        "Explore collections"
+      ],
+      [
+        "A quicker way to buy",
+        "Find pass details and follow official or partner links to purchase.",
+        "Find purchase options"
+      ]
     ]
   },
-  ja: {
-    eyebrow: '一次情報 · 明確な開示', title: '比較は当サイト、購入は実際の販売者で',
-    desc: '料金・利用範囲・条件はJRグループと各運行会社の公式サイトで確認。当サイトはきっぷを販売・集金せず、公式リンクとアフィリエイトリンクを明確に区別します。',
-    source: 'データ方針を見る', cards: [
-      ['無料比較ツール', '通常運賃と地域パスを比較。結果は概算で、リアルタイム運賃とは表示しません。', '計算する'],
-      ['公式・提携購入先', '決済、発券、取消、払戻しはリンク先の運行会社・提携販売サイトが行います。', 'パスを見る'],
-      ['報酬を明確に表示', 'アフィリエイトリンクを明示し、購入成立時に報酬を得る場合があります。', '収益の仕組み'],
-      ['当サイトでは集金しません', 'カード、パスポート、完全な注文情報を保存せず、独自のきっぷ決済もありません。', '決済案内を見る'],
+  "ja": {
+    "eyebrow": "あなたの旅に、ぴったりの一枚を",
+    "title": "周遊券の違いを比べて、もっと自分らしい旅へ",
+    "desc": "料金・有効日数・利用エリアを見比べて、それぞれの魅力を発見。行きたい場所や旅のスタイルに合う周遊券を見つけましょう。",
+    "source": "比較の基準を見る",
+    "cards": [
+      [
+        "無料で旅の費用を比較",
+        "旅の予定を入力して、周遊券と通常きっぷの参考料金を比較できます。",
+        "比較を始める"
+      ],
+      [
+        "旅に合うパスを探す",
+        "全国パスから街歩きの一日券まで、地域や交通機関から絞り込めます。",
+        "パスを探す"
+      ],
+      [
+        "周遊券特集",
+        "街歩き、週末のお出かけ、広域旅行。テーマから次の旅の一枚を探しましょう。",
+        "特集を見る"
+      ],
+      [
+        "周遊券の購入をもっとスムーズに",
+        "気になるパスの詳細と購入先をまとめて確認。公式・提携サイトへすぐに進めます。",
+        "購入できるパスを見る"
+      ]
     ]
   }
 };
 
-const icons = [Sparkles, BadgeJapaneseYen, ExternalLink, ShieldCheck];
+const icons = [Sparkles, BadgeJapaneseYen, BookOpen, ShoppingBag];
 
 export default function TrustRevenueSection({ lang = 'zh' }: { lang?: string }) {
   const t = copy[lang as keyof typeof copy] || copy.zh;
-  const hrefs = [`/${lang}#calculator`, `/${lang}/passlist`, `/${lang}/disclosure`, `/${lang}/commercial`];
+  const hrefs = [`/${lang}#calculator`, `/${lang}/passlist`, `/${lang}/features`, `/${lang}/passlist`];
   return (
     <section className="border-y border-slate-200 bg-[#f7f6f2] py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

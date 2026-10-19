@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Ticket } from "lucide-react";
 import PassCard from "@/components/PassCard";
 import Link from "next/link";
 import { JRPass } from '@/types/pass';
@@ -17,10 +17,8 @@ export default function PassesSection({ popularPasses, dict, lang }: PassesSecti
     <section id="passes" className="py-24 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <div className="mb-4">
-            <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
-              Top Recommendations
-            </span>
+          <div className="inline-flex items-center justify-center p-3 bg-teal-100 rounded-2xl mb-6 shadow-sm">
+            <Ticket aria-hidden="true" className="w-8 h-8 text-primary" />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             {dict?.popularPasses || '热门周游券推荐'}

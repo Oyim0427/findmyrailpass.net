@@ -2,11 +2,6 @@
   "schemaVersion": 1,
   "initializedAt": "2026-09-09T06:24:46.442Z",
   "approvals": {
-    "jreast04": {
-      "fingerprint": "jreast04|2026-06-20|2026-09-24|2026 / 6 / 20 / ~9 / 24",
-      "approvedAt": "2026-09-09T06:24:46.442Z",
-      "approvedBy": "existing-catalog-baseline"
-    },
     "jrhokkaido88": {
       "fingerprint": "jrhokkaido88|2026-04-01|2027-03-31|2026 / 4 / 1 / ~2027 / 3 / 31",
       "approvedAt": "2026-09-09T06:24:46.442Z",
@@ -122,18 +117,8 @@
       "approvedAt": "2026-09-09T06:24:46.442Z",
       "approvedBy": "existing-catalog-baseline"
     },
-    "abukyu101": {
-      "fingerprint": "abukyu101|2026-07-05|2026-09-15|2026 / 7 / 5 / ~9 / 15",
-      "approvedAt": "2026-09-09T06:24:46.442Z",
-      "approvedBy": "existing-catalog-baseline"
-    },
     "abukyu102": {
       "fingerprint": "abukyu102|||発売中",
-      "approvedAt": "2026-09-09T06:24:46.442Z",
-      "approvedBy": "existing-catalog-baseline"
-    },
-    "abukyu12": {
-      "fingerprint": "abukyu12|||発売中",
       "approvedAt": "2026-09-09T06:24:46.442Z",
       "approvedBy": "existing-catalog-baseline"
     },
@@ -477,11 +462,6 @@
       "approvedAt": "2026-09-09T06:24:46.442Z",
       "approvedBy": "existing-catalog-baseline"
     },
-    "seibu118": {
-      "fingerprint": "seibu118|2026-07-17|2026-09-23|2026 / 7 / 17 / ~9 / 23",
-      "approvedAt": "2026-09-09T06:24:46.442Z",
-      "approvedBy": "existing-catalog-baseline"
-    },
     "seibu11": {
       "fingerprint": "seibu11|||発売中",
       "approvedAt": "2026-09-09T06:24:46.442Z",
@@ -489,11 +469,6 @@
     },
     "seibu13": {
       "fingerprint": "seibu13|||発売中",
-      "approvedAt": "2026-09-09T06:24:46.442Z",
-      "approvedBy": "existing-catalog-baseline"
-    },
-    "seibu122": {
-      "fingerprint": "seibu122|2026-06-27|2026-09-23|2026 / 6 / 27 / ~9 / 23",
       "approvedAt": "2026-09-09T06:24:46.442Z",
       "approvedBy": "existing-catalog-baseline"
     },
@@ -824,11 +799,6 @@
     },
     "nagoya88": {
       "fingerprint": "nagoya88|2026-08-15||2026 / 8 / 15~",
-      "approvedAt": "2026-09-09T06:24:46.442Z",
-      "approvedBy": "existing-catalog-baseline"
-    },
-    "nagoya103": {
-      "fingerprint": "nagoya103|2026-07-17|2026-10-26|2026 / 7 / 17 / ~10 / 26",
       "approvedAt": "2026-09-09T06:24:46.442Z",
       "approvedBy": "existing-catalog-baseline"
     },
@@ -1602,11 +1572,6 @@
       "approvedAt": "2026-09-09T06:24:46.442Z",
       "approvedBy": "existing-catalog-baseline"
     },
-    "tizukyu11": {
-      "fingerprint": "tizukyu11|||発売中",
-      "approvedAt": "2026-09-09T06:24:46.442Z",
-      "approvedBy": "existing-catalog-baseline"
-    },
     "jrsikoku06": {
       "fingerprint": "jrsikoku06|2027-03-31|2027-03-31|~2027 / 3 / 31",
       "approvedAt": "2026-09-09T06:24:46.442Z",
@@ -1878,6 +1843,6 @@
       "approvedBy": "existing-catalog-baseline"
     }
   },
-  "updatedAt": "2026-09-15T04:42:26.608Z",
+  "updatedAt": "2026-09-26T13:15:10.024Z",
   "lastRevocationReason": "not-eligible-under-exact-official-source-policy"
 }

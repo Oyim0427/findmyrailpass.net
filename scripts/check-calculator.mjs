@@ -5,22 +5,28 @@ import { fileURLToPath } from 'node:url';
 import ts from 'typescript';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-// These modules have no runtime imports. Transpile the actual production logic,
-// rather than duplicating matching rules in the test.
-function loadTypeScript(relativePath) {
+// Transpile the actual production logic rather than duplicating matching rules.
+function loadTypeScript(relativePath, imports = {}) {
   const source = fs.readFileSync(path.join(root, relativePath), 'utf8');
   const { outputText } = ts.transpileModule(source, {
     compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 },
   });
   const loadedModule = { exports: {} };
-  new Function('module', 'exports', outputText)(loadedModule, loadedModule.exports);
+  const requireImport = id => {
+    assert.ok(id in imports, `Unexpected import in ${relativePath}: ${id}`);
+    return imports[id];
+  };
+  new Function('require', 'module', 'exports', outputText)(requireImport, loadedModule, loadedModule.exports);
   return loadedModule.exports;
 }
 
 const { OFFICIAL_PASSES: official } = loadTypeScript('src/data/officialPasses.ts');
 const { DOMESTIC_DIRECTORY_PASSES: directory } = loadTypeScript('src/data/domesticPassDirectory.ts');
+const { DIRECTORY_PASS_TRANSLATIONS } = loadTypeScript('src/data/directoryPassTranslations.ts');
 const { MAJOR_REGIONS } = loadTypeScript('src/types/pass.ts');
-const { createPassCatalog, getCatalogKey, getCatalogDetailHref, getIndexableDirectoryPasses, isDirectoryPass, searchCalculatorCatalog, searchCatalogByKeyword } = loadTypeScript('src/lib/passCatalog.ts');
+const { createPassCatalog, getCatalogKey, getCatalogDetailHref, getIndexableDirectoryPasses, isDirectoryPass, searchCalculatorCatalog, searchCatalogByKeyword } = loadTypeScript('src/lib/passCatalog.ts', {
+  '@/data/directoryPassTranslations': { DIRECTORY_PASS_TRANSLATIONS },
+});
 const publicDirectory = getIndexableDirectoryPasses(directory);
 const catalog = createPassCatalog(official, directory);
 const baseline = JSON.stringify(catalog);
@@ -81,8 +87,10 @@ assert.deepEqual(
 assert.ok(searchCatalogByKeyword(catalog, directory[0].name).some(pass => getCatalogKey(pass) === getCatalogKey(directory[0])));
 assert.equal(searchCatalogByKeyword(catalog, '   ').length, 0, 'Blank input must not open an all-pass suggestion list');
 
-const broad = directory.find(pass => pass.region === '全国');
-assert.ok(broad);
+const broad = {
+  ...directory[0], id: 'broad-directory-example', region: '全国',
+  majorRegions: ['北海道', '東北', '関東', '北信越'],
+};
 const broadMatch = search({ destination: '北海道' }, [broad])[0];
 assert.deepEqual(broad.majorRegions, ['北海道', '東北', '関東', '北信越']);
 assert.ok(broadMatch.reasons.includes('directoryRegion'));

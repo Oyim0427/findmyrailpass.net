@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { MapPin, Calendar, Calculator, TrendingUp, Star, CheckCircle, AlertCircle, ArrowRight, ExternalLink, Users, Train } from 'lucide-react';
 import { PassRecommendation, JRPass } from '@/types/pass';
+import { normalizePassDisplayText as displayText } from '@/lib/passDisplayText';
 
 interface PassCalculatorProps {
   passes: JRPass[];
@@ -365,9 +366,9 @@ export default function PassCalculator({ passes }: PassCalculatorProps) {
                       </div>
                       <div>
                         <h4 className="text-xl font-bold text-gray-900 group-hover:text-red-600 transition-colors">
-                          {rec.pass.name.cn || rec.pass.name.jp}
+                          {displayText(rec.pass.name.cn || rec.pass.name.jp)}
                         </h4>
-                        <div className="text-xs text-gray-400 mt-0.5">{rec.pass.name.en}</div>
+                        <div className="text-xs text-gray-400 mt-0.5">{displayText(rec.pass.name.en)}</div>
                       </div>
                     </div>
                     

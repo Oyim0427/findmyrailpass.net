@@ -52,12 +52,12 @@ export default function CalculatorSection({ passes, dict, lang }: CalculatorSect
             </span>
           </div>
 
-          <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+          <p className="text-base lg:text-lg text-gray-500 max-w-none mx-auto xl:whitespace-nowrap">
             {copy.description}
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto relative z-20">
+        <div className="max-w-6xl mx-auto relative z-20">
           <AdvancedCalculator passes={passes} lang={lang} />
         </div>
       </div>

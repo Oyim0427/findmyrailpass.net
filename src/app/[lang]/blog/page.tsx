@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowLeft, ArrowUpRight, BookOpenCheck } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, BookOpenCheck, ExternalLink, HelpCircle } from 'lucide-react';
 import AdSlot from '@/components/AdSlot';
 import NavigationSection from '@/components/sections/NavigationSection';
 import { getDictionary, Locale } from '@/i18n/dictionaries';
@@ -50,17 +50,59 @@ const copy = {
   },
 } satisfies Record<SupportedLocale, { back: string; eyebrow: string; title: string; description: string; read: string; source: string; ad: string; guides: string[][] }>;
 
+const helpCopy = {
+  zh: {
+    eyebrow: '帮助中心', title: '先确认规则，再付款', intro: '这里解释本站工具的边界。具体运输与销售合同始终由实际运营方或销售方提供。', passes: '查看已核验票券', data: '数据方法', official: 'JR Group 官方网站', contact: '网站问题', contactNote: '铁路运行、退款和预约问题请联系对应运营公司或销售方。',
+    faqs: [
+      ['如何选择周游券？', '先列出会实际乘坐的跨城路线，再到官方预约网站查询普通票合计。比较覆盖范围、有效天数和资格；不要仅凭“去几个城市”判断。'],
+      ['价格是实时的吗？', '不是。本站记录最后核验的运营方价格，计算器也不会查询实时库存。付款前必须在跳转后的官方或明确标注的合作平台确认。'],
+      ['全国 JR Pass 包含所有新干线吗？', '不能这样概括。列车、区间、座席和追加票均有例外，例如 Nozomi/Mizuho 须符合 JR Group 当前的追加票规则。'],
+      ['周游券能通过自动检票机吗？', '许多现行 JR 票券可使用自动检票机，但不同产品、领取方式与合作线路可能不同。请按照实际票券和运营方说明操作。'],
+      ['退款规则都一样吗？', '不一样。退款时间、手续费、兑换前后处理方会因运营公司和购买渠道而异，请在结算前阅读销售方条款。'],
+      ['为什么没有列出所有票券？', '本站优先保证来源与核验质量。只有能追溯到运营方精确产品页、并通过质量检查的票券才公开显示。'],
+    ],
+  },
+  en: {
+    eyebrow: 'Help center', title: 'Check the rules before you pay', intro: 'This section explains the limits of our tools. The actual operator or seller always provides the transport and sales contract.', passes: 'View verified passes', data: 'Data methods', official: 'JR Group official website', contact: 'Website questions', contactNote: 'Contact the relevant operator or seller about operations, refunds and reservations.',
+    faqs: [
+      ['How should I choose a rail pass?', 'List the intercity trips you will actually take, then check regular-ticket totals on an official booking site. Compare coverage, validity and eligibility instead of counting cities alone.'],
+      ['Are prices real-time?', 'No. We show the last operator price we verified, and the calculator does not check live inventory. Confirm the final amount on the linked official or clearly labelled partner site before paying.'],
+      ['Does the nationwide JR Pass include every Shinkansen?', 'No. There are exceptions by train, section, seat and supplemental ticket. For example, Nozomi and Mizuho use the JR Group’s current special-ticket rules.'],
+      ['Can I use an automatic ticket gate?', 'Many current JR passes work at automatic gates, but this varies by product, pickup method and partner line. Follow the instructions for the actual pass and operator.'],
+      ['Are refund rules the same?', 'No. Deadlines, fees and the responsible party before or after exchange vary by operator and sales channel. Read the seller’s terms before checkout.'],
+      ['Why are some passes not listed?', 'Source quality comes first. A pass is public only when it can be traced to an exact operator product page and passes our quality checks.'],
+    ],
+  },
+  ja: {
+    eyebrow: 'ヘルプ', title: '支払い前に条件を確認', intro: 'ここでは当サイトのツールの範囲を説明します。運送・販売契約は、実際の運行会社または販売者が提供します。', passes: '確認済みのパスを見る', data: 'データ方針', official: 'JRグループ公式サイト', contact: 'サイトに関するお問い合わせ', contactNote: '運行、払い戻し、予約については該当する運行会社または販売者へお問い合わせください。',
+    faqs: [
+      ['鉄道パスはどう選べばよいですか？', '実際に乗る都市間区間を列挙し、公式予約サイトで通常きっぷの合計を調べます。都市数だけでなく、利用範囲、有効日数、利用資格を比較してください。'],
+      ['価格はリアルタイムですか？', 'いいえ。当サイトは最後に確認した運行会社の価格を表示し、計算機は空席や在庫をリアルタイムで取得しません。支払い前に公式または明示された提携サイトで最終金額をご確認ください。'],
+      ['全国版JRパスですべての新幹線に乗れますか？', '一概には言えません。列車、区間、座席、追加券に例外があります。のぞみ・みずほ等はJRグループの最新の追加券ルールをご確認ください。'],
+      ['自動改札を利用できますか？', '多くの現行JRパスは自動改札を利用できますが、商品、受取方法、提携路線によって異なります。実際のきっぷと運行会社の案内に従ってください。'],
+      ['払い戻し条件は同じですか？', 'いいえ。期限、手数料、引換前後の窓口は運行会社と販売経路で異なります。決済前に販売者の規約をご確認ください。'],
+      ['掲載されていないきっぷがあるのはなぜですか？', '情報源と確認品質を優先しています。運行会社の正確な商品ページを確認でき、品質検査を通過したきっぷだけを公開します。'],
+    ],
+  },
+} satisfies Record<SupportedLocale, { eyebrow: string; title: string; intro: string; passes: string; data: string; official: string; contact: string; contactNote: string; faqs: string[][] }>;
+
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
-  return buildLocalizedMetadata({ lang, path: 'blog', titles: { zh: '日本铁路周游券指南｜FindMyJR-Pass', en: 'Japan Rail Pass Guides | FindMyJR-Pass', ja: '日本の鉄道パスガイド｜FindMyJR-Pass' }, descriptions: { zh: '以铁路运营方一手资料为依据的日本铁路周游券决策、覆盖范围和购买指南。', en: 'Japan rail pass decision, coverage and booking guides based on primary operator sources.', ja: '運行会社の一次情報に基づく、日本の鉄道パスの選び方・利用範囲・購入ガイド。' } });
+  return buildLocalizedMetadata({ lang, path: 'blog', titles: { zh: '日本铁路周游券指南与帮助｜FindMyJR-Pass', en: 'Japan Rail Pass Guides & Help | FindMyJR-Pass', ja: '日本の鉄道パスガイド・ヘルプ｜FindMyJR-Pass' }, descriptions: { zh: '以铁路运营方一手资料为依据的日本铁路周游券指南、常见问题与购买帮助。', en: 'Japan rail pass guides, FAQs and purchase help based on primary operator sources.', ja: '運行会社の一次情報に基づく、日本の鉄道パスガイド、よくある質問、購入前のヘルプ。' } });
 }
 
 export default async function GuidesPage({ params }: { params: Promise<{ lang: string }> }) {
-  const { lang } = await params; const locale = asLocale(lang); const t = copy[locale]; const dict = getDictionary(locale as Locale);
+  const { lang } = await params; const locale = asLocale(lang); const t = copy[locale]; const help = helpCopy[locale]; const dict = getDictionary(locale as Locale); const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL;
   return <><NavigationSection dict={dict} lang={locale} /><main className="min-h-screen px-4 py-16 text-slate-800"><div className="mx-auto max-w-6xl">
     <Link href={`/${locale}`} className="inline-flex items-center gap-2 text-sm font-bold text-primary"><ArrowLeft className="h-4 w-4" />{t.back}</Link>
     <header className="mt-10 max-w-3xl"><p className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-primary"><BookOpenCheck className="h-5 w-5" />{t.eyebrow}</p><h1 className="mt-4 text-5xl font-bold tracking-tight text-slate-950">{t.title}</h1><p className="mt-6 text-xl leading-8 text-slate-600">{t.description}</p></header>
     <AdSlot slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_GUIDES} label={t.ad} />
     <section className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{t.guides.map(([tag, title, summary], index) => { const guide = sharedGuides[index]; const href = guide.internal ? `/${locale}/${guide.href}` : guide.href; return <article key={title} className="flex min-h-72 flex-col rounded-3xl border border-slate-200 bg-white p-7 shadow-sm"><p className="text-xs font-bold uppercase tracking-[0.16em] text-[#c2410c]">{tag}</p><h2 className="mt-4 text-2xl font-bold leading-tight text-slate-950">{title}</h2><p className="mt-4 text-sm leading-6 text-slate-600">{summary}</p><div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-5"><span className="text-xs font-semibold text-slate-500">{t.source}: {guide.source}</span><a href={href} target={guide.internal ? undefined : '_blank'} rel={guide.internal ? undefined : 'noopener noreferrer'} className="inline-flex items-center gap-1 text-sm font-bold text-primary">{t.read}<ArrowUpRight className="h-4 w-4" /></a></div></article>; })}</section>
+    <section id="help" className="mt-20 rounded-[2rem] border border-slate-200 bg-white/85 p-6 shadow-[0_14px_40px_rgba(15,23,42,0.06)] sm:p-10">
+      <header className="max-w-3xl"><p className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-primary"><HelpCircle className="h-5 w-5" />{help.eyebrow}</p><h2 className="mt-4 text-4xl font-bold tracking-tight text-slate-950">{help.title}</h2><p className="mt-5 text-lg leading-8 text-slate-600">{help.intro}</p></header>
+      <div className="mt-10 grid gap-4 md:grid-cols-2">{help.faqs.map(([question, answer]) => <article key={question} className="rounded-2xl border border-slate-200 bg-[#f8faf8] p-6"><h3 className="text-lg font-bold text-slate-950">{question}</h3><p className="mt-3 text-sm leading-6 text-slate-600">{answer}</p></article>)}</div>
+      <div className="mt-8 flex flex-wrap gap-3"><Link href={`/${locale}/passlist`} className="rounded-xl bg-primary px-5 py-3 font-bold text-white">{help.passes}</Link><Link href={`/${locale}/data-sources`} className="rounded-xl border border-slate-300 bg-white px-5 py-3 font-bold text-slate-700">{help.data}</Link><a href="https://japanrailpass.net/en/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-3 font-bold text-slate-700">{help.official}<ExternalLink className="h-4 w-4" /></a></div>
+      {email && <p className="mt-8 text-sm text-slate-600">{help.contact}: <a className="font-bold text-primary" href={`mailto:${email}`}>{email}</a>. {help.contactNote}</p>}
+    </section>
   </div></main></>;
 }

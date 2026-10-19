@@ -5,9 +5,9 @@ import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 
 const labels = {
-  zh: { home: '首页', passes: '周游券与地方券', guides: '官方来源攻略', products: '免费工具与计划', help: '帮助中心', start: '开始比较', open: '打开菜单', close: '关闭菜单' },
-  en: { home: 'Home', passes: 'Passes & Directory', guides: 'Official-source guides', products: 'Free tools & roadmap', help: 'Help center', start: 'Start comparing', open: 'Open menu', close: 'Close menu' },
-  ja: { home: 'ホーム', passes: '周遊券・地方きっぷ', guides: '公式情報ガイド', products: '無料ツール・予定', help: 'ヘルプ', start: '比較を始める', open: 'メニューを開く', close: 'メニューを閉じる' },
+  zh: { home: '首页', passes: '周游券与地方券', guides: '指南与帮助', products: '免费工具与计划', start: '开始比较', open: '打开菜单', close: '关闭菜单' },
+  en: { home: 'Home', passes: 'Passes & Directory', guides: 'Guides & Help', products: 'Free tools & roadmap', start: 'Start comparing', open: 'Open menu', close: 'Close menu' },
+  ja: { home: 'ホーム', passes: '周遊券・地方きっぷ', guides: 'ガイド・ヘルプ', products: '無料ツール・予定', start: '比較を始める', open: 'メニューを開く', close: 'メニューを閉じる' },
 };
 
 export default function MobileNav({ lang = 'zh' }: { lang?: string }) {
@@ -49,6 +49,7 @@ export default function MobileNav({ lang = 'zh' }: { lang?: string }) {
 
               {/* Navigation links */}
               <nav className="space-y-4">
+                <Link href={`/${lang}/features`} onClick={toggleMenu} className="block rounded-xl px-4 py-3 text-lg font-semibold text-slate-800 hover:text-primary">{lang === 'ja' ? '周遊券特集' : lang === 'en' ? 'Pass collections' : '周游券特集'}</Link>
                 <Link
                   href={`/${lang}`}
                   className="block rounded-xl border border-transparent px-4 py-3 text-lg font-semibold text-slate-800 transition-colors hover:border-emerald-200 hover:bg-white hover:text-primary"
@@ -76,13 +77,6 @@ export default function MobileNav({ lang = 'zh' }: { lang?: string }) {
                   onClick={toggleMenu}
                 >
                   {t.products}
-                </Link>
-                <Link
-                  href={`/${lang}/help`}
-                  className="block rounded-xl border border-transparent px-4 py-3 text-lg font-semibold text-slate-800 transition-colors hover:border-emerald-200 hover:bg-white hover:text-primary"
-                  onClick={toggleMenu}
-                >
-                  {t.help}
                 </Link>
               </nav>
 

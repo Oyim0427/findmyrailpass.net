@@ -20,8 +20,10 @@ const { DOMESTIC_DIRECTORY_PASSES } = loadTypeScript('src/data/domesticPassDirec
 const { PASS_IMAGE_LIBRARY, getPassImageAsset } = loadTypeScript('src/lib/passImages.ts');
 const passes = [...OFFICIAL_PASSES, ...DOMESTIC_DIRECTORY_PASSES];
 
-assert.equal(PASS_IMAGE_LIBRARY.length, 10);
+assert.ok(PASS_IMAGE_LIBRARY.length >= 10);
 assert.equal(new Set(PASS_IMAGE_LIBRARY.map(asset => asset.region)).size, 10);
+assert.equal(new Set(PASS_IMAGE_LIBRARY.map(asset => asset.key)).size, PASS_IMAGE_LIBRARY.length);
+assert.equal(new Set(PASS_IMAGE_LIBRARY.map(asset => asset.localPath)).size, PASS_IMAGE_LIBRARY.length);
 for (const asset of PASS_IMAGE_LIBRARY) {
   assert.match(asset.sourceUrl, /^https:\/\/commons\.wikimedia\.org\/wiki\/File:/);
   assert.match(asset.licenseUrl, /^https:\/\/creativecommons\.org\//);
@@ -36,6 +38,17 @@ for (const pass of passes) {
   assert.ok(asset?.localPath, `No image assigned to ${pass.id}`);
   assert.notEqual(asset.localPath, '/images/nophoto.svg');
 }
+
+const screenshotPassIds = ['jrhokkaido13', 'jrhokkaido116', 'jrhokkaido01'];
+const screenshotPassImages = screenshotPassIds.map(id => {
+  const pass = passes.find(candidate => candidate.id === id);
+  assert.ok(pass, `Missing screenshot pass: ${id}`);
+  return getPassImageAsset(pass).localPath;
+});
+assert.equal(new Set(screenshotPassImages).size, screenshotPassIds.length, 'Adjacent Hokkaido passes should have different images');
+const streetcarPass = passes.find(pass => pass.id === 'sapporo22');
+assert.ok(streetcarPass);
+assert.equal(getPassImageAsset(streetcarPass).key, 'hokkaido-streetcar');
 
 for (const source of [
   'src/components/PassCard.tsx',

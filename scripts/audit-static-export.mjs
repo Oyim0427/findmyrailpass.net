@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import ts from 'typescript';
+import { createRequire } from 'node:module';
 
 const root = path.resolve('out');
 const htmlFiles = [];
@@ -11,7 +12,13 @@ function loadTypeScript(relativePath) {
     compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 },
   });
   const loadedModule = { exports: {} };
-  new Function('module', 'exports', outputText)(loadedModule, loadedModule.exports);
+  const nativeRequire = createRequire(path.resolve(relativePath));
+  const requireModule = name => name.startsWith('@/')
+    ? loadTypeScript(`src/${name.slice(2)}.ts`)
+    : name.startsWith('.')
+      ? loadTypeScript(`${path.resolve(path.dirname(relativePath), name)}.ts`)
+      : nativeRequire(name);
+  new Function('module', 'exports', 'require', outputText)(loadedModule, loadedModule.exports, requireModule);
   return loadedModule.exports;
 }
 
@@ -71,11 +78,8 @@ const { getDirectoryIndexDecision, getIndexableDirectoryPasses } = loadTypeScrip
 const indexableDirectoryRows = getIndexableDirectoryPasses(directoryRows);
 const indexableDirectoryIds = new Set(indexableDirectoryRows.map(pass => pass.id));
 const directoryCategories = ['national', 'regional', 'city', 'bus', 'private', 'special'];
-for (const category of directoryCategories) {
-  if (!directoryRows.some(pass => pass.category === category)) {
-    issues.push(`Directory category ${category} is empty or missing from generated data.`);
-  }
-}
+// A category may legitimately be empty after an expired pass is removed.
+// Validate assigned values below, without requiring every category to be stocked.
 if (directoryRows.some(pass => !directoryCategories.includes(pass.category))) {
   issues.push('Directory data contains an invalid category value.');
 }
