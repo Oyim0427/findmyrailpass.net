@@ -16,7 +16,7 @@ const sharedGuides = [
 
 const copy = {
   zh: {
-    back: '返回首页', eyebrow: '官方来源指南', title: '铁路券攻略，不把销售话术当答案', description: '每篇内容从运营方规则出发，明确哪些信息是事实、哪些只是行程判断。最终购买条件以跳转后的官方页面为准。', read: '阅读', source: '来源', ad: '广告',
+    back: '返回首页', eyebrow: '日本铁路旅行指南', title: '选对周游券，轻松畅游日本', description: '根据目的地和旅行天数，了解周游券的覆盖范围、购买方式与乘车要点，让行前准备更轻松。', read: '阅读', source: '来源', ad: '广告',
     guides: [
       ['决策指南', '全国 JR Pass 什么时候才值得比较？', '用旅行范围和长途移动天数先筛选，避免把单次东京—关西往返误判为必须购买全国券。'],
       ['覆盖范围', '大阪、京都到广岛：区域券应检查什么？', '确认山阳新干线有效区间、指定席、宫岛渡轮与不能使用的东海道新干线区间。'],
@@ -27,7 +27,7 @@ const copy = {
     ],
   },
   en: {
-    back: 'Back to home', eyebrow: 'Official-source guides', title: 'Rail pass guides without the sales pitch', description: 'Each guide starts with operator rules and separates verified facts from itinerary judgement. Always confirm final purchase conditions on the linked official page.', read: 'Read', source: 'Source', ad: 'Advertisement',
+    back: 'Back to home', eyebrow: 'Japan rail travel guides', title: 'Find the right pass for your Japan trip', description: 'Explore pass coverage, validity, buying options and travel tips to choose a pass that fits your destinations and trip length.', read: 'Read', source: 'Source', ad: 'Advertisement',
     guides: [
       ['Decision guide', 'When is the nationwide JR Pass worth comparing?', 'Filter by travel area and long-distance travel days before treating a single Tokyo–Kansai round trip as a reason to buy a nationwide pass.'],
       ['Coverage guide', 'Osaka or Kyoto to Hiroshima: what should you check?', 'Check the valid Sanyo Shinkansen section, reserved seats, Miyajima ferry coverage and the excluded Tokaido Shinkansen section.'],
@@ -38,7 +38,7 @@ const copy = {
     ],
   },
   ja: {
-    back: 'ホームへ戻る', eyebrow: '公式情報に基づくガイド', title: '販売文句に頼らない鉄道パスガイド', description: '運行会社の規則を起点に、確認できた事実と旅程上の判断を分けて説明します。最終的な購入条件はリンク先の公式ページでご確認ください。', read: '読む', source: '出典', ad: '広告',
+    back: 'ホームへ戻る', eyebrow: '日本の鉄道旅行ガイド', title: '旅に合う鉄道パスで、日本をもっと楽しもう', description: '行きたい場所と旅行日数に合わせて、パスの利用範囲・有効期間・購入方法をチェック。きっぷ選びや乗車のポイントを知って、旅の準備をスムーズに。', read: '読む', source: '出典', ad: '広告',
     guides: [
       ['判断ガイド', '全国版JRパスを比較するべきなのはどんな時？', '旅行範囲と長距離移動の日数から絞り込み、東京―関西の単純往復だけで全国版が必要だと判断しないためのポイントを整理します。'],
       ['利用範囲', '大阪・京都から広島へ：地域パスの確認点', '山陽新幹線の有効区間、指定席、宮島フェリー、東海道新幹線の対象外区間を確認します。'],

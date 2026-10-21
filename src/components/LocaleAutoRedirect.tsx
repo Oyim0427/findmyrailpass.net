@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect } from 'react';
-import Link from 'next/link';
 import { localeFromBrowser, localeFromCountry, SiteLocale } from '@/lib/localeDetection';
 import { TrainFront } from 'lucide-react';
 
@@ -64,9 +63,11 @@ export default function LocaleAutoRedirect() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-[#f4f8f6]">
       <section
+        role="status"
+        aria-label="Loading"
         aria-live="polite"
         aria-busy="true"
-        className="flex flex-col items-center justify-center gap-8"
+        className="flex items-center justify-center"
       >
         <div className="relative flex items-center justify-center">
           <div className="absolute h-24 w-24 animate-ping rounded-full bg-emerald-200/50" />
@@ -74,12 +75,6 @@ export default function LocaleAutoRedirect() {
             <TrainFront className="h-8 w-8 animate-bounce" strokeWidth={2} />
           </div>
         </div>
-        <p className="text-sm text-slate-600">Choosing your language automatically</p>
-        <nav aria-label="Choose your language" className="flex gap-6 text-sm font-bold text-emerald-700">
-          <Link href="/zh/" lang="zh-CN" prefetch={false}>中文</Link>
-          <Link href="/en/" lang="en" prefetch={false}>English</Link>
-          <Link href="/ja/" lang="ja" prefetch={false}>日本語</Link>
-        </nav>
       </section>
     </main>
   );

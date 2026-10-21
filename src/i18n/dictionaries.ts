@@ -18,8 +18,8 @@ const dictionaries = {
         desc: '价格与适用条件追溯到运营公司官网，并公开最后核验日期。'
       },
       {
-        title: '清楚的购买路径',
-        desc: '优先跳转运营方官方页面，Affiliate 链接与广告会明确披露。'
+        title: '购票更省心',
+        desc: '提供运营方官网入口，方便您确认最新价格、使用条件与购买方式。'
       }
     ],
     omikujiTitle: '行前\n抽签',
@@ -155,8 +155,8 @@ const dictionaries = {
         desc: 'Prices and conditions link back to operator websites and show the last verification date.'
       },
       {
-        title: 'Clear booking paths',
-        desc: 'Official links come first; affiliate links and advertising are always disclosed.'
+        title: 'Find where to buy',
+        desc: 'Visit the operator’s official website to check current prices, pass conditions and how to buy.'
       }
     ],
     omikujiTitle: 'Omikuji:\nFortune Telling',
@@ -292,8 +292,8 @@ const dictionaries = {
         desc: '料金と条件は運行会社サイトに紐づけ、最終確認日を表示します。'
       },
       {
-        title: '明確な購入導線',
-        desc: '公式ページを優先し、提携リンクと広告は明確に表示します。'
+        title: '購入先もわかりやすく',
+        desc: '運行会社の公式サイトで、最新の料金・利用条件・購入方法を確認できます。'
       }
     ],
     omikujiTitle: '旅行前の\nおみくじ',

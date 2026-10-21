@@ -35,7 +35,7 @@ interface PassListClientProps {
   dict: Dictionary;
 }
 
-const directoryRegions = ['全国', '北海道', '東北', '関東', '東海', '北信越', '近畿', '中国', '四国', '九州'];
+const directoryRegions = ['北海道', '東北', '関東', '東海', '北信越', '近畿', '中国', '四国', '九州'];
 const DIRECTORY_PAGE_SIZE = 9;
 
 const copy = {
@@ -47,13 +47,16 @@ const copy = {
     tabDirectorySub: '仅显示官网精确产品页',
 
     // Verified Tab
-    title: '已核验的日本铁路周游券',
+    title: '日本铁路周游券',
     desc: '只展示能追溯到 JR 集团或运营公司一手页面的票券。价格与规则仍可能变化，付款前请再次确认。',
     search: '搜索票券、运营公司或地区',
     all: '全部',
-    national: '全国券',
-    regional: '地区券',
-    region: '地区',
+    national: '全国周游券',
+    regional: '地区周游券',
+    region: '旅行地区',
+    nationalArea: '日本全国',
+    salesStatus: '销售状态',
+    eligibilityTitle: '适用人群',
     filters: '筛选',
     clear: '清除',
     found: '张符合条件的票券',
@@ -66,7 +69,7 @@ const copy = {
     dirDesc: '仅显示可追溯到运营方官网精确产品页、销售日期明确且链接正常的地方券。点击卡片或右侧按钮查看本站详情，左侧按钮前往官网。',
     dirSource: '查看本站数据说明',
     dirSearch: '搜索券名、运营公司、价格或地区',
-    dirCategoryTitle: '按交通类型查找',
+    dirCategoryTitle: '票券类型',
     dirAllCategories: '全部',
     dirClear: '清除筛选',
     allRegions: '全部地区',
@@ -101,7 +104,10 @@ const copy = {
     all: 'All',
     national: 'Nationwide',
     regional: 'Regional',
-    region: 'Region',
+    region: 'Travel region',
+    nationalArea: 'Japan-wide',
+    salesStatus: 'Availability',
+    eligibilityTitle: 'Who can use it',
     filters: 'Filters',
     clear: 'Clear',
     found: 'verified passes found',
@@ -113,7 +119,7 @@ const copy = {
     dirDesc: 'Only local passes with an exact operator product page, verified source, clear sales dates and a working link are shown. Open the on-site detail from the card or right button; the left button opens the operator site.',
     dirSource: 'Read our data notes',
     dirSearch: 'Search pass, operator, price or region',
-    dirCategoryTitle: 'Browse by transport type',
+    dirCategoryTitle: 'Pass type',
     dirAllCategories: 'All',
     dirClear: 'Clear filters',
     allRegions: 'All regions',
@@ -148,7 +154,10 @@ const copy = {
     all: 'すべて',
     national: '全国パス',
     regional: '地域パス',
-    region: 'エリア',
+    region: '旅行エリア',
+    nationalArea: '日本全国',
+    salesStatus: '発売状況',
+    eligibilityTitle: '利用対象者',
     filters: '絞り込み',
     clear: 'クリア',
     found: '件の確認済みパス',
@@ -160,7 +169,7 @@ const copy = {
     dirDesc: '事業者公式の商品ページ、出典、発売日、リンクを確認できた地方きっぷだけを掲載します。カードまたは右ボタンでサイト内詳細、左ボタンで公式サイトを確認できます。',
     dirSource: 'データ方針を見る',
     dirSearch: 'きっぷ名・事業者・料金・地域を検索',
-    dirCategoryTitle: '交通タイプから探す',
+    dirCategoryTitle: 'きっぷの種類',
     dirAllCategories: 'すべて',
     dirClear: '絞り込みを解除',
     allRegions: '全地域',
@@ -206,29 +215,28 @@ export default function PassListClient({ passes, lang, dict }: PassListClientPro
 
   useEffect(() => {
     const urlRegion = searchParams.get('region');
-    if (urlRegion && directoryRegions.includes(urlRegion)) {
-      setRegion(urlRegion);
-    }
+    setCategory(urlRegion === '全国' ? 'national' : 'all');
+    setRegion(urlRegion && directoryRegions.includes(urlRegion) ? urlRegion : 'all');
+    setQuery(searchParams.get('q')?.trim() || '');
+    setVisibleCount(DIRECTORY_PAGE_SIZE);
   }, [searchParams]);
 
-  // Filter Unified Passes
-  const filteredPasses = useMemo(() => allPasses.filter(pass => {
+  // Apply trip filters first so category counts describe the current choices.
+  const matchingPasses = useMemo(() => allPasses.filter(pass => {
     const isDirectory = 'salesPeriod' in pass;
     
     // Query
     const matchesQuery = matchesCatalogKeyword(pass, query);
     
-    // Category
-    const passCategory = isDirectory ? (pass as DomesticDirectoryPass).category : (pass as JRPass).category;
-    const matchesCategory = category === 'all' || passCategory === category;
-    
     // Region
     let matchesRegion = true;
     if (region !== 'all') {
-      if (isDirectory) {
+      if (pass.category === 'national' || pass.majorRegions.some(value => value === region)) {
+        matchesRegion = true;
+      } else if (isDirectory) {
         matchesRegion = (pass as DomesticDirectoryPass).region === region;
       } else {
-        matchesRegion = passCategory === 'national' || (pass as JRPass).coverage.regions.includes(region);
+        matchesRegion = (pass as JRPass).coverage.regions.includes(region);
       }
     }
     
@@ -248,12 +256,20 @@ export default function PassListClient({ passes, lang, dict }: PassListClientPro
       matchesEligibility = getPassEligibility(pass) === eligibility;
     }
     
-    return matchesQuery && matchesCategory && matchesRegion && matchesStatus && matchesEligibility;
-  }), [allPasses, query, category, region, status, eligibility]);
+    return matchesQuery && matchesRegion && matchesStatus && matchesEligibility;
+  }), [allPasses, query, region, status, eligibility]);
+
+  const filteredPasses = useMemo(() => matchingPasses.filter(pass => (
+    category === 'all' || pass.category === category
+  )), [matchingPasses, category]);
 
   const visiblePasses = filteredPasses.slice(0, visibleCount);
 
-  const updateCategory = (value: DirectoryCategoryFilter) => { setCategory(value); setVisibleCount(DIRECTORY_PAGE_SIZE); };
+  const updateCategory = (value: DirectoryCategoryFilter) => {
+    setCategory(value);
+    if (value === 'national') setRegion('all');
+    setVisibleCount(DIRECTORY_PAGE_SIZE);
+  };
   const updateRegion = (value: string) => { setRegion(value); setVisibleCount(DIRECTORY_PAGE_SIZE); };
   const updateStatus = (value: StatusFilter) => { setStatus(value); setVisibleCount(DIRECTORY_PAGE_SIZE); };
   const updateEligibility = (value: EligibilityFilter) => { setEligibility(value); setVisibleCount(DIRECTORY_PAGE_SIZE); };
@@ -269,12 +285,12 @@ export default function PassListClient({ passes, lang, dict }: PassListClientPro
   // Combine counts for category tabs
   const combinedCategoryCounts = useMemo(() => {
     const counts = { national: 0, regional: 0, city: 0, bus: 0, private: 0, special: 0 } as Record<DomesticPassCategory, number>;
-    allPasses.forEach(pass => {
+    matchingPasses.forEach(pass => {
       const cat = 'salesPeriod' in pass ? (pass as DomesticDirectoryPass).category : (pass as JRPass).category as DomesticPassCategory;
       if (counts[cat] !== undefined) counts[cat]++;
     });
     return counts;
-  }, [allPasses]);
+  }, [matchingPasses]);
   return (
     <div className="min-h-screen">
       <NavigationSection dict={dict} lang={lang} />
@@ -302,12 +318,13 @@ export default function PassListClient({ passes, lang, dict }: PassListClientPro
 
         <section className="mt-10 rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-7">
           <label className="relative block">
-            <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
+            <Search aria-hidden="true" className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
             <input
               value={query}
               onChange={event => { setQuery(event.target.value); setVisibleCount(DIRECTORY_PAGE_SIZE); }}
               placeholder={t.dirSearch}
-              className="field-select pl-12"
+              className="field-select"
+              style={{ paddingLeft: '3rem' }}
             />
           </label>
           <div className="mt-6 border-t border-slate-100 pt-5">
@@ -319,11 +336,14 @@ export default function PassListClient({ passes, lang, dict }: PassListClientPro
                 </button>
               )}
             </div>
-            <div className="-mx-1 mt-3 flex gap-2 overflow-x-auto px-1 pb-2" aria-label={t.dirCategoryTitle}>
+            <div className="mt-3 flex flex-wrap gap-2" role="group" aria-label={t.dirCategoryTitle}>
               {(['all', ...DIRECTORY_PASS_CATEGORY_ORDER] as DirectoryCategoryFilter[]).map(value => {
                 const active = category === value;
-                const count = value === 'all' ? allPasses.length : combinedCategoryCounts[value];
-                const label = value === 'all' ? t.dirAllCategories : getDirectoryPassCategoryLabel(value, lang);
+                const count = value === 'all' ? matchingPasses.length : combinedCategoryCounts[value];
+                const label = value === 'all' ? t.dirAllCategories
+                  : value === 'national' ? t.national
+                  : value === 'regional' ? t.regional
+                  : getDirectoryPassCategoryLabel(value, lang);
                 return (
                   <button
                     key={value}
@@ -344,27 +364,38 @@ export default function PassListClient({ passes, lang, dict }: PassListClientPro
               })}
             </div>
           </div>
-          <div className="mt-5 flex flex-wrap gap-3">
+          <fieldset className="mt-6 grid gap-4 rounded-2xl border border-slate-200 bg-slate-50/70 p-4 sm:grid-cols-3">
+            <legend className="sr-only">{t.filters}</legend>
+            <label className="block min-w-0">
+              <span className="mb-2 block text-sm font-bold text-slate-700">{t.region}</span>
             <select
               value={region}
               onChange={event => updateRegion(event.target.value)}
-              className="field-select max-w-52"
+              disabled={category === 'national'}
+              style={category === 'national' ? { backgroundColor: '#f1f5f9', backgroundImage: 'none', color: '#64748b' } : undefined}
+              className="field-select"
             >
-              <option value="all">{t.allRegions}</option>
-              {directoryRegions.map(value => <option key={value} value={value}>{getRegionLabel(value, lang)}</option>)}
+              <option value="all">{category === 'national' ? t.nationalArea : t.allRegions}</option>
+              {category !== 'national' && directoryRegions.map(value => <option key={value} value={value}>{getRegionLabel(value, lang)}</option>)}
             </select>
+            </label>
+            <label className="block min-w-0">
+              <span className="mb-2 block text-sm font-bold text-slate-700">{t.salesStatus}</span>
             <select
               value={status}
               onChange={event => updateStatus(event.target.value as StatusFilter)}
-              className="field-select max-w-56"
+              className="field-select"
             >
               <option value="on-sale">{t.onSale}</option>
               <option value="limited">{t.limited}</option>
             </select>
+            </label>
+            <label className="block min-w-0">
+              <span className="mb-2 block text-sm font-bold text-slate-700">{t.eligibilityTitle}</span>
             <select
               value={eligibility}
               onChange={event => updateEligibility(event.target.value as EligibilityFilter)}
-              className="field-select max-w-56"
+              className="field-select"
             >
               <option value="all">{lang === 'en' ? 'All Eligibilities' : lang === 'ja' ? 'すべての対象者' : '全部适用人群'}</option>
               <option value="unknown">{lang === 'en' ? 'Confirm eligibility' : lang === 'ja' ? '利用資格は要確認' : '使用资格待确认'}</option>
@@ -374,7 +405,8 @@ export default function PassListClient({ passes, lang, dict }: PassListClientPro
               <option value="senior">{lang === 'en' ? 'Seniors Only' : lang === 'ja' ? 'シニア限定' : '仅限长者'}</option>
               <option value="child">{lang === 'en' ? 'Children Only' : lang === 'ja' ? 'こども限定' : '仅限儿童'}</option>
             </select>
-          </div>
+            </label>
+          </fieldset>
         </section>
 
         <p className="my-7 text-sm font-semibold text-slate-500">

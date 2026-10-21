@@ -13,6 +13,9 @@ export default function MapSection({ dict, lang = 'zh' }: { dict?: Dictionary, l
     ja: '地域ごとに周遊券を探し、旅程に合うきっぷをすばやく見つけられます。',
   }[locale];
   const regionNames: Record<string, Record<'zh' | 'en' | 'ja', string>> = {
+    '東京都': { zh: '东京都', en: 'Tokyo', ja: '東京都' },
+    '大阪府': { zh: '大阪府', en: 'Osaka', ja: '大阪府' },
+    '京都府': { zh: '京都府', en: 'Kyoto', ja: '京都府' },
     '北海道': { zh: '北海道', en: 'Hokkaido', ja: '北海道' },
     '東北': { zh: '东北', en: 'Tohoku', ja: '東北' },
     '関東': { zh: '关东', en: 'Kanto', ja: '関東' },
@@ -45,26 +48,33 @@ export default function MapSection({ dict, lang = 'zh' }: { dict?: Dictionary, l
           <div className="relative glass-card p-6 sm:p-8">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
               {[
+                { id: '東京都', region: '関東', query: '東京', image: '/images/regions/kanto.jpg' },
+                { id: '大阪府', region: '近畿', query: '大阪', image: '/images/regions/kansai-osaka.jpg' },
+                { id: '京都府', region: '近畿', query: '京都', image: '/images/regions/kansai.jpg' },
                 { id: '北海道', image: '/images/regions/hokkaido.jpg' },
                 { id: '東北', image: '/images/regions/tohoku.jpg' },
-                { id: '関東', image: '/images/regions/kanto.jpg' },
+                { id: '関東', image: '/images/regions/kanto-yokohama.jpg' },
                 { id: '東海', image: '/images/regions/tokai.jpg' },
                 { id: '北信越', image: '/images/regions/hokushinetsu.jpg' },
-                { id: '近畿', image: '/images/regions/kansai.jpg' },
+                { id: '近畿', image: '/images/regions/kansai-kobe.jpg' },
                 { id: '中国', image: '/images/regions/chugoku.jpg' },
                 { id: '四国', image: '/images/regions/shikoku.jpg' },
                 { id: '九州', image: '/images/regions/kyushu.jpg' }
               ].map((region) => (
                 <Link 
                   key={region.id} 
-                  href={`/${lang}/passlist?region=${region.id}`}
+                  href={{
+                    pathname: `/${locale}/passlist`,
+                    query: { region: region.region || region.id, ...(region.query ? { q: region.query } : {}) },
+                  }}
                   className="group relative h-36 sm:h-44 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                 >
                   {/* Background Image */}
                   <Image 
                     src={region.image} 
                     alt={regionNames[region.id][locale]}
-                    fill 
+                    fill
+                    sizes="(min-width: 768px) 224px, (min-width: 640px) 30vw, 45vw"
                     className="object-cover object-center transition-transform duration-700 group-hover:scale-110" 
                   />
                   {/* Gradient Overlay for Text Readability */}

@@ -20,8 +20,8 @@ export default function FeaturesSection({ dict, lang = 'zh' }: { dict?: Dictiona
     },
     {
       icon: <Users className="w-6 h-6 text-primary" />,
-      title: "清楚的购买路径",
-      desc: "官方入口优先，合作链接与广告明确披露。",
+      title: "购票更省心",
+      desc: "提供运营方官网入口，方便您确认最新价格、使用条件与购买方式。",
       color: "bg-primary/10"
     }
   ];

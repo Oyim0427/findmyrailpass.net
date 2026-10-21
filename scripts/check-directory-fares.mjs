@@ -20,6 +20,29 @@ function load(file) {
 const Fare = load('src/components/DirectoryFare.tsx').default;
 const { DOMESTIC_DIRECTORY_PASSES: passes } = load('src/data/domesticPassDirectory.ts');
 const render = (value, compact = false, lang = 'ja') => renderToStaticMarkup(React.createElement(Fare, { value, compact, lang }));
+// Labels without a colon must use the same fare cards as colon-separated prices.
+for (const compact of [true, false]) {
+  for (const [lang, adultLabel, childLabel] of [
+    ['ja', '大人', '小人'], ['zh', '成人', '儿童'], ['en', 'Adult', 'Child'],
+  ]) {
+    for (const id of ['sapporo21', 'sapporo02', 'hakodate01', 'hankyu101']) {
+      const pass = passes.find(pass => pass.id === id);
+      assert.ok(pass, `Missing fare regression record: ${id}`);
+      const html = render(pass.priceText, compact, lang);
+      assert.ok(html.includes(`>${adultLabel}</span>`), `${id} (${lang}): adult price must have a label`);
+      if (id === 'hankyu101') {
+        assert.ok(!html.includes(`>${childLabel}</span>`), `${id}: do not invent a child fare`);
+      } else {
+        assert.ok(html.includes(`>${childLabel}</span>`), `${id} (${lang}): child price must have a label`);
+      }
+      if (!compact) {
+        assert.equal((html.match(/bg-primary\/10/g) || []).length, id === 'hankyu101' ? 1 : 2,
+          `${id} (${lang}): each recorded fare must have its own card`);
+      }
+    }
+  }
+  assert.match(render('大人：840円 小人420円', compact), />小人<\/span>/);
+}
 for (const compact of [true, false]) {
   for (const id of ['jreast071', 'jreast12']) {
     const pass = passes.find(pass => pass.id === id);

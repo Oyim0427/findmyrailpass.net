@@ -66,7 +66,7 @@ export default function DirectoryFare({ value, lang = 'ja', compact = false, tra
   const text = normalizePassDisplayText(getDirectoryPriceText(value)).replace(/，/g, ',');
   const missingLabel = lang === 'en' ? 'Not recorded' : lang === 'ja' ? '記載なし' : '未记载';
   const fareLabel = String.raw`(?:ファミリー(?:[（(][^）)]*[）)])?|大人\d+名(?:\s*[＋+]\s*小人\d+名)?|U25(?:[（(][^）)]*[）)])?|シルバー(?:[（(][^）)]*[）)])?|ゴールド会員|中・高校生|中高生|高校生以上|高校生|中学生|小学生|小人・中学生|大人|おとな|成人|小人|小児|こども|子供)`;
-  const pattern = new RegExp(`(${fareLabel})\\s*[:：]\\s*([\\d,]+\\s*(?:円|ポイント)|[-－—]+(?:円)?)`, 'g');
+  const pattern = new RegExp(`(${fareLabel})\\s*[:：]?\\s*([\\d,]+\\s*(?:円|ポイント)|[-－—]+(?:円)?)`, 'g');
   const parts: Array<{ text: string; label?: string; kind?: FareKind }> = [];
   let offset = 0;
   for (const match of text.matchAll(pattern)) {
